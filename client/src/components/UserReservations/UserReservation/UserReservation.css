@@ -1,0 +1,10 @@
+.cancel-container button {
+    color: #ff0000;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+.cancel-container button:hover {
+    color: #b40000;
+    cursor: pointer;
+}

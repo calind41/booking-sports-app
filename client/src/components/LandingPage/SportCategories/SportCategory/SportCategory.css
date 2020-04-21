@@ -1,0 +1,25 @@
+.sport-c {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 7px;
+    background-color: white;
+    cursor: pointer;
+}
+.sel-categ  {
+    background-color: #CCD84B;
+}
+.sport-c p {
+    display: block;
+    position: relative;
+    bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+.sport-c-i {
+    margin-top: 10px;
+    margin-left: 26px;
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+}

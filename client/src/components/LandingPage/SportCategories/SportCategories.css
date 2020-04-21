@@ -1,0 +1,9 @@
+.sport-c-container {
+    display: flex;
+    position: relative;
+    top: 200px;
+    width: 50%;
+    justify-content: space-between;
+    /* left: 30%; */
+    margin: auto;
+}

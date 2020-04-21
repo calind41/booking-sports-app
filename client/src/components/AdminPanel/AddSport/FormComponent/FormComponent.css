@@ -1,0 +1,10 @@
+
+.service-containrr {
+    position: absolute;
+    left: 20.5vw;
+    bottom: 2vh;
+    display: flex;
+    width: 1000px !important;
+    height: 260px;
+}
+

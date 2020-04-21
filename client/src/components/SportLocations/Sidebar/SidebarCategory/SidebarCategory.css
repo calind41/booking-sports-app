@@ -1,0 +1,10 @@
+.category {
+    border: 2px solid green;
+    width: 300px;
+}
+.category h3 {
+    margin-left: 40px;
+}
+.category ul  {
+    list-style-type: none;
+}

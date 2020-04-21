@@ -1,0 +1,55 @@
+.service-heading {
+    font-weight: bold;
+}
+
+
+.todoListMain .header input {
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #FFF;
+    width: 165px;
+    background-color: #e2e2e2;
+    box-sizing: border-box;
+  }
+  .todoListMain .header button {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+    margin-right: 0px;
+    background-color: #0066FF;
+    color: #FFF;
+    border: 2px solid #0066FF;
+  }
+  .todoListMain .header button:hover {
+    background-color: #003399;
+    border: 2px solid #003399;
+    cursor: pointer;
+  }
+  .todoListMain .theList {
+    list-style: none;
+    padding-left: 0;
+    width: 250px;
+  } 
+  .todoListMain .theList li {
+    color: #ffffff;
+    background-color: rgba(7, 118, 221, 0.87);
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+   
+    transition: background-color .2s ease-out;
+  }
+   
+  .todoListMain .theList li:hover {
+    background-color: rgb(55, 0, 255);
+    cursor: pointer;
+  }
+  ul.theList {
+    padding: 0;
+  }
+  .todoListMain {
+      overflow: auto;
+      border: 2px solid red;
+      width: 18vw;
+      height: 30vh;
+  }

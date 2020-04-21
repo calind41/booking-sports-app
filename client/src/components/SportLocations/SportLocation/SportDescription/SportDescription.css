@@ -1,0 +1,36 @@
+.sport-desc {
+}
+.sport-desc h3 {
+    position: relative;
+    left: 2%;
+    font-size: 1rem;
+}
+.sport-desc h2 {
+    font-size: 0.7rem;
+    position: relative;
+    bottom: 10px;
+    left: 2%;
+}
+
+.desc-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    bottom: 32px;
+    left: 2%;
+    height: 150px;
+}
+.desc-wrap div {
+    flex: 0 40%;
+    height: 10px;
+}
+.desc-wrap div h4 {
+    font-size: 0.9rem;
+    color: #ADA9A9;
+}
+.desc-wrap div span {
+    position: relative;
+    bottom: 19px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}

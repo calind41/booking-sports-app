@@ -1,0 +1,11 @@
+.sport-locations {
+    position: relative;
+    top: 200px;
+    left: 3%;
+    width: 70%;
+    border: 2px solid green;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color:  rgba(228, 228, 228, 0.616);
+}

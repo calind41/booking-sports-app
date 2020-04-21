@@ -1,0 +1,23 @@
+.location-info-container {
+    /* border: 2px solid green; */
+    width: 300px;
+    position: absolute;
+    left: 55px;
+}
+.l-info {
+    font-size: 2rem;
+}
+.facilites ul li,
+.surface ul li,
+.type ul li {
+    list-style: none;
+}
+.wrapper {
+    width: 300px;
+    display: flex;
+}
+
+.wrapper div ul {
+    position: relative;
+    right: 32px;
+}

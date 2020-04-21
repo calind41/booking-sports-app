@@ -1,0 +1,27 @@
+.imgslider-container {
+    position: relative;
+    top: 20px;
+    right: 26%;
+}
+.booking-container {
+    background-color: rgb(211, 202, 202);
+    height: 100vh;
+}
+.custom-calendar {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    bottom: 290px;
+    left: 50%;
+    width: 740px;
+}
+.time-options {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+    flex-wrap: wrap;
+    position: relative;
+    right: 120px;
+    top: 50px;
+    height: 200px;
+}

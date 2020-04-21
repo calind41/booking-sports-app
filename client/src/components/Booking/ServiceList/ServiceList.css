@@ -1,0 +1,23 @@
+.service-list-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 50%;
+    bottom: 270px;
+    font-size: 2rem;
+    width: 700px;
+}
+
+.service-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 680px;
+    margin-top: 30px;
+    position: relative;
+    right: 41px;
+  
+}
+.service-list div {
+    margin-bottom: 40px;
+}

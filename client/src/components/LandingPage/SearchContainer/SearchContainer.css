@@ -1,0 +1,52 @@
+.search-container {
+    border: 1.5px solid black;
+    width: 50%;
+    position: relative;
+    top: 185px;
+    /* left: 29.8%; */
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+.search-container .city {
+    color: #FF0000;
+    font-size: 2.5rem;
+    margin-left: 0px;
+    padding: 10px;
+}
+.search-container .vertical-line {
+    border-right: 1.5px solid black;
+}
+.search-container .select-container {
+    margin-top: 17px;
+    position: relative;
+    /* left: -150px; */
+    width: 320px;
+}
+.btn-container {
+    position: relative;
+    top: 20px;
+}
+.btn-container button {
+    background-color: #CCD84B;
+    border: none;
+    border-radius: 7px;
+    width: 90px;
+    height: 35px;
+    transition: background-color 230ms ease-in;
+}
+.btn-container button:hover {
+    background-color: #abb53c;
+}
+.btn-container button i {
+    font-size: 1.3rem;
+    margin-right: 5px;
+}
+.btn-container button span {
+    display: inline-block;
+    position: relative;
+    bottom: 4px;
+    right: 2px;
+    font-size: 1rem;
+    cursor: pointer;
+}

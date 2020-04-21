@@ -1,0 +1,29 @@
+.admin-p-nav-container {
+    position: absolute;
+    top: 0;
+    left: 20vw;
+    width: 80vw;
+    box-sizing: border-box;
+    border: 1px solid gray;
+    height: 11.6vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.curr-path {
+    display: flex;
+    align-items: center;
+    margin-left: 2.36rem;
+}
+.curr-path button {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: #056CF2;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.curr-path span {
+    color: #056CF2;
+    font-weight: bold;
+}

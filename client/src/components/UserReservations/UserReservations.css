@@ -1,0 +1,88 @@
+.user-reservations-wrapper {
+    background-color: #F2F2F2;
+    height: 200vh;
+}
+.user-res-list {
+    position: relative;
+    top: 20vh;
+}
+.reser-container {
+    display: flex;
+    justify-content: space-around;
+}
+.reser-container div {
+    position: relative;
+    top: 12vh;
+}
+.r-checkbox-wrapper {
+    position: relative;
+    top: 9vh !important;
+}
+
+.reser-img-container {
+   margin-top: -8.6vh;
+   position: relative;
+   right: 2vw;
+}
+.reser-img-container img {
+    width: 12vw;
+    height: 18vh;
+}
+
+.column-headers {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    width: 50vw;
+    top: 18vh;
+    left: 31.5vw;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.loc-header {
+    position: relative;
+    left: 6.2vw;
+}
+.date-t-header {
+    position: relative;
+    left: 3.25vw;
+}
+.price-header {
+    position: relative;
+    left: 5.7vw;
+}
+.available-header {
+    position: relative;
+    left: 5.9vw;
+}
+.past-res-and-del {
+    display: flex;
+    justify-content: space-between;
+    width: 80vw;
+    margin: auto;
+    position: relative;
+    top: 6.4vw;
+}
+.past-r {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.del-button-wrapper button {
+    width: 7vw;
+    height: 5vh;
+    font-weight: bold;
+    color: #056CF2;
+    border: 1px solid blue;
+    transition: all .1s linear;
+    cursor: pointer;
+    outline: none;
+}
+.del-button-wrapper button:hover {
+    color: #ff0000;
+    border: 1px solid #ff0000;
+}
+ #del-txt {
+    position: relative;
+    display: inline-block;
+    top: -6px;
+}

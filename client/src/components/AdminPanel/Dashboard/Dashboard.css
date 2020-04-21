@@ -1,0 +1,104 @@
+.content {
+    box-sizing: border-box;
+    position: absolute;
+    width: 80vw;
+    height: 88.4vh;
+    top: 11.6vh;
+    left: 20vw;
+}
+.sports-customers {
+    border: 2px solid green;
+    height: 40vh;
+    display: flex;
+    justify-content: space-between;
+}
+.sport-actions {
+    width: 25vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: #F2F2F2;
+}
+.sport-actions div {
+    background-color: #ffffff;
+    height: 8vh;
+    width: 20vw;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    font-weight: bold;
+}
+.sport-actions div .icon-class{
+    position: relative;
+    display: inline-block;
+}
+.sport-actions div .txt {
+    position: relative;
+    right: 70px;
+}
+.sport-actions div:first-child .txt {
+    right: 90px;
+}
+.views {
+    display: flex;
+    justify-content: space-around;
+    width: 55vw;
+    background-color: #F2F2F2;
+}
+
+.views div {
+    position: relative;
+    top: 2.9vh;
+    background-color: #ffffff;
+    height: 21.4vh;
+    width: 19vw;
+}
+.views div span {
+    display: block !important;
+    margin: auto;
+    width: 100px;
+    position: relative;
+    top: 9vh;
+    font-weight: bold;
+}
+.overview {
+    border: 2px solid purple;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 47vh;
+    background-color: #F2F2F2;
+
+}
+.overview-heading {
+    color: #056CF2;
+    font-weight: bold;
+    font-size: 1.2rem;
+    position: relative;
+    top: 2vh;
+    left: 2.36rem;
+    width: 5rem;
+}
+.cards-container {
+    position: relative;
+    bottom: 10vh;
+    left: 0.9vw;
+    width: 76.4vw;
+    display: flex;
+    justify-content: space-around;
+    background-color: #F2F2F2;
+    box-sizing: border-box;
+}
+.cards-container div {
+    box-sizing: border-box;
+    background-color: white;
+    height: 21.4vh;
+    width: 16vw;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}

@@ -1,0 +1,24 @@
+.servicecard-container {
+    width: 250px;
+    height: 60px;
+    border-radius: 14px;
+    background-color: white;
+    display: flex;
+}
+.check-container {
+    position: relative;
+    top: 7px;
+}
+.details {
+    position: relative;
+    top: 6px;
+    font-size: 0.7rem;
+    color: black;
+}
+
+.details .price {
+    position: relative;
+    bottom: 12px;
+    color: gray;
+
+}

@@ -1,0 +1,90 @@
+.sign-in-container {
+    height: 100vh;
+    width: 100%;
+    background-color: #F2F2F2;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.sign-in {
+    width: 27.5%;
+    margin: auto;
+    position: relative;
+    top: 5vh;
+    height: 52vh;
+    background-color: white;
+    border: 1px solid rgb(150, 149, 149);
+}
+.si-logo {
+    position: relative;
+    left: 42%;
+    margin-bottom: 20px;
+}
+.si-heading {
+    position: relative;
+    right: 7.7vw;
+    color: black;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+.si-fields-wrapper {
+    height: 37vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+    top: 3.2vh;
+}
+.si-fields-wrapper div {
+    margin: auto;
+}
+.si-fields-wrapper div label {
+    display: block;
+    color: #ABA8A8;
+    font-size: .8rem;
+    margin-bottom: 5px;
+}
+.si-fields-wrapper div input {
+    width: 20vw;
+    height: 35px;
+    border-radius: 5px;
+    border: 1.2px solid black;
+    box-sizing: border-box;
+    padding: 5px;
+}
+.sign-in-btn-wrapper {
+    position: relative;
+    top: 1vh;
+}
+#sign-in-button {
+    position: relative;
+    left: 0;
+    top: 0;
+    background-color: #056CF2;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    width: 20vw;
+    height: 35px;
+    transition: .2s ease-in;
+
+}
+#sign-in-button:hover {
+    background-color: rgb(0, 56, 129);
+    cursor: pointer;
+}
+.su-alternative {
+    padding-left: 3vw;
+    font-size: .8rem;
+    font-weight: bold;
+}
+.su-alternative p span {
+    margin-left: 5px;
+    color: #056CF2;
+    cursor: pointer;
+    transition: .2s linear;
+}
+.su-alternative p span:hover {
+    color: rgb(0, 56, 129);
+}

@@ -1,0 +1,22 @@
+.heading {
+    position: relative;
+    top: 180px;
+    width: 100%;
+    /* left: 14%; */
+    text-align: center;
+    font-size: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+.heading h3 {
+    padding: 0;
+    margin: 0;
+}
+.heading .h-1 {
+    position: relative;
+    right: 235px;
+}
+.heading .h-2 {
+    position: relative;
+    right: 68px;
+}
