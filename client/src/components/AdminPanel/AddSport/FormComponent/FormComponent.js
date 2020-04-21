@@ -19,6 +19,8 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import ServiceDetails from '../ServiceDetails/ServiceDetails'
 import './FormComponent.css'
 
+import UploadImages from '../UploadImages/UploadImages'
+
 const useStyles = makeStyles(theme => ({
     root: {
         '& > *': {
@@ -97,9 +99,9 @@ export default function FormComponent() {
                 <div>
                     <ServiceDetails />
                 </div>
-                <div>
-                    <ServiceDetails />
-                </div>
+            </div>
+            <div className='upload-imgs-container'>
+                <UploadImages />
             </div>
         </Fragment>
     );

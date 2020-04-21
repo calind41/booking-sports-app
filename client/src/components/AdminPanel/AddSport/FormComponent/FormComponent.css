@@ -4,7 +4,15 @@
     left: 20.5vw;
     bottom: 2vh;
     display: flex;
-    width: 1000px !important;
+    width: 41vw;
     height: 260px;
 }
+
+.upload-imgs-container {
+    position: relative;
+    bottom: 80vh;
+    left: 53vw;
+    width: 45vw;
+}
+
 

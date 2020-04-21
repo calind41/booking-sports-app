@@ -25,9 +25,6 @@ import TodoItems from '../../../../test/TodoItems'
 import './ServiceDetails.css'
 
 
-
-
-
 export default class ServiceDetails extends React.Component {
     constructor(props) {
         super(props);
@@ -73,13 +70,16 @@ export default class ServiceDetails extends React.Component {
     render() {
         const toRender = this.state.arr;
         return (
-            <div>
+            <div className='srv-det-container'>
+
                 <div className='service-heading'>Service details</div>
-                <br />
+                <div className='format-example'>
+                    <div><span>Format: </span> xmin / 09:00,14:00,19:00... </div>
+                </div>
                 <div className="todoListMain">
                     <div className="header">
                         <form onSubmit={this.addItem}>
-                            <input ref={(a) => this._inputElement = a} placeholder="duration in minutes">
+                            <input ref={(a) => this._inputElement = a} placeholder="duration min / available times">
                             </input>
                             <button type="submit">add</button>
                         </form>
@@ -87,6 +87,8 @@ export default class ServiceDetails extends React.Component {
                     <TodoItems entries={this.state.items}
                         delete={this.deleteItem} />
                 </div>
+
+
 
             </div>
         )

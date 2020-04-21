@@ -1,5 +1,27 @@
+
+.srv-det-container {
+  position: relative;
+  top: 20px;
+  width: 41vw;
+  height: 34vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.format-example {
+  height: 5vh;
+  width: 18vw;
+}
+.format-example span {
+  font-weight: bold;
+}
 .service-heading {
     font-weight: bold;
+}
+.todoListMain {
+  overflow: auto;
+  width: 23vw;
+  height: 30vh;
 }
 
 
@@ -7,7 +29,7 @@
     padding: 10px;
     font-size: 16px;
     border: 2px solid #FFF;
-    width: 165px;
+    width: 16vw;
     background-color: #e2e2e2;
     box-sizing: border-box;
   }
@@ -47,9 +69,4 @@
   ul.theList {
     padding: 0;
   }
-  .todoListMain {
-      overflow: auto;
-      border: 2px solid red;
-      width: 18vw;
-      height: 30vh;
-  }
+ 
