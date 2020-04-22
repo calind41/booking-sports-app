@@ -29,7 +29,7 @@ export default class ServiceDetails extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            items: []
+            items: this.props.items
         }
 
         this.addItem = this.addItem.bind(this);

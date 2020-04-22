@@ -16,10 +16,11 @@ import TextField from '@material-ui/core/TextField';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
-import ServiceDetails from '../ServiceDetails/ServiceDetails'
-import './FormComponent.css'
+import ServiceDetails from '../../AddSport/ServiceDetails/ServiceDetails'
+import './UpdateFormComponent.css'
 
-import UploadImages from '../UploadImages/UploadImages'
+import UploadImages from '../../AddSport/UploadImages/UploadImages'
+import GridGallery from '../GridGallery/GridGallery';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -55,9 +56,10 @@ const outlinedInputStyles = {
 
 
 export default function FormComponent() {
-    const [name, setName] = React.useState('');
-    const [name2, setName2] = React.useState('');
-    const [name3, setName3] = React.useState('');
+    const [name, setName] = React.useState('defaultValue');
+    const [name2, setName2] = React.useState('defaultValue2');
+    const [name3, setName3] = React.useState('defaultValue3');
+    const [textAreaValue, setTextAreaValue] = useState('defaultTextArea');
     const classes = useStyles();
 
     const handleChange = event => {
@@ -69,6 +71,21 @@ export default function FormComponent() {
     const handleChange3 = event => {
         setName3(event.target.value);
     };
+
+    const handleChangeTextArea = (e) => {
+        setTextAreaValue(e.target.value);
+    }
+
+
+    let items = [{
+        text: "30min / 12:00, 14:00",
+        key: Date.now()
+    },
+    {
+        text: "50min / 12:00, 14:00",
+        key: Date.now() + 5
+    }
+    ]
 
 
     return (
@@ -94,18 +111,23 @@ export default function FormComponent() {
                             placeholder='Inventory Information '
                             aria-label="maximum height"
                             style={textareastyles}
+                            value={textAreaValue}
+                            onChange={handleChangeTextArea}
                         />
                     </form>
 
                     <div className='service-containrr'>
                         <div>
-                            <ServiceDetails items={[]} />
+                            <ServiceDetails items={items} />
                         </div>
                     </div>
                 </div>
-                <div className='upload-imgs-container'>
-                    <div className='as-save-btn'>Save</div>
+                <div className='update-upload-imgs-container'>
+                    <div className='as-save-btn'>Update</div>
                     <UploadImages />
+                </div>
+                <div id='g-gallery'>
+                    <GridGallery />
                 </div>
             </div>
         </Fragment>

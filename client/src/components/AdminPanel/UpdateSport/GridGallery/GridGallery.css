@@ -1,0 +1,26 @@
+.del-sel-imgs {
+    margin: 10px;
+    text-align: center;
+    width: 4.2vw;
+    font-size: 12px;
+    height: 4vh;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    transition: .3s ease;
+    /* padding: 10px; */
+    padding-top: 7px;
+    box-sizing: border-box;
+}
+.del-sel-imgs:hover {
+    background-color: rgb(40, 40, 164);
+}
+
+.gallery-wrapper {
+    /* border: 2px solid red; */
+    width: 40vw;
+    max-height: 41vh;
+    overflow-x: hidden;
+    background-color: #fdf7f7;
+    border: 1px solid black;
+}

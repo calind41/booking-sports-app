@@ -1,0 +1,18 @@
+.user-cards-wrapper {
+    width: 70vw;
+    height: 70vh;
+    position: absolute;
+    left: 24vw;
+    bottom: 7vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: flex-start;
+}
+#pagination-component2 {
+    position: absolute;
+    left: 25vw;
+    bottom: 8vh;
+    width: 41vw;
+}

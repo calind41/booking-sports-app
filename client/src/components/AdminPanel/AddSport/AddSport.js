@@ -9,7 +9,7 @@ export default class AddSport extends Component {
         return (
             <div>
                 <SidebarMenu />
-                <Navigation />
+                <Navigation location="AddSport" />
                 <FormComponent />
             </div>
         )

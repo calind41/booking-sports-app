@@ -1,0 +1,81 @@
+.usercard-wrapper {
+    border:1px solid #000000;
+    height: 50vh;
+    width: 16vw;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 16px;
+}
+.usercard-wrapper .bg-image  {
+    height: 20vh;
+    background-color: yellow;
+}
+.usercard-wrapper .round-picture {
+    width: 14vh;
+    height: 14vh;
+    border-radius: 100%;
+    background-color: #e9e9e9;
+    position: relative;
+    bottom: 7.7vh;
+    left: 4.5vw;
+}
+.usercard-wrapper .round-picture i {
+    font-size: 41px;
+    position: relative;
+   margin-left: 32.5px;
+   margin-top: 27px;
+}
+.full-name-class {
+    position: relative;
+    bottom: 7vh;
+    font-size: 17px;
+    margin: auto;
+    text-align: center;
+}
+.usercard-wrapper .username,
+.usercard-wrapper .email {
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-left: 1vw;
+    position: relative;
+    bottom: 5vh;
+}
+.usercard-wrapper .username span,
+.usercard-wrapper .email span {
+    font-weight: bold;
+    margin-right: 5px;
+    user-select: none;
+}
+
+.nr-reservations-class {
+    font-size: 12px;
+    position: relative;
+    margin-left: 1vw;
+    bottom: 3vh;
+}
+.nr-reservations-class span {
+    font-weight: bold;
+    margin-right: 5px;
+}
+.nr-reservations-class > div {
+    background-color: yellow;
+    width: 10vw;
+    margin-top: 10px;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 3px;
+    user-select: none;
+}
+.nr-reservations-class > div i {
+    margin-left: 5px;
+    margin-top: 1px;
+    transition: 5s smooth;
+    font-size: 14px;
+}
+.nr-reservations-class > div:hover i {
+    margin-left: 7px;
+}
+.nr-reservations-class > div:hover {
+    background-color: rgb(105, 218, 40);
+}
+

@@ -1,28 +1,22 @@
-
-
-.service-containrr {
+#g-gallery {
     position: absolute;
-    left: 20.5vw;
-    bottom: 2vh;
-    display: flex;
-    width: 41vw;
-    height: 260px;
-    border: 2px solid red;
+    left: 57vw;
+    top: 52vh;
+    width: 37vw;
+    max-height: 41.6vh;
 }
-
-.upload-imgs-container {
+.update-upload-imgs-container {
     position: absolute;
-    bottom: 34.5vh;
-    left: 53vw;
-    width: 45vw;
-    border: 2px solid red;
-    height: 50vh;
+    bottom: 49.5vh;
+    left: 56vw;
+    width: 42vw;
+    height: 37vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-end;
 }
-.upload-imgs-container .as-save-btn {
+.update-upload-imgs-container .as-save-btn {
     width: 5vw;
     height: 5vh;
     background-color: blue;
@@ -31,7 +25,6 @@
     padding-top: 7px;
     box-sizing: border-box;
     margin-right: 20px;
+    margin-bottom: 10px;
 
 }
-
-

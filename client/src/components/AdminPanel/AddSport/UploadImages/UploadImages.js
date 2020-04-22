@@ -32,22 +32,20 @@ export default function UploadImages() {
     return (
         <Dropzone
             styles={classNames}
-            inputContent='Drag here images'
+            inputContent='Click or Drag here images'
             getUploadParams={getUploadParams}
             onChangeStatus={handleChangeStatus}
             onSubmit={handleSubmit}
             accept="image/*"
-
         />
     )
 }
 
 const classNames = {
     dropzone: {
-        "width": "45vw",
-        "height": "41vh",
+        "width": "40vw",
+        "height": "34vh",
         "overflowX": "auto",
-        "overflowY": "auto",
-
+        "overflowY": "auto"
     }
 }

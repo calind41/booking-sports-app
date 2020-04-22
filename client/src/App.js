@@ -12,7 +12,13 @@ import UserResarvations from './components/UserReservations/UserReservations'
 import Dashboard from './components/AdminPanel/Dashboard/Dashboard'
 import AddSport from './components/AdminPanel/AddSport/AddSport';
 import TodoList from './test/TodoList'
+import UpdateSport from './components/AdminPanel/UpdateSport/UpdateSport';
 
+import GridGallery from './components/AdminPanel/UpdateSport/GridGallery/GridGallery'
+import RemoveSport from './components/AdminPanel/RemoveSport/RemoveSport';
+import Customers from './components/AdminPanel/Customers/Customers'
+
+import Sports from './components/AdminPanel/Sports/Sports'
 
 function App() {
   return (
@@ -26,9 +32,12 @@ function App() {
           <Route exact path='/signin' component={SignIn} />
           <Route exact path='/contact' component={ContactForm} />
           <Route exact path='/userRes' component={UserResarvations} />
-          <Route exact path='/dashboard' component={Dashboard} />
-          <Route exact path='/addSport' component={AddSport} />
-          <Route exact path='/test' component={TodoList} />
+          <Route exact path='/adminDashboard' component={Dashboard} />
+          <Route exact path='/adminAddSport' component={AddSport} />
+          <Route exact path='/adminUpdateSport' component={UpdateSport} />
+          <Route exact path='/adminRemoveSport' component={RemoveSport} />
+          <Route exact path='/adminCustomers' component={Customers} />
+          <Route exact path='/adminSports' component={Sports} />
         </Switch>
       </div>
     </Router>

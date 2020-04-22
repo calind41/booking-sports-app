@@ -10,9 +10,14 @@ export default class UserReservations extends Component {
                 <Navbar />
                 <div className='past-res-and-del'>
                     <div className='past-r'>Past Reservations</div>
-                    <div className='del-button-wrapper'><button className='del-button'><span class="material-icons">
-                        delete
-</span><span id='del-txt'>Delete</span></button></div>
+                    <div className='del-button-wrapper'>
+                        <button className='del-button'>
+                            <span class="material-icons">
+                                delete
+                            </span>
+                            <span id='del-txt'>Delete</span>
+                        </button>
+                    </div>
                 </div>
                 <div className='column-headers'>
                     <div className='type-header'>
