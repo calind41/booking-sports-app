@@ -7,7 +7,7 @@ export default class Dashboard extends Component {
     render() {
         return (
             <div className='dashboard-container'>
-                <SidebarMenu />
+                <SidebarMenu name="Admin Panel" />
                 <Navigation />
                 <div className='content'>
                     <div className='sports-customers'>

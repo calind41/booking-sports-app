@@ -1,0 +1,27 @@
+.faq-wrapper {
+    width: 77vw;
+    height: 83vh;
+    position: absolute;
+    top: 15vh;
+    left: 21vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.faq-wrapper > div:nth-child(1) {
+    position: relative;
+    top: 3vh;
+}
+.faq-wrapper > div:nth-child(2) {
+    position: relative;
+    bottom: 8vh;
+    height: 64vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.faq-wrapper > div:nth-child(1) > div:nth-child(2) {
+    position: relative;
+    bottom: 19vh;
+    right: 14vw;
+}

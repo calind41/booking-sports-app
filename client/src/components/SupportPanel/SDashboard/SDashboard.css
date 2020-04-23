@@ -1,0 +1,42 @@
+.sdashboard-container .wrapper {
+    position: absolute;
+    border: 2px solid red;
+    width: 78.5vw;
+    height: 79vh;
+    left: 20vw;
+    top: 20vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.sdashboard-container .wrapper > div:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+    height: 6vh;
+}
+.sdashboard-container .wrapper > div:nth-child(1) > div:nth-child(2) {
+    position: relative;
+    bottom: 14vh;
+    right: 80vw;
+}
+
+.wrapper .msg-wrapper {
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid blue; */
+    height: 68vh;
+    width: 76.5vw;
+    position: relative;
+    bottom: 1vh;
+}
+.wrapper .msg-wrapper .msgs{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    position: relative;
+    left: 3vw;
+}
+.wrapper .msg-wrapper .msg-detail {
+    position: relative;
+    right: 4vw;
+}   

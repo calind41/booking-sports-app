@@ -6,7 +6,7 @@ export default class SidebarMenu extends Component {
         return (
             <div className='sbm-container'>
                 <div className='admin-panel'>
-                    <p>Admin Panel</p>
+                    <p>{this.props.name}</p>
                 </div>
                 <hr />
 
@@ -31,6 +31,13 @@ export default class SidebarMenu extends Component {
                         </span>
                         <span className='li-my-acct li-txt'>My Account</span>
                     </li>
+                    {
+                        this.props.faq === true ? <li className='faq-li'>
+                            <i class="fas fa-question"></i>
+                            <span className='li-faq- li-txt'>FAQ</span>
+                        </li> : null
+                    }
+
                     <li>
                         <i className="fas fa-sign-out-alt"></i>
                         <span className='li-so li-txt'> Sign out</span>

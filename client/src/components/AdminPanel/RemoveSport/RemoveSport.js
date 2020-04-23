@@ -37,7 +37,7 @@ export default function RemoveSport() {
 
     return (
         <div id='remove-sport-container'>
-            <SidebarMenu />
+            <SidebarMenu name="Admin Panel" />
             <Navigation location="Remove Sport" />
             <SearchBar width='1000px' />
             <div className='remove-sport-reuse-del-button'>

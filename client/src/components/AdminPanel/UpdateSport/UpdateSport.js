@@ -7,7 +7,7 @@ import UpdateFormComponent from './UpdateFormComponent/UpdateFormComponent'
 export default function UpdateSport() {
     return (
         <div>
-            <SidebarMenu />
+            <SidebarMenu name="Admin Panel" />
             <Navigation location="UpdateSport" />
             <UpdateFormComponent />
 

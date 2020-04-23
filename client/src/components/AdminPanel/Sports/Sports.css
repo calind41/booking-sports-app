@@ -1,0 +1,14 @@
+.sports-cards-wrapper {
+    position: absolute;
+    left: 21vw;
+    top: 26vh;
+    height: 64vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#pagination-component3 {
+    position: absolute;
+    left: 21vw;
+    bottom: 2vh;
+}

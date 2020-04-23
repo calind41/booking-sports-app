@@ -8,7 +8,7 @@
 .admin-panel {
     color: #056CF2;
     margin: auto;
-    width: 11vw;
+    width: 12vw;
     font-size: 1.6rem;
     font-weight: bold;
 }
@@ -67,4 +67,13 @@
 }
 .li-so {
     right: 7.95rem !important;
+}
+
+.faq-li i {
+    margin-right: 50px;
+}
+.faq-li span {
+    position: relative;
+    left: -10.6vw;
+    display: inline-block;
 }

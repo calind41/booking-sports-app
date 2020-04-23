@@ -1,0 +1,71 @@
+.msg-details-container {
+    border: 1px solid #000000;
+    width: 50vw;
+    height: 67.6vh;
+    /* bottom: 18vh;
+    left: 40vw; */
+    font-size: 12px;
+    color: #A4ABB4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 14px;
+}
+.msg-details-container .date-time {
+    position: relative;
+    left: 3vw;
+    top: 4vh;
+}
+.msg-details-container .title-msg {
+    position: relative;
+    left: 3vw;
+    bottom: 8.3vh;
+    color: #000000;
+    /* font-size: 14px; */
+    font-weight: bold;
+}
+.msg-details-container .from-email {
+    position: relative;
+    left: 3vw;
+    bottom: 21.3vh;
+}
+.from-email span {
+    font-weight: bold;
+    color: black;
+}
+
+.msg-details-container .msg-body {
+    color: #000000;
+    position: relative;
+    left: 3vw;
+    bottom: 31.3vh;
+}
+.msg-details-container .reply-btn {
+    position: relative;
+    bottom: 5vh;
+    left: 3vw;
+    width: 5.9vw;
+    height: 4.6vh;
+    border-radius: 10px;
+    background-color: #D275F3;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+.reply-btn:hover {
+    background-color: rgb(157, 86, 182);
+}
+
+.reply-btn i {
+    position: relative;
+    right: 2.5px;
+    font-size: 16px;
+}
+.reply-btn span {
+    position: relative;
+    right: 10px;
+    font-size: 14px;
+}

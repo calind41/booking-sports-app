@@ -1,0 +1,120 @@
+.sport-card-container {
+    border: 1px solid black;
+    width: 77vw;
+    height: 30vh;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+.img-sport {
+    margin-left: 23px;
+    margin-top: 23px;
+    width: 9vw;
+    height: 22vh;
+}
+.img-sport img {
+    width: 9vw;
+    height: 22vh;
+}
+.desc .title-wrapper .title-heading,
+.desc .type-wrapper .type-heading,
+.desc .location-wrapper .location-heading {
+    font-weight: bold;
+}
+.desc {
+    font-size: 14px;
+    height: 22vh;
+    margin-top: 19px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 11.5vw;
+    position: relative;
+    left: 2vw;
+}
+.desc > div > div:nth-child(2) {
+    color: #A4ABB4;
+}
+.desc > div {
+    margin-bottom: 19px;
+}
+.desc .title-wrapper {
+    position: relative;
+    top: 4px;
+}
+.desc .type-wrapper {
+    /* margin-bottom: -10px; */
+    position: relative;
+    top: 10px;
+}
+.desc .location-wrapper {
+    position: relative;
+    top: 25px;
+}
+
+#avlb-h-wrapper {
+    height: 22vh;
+    margin-top: 20px;
+    position: relative;
+    right: 5vw;
+}
+#avlb-h-wrapper > div:nth-child(1) {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.times {
+    font-size: 12px;
+    font-weight: bold;
+    height: 12vh;
+    width: 20vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.times .time {
+    text-align: center;
+    padding-top: .9vh;
+    box-sizing: border-box;
+    width: 4.3vw;
+    height: 4vh;
+    border-radius: 50px;
+    background-color: #E4F154;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+#options-wrapper {
+    position: relative;
+    right: 2vw;
+    margin-top: 19px;
+}
+#options-wrapper > div:nth-child(1) {
+    font-weight: bold;
+    margin-bottom: 11px;
+}
+#options-wrapper .options {
+    font-size: 12px;
+    text-align: center;
+    width: 25vw;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#options-wrapper .options .option > div:nth-child(1) {
+    font-weight: bold;
+}
+#options-wrapper .options .option { 
+    width: 12vw;
+    height: 7vh;
+    box-sizing: border-box;
+    padding-top: 8px;
+    border-radius: 14px;
+    margin-bottom: 7px;
+    background-color: #FFB21E;
+}
+#options-wrapper .options .option > div:nth-child(2) {
+    margin-right: 3.2vw;
+    color: white;
+}

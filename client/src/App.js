@@ -19,6 +19,8 @@ import RemoveSport from './components/AdminPanel/RemoveSport/RemoveSport';
 import Customers from './components/AdminPanel/Customers/Customers'
 
 import Sports from './components/AdminPanel/Sports/Sports'
+import SDashboard from './components/SupportPanel/SDashboard/SDashboard';
+import Faq from './components/SupportPanel/FAQ/Faq';
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
           <Route exact path='/adminRemoveSport' component={RemoveSport} />
           <Route exact path='/adminCustomers' component={Customers} />
           <Route exact path='/adminSports' component={Sports} />
+          <Route exact path='/supportDashboard' component={SDashboard} />
+          <Route exact path='/supportFaq' component={Faq} />
         </Switch>
       </div>
     </Router>

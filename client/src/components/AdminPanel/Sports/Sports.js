@@ -27,7 +27,7 @@ export default function Sports() {
 
     const changePage = (page) => {
         setPageNr(page);
-        setIndex(page * 4 - 4);
+        setIndex(page * 2 - 2);
         // display from array of products: prodArr[idx, idx+8]
 
     }
@@ -35,13 +35,13 @@ export default function Sports() {
     const nrSports = sports.length;
     return (
         <div>
-            <SidebarMenu />
+            <SidebarMenu name="Admin Panel" />
             <Navigation location="Sports" />
             <SearchBar width='1000px' />
             <div className='sports-cards-wrapper'>
                 {
                     sports === [] || sports[0] === null ? null : sports.map((user, idx) => {
-                        return idx >= index && idx <= index + 3 ?
+                        return idx >= index && idx <= index + 1 ?
                             (<div className='u-item'>
                                 <SportCard />
                             </div>) : null
@@ -52,7 +52,7 @@ export default function Sports() {
                 id='pagination-component3'
                 page={pageNr}
                 onChange={(event, page) => { changePage(page) }}
-                count={Math.ceil(nrSports / 4)}
+                count={Math.ceil(nrSports / 2)}
                 variant="outlined"
                 shape="rounded"
             />

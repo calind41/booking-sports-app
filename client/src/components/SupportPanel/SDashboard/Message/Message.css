@@ -1,0 +1,62 @@
+.msg-container {
+    border: 1px solid black;
+    width: 16vw;
+    height: 14vh;
+    border-radius: 14px;
+    font-size: 14px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #A4ABB4;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+.msg-container:hover {
+    background-color: #f0eeee;
+}
+.msg-container .top-container {
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    top: 13px;
+}
+.top-container .color-coded-read-or-not {
+    width: 1.45vw;
+    height: 2vh;
+    background-color: gray;
+    border-radius: 3px;
+    position: relative;
+    right: 3px;
+}
+.top-container .from-name {
+    position: relative;
+    right: 2vw;
+}
+.top-container .add-to-faq-icon {
+    position: relative;
+    right: 4vw;
+}
+
+.msg-container .bottom-container {
+    position: relative;
+    bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+.msg-container .title-msg {
+    position: relative;
+    top: 10px;
+    left: 3.3vw;
+    color: #000000;
+}
+.msg-container .bottom-container .checkbox-container {
+    position: relative;
+    left: 5px;
+}
+.msg-container .bottom-container .time-received {
+    position: relative;
+    top: 15px;
+    right: 20.4px;
+}
+
