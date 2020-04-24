@@ -2,16 +2,16 @@
 }
 .input-container i {
     position: absolute;
-    left: 245px;
-    top: 36px;
-    font-size: 1.5rem;
+    left: 40vw;
+    top: 16.5px;
+    font-size: 1.3rem;
     z-index: 50;
-    color: white;
+    color: #000000;
 }
 .input-container input {
     position: absolute;
-    left: 230px;
-    top: 32px;
+    left: 39vw;
+    top: 11px;
     box-sizing: border-box;
     outline: none;
     margin-left: 10px;
@@ -19,15 +19,17 @@
     border: 1px solid #F2F2F2;
     padding: 7px;
     padding-left: 35px;
-    width: 200px;
-    background-color: rgba(5, 108, 242, 0.295);
+    width: 154px;
+    height: 4vh;
+    background-color: #ffffff;
     z-index: 1;
-    color: white;
+    color: #000000;
     transition: width .18s linear;
+    font-size: 12px;
 }
 .input-container input:focus {
-    width: 230px;
+    width: 200px;
 }
 .input-container input::placeholder {
-    color: white;
+    color: #000000;
 }

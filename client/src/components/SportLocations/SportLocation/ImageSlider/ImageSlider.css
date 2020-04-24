@@ -33,6 +33,14 @@
     outline: none;
     transition: 0.5s;
   }
+#goRight i {
+  position: relative;
+  right: 0.5vw;
+}
+#goLeft i {
+  position: relative;
+  right: 0.7vw;
+}
   #goRight:hover, #goLeft:hover {
     cursor: pointer;
     background: rgba(0, 0, 0, 0.356);

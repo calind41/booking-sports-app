@@ -1,4 +1,6 @@
 import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
+
 import './SearchContainer.css'
 import Select from 'react-select';
 
@@ -29,12 +31,16 @@ export default function SearchContainer() {
                     />
                 </div>
                 <div className='btn-container'>
-                    <button>
-                        <i class="material-icons">
-                            search
+                    <Link to='/sportLocations'>
+                        <button>
+                            <i class="material-icons">
+                                search
                         </i>
-                        <span>Search</span>
-                    </button>
+
+                            <span>Search</span>
+                        </button>
+                    </Link>
+
                 </div>
             </div>
         </Fragment>

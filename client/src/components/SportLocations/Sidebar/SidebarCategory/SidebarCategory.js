@@ -3,7 +3,7 @@ import './SidebarCategory.css';
 
 import Checkbox from '@material-ui/core/Checkbox';
 
-export default function SidebarCategory() {
+export default function SidebarCategory({ listItems, type }) {
 
     const [checked, setChecked] = React.useState(false);
     const [checked2, setChecked2] = React.useState(false);
@@ -34,7 +34,7 @@ export default function SidebarCategory() {
 
     return (
         <div className='category'>
-            <h3>Facilites</h3>
+            <h3>{type}</h3>
             <ul>
                 <li>
                     <Checkbox
@@ -42,7 +42,8 @@ export default function SidebarCategory() {
                         onChange={handleChange}
                         color="primary"
                         inputProps={{ 'aria-label': 'primary checkbox' }}
-                    /> All
+                    />
+                    <span>{listItems[0]}</span>
                 </li>
                 <li>
                     <Checkbox
@@ -51,7 +52,8 @@ export default function SidebarCategory() {
                         color="primary"
                         inputProps={{ 'aria-label': 'primary checkbox' }}
                     />
-                     Parking
+                    <span>{listItems[1]}</span>
+
                 </li>
                 <li>
                     <Checkbox
@@ -60,23 +62,27 @@ export default function SidebarCategory() {
                         color="primary"
                         inputProps={{ 'aria-label': 'primary checkbox' }}
                     />
-                    Field Lightning</li>
+                    <span>{listItems[2]}</span>
+                </li>
+
                 <li>
-                    <Checkbox
+                    {listItems.length > 3 ? (<Checkbox
                         checked={checked4}
                         onChange={handleChange4}
                         color="primary"
                         inputProps={{ 'aria-label': 'primary checkbox' }}
-                    />
-                    Toilets</li>
+                    />) : null}
+                    <span>{listItems[3]}</span>
+                </li>
                 <li>
-                    <Checkbox
+                    {listItems.length > 3 ? (<Checkbox
                         checked={checked5}
                         onChange={handleChange5}
                         color="primary"
                         inputProps={{ 'aria-label': 'primary checkbox' }}
-                    />
-                    Cantine</li>
+                    />) : null}
+                    <span>{listItems[4]}</span>
+                </li>
             </ul>
         </div>
     )

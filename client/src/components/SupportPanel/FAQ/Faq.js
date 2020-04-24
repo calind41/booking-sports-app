@@ -11,7 +11,6 @@ import './Faq.css'
 import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
 
-import RespondForm from './RespondForm/RespondFom'
 
 export default function Faq() {
 

@@ -1,10 +1,23 @@
 .category {
-    border: 2px solid green;
+    /* border: 2px solid green; */
     width: 300px;
+    width: 17.3vw;
+    /* border: 2px solid blue; */
+    font-size: 14px;
+    background-color: #ffffff;
+    position: relative;
+    top: 25px;
 }
 .category h3 {
     margin-left: 40px;
+    cursor: pointer;
 }
 .category ul  {
+    height: 16vh;
     list-style-type: none;
+    /* border: 2px solid red; */
+}
+.category ul li {
+    height: 3vh;
+    user-select: none;
 }

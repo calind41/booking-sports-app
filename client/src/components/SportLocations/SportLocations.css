@@ -1,11 +1,16 @@
 .sport-locations {
     position: relative;
-    top: 200px;
-    left: 3%;
-    width: 70%;
-    border: 2px solid green;
+    top: 100px;
+    left: 11.3vw;
+    width: 53vw;
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
-    background-color:  rgba(228, 228, 228, 0.616);
+    align-items: flex-start;
 }
+.sidebar-c {
+   /* bottom: 100vh; */
+   position: fixed;
+   top: 13vh;
+   left: 65.5vw;
+}
+

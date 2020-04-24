@@ -36,7 +36,7 @@ export default function Sports() {
     return (
         <div>
             <SidebarMenu name="Admin Panel" />
-            <Navigation location="Sports" />
+            <Navigation dashboard='admin' location="Sports" />
             <SearchBar width='1000px' />
             <div className='sports-cards-wrapper'>
                 {

@@ -34,8 +34,8 @@ export default function Customers() {
     const nrUsers = users.length;
     return (
         <div>
-            <SidebarMenu />
-            <Navigation location="Remove Sport" />
+            <SidebarMenu name='Admin Panel' />
+            <Navigation dashboard='admin' location="Remove Sport" />
             <SearchBar width='1000px' />
             <div className='user-cards-wrapper'>
                 {

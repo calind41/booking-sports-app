@@ -58,13 +58,135 @@ app.post('/upload', (req, res, data) => {
 });
 
 
-// app.get('/getImage', (req, res) => {
-//     res.json(imageData);
-//     console.log('sent');
-// })
+app.get('/sport_locations', (req, res) => {
+
+    const data = [{
+        images: ['i1.jpg', 'i2.jpg'],
+        title: 'Coolest Basketball Place',
+        location: 'Bucharest, Sector 5',
+        sport: 'Basketball',
+        format: '40x70m',
+        type: 'Indoor',
+        surface: 'Grass',
+        min_zone_part: '1/2 zone',
+        price: '50$ / 30min'
+    },
+    {
+        images: ['i1.jpg', 'i2.jpg'],
+        title: 'Coolest Basketball Place',
+        location: 'Bucharest, Sector 5',
+        sport: 'Basketball',
+        format: '40x70m',
+        type: 'Indoor',
+        surface: 'Grass',
+        min_zone_part: '1/2 zone',
+        price: '50$ / 30min'
+    },
+    {
+        images: ['i1.jpg', 'i2.jpg'],
+        title: 'Coolest Basketball Place',
+        location: 'Bucharest, Sector 5',
+        sport: 'Basketball',
+        format: '40x70m',
+        type: 'Indoor',
+        surface: 'Grass',
+        min_zone_part: '1/2 zone',
+        price: '50$ / 30min'
+    },
+    {
+        images: ['i1.jpg', 'i2.jpg'],
+        title: 'Coolest Basketball Place',
+        location: 'Bucharest, Sector 5',
+        sport: 'Basketball',
+        format: '40x70m',
+        type: 'Indoor',
+        surface: 'Grass',
+        min_zone_part: '1/2 zone',
+        price: '50$ / 30min'
+    }, {
+        images: ['i1.jpg', 'i2.jpg'],
+        title: 'Coolest Basketball Place',
+        location: 'Bucharest, Sector 5',
+        sport: 'Basketball',
+        format: '40x70m',
+        type: 'Indoor',
+        surface: 'Grass',
+        min_zone_part: '1/2 zone',
+        price: '50$ / 30min'
+    }, {
+        images: ['i1.jpg', 'i2.jpg'],
+        title: 'Coolest Basketball Place',
+        location: 'Bucharest, Sector 5',
+        sport: 'Basketball',
+        format: '40x70m',
+        type: 'Indoor',
+        surface: 'Grass',
+        min_zone_part: '1/2 zone',
+        price: '50$ / 30min'
+    }, {
+        images: ['i1.jpg', 'i2.jpg'],
+        title: 'Coolest Basketball Place',
+        location: 'Bucharest, Sector 5',
+        sport: 'Basketball',
+        format: '40x70m',
+        type: 'Indoor',
+        surface: 'Grass',
+        min_zone_part: '1/2 zone',
+        price: '50$ / 30min'
+    }, {
+        images: ['i1.jpg', 'i2.jpg'],
+        title: 'Coolest Basketball Place',
+        location: 'Bucharest, Sector 5',
+        sport: 'Basketball',
+        format: '40x70m',
+        type: 'Indoor',
+        surface: 'Grass',
+        min_zone_part: '1/2 zone',
+        price: '50$ / 30min'
+    }, {
+        images: ['i1.jpg', 'i2.jpg'],
+        title: 'Coolest Basketball Place',
+        location: 'Bucharest, Sector 5',
+        sport: 'Basketball',
+        format: '40x70m',
+        type: 'Indoor',
+        surface: 'Grass',
+        min_zone_part: '1/2 zone',
+        price: '50$ / 30min'
+    }]
+    res.json(data);
+})
 
 
+const users = [];
 
+app.post('/register', (req, res) => {
+    const {
+        data
+    } = req.body;
+    console.log(data);
+    users.push(data);
+    res.json('register success');
+});
+
+app.post('/login', (req, res) => {
+    const {
+        data
+    } = req.body;
+    let userExists = false;
+    users.map((user) => {
+        if (data.username) {
+            if (data.username === user.username && data.password === user.password)
+                userExists = true;
+        }
+        if (data.email) {
+            if (data.email === user.email && data.password === user.password)
+                userExists = true;
+        }
+    });
+
+    res.json(userExists);
+})
 
 
 

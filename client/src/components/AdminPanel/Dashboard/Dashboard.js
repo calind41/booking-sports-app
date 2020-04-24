@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './Dashboard.css'
 import SidebarMenu from './SidebarMenu/SidebarMenu'
 import Navigation from './Navigation/Navigation'
@@ -8,34 +9,44 @@ export default class Dashboard extends Component {
         return (
             <div className='dashboard-container'>
                 <SidebarMenu name="Admin Panel" />
-                <Navigation />
+                <Navigation dashboard='admin' />
                 <div className='content'>
                     <div className='sports-customers'>
                         <div className='sport-actions'>
-                            <div className='add-sport'>
-                                <span className="icon-class material-icons">
-                                    add
+                            <Link style={{ textDecoration: 'none', color: 'black' }} to='/adminAddSport'>
+                                <div className='add-sport'>
+                                    <span className="icon-class material-icons">
+                                        add
                                 </span>
-                                <span className='txt'>Add Sport</span>
-                            </div>
-                            <div className='update-sport'>
-                                <i className="icon-class fas fa-wrench"></i>
-                                <span className='txt'>Update Sport</span>
-                            </div>
-                            <div className='remove-sport'>
-                                <span className="icon-class material-icons">
-                                    remove
+                                    <span className='txt'>Add Sport</span>
+                                </div>
+                            </Link>
+                            <Link style={{ textDecoration: 'none', color: 'black' }} to='/adminUpdateSport'>
+                                <div className='update-sport'>
+                                    <i className="icon-class fas fa-wrench"></i>
+                                    <span className='txt'>Update Sport</span>
+                                </div>
+                            </Link>
+                            <Link style={{ textDecoration: 'none', color: 'black' }} to='/adminRemoveSport'>
+                                <div className='remove-sport'>
+                                    <span className="icon-class material-icons">
+                                        remove
                                 </span>
-                                <span className='txt'>Remove Sport</span>
-                            </div>
+                                    <span className='txt'>Remove Sport</span>
+                                </div>
+                            </Link>
                         </div>
                         <div className='views'>
-                            <div className='customers-view'>
-                                <span>Customers</span>
-                            </div>
-                            <div className='sport-spots-view'>
-                                <span>Sport Spots</span>
-                            </div>
+                            <Link style={{ textDecoration: 'none', color: 'black' }} to='/adminCustomers'>
+                                <div className='customers-view'>
+                                    <span>Customers</span>
+                                </div>
+                            </Link>
+                            <Link style={{ textDecoration: 'none', color: 'black' }} to='/adminSports'>
+                                <div className='sport-spots-view'>
+                                    <span>Sport Spots</span>
+                                </div>
+                            </Link>
                         </div>
 
                     </div>

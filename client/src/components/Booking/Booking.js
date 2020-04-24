@@ -11,54 +11,53 @@ import LocationInfo from './LocationInfo/LocationInfo'
 import BookModal from './BookModal/BookModal'
 
 
-export default class Booking extends Component {
-    render() {
-        return (
-            <div className='booking-container'>
-                <Navbar searchBar='none' />
-                <div className='imgslider-container'>
-                    <ImageSlider width='40%' height='45vh' />
-                </div>
-                <LocationInfo />
-                <ServiceList />
-                <div className='custom-calendar'>
-                    <div>
-                        <CustomCalendar />
-                    </div>
-                    <div className='time-options'>
-                        <div>
-                            <TimeOption bgColor='#F98442' color='white' time='8:00' />
-                        </div>
-                        <div>
-                            <TimeOption time='9:00' />
-                        </div>
-                        <div>
-                            <TimeOption time='10:00' />
-                        </div>
-                        <div>
-                            <TimeOption time='11:00' />
-                        </div>
-                        <div>
-                            <TimeOption time='12:00' />
-                        </div>
-                        <div>
-                            <TimeOption time='13:00' />
-                        </div>
-                        <div>
-                            <TimeOption time='14:00' />
-                        </div>
-                        <div>
-                            <TimeOption time='9:00' />
-                        </div>
-                        <div>
-                            <TimeOption time='9:00' />
-                        </div>
+export default function Booking() {
 
-
-                    </div>
-                </div>
-                <BookModal />
+    return (
+        <div className='booking-container'>
+            <Navbar searchBar='none' />
+            <div className='imgslider-container'>
+                <ImageSlider width='40%' height='45vh' />
             </div>
-        )
-    }
+            <LocationInfo />
+            <ServiceList />
+            <div className='custom-calendar'>
+                <div>
+                    <CustomCalendar />
+                </div>
+                <div className='time-options'>
+                    <div>
+                        <TimeOption bgColor='#F98442' color='white' time='8:00' />
+                    </div>
+                    <div>
+                        <TimeOption time='9:00' />
+                    </div>
+                    <div>
+                        <TimeOption time='10:00' />
+                    </div>
+                    <div>
+                        <TimeOption time='11:00' />
+                    </div>
+                    <div>
+                        <TimeOption time='12:00' />
+                    </div>
+                    <div>
+                        <TimeOption time='13:00' />
+                    </div>
+                    <div>
+                        <TimeOption time='14:00' />
+                    </div>
+                    <div>
+                        <TimeOption time='9:00' />
+                    </div>
+                    <div>
+                        <TimeOption time='9:00' />
+                    </div>
+
+
+                </div>
+            </div>
+            <BookModal />
+        </div>
+    )
 }

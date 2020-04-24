@@ -26,6 +26,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "react-select": "^3.0.8",
+    "react-sticky": "^6.0.3",
     "react-ui-cards": "^2.0.0",
     "react-window": "^1.8.5",
     "semantic-ui-react": "^0.88.2"

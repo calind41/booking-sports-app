@@ -13,7 +13,7 @@ export default function SDashboard() {
     return (
         <div className='sdashboard-container'>
             <SidebarMenu faq={true} name='Support Panel' />
-            <Navigation />
+            <Navigation dashboard='support' />
             <div className='wrapper'>
                 <div>
                     <div>
@@ -28,7 +28,7 @@ export default function SDashboard() {
                 <div className='msg-wrapper'>
                     <div className='msgs'>
                         <Message />
-                        < Message />
+                        <Message />
                         <Message />
                         <Message />
                     </div>

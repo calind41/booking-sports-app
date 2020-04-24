@@ -8,8 +8,8 @@ export default class AddSport extends Component {
     render() {
         return (
             <div>
-                <SidebarMenu />
-                <Navigation location="AddSport" />
+                <SidebarMenu name='Admin Panel' />
+                <Navigation dashboard='admin' location="AddSport" />
                 <FormComponent />
             </div>
         )

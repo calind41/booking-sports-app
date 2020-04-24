@@ -1,7 +1,9 @@
 .navbar-container {
-    background-color: green;
+    background-color: #056CF2;
     width: 100%;
-    height: 14vh;
+    height: 7vh;
     display: flex;
     justify-content: space-around;
+    position: fixed;
+    z-index: 10;
 }

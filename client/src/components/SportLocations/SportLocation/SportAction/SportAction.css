@@ -2,15 +2,17 @@
     display: flex;
     position: relative;
     left: 24px;
+    bottom: 10px;
 }
 
 .s-a-btns .book, .s-a-btns .view {
-    width: 115px;
-    height: 35px;
+    width: 75px;
+    height: 32px;
     margin-right: 20px;
-    border-radius: 20px;
+    border-radius: 15px;
     border: none;
     outline: none;
+    cursor: pointer;
 }
 
 .s-a-btns .book {

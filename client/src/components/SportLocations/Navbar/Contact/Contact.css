@@ -1,9 +1,13 @@
 .contact-container button {
-    width: 130px;
-    height: 35px;
+    width: 86px;
+    height: 4vh;
     font-size: 0.9rem;
     border: none;
     position: relative;
-    top: 32px;
-    left: 50px;
+    top: 12px;
+    /* right: 9vw; */
+    left: -9.1vw;
+    border-radius: 3px;
+    font-size: 12px;
+    background-color: #ffffff;
 }

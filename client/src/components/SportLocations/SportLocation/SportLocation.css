@@ -1,7 +1,8 @@
 .sport-location {
-    width: 300px;
+    width: 250px;
     height: 430px;
     margin: 10px;
     /* flex: 0 50%; */
     background: white;
+
 }

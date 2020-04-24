@@ -1,9 +1,13 @@
 .register-container button {
-    width: 130px;
-    height: 35px;
+    width: 86px;
+    height: 4vh;
     font-size: 0.9rem;
     border: none;
     position: relative;
-    top: 32px;
-    left: 230px;
+    top: 12px;
+    left: 4.7vw;
+    border-radius: 3px;
+    font-size: 12px;
+    background-color: #ffffff;
+
 }

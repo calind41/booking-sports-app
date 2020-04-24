@@ -67,13 +67,18 @@
 }
 .li-so {
     right: 7.95rem !important;
+    color: #c0c0c0 !important;
 }
 
+
 .faq-li i {
-    margin-right: 50px;
+    margin-right: 50px;    
+
 }
 .faq-li span {
     position: relative;
     left: -10.6vw;
     display: inline-block;
+    color: #c0c0c0 !important;
+
 }

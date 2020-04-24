@@ -66,7 +66,7 @@ export default function TransitionsModal() {
                             </div>
                         </div>
                         <div className='btns'>
-                            <button className='cancel-btn'>Cancel</button>
+                            <button onClick={handleClose} className='cancel-btn'>Cancel</button>
                             <button className='confirm-btn'>Confirm</button>
                         </div>
                         email confirmation -add design

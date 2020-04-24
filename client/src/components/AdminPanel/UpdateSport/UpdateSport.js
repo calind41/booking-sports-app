@@ -8,7 +8,7 @@ export default function UpdateSport() {
     return (
         <div>
             <SidebarMenu name="Admin Panel" />
-            <Navigation location="UpdateSport" />
+            <Navigation dashboard='admin' location="UpdateSport" />
             <UpdateFormComponent />
 
         </div>

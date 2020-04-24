@@ -1,49 +1,54 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
 import './SidebarMenu.css'
 
-export default class SidebarMenu extends Component {
-    render() {
-        return (
-            <div className='sbm-container'>
-                <div className='admin-panel'>
-                    <p>{this.props.name}</p>
-                </div>
-                <hr />
+export default function SidebarMenu({ name, faq }) {
+    const dashboardLink = faq === true ? '/supportDashboard' : '/adminDashboard';
+    return (
+        <div className='sbm-container'>
 
-                <div className='profile-picture'>
-                    <span className='img-profile-circular'>
+            <div className='admin-panel'>
+                <Link style={{ textDecoration: 'none', color: '#056CF2' }} to={dashboardLink}><p>{name}</p></Link>
+            </div>
+            <hr />
 
-                    </span>
-                    <span className='name'>First N. Last N.</span>
-                </div>
-                <hr />
+            <div className='profile-picture'>
+                <span className='img-profile-circular'>
 
-                <ul>
+                </span>
+                <span className='name'>First N. Last N.</span>
+            </div>
+            <hr />
+
+            <ul>
+                <Link style={{ textDecoration: 'none' }} to={dashboardLink}>
                     <li className='blue_color'>
                         <span className="material-icons">
                             dashboard
                         </span>
                         <span className='li-txt'>Dashboard</span>
                     </li>
-                    <li>
-                        <span className="material-icons">
-                            account_circle
+                </Link>
+                <li>
+                    <span className="material-icons">
+                        account_circle
                         </span>
-                        <span className='li-my-acct li-txt'>My Account</span>
-                    </li>
-                    {
-                        this.props.faq === true ? <li className='faq-li'>
-                            <i class="fas fa-question"></i>
-                            <span className='li-faq- li-txt'>FAQ</span>
-                        </li> : null
-                    }
-
+                    <span className='li-my-acct li-txt'>My Account</span>
+                </li>
+                {
+                    faq === true ? <Link style={{ textDecoration: 'none', color: '#000000' }} to='/supportFaq'><li className='faq-li'>
+                        <i class="fas fa-question"></i>
+                        <span className='li-faq- li-txt'>FAQ</span>
+                    </li></Link> : null
+                }
+                <Link style={{ textDecoration: 'none' }} to='/'>
                     <li>
                         <i className="fas fa-sign-out-alt"></i>
                         <span className='li-so li-txt'> Sign out</span>
                     </li>
-                </ul>
-            </div >
-        )
-    }
+                </Link>
+            </ul>
+        </div >
+    )
 }
