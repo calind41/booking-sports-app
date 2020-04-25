@@ -7,3 +7,95 @@
     position: fixed;
     z-index: 10;
 }
+
+.username-and-logout-container {
+    display: flex;
+    width: 9vw;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    top: 3px;
+}
+.username-and-logout-container i {
+    color: rgb(7, 46, 98);
+}
+.username-and-logout-container i:nth-child(1) {
+    font-size: 22px;
+    /* color: #ffffff; */
+    background-color: #ffffff;
+    border: none;
+    border-radius: 100%;
+    position: relative;
+    /* left: 3px; */
+    top: 0.4px;
+}
+#arr-d-icon {
+    font-size: 16px;
+    position: relative;
+    /* top: 1.4px; */
+    bottom: 2.1px;
+    right: 1px;
+    transition: .2s ease-in-out;
+}
+
+.navbar-part-user-logged-in {
+    position: relative;
+    right: 4.57vw;
+    width: 17.29vw;
+    height: 6.1vh;
+    display: flex;
+    justify-content: space-around;
+}
+.navbar-part-user-logged-in > div:not(:nth-child(3)) button {
+    width: 59px;
+    height: 3.5vh;
+    font-size: 0.9rem;
+    border: none;
+    position: relative;
+    top: 12.9px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 12px;
+    background-color: #ffffff;
+}
+
+.sign-out-dropdown {
+    display: none;
+    position: absolute;
+    top: 7.4vh;
+    left: 8.5vw;
+    width: 8.9vw;
+    height: 5vh;
+    background-color: #ffffff;
+    border: 0.3px solid rgba(0, 0, 0, 0.081);
+    font-size: 14px;
+    border-radius: 2px;
+}
+.sign-out-dropdown span {
+    position: relative;
+    top: 7px;
+    left: 11px;
+    cursor: pointer;
+}
+
+.sign-out-dropdown:hover span i  {
+    color: #056CF2;
+}
+.sign-out-dropdown span i {
+    position: relative;
+    left: 0.3vw;
+    top: 0.1vh;
+    font-size: 14px;
+    color: black;
+
+}
+.sign-out-dropdown i {
+    position: relative;
+    font-size: 18px;
+    left: 7.7vw;
+    bottom: 0.9vh;
+    color: #ffffff;
+}

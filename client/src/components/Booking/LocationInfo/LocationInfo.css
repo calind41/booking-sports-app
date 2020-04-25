@@ -1,20 +1,33 @@
 .location-info-container {
-    /* border: 2px solid green; */
-    width: 300px;
-    position: absolute;
-    left: 55px;
+    width: 25vw;
+    font-size: 14px;
 }
 .l-info {
-    font-size: 2rem;
+    font-size: 28px;
+    margin-left: 5px;
 }
 .facilites ul li,
 .surface ul li,
 .type ul li {
     list-style: none;
+    position: relative;
+    right: 7px;
+}
+.facilites ul,
+.surface ul,
+.type ul {
+    position: relative;
+    bottom: 7px;
+}
+.facilites p,
+.surface p,
+.type p {
+    font-weight: bold;
 }
 .wrapper {
-    width: 300px;
+    width: 25vw;
     display: flex;
+    justify-content: space-around;
 }
 
 .wrapper div ul {

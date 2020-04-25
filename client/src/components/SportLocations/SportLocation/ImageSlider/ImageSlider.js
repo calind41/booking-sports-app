@@ -4,7 +4,7 @@ import ImageComponent from './ImageComponent';
 import i1 from './i1.jpg'
 import i2 from './i2.jpg'
 
-export default function ImageSlider({ width, height }) {
+export default function ImageSlider({ images, width, height }) {
 
     let sliderArr = [<ImageComponent src={i1} />, <ImageComponent src={i2} />];
     const [x, setX] = useState(0);
@@ -21,14 +21,23 @@ export default function ImageSlider({ width, height }) {
         'width': `${width}`,
         'height': `${height}`
     }
+
+    // import dynamically the images ?
+    let imgs = require.context('../../../../imgs', true);
+    let imageArr = [];
+    images.map((image) => {
+        let im = imgs('./' + image);
+        imageArr.push(im)
+    });
+
     return (
         // if width and height are passed as props 
         <div style={styleObj} className='slider'>
             {
-                sliderArr.map((item, index) => {
+                imageArr.map((item, index) => {
                     return (
                         <div key={index} className='slide' style={{ transform: `translateX(${x}%)` }}>
-                            {item}
+                            <ImageComponent src={item} />
                         </div>
                     )
                 })

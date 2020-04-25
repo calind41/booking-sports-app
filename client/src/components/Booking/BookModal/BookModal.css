@@ -1,10 +1,10 @@
 .book-btn {
     background-color: #056CF2;
     position: relative;
-    bottom: 320px;
-    left: 83.5%;
+    /* bottom: 320px; */
+    /* left: 83.5%; */
     border: none;
-    width: 110px;
+    width: 105px;
     height: 40px;
     color: white;
     border-radius: 10px;
@@ -29,7 +29,8 @@
 }
 .summary-info ul li {
     margin-bottom: 5px;
-    font-size: 1.2rem;
+    font-size: 14px;
+    font-weight: bold;
 }
 .btns {
     display: flex;

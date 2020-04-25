@@ -14,13 +14,13 @@ const useStyles = makeStyles(theme => ({
     },
     paper: {
         backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
+        // border: '2px solid #000',
         boxShadow: theme.shadows[5],
         padding: theme.spacing(2, 4, 3),
     },
 }));
 
-export default function TransitionsModal() {
+export default function BookModal() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
@@ -69,7 +69,6 @@ export default function TransitionsModal() {
                             <button onClick={handleClose} className='cancel-btn'>Cancel</button>
                             <button className='confirm-btn'>Confirm</button>
                         </div>
-                        email confirmation -add design
                     </div>
                 </Fade>
             </Modal>

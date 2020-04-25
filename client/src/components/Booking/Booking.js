@@ -11,53 +11,58 @@ import LocationInfo from './LocationInfo/LocationInfo'
 import BookModal from './BookModal/BookModal'
 
 
-export default function Booking() {
+export default class Booking extends Component {
+    // nst data = {
+    //     title,
+    //     location,
+    //     sport,
+    //     images,
+    //     serviceOptions,
+    //     availableTimes,
+    //     format,
+    //     type,
+    //     surface,
+    //     facilities
 
-    return (
-        <div className='booking-container'>
-            <Navbar searchBar='none' />
-            <div className='imgslider-container'>
-                <ImageSlider width='40%' height='45vh' />
-            </div>
-            <LocationInfo />
-            <ServiceList />
-            <div className='custom-calendar'>
-                <div>
-                    <CustomCalendar />
+    render() {
+        const { title, location, sport, images, serviceOptions, availableTimes, format, type, surface, facilities } = this.props.location.state
+        console.log(title);
+        console.log(location);
+        console.log(serviceOptions);
+        console.log(availableTimes);
+        return (
+            <div className='booking-container'>
+                <Navbar searchBar='none' />
+                <div className='upper-part'>
+                    <div className='imgslider-container'>
+                        <ImageSlider images={images} width='42vw' height='50vh' />
+                    </div>
+                    <div>
+                        <ServiceList serviceOptions={serviceOptions} />
+                    </div>
                 </div>
-                <div className='time-options'>
+                <div className='lower-part'>
                     <div>
-                        <TimeOption bgColor='#F98442' color='white' time='8:00' />
+                        <LocationInfo facilities={facilities} surface={surface} type={type} />
                     </div>
-                    <div>
-                        <TimeOption time='9:00' />
-                    </div>
-                    <div>
-                        <TimeOption time='10:00' />
-                    </div>
-                    <div>
-                        <TimeOption time='11:00' />
-                    </div>
-                    <div>
-                        <TimeOption time='12:00' />
-                    </div>
-                    <div>
-                        <TimeOption time='13:00' />
-                    </div>
-                    <div>
-                        <TimeOption time='14:00' />
-                    </div>
-                    <div>
-                        <TimeOption time='9:00' />
-                    </div>
-                    <div>
-                        <TimeOption time='9:00' />
-                    </div>
+                    <div className='custom-calendar'>
+                        <div>
+                            <CustomCalendar />
+                        </div>
+                        <div className='time-options'>
+                            {
+                                availableTimes.map((time, index) => {
+                                    return index === 0 ? <div><TimeOption bgColor='#f98442' color='white' time={time} /></div> : <div><TimeOption time={time} /></div>
+                                })
+                            }
 
-
+                        </div>
+                    </div>
+                </div>
+                <div className='bookModal-container'>
+                    <BookModal />
                 </div>
             </div>
-            <BookModal />
-        </div>
-    )
+        )
+    }
 }

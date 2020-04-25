@@ -69,7 +69,9 @@ app.get('/sport_locations', (req, res) => {
         type: 'Indoor',
         surface: 'Grass',
         min_zone_part: '1/2 zone',
-        price: '50$ / 30min'
+        price: '50$ / 30min',
+        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
+        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
     },
     {
         images: ['i1.jpg', 'i2.jpg'],
@@ -80,7 +82,9 @@ app.get('/sport_locations', (req, res) => {
         type: 'Indoor',
         surface: 'Grass',
         min_zone_part: '1/2 zone',
-        price: '50$ / 30min'
+        price: '50$ / 30min',
+        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
+        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
     },
     {
         images: ['i1.jpg', 'i2.jpg'],
@@ -91,7 +95,9 @@ app.get('/sport_locations', (req, res) => {
         type: 'Indoor',
         surface: 'Grass',
         min_zone_part: '1/2 zone',
-        price: '50$ / 30min'
+        price: '50$ / 30min',
+        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
+        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
     },
     {
         images: ['i1.jpg', 'i2.jpg'],
@@ -102,7 +108,9 @@ app.get('/sport_locations', (req, res) => {
         type: 'Indoor',
         surface: 'Grass',
         min_zone_part: '1/2 zone',
-        price: '50$ / 30min'
+        price: '50$ / 30min',
+        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
+        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
     }, {
         images: ['i1.jpg', 'i2.jpg'],
         title: 'Coolest Basketball Place',
@@ -112,7 +120,9 @@ app.get('/sport_locations', (req, res) => {
         type: 'Indoor',
         surface: 'Grass',
         min_zone_part: '1/2 zone',
-        price: '50$ / 30min'
+        price: '50$ / 30min',
+        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
+        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
     }, {
         images: ['i1.jpg', 'i2.jpg'],
         title: 'Coolest Basketball Place',
@@ -122,7 +132,9 @@ app.get('/sport_locations', (req, res) => {
         type: 'Indoor',
         surface: 'Grass',
         min_zone_part: '1/2 zone',
-        price: '50$ / 30min'
+        price: '50$ / 30min',
+        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
+        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
     }, {
         images: ['i1.jpg', 'i2.jpg'],
         title: 'Coolest Basketball Place',
@@ -132,7 +144,9 @@ app.get('/sport_locations', (req, res) => {
         type: 'Indoor',
         surface: 'Grass',
         min_zone_part: '1/2 zone',
-        price: '50$ / 30min'
+        price: '50$ / 30min',
+        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
+        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
     }, {
         images: ['i1.jpg', 'i2.jpg'],
         title: 'Coolest Basketball Place',
@@ -142,7 +156,9 @@ app.get('/sport_locations', (req, res) => {
         type: 'Indoor',
         surface: 'Grass',
         min_zone_part: '1/2 zone',
-        price: '50$ / 30min'
+        price: '50$ / 30min',
+        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
+        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
     }, {
         images: ['i1.jpg', 'i2.jpg'],
         title: 'Coolest Basketball Place',
@@ -152,7 +168,9 @@ app.get('/sport_locations', (req, res) => {
         type: 'Indoor',
         surface: 'Grass',
         min_zone_part: '1/2 zone',
-        price: '50$ / 30min'
+        price: '50$ / 30min',
+        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
+        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
     }]
     res.json(data);
 })
