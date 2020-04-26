@@ -1,14 +1,15 @@
 .admin-p-nav-container {
     position: absolute;
     top: 0;
-    left: 20vw;
-    width: 78.93vw;
+    left: 15.97vw;
+    width: 82.96vw;
     box-sizing: border-box;
-    border: 1px solid gray;
-    height: 11.6vh;
+    height: 7.9vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    background-color: #ffffff;
+    border-bottom: 1px solid gray;
 }
 .curr-path {
     display: flex;

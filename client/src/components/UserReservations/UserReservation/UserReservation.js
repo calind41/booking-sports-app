@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -9,23 +9,37 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         flexWrap: 'wrap',
         '& > *': {
-            margin: 'auto',
+            position: 'relative',
+            left: '12vw',
             marginBottom: '3vh',
-            width: '80vw',
+            width: '70.4vw',
             height: '25vh',
+            fontSize: '14px'
         },
     },
 }));
 
-export default function UserReservation() {
-    const classes = useStyles();
 
-    const [checked, setChecked] = React.useState(false);
+export default function UserReservation({ initialChecked, setSelectedItemState, setUnselectedItemState, reservation, index, nrReservations }) {
+    const classes = useStyles();
+    const [checked, setChecked] = React.useState(initialChecked);
+
+    useEffect(() => {
+        setChecked(false);
+    }, [nrReservations])
 
     const handleChange = event => {
         console.log(event.target);
         setChecked(event.target.checked);
+        event.target.checked ? setSelectedItemState(index) : setUnselectedItemState(index)
+
     };
+
+    const expired = reservation.selectedDateOption < new Date().getTime();
+
+    const cancelReservation = (evt) => {
+        evt.target.style.color !== 'gray' ? evt.target.textContent = 'Canceled' : evt.target.textContent = 'Cancel'
+    }
 
     return (
         <div className={classes.root}>
@@ -40,25 +54,25 @@ export default function UserReservation() {
                         />
                     </div>
                     <div className='reser-img-container'>
-                        <img src='https://images.unsplash.com/photo-1554653918-7889417d67d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80' />
+                        <img src={reservation.image} />
                     </div>
                     <div className='type-value'>
-                        Tennis Court 60min
+                        {reservation.selectedServiceOption.split(',')[0]}
                     </div>
                     <div className='location-value'>
-                        Sector 1
+                        {reservation.location}
                     </div>
                     <div className='date-time-value'>
-                        12 march 2020 / 09:00
+                        {new Date(reservation.selectedDateOption).toUTCString().split(' ').filter((s, index) => (index > 0 && index < 4)).join(' ')} / {reservation.selectedTimeOption}
                     </div>
                     <div className='price-value'>
-                        100RON
+                        {reservation.selectedServiceOption.split(',')[1]}
                     </div>
                     <div className='available-value'>
-                        Yes
+                        {expired ? 'No' : 'Yes'}
                     </div>
                     <div className='cancel-container'>
-                        <button>Cancel</button>
+                        <button id='cancel-res-btn' onClick={cancelReservation} style={expired ? { color: 'gray' } : null}>Cancel</button>
                     </div>
 
                 </div>

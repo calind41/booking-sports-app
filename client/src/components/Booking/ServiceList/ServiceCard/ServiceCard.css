@@ -5,6 +5,7 @@
     background-color: white;
     display: flex;
     margin-left: 10px;
+    cursor: pointer;
 }
 .check-container {
     position: relative;
@@ -19,7 +20,7 @@
 
 .details .price {
     position: relative;
-    bottom: 13px;
+    bottom: 10px;
     color: gray;
 
 }

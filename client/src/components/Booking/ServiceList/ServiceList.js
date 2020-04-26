@@ -1,9 +1,15 @@
-import React, { Component, Fragment } from 'react'
+import React, { useState, Fragment } from 'react'
 import './ServiceList.css'
 import ServiceCard from './ServiceCard/ServiceCard'
 
-export default function ServiceList({ serviceOptions }) {
+export default function ServiceList({ serviceOptions, handleClickServiceOption }) {
 
+    const [selectedCard, setSelectedCard] = useState(0);
+
+    const handleSelectOption = (index) => {
+        setSelectedCard(index);
+        handleClickServiceOption(index);
+    }
 
     return (
         <div className='service-list-container'>
@@ -11,10 +17,10 @@ export default function ServiceList({ serviceOptions }) {
             <div className='service-list'>
                 {
                     serviceOptions.map((s, index) => {
-                        return index === 0 ?
-                            <div><ServiceCard text={s} bgColor='#F98442' p1Color='white' p2Color='black' checkboxColor='white' /> </div>
+                        return index === selectedCard ?
+                            <div><ServiceCard handleSelectOption={handleSelectOption} checkedValue={true} index={index} text={s} bgColor='#F98442' p1Color='white' p2Color='black' checkboxColor='white' /> </div>
                             :
-                            <div> <ServiceCard text={s} /></div>
+                            <div> <ServiceCard handleSelectOption={handleSelectOption} checkedValue={false} index={index} text={s} /></div>
                     })
                 }
             </div>

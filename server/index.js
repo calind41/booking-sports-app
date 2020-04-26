@@ -57,6 +57,20 @@ app.post('/upload', (req, res, data) => {
 
 });
 
+const past_res = [];
+app.get('/past_reservations', (req, res) => {
+    res.json(past_res);
+});
+
+app.post('/book', (req, res) => {
+    const {
+        reservation
+    } = req.body;
+    console.log('reservation ', reservation);
+    past_res.push(reservation);
+    res.json({ msg: 'Booked successfully' });
+});
+
 
 app.get('/sport_locations', (req, res) => {
 

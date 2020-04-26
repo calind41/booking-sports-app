@@ -4,7 +4,7 @@ import 'react-datepicker/src/stylesheets/datepicker.scss'
 
 import './CustomCalendar.css'
 
-export default function CustomCalendar() {
+export default function CustomCalendar({ handleClickDateOption }) {
     const [startDate, setStartDate] = useState(new Date());
     return (
         <div className='custom-calendar-container'>
@@ -12,7 +12,7 @@ export default function CustomCalendar() {
             <div>
                 <DatePicker
                     selected={startDate}
-                    onChange={date => { setStartDate(date); console.log(date) }}
+                    onChange={date => { setStartDate(date); handleClickDateOption(date); }}
                     inline
                 />
             </div>

@@ -74,7 +74,7 @@
     flex-wrap: wrap;
     position: relative;
     top: 10.6vh;
-    right: 2.5vw;
+    right: -4.76vw;
     height: 180px;
 }
 
@@ -83,5 +83,5 @@
     height: 6vh;
     position: relative;
     bottom: 20vh;
-    left: 70.35vw;
+    left: 77.25vw;
 }

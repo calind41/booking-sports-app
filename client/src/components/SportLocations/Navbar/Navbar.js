@@ -65,9 +65,13 @@ export default function Navbar({ searchBar }) {
                         </Link></Fragment>) : (
                         <Fragment>
                             <div style={window.location.pathname === '/booking' ? { right: '-1.30vw' } : null} className='navbar-part-user-logged-in'>
+
                                 <div className='booked-btn-container'>
-                                    <button>Booked</button>
+                                    <Link to='/userRes'>
+                                        <button>Booked</button>
+                                    </Link>
                                 </div>
+
                                 <div className='contact-btn-container'>
                                     <button>Contact</button>
                                 </div>

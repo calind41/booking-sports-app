@@ -1,16 +1,30 @@
 .sbm-container {
     box-sizing: border-box;
-    border: 1px solid #c0c0c0;
-    width: 20vw;
+    /* border: 1px solid #c0c0c0; */
+    width: 16vw;
     height: 100vh;
-    background-color: white;
+    box-sizing: border-box;
+    position: relative;
+    /* border: 2px solid red; */
+    background-color: #ffffff;
+    position: relative;
+    bottom: 26px;
+    border-right: 1px solid gray;
+
 }
 .admin-panel {
     color: #056CF2;
     margin: auto;
     width: 12vw;
+    height: 6.69vh;
     font-size: 1.6rem;
     font-weight: bold;
+}
+.admin-panel p {
+    position: relative;
+    /* bottom: 10px; */
+    top: 1.7vh;
+    /* right: 3vw; */
 }
 .profile-picture {
     display: flex;
@@ -18,22 +32,24 @@
     align-items: center;
 }
 .img-profile-circular {
-    width: 3vw;
-    height: 6vh;
+    width: 2.2vw;
+    height: 4.4vh;
     background-color: gray;
     display: inline-block;
     border-radius: 100%;
     position: relative;
-    right: 20px;
+    /* right: 30px; */
 }
 .profile-picture .name {
     position: relative;
-    font-size: 1.2rem;
-    right: 4.3rem;
+    font-size: 16px;
+    right: 2.3rem;
+    width: 8vw;
 }
 
 .sbm-container ul {
     list-style: none;
+
 }
 .sbm-container ul li {
     display: flex;
@@ -45,15 +61,16 @@
 }
 .sbm-container ul li .material-icons,
 .sbm-container ul li i {
-    font-size: 2rem;
+    font-size: 23px;
     color: #C0C0C0;
     position: relative;
-    right: 3.9rem;
+    right: 2.5rem;
 }
 .sbm-container ul li .li-txt {
     color: #c0c0c0;
     position: relative;
-    right: 7rem;
+    right: 5rem;
+    font-size: 14px;
 }
 
 .sbm-container ul li:first-child span{
@@ -63,11 +80,13 @@
     color: rgb(11, 65, 136);
 }
 .li-my-acct {
-    right: 6.7rem !important;
+    right: 4.68rem !important;
+    font-size: 14px !important;
 }
 .li-so {
-    right: 7.95rem !important;
+    right: 5.8rem !important;
     color: #c0c0c0 !important;
+    font-size: 14px !important;
 }
 
 

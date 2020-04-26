@@ -1,6 +1,7 @@
 .user-reservations-wrapper {
-    background-color: #F2F2F2;
-    height: 200vh;
+    background-color: #f2f2f2;
+    /* height: 200vh; */
+    min-height: 100vh;
 }
 .user-res-list {
     position: relative;
@@ -36,24 +37,29 @@
     width: 50vw;
     top: 18vh;
     left: 31.5vw;
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
+    font-size: 14px;
     font-weight: bold;
+}
+.column-headers .type-header {
+    position: relative;
+    right: -2.35vh;
 }
 .loc-header {
     position: relative;
-    left: 6.2vw;
+    left: 2.45vw;
 }
 .date-t-header {
     position: relative;
-    left: 3.25vw;
+    left: -0.64vw;
 }
 .price-header {
     position: relative;
-    left: 5.7vw;
+    left: 0.19vw;
 }
 .available-header {
     position: relative;
-    left: 5.9vw;
+    left: -3.4vw;
 }
 .past-res-and-del {
     display: flex;
@@ -64,18 +70,25 @@
     top: 6.4vw;
 }
 .past-r {
-    font-size: 1.6rem;
+    position: relative;
+    top: 7px;
+    left: 2.59vw;
+    font-size: 23px;
     font-weight: bold;
 }
 .del-button-wrapper button {
-    width: 7vw;
-    height: 5vh;
+    position: relative;
+    right: 7.09vw;
+    top: 1.4vh;
+    width: 5.5vw;
+    height: 4vh;
     font-weight: bold;
     color: #056CF2;
     border: 1px solid blue;
-    transition: all .1s linear;
+    transition: all .1s ease-in-out;
     cursor: pointer;
     outline: none;
+    font-size: 12px;
 }
 .del-button-wrapper button:hover {
     color: #ff0000;
@@ -85,4 +98,11 @@
     position: relative;
     display: inline-block;
     top: -6px;
+}
+
+.no-reservations-text {
+    position: absolute;
+    font-size: 28px;
+    left: 6.4vh;
+    top: 25vh;
 }
