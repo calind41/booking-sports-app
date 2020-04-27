@@ -39,7 +39,7 @@ export default function Faq() {
                         <MessageController />
                     </div>
                     <div>
-                        <SearchBar width='500px' />
+                        <SearchBar width='664px' />
                     </div>
                 </div>
                 <div className='fquestions-wrapper'>

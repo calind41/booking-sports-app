@@ -1,5 +1,5 @@
 .frequenct-q-container {
-    width:  77vw;
+    width:  57vw;
     height: 14vh;
     border: 1px solid #000000;
     display: flex;
@@ -27,7 +27,7 @@
 }
 .frequenct-q-container > div:nth-child(1) > div:nth-child(2) {
     position: relative;
-    right: 66.5vw;
+    right: 45.9vw;
     font-weight: bold;
 }
 .frequenct-q-container > div:nth-child(2) {
@@ -40,7 +40,7 @@
 }
 .frequenct-q-container > div:nth-child(2) > div:nth-child(2) {
     position: relative;
-    right: 66.77vw;
+    right: 45.9vw;
     top: 13px;
     cursor: pointer;
     user-select: none;

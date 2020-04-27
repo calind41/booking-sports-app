@@ -1,14 +1,14 @@
 #remove-sport-container {
     background-color: #e9e9e9;
-    height: 120vh;
+    height: 100vh;
 }
 
 #remove-sport-container .sports {
     position: absolute;
-    left: 23vw;
-    top: 25vh;
-    width: 75vw;
-    height: 88vh;
+    left: 18.9vw;
+    top: 26vh;
+    width: 66.7vw;
+    height: 68vh;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -17,14 +17,19 @@
 }
 
 #pagination-component {
-    position: relative;
-    left: 23vw;
-    bottom: 8vw;
+    position: absolute;
+    left: 18.67vw;
+    bottom: 6.8vw;
     width: 32vw;
 }
 
 .remove-sport-reuse-del-button {
     position: absolute;
-    bottom: 35.5vw;
-    left: 86vw;
+    bottom: 37.66vw;
+    left: 87.1vw;
+}
+.remove-s-searchbar {
+    position: relative;
+    right: 6.13vw;
+    bottom: 0.55vh;
 }

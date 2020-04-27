@@ -37,7 +37,9 @@ export default function Sports() {
         <div>
             <SidebarMenu name="Admin Panel" />
             <Navigation dashboard='admin' location="Sports" />
-            <SearchBar width='1000px' />
+            <div className='search-bar-container'>
+                <SearchBar width='980px' />
+            </div>
             <div className='sports-cards-wrapper'>
                 {
                     sports === [] || sports[0] === null ? null : sports.map((user, idx) => {

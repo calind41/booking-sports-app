@@ -1,37 +1,41 @@
-
-
 .service-containrr {
     position: absolute;
-    left: 20.5vw;
-    bottom: 2vh;
+    left: 18.8vw;
+    bottom: 12vh;
     display: flex;
-    width: 41vw;
+    width: 30vw;
     height: 260px;
-    border: 2px solid red;
 }
 
 .upload-imgs-container {
     position: absolute;
-    bottom: 34.5vh;
+    bottom: 47.7vh;
     left: 53vw;
-    width: 45vw;
-    border: 2px solid red;
-    height: 50vh;
+    width: 32.5vw;
+    height: 38.5vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-end;
 }
-.upload-imgs-container .as-save-btn {
-    width: 5vw;
-    height: 5vh;
-    background-color: blue;
+ .as-save-btn {
+
+    background-color: #0066FF;
     color: white;
     text-align: center;
-    padding-top: 7px;
+    padding-top: 11px;
     box-sizing: border-box;
     margin-right: 20px;
-
+    position: relative;
+    top: 63.2vh;
+    left: 79.1vw;;
+    cursor: pointer;
+    font-size: 16px;
+    width: 6.3vw;
+    height: 5.7vh;
 }
 
+.as-save-btn:hover {
+    background-color: #003399;
+}
 

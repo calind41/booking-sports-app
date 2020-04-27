@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
 import './SportCard.css'
 
 export default function SportCard() {
@@ -53,6 +55,12 @@ export default function SportCard() {
                         <div>price</div>
                     </div>
                 </div>
+                <Link style={{ textDecoration: 'none', color: 'black' }} to='/adminUpdateSport'>
+                    <div className='update-sport'>
+                        <i className="icon-class fas fa-wrench"></i>
+                        <span className='txt'>Update Sport</span>
+                    </div>
+                </Link>
             </div>
         </div>
     )

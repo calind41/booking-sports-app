@@ -81,7 +81,7 @@ export default class ServiceDetails extends React.Component {
                         <form onSubmit={this.addItem}>
                             <input ref={(a) => this._inputElement = a} placeholder="duration min / available times">
                             </input>
-                            <button type="submit">add</button>
+                            <button className={this.props.addBtnClass} type="submit">add</button>
                         </form>
                     </div>
                     <TodoItems entries={this.state.items}

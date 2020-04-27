@@ -1,30 +1,47 @@
 #g-gallery {
     position: absolute;
-    left: 57vw;
-    top: 52vh;
-    width: 37vw;
-    max-height: 41.6vh;
+    left: 53.2vw;
+    top: 57.8vh;
+    width: 33vw;
+    max-height: 41vh;
 }
 .update-upload-imgs-container {
     position: absolute;
-    bottom: 49.5vh;
-    left: 56vw;
+    bottom: 47.50vh;
+    left: 48.3vw;
     width: 42vw;
-    height: 37vh;
+    height: 38.7vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-end;
 }
-.update-upload-imgs-container .as-save-btn {
-    width: 5vw;
-    height: 5vh;
-    background-color: blue;
+.us-save-btn {
+    width: 6.3vw;
+    height: 5.7vh;
+    background-color: #0066FF;
     color: white;
     text-align: center;
-    padding-top: 7px;
+    font-size: 14px;
+    padding-top: 13px;
     box-sizing: border-box;
     margin-right: 20px;
     margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+    top: 13.96vh;
+    left: 86vw;
+    transition: .2s ease-in-out;
+}
+ .us-save-btn:hover {
+    background-color: #003399;
+ }
 
+.update-service-container {
+    position: relative;
+    top: 14px;
+}
+.update-component-add-service {
+    position: relative;
+    top: 63.9vh !important;
 }

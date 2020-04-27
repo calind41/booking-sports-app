@@ -34,24 +34,19 @@ export default function UserReservations() {
         let afterDelArr = cpy.filter((item, idx) => { if (selectedState[idx]) delIdx.push(idx); return !selectedState[idx] })
         console.log(delIdx);
         delIdx.map((item) => selectedState.splice(item, 1));
-        console.log('selected state ', selectedState);
         setSelectedState(selectedState);
-        console.log('after delay array ', afterDelArr);
         setPastReservations(afterDelArr);
-
     }
 
 
 
     const setSelectedItemState = (index) => {
         selectedState.map((item, idx) => { if (index === idx) selectedState[idx] = true })
-        console.log(selectedState);
         setSelectedState(selectedState)
     }
 
     const setUnselectedItemState = (index) => {
         selectedState.map((item, idx) => { if (index === idx) selectedState[idx] = false })
-        console.log(selectedState);
         setSelectedState(selectedState)
     }
 

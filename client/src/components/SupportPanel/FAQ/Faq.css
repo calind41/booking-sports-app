@@ -1,17 +1,19 @@
 .faq-wrapper {
-    width: 77vw;
+    width: 59vw;
     height: 83vh;
     position: absolute;
     top: 15vh;
-    left: 21vw;
+    left: 18.88vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
 .faq-wrapper > div:nth-child(1) {
     position: relative;
     top: 3vh;
 }
+
 .faq-wrapper > div:nth-child(2) {
     position: relative;
     bottom: 8vh;
@@ -22,6 +24,6 @@
 }
 .faq-wrapper > div:nth-child(1) > div:nth-child(2) {
     position: relative;
-    bottom: 19vh;
+    bottom: 19.5vh;
     right: 14vw;
 }

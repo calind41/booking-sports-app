@@ -43,9 +43,13 @@ export default function UploadImages() {
 
 const classNames = {
     dropzone: {
-        "width": "40vw",
-        "height": "34vh",
-        "overflowX": "auto",
-        "overflowY": "auto"
+        width: "32.4vw",
+        height: "89vh",
+        overflowX: "auto",
+        overflowY: "auto",
+        backgroundColor: '#ffffff'
+    },
+    inputLabel: {
+        fontSize: '16px'
     }
 }

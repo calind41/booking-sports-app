@@ -1,6 +1,6 @@
 .sport-card-container {
     border: 1px solid black;
-    width: 77vw;
+    width: 66.5vw;
     height: 30vh;
     display: flex;
     justify-content: space-between;
@@ -14,7 +14,7 @@
 }
 .img-sport img {
     width: 9vw;
-    height: 22vh;
+    height: 18.5vh;
 }
 .desc .title-wrapper .title-heading,
 .desc .type-wrapper .type-heading,
@@ -97,7 +97,8 @@
 #options-wrapper .options {
     font-size: 12px;
     text-align: center;
-    width: 25vw;
+    width: 21vw;
+    height: 17vh;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -106,15 +107,55 @@
     font-weight: bold;
 }
 #options-wrapper .options .option { 
-    width: 12vw;
+    width: 10vw;
     height: 7vh;
     box-sizing: border-box;
     padding-top: 8px;
     border-radius: 14px;
     margin-bottom: 7px;
+    color: #ffffff;
     background-color: #FFB21E;
 }
 #options-wrapper .options .option > div:nth-child(2) {
     margin-right: 3.2vw;
-    color: white;
+    color: #000000;
+}
+
+
+
+ .update-sport {
+    background-color: #056CF2;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .2s ease-in-out;
+    text-align: center;
+    width: 9.1vw;
+    height: 5vh;
+    /* border-radius: 14px; */
+    position: relative;
+    right: 87vh;
+    bottom: 1vh;
+}
+.update-sport:hover {
+    background-color: #6f6d6d;
+    color: #ffffff;
+}
+.update-sport .icon-class{
+    position: relative;
+    left: 1vw;
+    font-size: 12px;
+    display: inline-block;
+    color: #ffffff;
+
+}
+ .update-sport .txt {
+    position: relative;
+    color: #ffffff;
+    left: 0.1vw;
+    width: 8vw;
+    font-size: 12px;
+
 }

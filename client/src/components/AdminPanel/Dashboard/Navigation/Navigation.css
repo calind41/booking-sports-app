@@ -2,19 +2,23 @@
     position: absolute;
     top: 0;
     left: 15.97vw;
-    width: 82.96vw;
+    width: 84vw;
     box-sizing: border-box;
-    height: 7.9vh;
+    height: 7vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     background-color: #ffffff;
     border-bottom: 1px solid gray;
+    
 }
 .curr-path {
     display: flex;
     align-items: center;
     margin-left: 2.36rem;
+        margin-top: 2px;
+
+    
 }
 .curr-path button {
     background-color: transparent;
@@ -22,9 +26,14 @@
     border: none;
     color: #056CF2;
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+
 }
 .curr-path span {
     color: #056CF2;
     font-weight: bold;
+    margin-left: 3.7px;
+    font-size: 1.05rem;
+    cursor: pointer;
 }

@@ -43,15 +43,18 @@ export default function SportComponentToRemove() {
                         <div className='reser-img-container'>
                             <img src='https://images.unsplash.com/photo-1554653918-7889417d67d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80' />
                         </div>
-                        <div className='title-value'>
-                            Title 1s
-                    </div>
-                        <div className='type-value'>
-                            Tennis Court
-                    </div>
-                        <div className='location-value'>
-                            Sector 1
-                    </div>
+                        <div id='s-to-rem-desc-wrapper'>
+                            <div className='title-value'>
+                                Title 1s
+                        </div>
+                            <div className='type-value'>
+                                Tennis Court
+                        </div>
+                            <div className='location-value'>
+                                Sector 1
+                        </div>
+                        </div>
+
                     </div>
 
 

@@ -3,12 +3,14 @@
     /* position: absolute;
     bottom: 40vh;
     left: 24vw; */
+    width: 32vw;
 }
 .tr-sport-container {
     display: flex;
     height: 100%;
     justify-content: space-around;
     align-items: center;
+    width: 32vw;
 }
 .tr-sport-container .r-checkbox-wrapper {
     position: relative;
@@ -26,24 +28,35 @@
 }
 .tr-sport-container .reser-img-container {
     position: relative;
-    top: 5vh;
-    left: 2vw;
+    top: 6.8vh;
+    left: 0vw;
     width: 20vh;
     height: 20vh;
 }
 .tr-sport-container .reser-img-container img {
-    width: 23vh;
+    width: 19vh;
     height: 15.4vh;
 }
 .tr-sport-container .title-value {
     position: relative;
-    left: 1vw;
+    /* left: 1vw; */
 }   
 .tr-sport-container .type-value {
     position: relative;
-    right: 1vw;
+    /* right: 1vw; */
 }
 .tr-sport-container .location-value {
     position: relative;
-    right: 3vw;
+    /* right: 3vw; */
+}
+
+#s-to-rem-desc-wrapper {
+    position: relative;
+    right: 1vw;
+    font-size: 14px;
+    height: 14vh;
+    width: 14.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }

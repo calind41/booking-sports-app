@@ -1,9 +1,9 @@
 .user-cards-wrapper {
-    width: 70vw;
+    width: 68vw;
     height: 70vh;
     position: absolute;
-    left: 24vw;
-    bottom: 7vh;
+    left: 17.86vw;
+    bottom: 13.5vh;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -12,7 +12,12 @@
 }
 #pagination-component2 {
     position: absolute;
-    left: 25vw;
-    bottom: 8vh;
+    left: 18.7vw;
+    bottom: 15.4vh;
     width: 41vw;
+}
+.customers-searchbar {
+    position: relative;
+    right: 6.1vw;
+    bottom: .3vh;
 }

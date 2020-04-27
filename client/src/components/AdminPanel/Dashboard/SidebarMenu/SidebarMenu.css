@@ -2,13 +2,13 @@
     box-sizing: border-box;
     /* border: 1px solid #c0c0c0; */
     width: 16vw;
-    height: 100vh;
+    height: 99.6vh;
+    margin-bottom: 0;
     box-sizing: border-box;
     position: relative;
     /* border: 2px solid red; */
     background-color: #ffffff;
-    position: relative;
-    bottom: 26px;
+    position: absolute;
     border-right: 1px solid gray;
 
 }
@@ -16,14 +16,14 @@
     color: #056CF2;
     margin: auto;
     width: 12vw;
-    height: 6.69vh;
+    height: 2.4vh;
     font-size: 1.6rem;
     font-weight: bold;
 }
 .admin-panel p {
     position: relative;
     /* bottom: 10px; */
-    top: 1.7vh;
+    bottom: 2.24vh;
     /* right: 3vw; */
 }
 .profile-picture {
@@ -96,7 +96,7 @@
 }
 .faq-li span {
     position: relative;
-    left: -10.6vw;
+    left: -8.2vw;
     display: inline-block;
     color: #c0c0c0 !important;
 

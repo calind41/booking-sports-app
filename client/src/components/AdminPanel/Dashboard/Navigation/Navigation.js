@@ -11,7 +11,7 @@ export default function Navigation({ dashboard, location }) {
                 <Link to={dashboardLink} >
                     <button>Dashboard</button>
                 </Link>
-                <span>></span>
+                <span>>{}</span>
                 <span>{location}</span>
             </div>
         </div>

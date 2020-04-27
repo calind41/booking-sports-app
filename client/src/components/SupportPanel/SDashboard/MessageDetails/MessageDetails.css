@@ -1,7 +1,9 @@
 .msg-details-container {
     border: 1px solid #000000;
-    width: 50vw;
-    height: 67.6vh;
+    width: 46vw;
+    height: 65.8vh;
+    position: relative;
+    right: 3vw;
     /* bottom: 18vh;
     left: 40vw; */
     font-size: 12px;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Message.css'
 import { makeStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -15,15 +15,19 @@ const useStyles = makeStyles(theme => ({
         },
     },
 }));
-export default function Message() {
+export default function Message({ initialChecked, setSelectedItemState, setUnselectedItemState, index, nrMessages }) {
 
-    const classes = useStyles();
 
     const [checked, setChecked] = React.useState(false);
+    useEffect(() => {
+        setChecked(false);
+    }, [nrMessages])
 
     const handleChange = event => {
         console.log(event.target);
         setChecked(event.target.checked);
+        event.target.checked ? setSelectedItemState(index) : setUnselectedItemState(index)
+
     };
     const toggleStarColor = (evt) => {
         if (evt.target.style.color !== 'rgb(255, 0, 0)') {

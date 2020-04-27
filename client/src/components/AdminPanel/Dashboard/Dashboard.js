@@ -8,7 +8,9 @@ export default class Dashboard extends Component {
     render() {
         return (
             <div className='dashboard-container'>
-                <SidebarMenu name="Admin Panel" />
+                <div>
+                    <SidebarMenu name="Admin Panel" />
+                </div>
                 <Navigation dashboard='admin' />
                 <div className='content'>
                     <div className='sports-customers'>
@@ -21,12 +23,12 @@ export default class Dashboard extends Component {
                                     <span className='txt'>Add Sport</span>
                                 </div>
                             </Link>
-                            <Link style={{ textDecoration: 'none', color: 'black' }} to='/adminUpdateSport'>
+                            {/* <Link style={{ textDecoration: 'none', color: 'black' }} to='/adminUpdateSport'>
                                 <div className='update-sport'>
                                     <i className="icon-class fas fa-wrench"></i>
                                     <span className='txt'>Update Sport</span>
                                 </div>
-                            </Link>
+                            </Link> */}
                             <Link style={{ textDecoration: 'none', color: 'black' }} to='/adminRemoveSport'>
                                 <div className='remove-sport'>
                                     <span className="icon-class material-icons">
@@ -37,14 +39,15 @@ export default class Dashboard extends Component {
                             </Link>
                         </div>
                         <div className='views'>
-                            <Link style={{ textDecoration: 'none', color: 'black' }} to='/adminCustomers'>
-                                <div className='customers-view'>
-                                    <span>Customers</span>
-                                </div>
-                            </Link>
+
                             <Link style={{ textDecoration: 'none', color: 'black' }} to='/adminSports'>
                                 <div className='sport-spots-view'>
                                     <span>Sport Spots</span>
+                                </div>
+                            </Link>
+                            <Link style={{ textDecoration: 'none', color: 'black' }} to='/adminCustomers'>
+                                <div className='customers-view'>
+                                    <span>Customers</span>
                                 </div>
                             </Link>
                         </div>

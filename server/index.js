@@ -189,6 +189,10 @@ app.get('/sport_locations', (req, res) => {
     res.json(data);
 })
 
+app.get('/messages', (req, res) => {
+    res.json({ messages: ['title 1', 'title 2', 'title 3', 'title 4', 'title 5'] })
+})
+
 
 const users = [];
 

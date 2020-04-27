@@ -26,32 +26,44 @@ const useStyles = makeStyles(theme => ({
         '& > *': {
             margin: theme.spacing(1),
             display: 'block',
-            width: '550px'
+            width: '550px',
+            fontSize: '10px'
         }
     },
 
 }));
 
 const formStyles = {
-    'position': 'absolute',
-    'top': '20vh',
-    'left': '20vw',
-    'width': '30vw'
+    position: 'absolute',
+    top: '10.9vh',
+    left: '18.4vw',
+    width: '30vw'
 }
 const textareastyles = {
-    'width': '29vw',
-    'resize': 'none',
-    'padding-left': '12px'
+    position: 'relative',
+    top: '2vh',
+    width: '29vw',
+    resize: 'none',
+    paddingLeft: '12px',
+    paddingTop: '10px',
+    fontSize: '14px',
+    height: '10vh'
 }
 const inputLabelStyles = {
-    'position': 'relative',
-    'top': '10px',
+    position: 'relative',
+    top: '10px',
+    fontSize: '14px'
+    // backgroundColor: '#ffffff'
 }
 const outlinedInputStyles = {
-    'width': '30vw',
-    'height': '6vh',
+    width: '30vw',
+    height: '6vh',
+    backgroundColor: 'white',
+    fontSize: '14px'
+
 
 }
+
 
 
 export default function FormComponent() {
@@ -104,9 +116,11 @@ export default function FormComponent() {
                     </div>
                 </div>
                 <div className='upload-imgs-container'>
-                    <div className='as-save-btn'>Save</div>
+
                     <UploadImages />
                 </div>
+                <div className='as-save-btn'>Save</div>
+
             </div>
         </Fragment>
     );

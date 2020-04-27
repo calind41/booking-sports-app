@@ -1,6 +1,6 @@
 .sports-cards-wrapper {
     position: absolute;
-    left: 21vw;
+    left: 19vw;
     top: 26vh;
     height: 64vh;
     display: flex;
@@ -9,6 +9,11 @@
 }
 #pagination-component3 {
     position: absolute;
-    left: 21vw;
-    bottom: 2vh;
+    left: 18.8vw;
+    bottom: 3vh;
+}
+.search-bar-container {
+    position: relative;
+    right: 6.1vw;
+    bottom: .45vh;
 }

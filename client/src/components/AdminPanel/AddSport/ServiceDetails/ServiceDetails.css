@@ -1,7 +1,7 @@
 
 .srv-det-container {
   position: relative;
-  top: 20px;
+  top: 14px;
   width: 41vw;
   height: 34vh;
   display: flex;
@@ -11,6 +11,7 @@
 .format-example {
   height: 5vh;
   width: 18vw;
+  margin-top: 10px;
 }
 .format-example span {
   font-weight: bold;
@@ -20,18 +21,19 @@
 }
 .todoListMain {
   overflow: auto;
-  width: 23vw;
-  height: 30vh;
+  width: 30vw;
+  height: 32vh;
 }
 
 
 .todoListMain .header input {
     padding: 10px;
     font-size: 16px;
-    border: 2px solid #FFF;
-    width: 16vw;
-    background-color: #e2e2e2;
+    width: 23vw;
+    background-color: #ffffff;
     box-sizing: border-box;
+    position: fixed;
+    z-index: 10;
   }
   .todoListMain .header button {
     padding: 10px;
@@ -41,6 +43,11 @@
     background-color: #0066FF;
     color: #FFF;
     border: 2px solid #0066FF;
+    position: fixed;
+    z-index: 10;
+    left: 42vw;
+    top: calc(62.8vh - 6px);
+    width: 6.3vw;
   }
   .todoListMain .header button:hover {
     background-color: #003399;
@@ -51,6 +58,8 @@
     list-style: none;
     padding-left: 0;
     width: 250px;
+    position: relative;
+    top: 5vh;
   } 
   .todoListMain .theList li {
     color: #ffffff;
@@ -58,6 +67,10 @@
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 5px;
+    width: 21vw;
+    word-wrap: break-word;
+    max-height:40vh;
+    
    
     transition: background-color .2s ease-out;
   }

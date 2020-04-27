@@ -35,8 +35,10 @@ export default function Customers() {
     return (
         <div>
             <SidebarMenu name='Admin Panel' />
-            <Navigation dashboard='admin' location="Remove Sport" />
-            <SearchBar width='1000px' />
+            <Navigation dashboard='admin' location="Customers" />
+            <div className='customers-searchbar'>
+                <SearchBar width='980px' />
+            </div>
             <div className='user-cards-wrapper'>
                 {
                     users === [] || users[0] === null ? null : users.map((user, idx) => {

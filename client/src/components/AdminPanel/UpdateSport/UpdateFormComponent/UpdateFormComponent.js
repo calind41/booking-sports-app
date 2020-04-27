@@ -34,28 +34,36 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const formStyles = {
-    'position': 'absolute',
-    'top': '20vh',
-    'left': '20vw',
-    'width': '30vw'
+    position: 'absolute',
+    top: '10.6vh',
+    left: '18.4vw',
+    width: '30vw',
 }
 const textareastyles = {
-    'width': '29vw',
-    'resize': 'none',
-    'padding-left': '12px'
+    position: 'relative',
+    top: '2vh',
+    width: '29vw',
+    resize: 'none',
+    paddingLeft: '12px',
+    paddingTop: '10px',
+    fontSize: '14px',
+    height: '10vh'
 }
 const inputLabelStyles = {
-    'position': 'relative',
-    'top': '10px',
+    position: 'relative',
+    top: '10px',
+    fontSize: '14px'
 }
 const outlinedInputStyles = {
-    'width': '30vw',
-    'height': '6vh',
+    width: '30vw',
+    height: '6vh',
+    backgroundColor: 'white',
+    fontSize: '14px'
 
 }
 
 
-export default function FormComponent() {
+export default function UpdateFormComponent() {
     const [name, setName] = React.useState('defaultValue');
     const [name2, setName2] = React.useState('defaultValue2');
     const [name3, setName3] = React.useState('defaultValue3');
@@ -117,18 +125,19 @@ export default function FormComponent() {
                     </form>
 
                     <div className='service-containrr'>
-                        <div>
-                            <ServiceDetails items={items} />
+                        <div className='update-service-container'>
+                            <ServiceDetails addBtnClass='update-component-add-service' items={items} />
                         </div>
                     </div>
                 </div>
                 <div className='update-upload-imgs-container'>
-                    <div className='as-save-btn'>Update</div>
                     <UploadImages />
                 </div>
                 <div id='g-gallery'>
                     <GridGallery />
                 </div>
+                <div className='us-save-btn'>Update</div>
+
             </div>
         </Fragment>
     );
