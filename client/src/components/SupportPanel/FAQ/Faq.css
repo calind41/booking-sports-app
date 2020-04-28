@@ -11,7 +11,8 @@
 }
 .faq-wrapper > div:nth-child(1) {
     position: relative;
-    top: 3vh;
+    top: -1.34vh;
+    width: 10vw;
 }
 
 .faq-wrapper > div:nth-child(2) {
@@ -20,10 +21,21 @@
     height: 64vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+}
+.faq-wrapper > div:nth-child(1) > div:nth-child(1) {
+    position: relative;
+    left: 9vw;
+    bottom: .2vh;
 }
 .faq-wrapper > div:nth-child(1) > div:nth-child(2) {
     position: relative;
-    bottom: 19.5vh;
-    right: 14vw;
+    bottom: 19.8vh;
+    right: 4.5vw;
+}
+#pagination-component5 {
+position: relative;
+top: 90vh;
+left: 18.65vw;
+width: 41vw;
 }

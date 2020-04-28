@@ -37,7 +37,7 @@ export default function SidebarMenu({ name, faq }) {
                     <span className='li-my-acct li-txt'>My Account</span>
                 </li>
                 {
-                    faq === true ? <Link style={{ textDecoration: 'none', color: '#000000' }} to='/supportFaq'><li className='faq-li'>
+                    faq === true ? <Link style={{ textDecoration: 'none', }} to='/supportFaq'><li className='faq-li'>
                         <i class="fas fa-question"></i>
                         <span className='li-faq- li-txt'>FAQ</span>
                     </li></Link> : null

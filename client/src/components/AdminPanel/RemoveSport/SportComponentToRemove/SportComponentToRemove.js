@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -17,14 +17,21 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function SportComponentToRemove() {
+
+
+export default function SportComponentToRemove({ index, setSelectedItemState, setUnselectedItemState, nrSports }) {
     const classes = useStyles();
 
     const [checked, setChecked] = React.useState(false);
 
+    useEffect(() => {
+        setChecked(false);
+    }, [nrSports])
+
     const handleChange = event => {
         console.log(event.target);
         setChecked(event.target.checked);
+        event.target.checked ? setSelectedItemState(index) : setUnselectedItemState(index)
     };
 
     return (

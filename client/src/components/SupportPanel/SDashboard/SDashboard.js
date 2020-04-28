@@ -106,7 +106,7 @@ export default function SDashboard() {
                 </div>
             </div>
             <Pagination
-                id='pagination-component3'
+                id='pagination-component34'
                 page={pageNr}
                 onChange={(event, page) => { changePage(page) }}
                 count={Math.ceil(nrMessages / 4)}

@@ -62,15 +62,27 @@
 .sbm-container ul li .material-icons,
 .sbm-container ul li i {
     font-size: 23px;
-    color: #C0C0C0;
     position: relative;
     right: 2.5rem;
+    color: #056CF2 !important;
+
+}
+.sbm-container ul li:hover .material-icons,
+.sbm-container ul li:hover i {
+    color: rgb(11, 65, 136) !important;
 }
 .sbm-container ul li .li-txt {
     color: #c0c0c0;
     position: relative;
     right: 5rem;
     font-size: 14px;
+    color: #056CF2 !important;
+    /* font-weight: bold; */
+
+}
+.sbm-container ul li:hover .li-txt {
+    color: rgb(11, 65, 136) !important;
+
 }
 
 .sbm-container ul li:first-child span{
@@ -82,22 +94,33 @@
 .li-my-acct {
     right: 4.68rem !important;
     font-size: 14px !important;
+    color: #056CF2 !important;
+
 }
 .li-so {
     right: 5.8rem !important;
-    color: #c0c0c0 !important;
+    /* color: #c0c0c0 !important; */
+    color: #056CF2 !important;
+
     font-size: 14px !important;
 }
 
 
 .faq-li i {
-    margin-right: 50px;    
+    margin-right: 50px;
+    color: #056CF2 !important;
+    /* color: '#c0c0c0'     */
+    /* color: red !important; */
 
 }
 .faq-li span {
     position: relative;
     left: -8.2vw;
     display: inline-block;
-    color: #c0c0c0 !important;
+    display: inline-block;
+    /* color: red !important; */
+    /* color: #c0c0c0; */
+    color: #056CF2 !important;
+
 
 }

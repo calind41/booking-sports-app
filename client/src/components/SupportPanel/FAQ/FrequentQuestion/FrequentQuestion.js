@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './FrequentQuestion.css'
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -69,13 +69,18 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function FrequentQuestion() {
+export default function FrequentQuestion({ index, setSelectedItemState, setUnselectedItemState, initialChecked, nrQuestions }) {
 
 
     const [checked, setChecked] = React.useState(false);
 
+    useEffect(() => {
+        setChecked(false);
+    }, [nrQuestions])
+
     const handleChange = event => {
         setChecked(event.target.checked);
+        event.target.checked ? setSelectedItemState(index) : setUnselectedItemState(index)
     };
 
     // modal setup

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, Fragment } from 'react'
+import { useHistory } from "react-router-dom";
 import { Link } from 'react-router-dom'
 
 import Logo from './Logo/Logo';
@@ -25,18 +26,22 @@ export default function Navbar({ searchBar }) {
         // right: searchBar === 'none' ? '-7.1vw !important' : '9vw'
         left: searchBar === 'none' ? '-7.1vw' : '-9.1vw'
     }
+    const history = useHistory()
 
     const toggleSignOutDropdown = () => {
         let elem = document.querySelector('.sign-out-dropdown');
-        if (elem.style.display !== 'none')
-            elem.style.display = 'none';
-        else
+        console.log(elem.style.display);
+
+        if (elem.style.display === 'none' || elem.style.display === '')
             elem.style.display = 'block';
+        else
+            elem.style.display = 'none';
     }
     const [loggedIn, setLoggedIn] = useState(false);
     const handleSignOut = () => {
         localStorage.setItem('userLoggedIn', false);
         setLoggedIn(false);
+        history.push('/');
     }
 
     useEffect(() => {
@@ -75,10 +80,10 @@ export default function Navbar({ searchBar }) {
                                 <div className='contact-btn-container'>
                                     <button>Contact</button>
                                 </div>
-                                <div className='username-and-logout-container'>
+                                <div onClick={toggleSignOutDropdown} className='username-and-logout-container'>
                                     <i class="fas fa-user-circle"></i>
                                     <div>Calin Dodon</div>
-                                    <i onClick={toggleSignOutDropdown} id='arr-d-icon' class="fas fa-sort-down"></i>
+                                    <i id='arr-d-icon' class="fas fa-sort-down"></i>
                                 </div>
                                 <div className='sign-out-dropdown'>
                                     <i class="fas fa-sort-up"></i>

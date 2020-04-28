@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+
 import SidebarMenu from '../../AdminPanel/Dashboard/SidebarMenu/SidebarMenu'
 import Navigation from '../../AdminPanel/Dashboard/Navigation/Navigation'
 
@@ -14,11 +16,33 @@ import Pagination from '@material-ui/lab/Pagination';
 
 export default function Faq() {
 
-    const [questions, setQuestions] = useState([1, 2, 3, 4, 5, 6, 1, 2, 1, 1, 1, 1, 1,]);
+    const [questions, setQuestions] = useState([]);
+    const [selectedState, setSelectedState] = useState([]);
+
 
     const [pageNr, setPageNr] = useState(1);
     const [index, setIndex] = useState(0);
     const nrQuestions = questions.length;
+
+    useEffect(() => {
+
+        const getQuestions = async () => {
+            const res = await axios.get('http://localhost:5000/questions');
+
+            // import dynamically the images ?
+            // let imgs = require.context('../../imgs', true);
+            // res.data.map((r) => {
+            //     r.image = imgs('./' + r.image);
+            // });
+            // setPastReservations(res.data.sort((item1, item2) => item2.selectedDateOption - item1.selectedDateOption));
+            setQuestions(res.data.questions);
+            let selState = [];
+            res.data.questions.map(() => selState.push(false))
+            setSelectedState(selState);
+            console.log(res.data);
+        }
+        getQuestions();
+    }, [])
 
 
     const changePage = (page) => {
@@ -26,6 +50,26 @@ export default function Faq() {
         setIndex(page * 4 - 4);
         // display from array of products: prodArr[idx, idx+8]
 
+    }
+
+    const setSelectedItemState = (index) => {
+        selectedState.map((item, idx) => { if (index === idx) selectedState[idx] = true })
+        setSelectedState(selectedState)
+    }
+    const setUnselectedItemState = (index) => {
+        selectedState.map((item, idx) => { if (index === idx) selectedState[idx] = false })
+        setSelectedState(selectedState)
+    }
+
+
+    const deleteFAQs = () => {
+        let delIdx = [];
+        let cpy = [...questions];
+        let afterDelArr = cpy.filter((item, idx) => { if (selectedState[idx]) delIdx.push(idx); return !selectedState[idx] })
+
+        delIdx.map((item) => selectedState.splice(item, 1));
+        setSelectedState(selectedState);
+        setQuestions(afterDelArr);
     }
 
     return (
@@ -36,7 +80,7 @@ export default function Faq() {
             <div className='faq-wrapper'>
                 <div>
                     <div>
-                        <MessageController />
+                        <MessageController deleteMessages={null} deleteFAQs={deleteFAQs} />
                     </div>
                     <div>
                         <SearchBar width='664px' />
@@ -47,7 +91,13 @@ export default function Faq() {
                         questions === [] || questions[0] === null ? null : questions.map((q, idx) => {
                             return idx >= index && idx <= index + 3 ?
                                 (<div>
-                                    <FrequentQuestion />
+                                    <FrequentQuestion
+                                        index={idx}
+                                        setSelectedItemState={setSelectedItemState}
+                                        setUnselectedItemState={setUnselectedItemState}
+                                        initialChecked={false}
+                                        nrQuestions={questions.length}
+                                    />
                                 </div>) : null
                         })
                     }
@@ -56,7 +106,7 @@ export default function Faq() {
             </div>
             <div>
                 <Pagination
-                    id='pagination-component3'
+                    id='pagination-component5'
                     page={pageNr}
                     onChange={(event, page) => { changePage(page) }}
                     count={Math.ceil(nrQuestions / 4)}

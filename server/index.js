@@ -1,20 +1,43 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+const morgan = require('morgan'); //middleware de logare
+const helmet = require('helmet'); //middleware de securitate
+
+const routes = require('./routes');
+const app = express();
+
 const fs = require('fs');
 const multer = require('multer');
 const upload = multer(); // setting the default
-const bodyParser = require('body-parser');
 
-const cors = require('cors');
-const app = express();
-app.use(cors())
+
+app.use(helmet());
+app.use(morgan(':remote-addr - :remote-user [:date[web]] ":method :url HTTP/:http-version" :status :res[content-length]'));
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
 app.use(upload.array())
-
-
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
-// app.use(express.static('public'))
+
+app.use('/api/v1', routes);
+
+// handler de erori declarat ca middleware
+app.use((err, req, res, next) => {
+    console.trace(err);
+    let status = 500;
+    let message = 'Something Bad Happened';
+    if (err.httpStatus) {
+        status = err.httpStatus;
+        message = err.message;
+    }
+    res.status(status).json({
+        error: message,
+    });
+});
+
+
+
+
 
 
 
@@ -57,177 +80,8 @@ app.post('/upload', (req, res, data) => {
 
 });
 
-const past_res = [];
-app.get('/past_reservations', (req, res) => {
-    res.json(past_res);
-});
 
-app.post('/book', (req, res) => {
-    const {
-        reservation
-    } = req.body;
-    console.log('reservation ', reservation);
-    past_res.push(reservation);
-    res.json({ msg: 'Booked successfully' });
-});
-
-
-app.get('/sport_locations', (req, res) => {
-
-    const data = [{
-        images: ['i1.jpg', 'i2.jpg'],
-        title: 'Coolest Basketball Place',
-        location: 'Bucharest, Sector 5',
-        sport: 'Basketball',
-        format: '40x70m',
-        type: 'Indoor',
-        surface: 'Grass',
-        min_zone_part: '1/2 zone',
-        price: '50$ / 30min',
-        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
-        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
-    },
-    {
-        images: ['i1.jpg', 'i2.jpg'],
-        title: 'Coolest Basketball Place',
-        location: 'Bucharest, Sector 5',
-        sport: 'Basketball',
-        format: '40x70m',
-        type: 'Indoor',
-        surface: 'Grass',
-        min_zone_part: '1/2 zone',
-        price: '50$ / 30min',
-        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
-        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
-    },
-    {
-        images: ['i1.jpg', 'i2.jpg'],
-        title: 'Coolest Basketball Place',
-        location: 'Bucharest, Sector 5',
-        sport: 'Basketball',
-        format: '40x70m',
-        type: 'Indoor',
-        surface: 'Grass',
-        min_zone_part: '1/2 zone',
-        price: '50$ / 30min',
-        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
-        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
-    },
-    {
-        images: ['i1.jpg', 'i2.jpg'],
-        title: 'Coolest Basketball Place',
-        location: 'Bucharest, Sector 5',
-        sport: 'Basketball',
-        format: '40x70m',
-        type: 'Indoor',
-        surface: 'Grass',
-        min_zone_part: '1/2 zone',
-        price: '50$ / 30min',
-        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
-        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
-    }, {
-        images: ['i1.jpg', 'i2.jpg'],
-        title: 'Coolest Basketball Place',
-        location: 'Bucharest, Sector 5',
-        sport: 'Basketball',
-        format: '40x70m',
-        type: 'Indoor',
-        surface: 'Grass',
-        min_zone_part: '1/2 zone',
-        price: '50$ / 30min',
-        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
-        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
-    }, {
-        images: ['i1.jpg', 'i2.jpg'],
-        title: 'Coolest Basketball Place',
-        location: 'Bucharest, Sector 5',
-        sport: 'Basketball',
-        format: '40x70m',
-        type: 'Indoor',
-        surface: 'Grass',
-        min_zone_part: '1/2 zone',
-        price: '50$ / 30min',
-        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
-        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
-    }, {
-        images: ['i1.jpg', 'i2.jpg'],
-        title: 'Coolest Basketball Place',
-        location: 'Bucharest, Sector 5',
-        sport: 'Basketball',
-        format: '40x70m',
-        type: 'Indoor',
-        surface: 'Grass',
-        min_zone_part: '1/2 zone',
-        price: '50$ / 30min',
-        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
-        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
-    }, {
-        images: ['i1.jpg', 'i2.jpg'],
-        title: 'Coolest Basketball Place',
-        location: 'Bucharest, Sector 5',
-        sport: 'Basketball',
-        format: '40x70m',
-        type: 'Indoor',
-        surface: 'Grass',
-        min_zone_part: '1/2 zone',
-        price: '50$ / 30min',
-        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
-        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
-    }, {
-        images: ['i1.jpg', 'i2.jpg'],
-        title: 'Coolest Basketball Place',
-        location: 'Bucharest, Sector 5',
-        sport: 'Basketball',
-        format: '40x70m',
-        type: 'Indoor',
-        surface: 'Grass',
-        min_zone_part: '1/2 zone',
-        price: '50$ / 30min',
-        serviceOptions: ['1 court 60min,41$', '1 court 30min,41$', '1 court 90min,41$', '1 court 120min,41$'],
-        availableTimes: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00']
-    }]
-    res.json(data);
-})
-
-app.get('/messages', (req, res) => {
-    res.json({ messages: ['title 1', 'title 2', 'title 3', 'title 4', 'title 5'] })
-})
-
-
-const users = [];
-
-app.post('/register', (req, res) => {
-    const {
-        data
-    } = req.body;
-    console.log(data);
-    users.push(data);
-    res.json('register success');
-});
-
-app.post('/login', (req, res) => {
-    const {
-        data
-    } = req.body;
-    let userExists = false;
-    users.map((user) => {
-        if (data.username) {
-            if (data.username === user.username && data.password === user.password)
-                userExists = true;
-        }
-        if (data.email) {
-            if (data.email === user.email && data.password === user.password)
-                userExists = true;
-        }
-    });
-
-    res.json(userExists);
-})
-
-
-
-
-
-app.listen(5000, () => {
-    console.log(`App is listening on 5000`);
+const PORT = 5000;
+app.listen(PORT, () => {
+    console.log(`App is listening on ${PORT}`);
 })
