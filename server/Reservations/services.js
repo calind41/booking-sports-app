@@ -4,6 +4,7 @@ const add = async (
     userId, title, sport, location, selectedServiceOption, selectedHour, image, price, date, available, canceled
 ) => {
     const reservation = new Reservation({
+        userId,
         title,
         sport,
         location,
@@ -15,59 +16,41 @@ const add = async (
         available,
         canceled
     });
-    console.log('here');
-    console.log('wtf2 ', userId,
-        title,
-        sport,
-        location,
-        selectedServiceOption,
-        selectedHour,
-        image,
-        price,
-        date,
-        available,
-        canceled)
-    await reservation.save();
-    console.log('here after .save');
 
+    await reservation.save();
+    // update user's reservations field
     await User.findByIdAndUpdate(userId, { $push: { "reservations": reservation } }, { safe: true, upsert: true });
 
 };
 
-// const getAll = async () => {
-//     return await Product.find();
-// }
+const getAll = async () => {
+    return await Reservation.find();
+}
 
-// const getById = async (id) => {
-//     return await Product.findById(id);
-// }
-// const getByCategory = async (category) => {
-//     return await Product.find({ categorie: category });
-// }
+const getById = async (id) => {
+    return await Reservation.findById(id);
+}
 
-// const updateById = async (id, {
-//     nume,
-//     pret,
-//     descriere,
-//     poze,
-//     numeBrand,
-//     categorie,
-//     livrare_timpi,
-//     lista_atribute,
-//     metode_livrari
-// }) => {
-//     await Product.findByIdAndUpdate(id, { nume, pret, descriere, poze, numeBrand, categorie, livrare_timpi, lista_atribute, metode_livrari });
-// }
+const getByUserId = async (id) => {
+    return await Reservation.find({ userId: id });
+}
 
-// const deleteById = async (id) => {
-//     await Product.findByIdAndDelete(id);
-// }
+const updateById = async (id) => {
+    await Reservation.findByIdAndUpdate(id, { canceled: true });
+}
+
+
+// Site.deleteMany({ userUID: uid, id: { $in: [10, 2, 3, 5]}}, function(err) {})
+
+const deleteByIds = async (ids) => {
+    await Reservation.deleteMany({ _id: ids })
+}
 module.exports = {
     add,
-    // getAll,
-    // getById,
-    // getByCategory,
-    // updateById,
-    // deleteById,
+    getAll,
+    getById,
+    getByUserId,
+    updateById,
+    deleteByIds,
 }
 

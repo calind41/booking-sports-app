@@ -7,16 +7,17 @@ import axios from 'axios'
 
 export default function UploadImages() {
 
-    const base64dataImages = [];
+    let base64dataImages = [];
 
     // specify upload params and url for your files
     const getUploadParams = ({ file, meta }) => {
-
+        console.log(file);
+        console.log('meta name ----- ', meta.name);
         let reader = new FileReader();
         reader.readAsDataURL(file);
         reader.onloadend = function () {
-            var base64data = reader.result;
-            base64dataImages.push(base64data);
+            var base64Data = reader.result;
+            base64dataImages.push({ base64Data, name: meta.name });
         }
         return { url: 'https://httpbin.org/post' }
     }
@@ -25,8 +26,33 @@ export default function UploadImages() {
     const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) }
 
     // receives array of files that are done uploading when submit button is clicked
-    const handleSubmit = (files, allFiles) => {
-        axios.post('http://localhost:5000/upload', { base64dataImages })
+    const handleSubmit = async (files, allFiles) => {
+        // title,
+        // sport,
+        // location,
+        // sportOptions,
+        // base64dataImages,
+        // inventory
+        const title = 'cool title55';
+        const sport = 'funny sport';
+        const location = 'random location';
+        const sportOptions = [{
+            serviceOption: 'optione uno',
+            availableHours: ['09:00', '10:00', '12:00']
+        }];
+        const inventory = 'nice inventory bro!';
+
+        const data = {
+            title,
+            sport,
+            location,
+            sportOptions,
+            base64dataImages,
+            inventory
+        }
+
+        await axios.post('http://localhost:5000/api/v1/sportLocations/', data)
+        base64dataImages = []
         allFiles.forEach(f => f.remove());
     }
     return (

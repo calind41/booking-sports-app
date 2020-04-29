@@ -15,7 +15,7 @@ const SportLocationSchema = new Schema({
         type: String,
         required: true
     },
-    sportOptions: [{
+    sportOpts: [{
         type: Schema.Types.ObjectId,
         ref: 'sportOptions'
     }],

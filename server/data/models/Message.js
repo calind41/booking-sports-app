@@ -15,6 +15,17 @@ const MessageSchema = new Schema({
         type: Boolean,
         required: true
     },
+    alreadyRead: {
+        type: Boolean,
+        required: true
+    },
+    alreadyResponded: {
+        type: Boolean,
+        required: true
+    },
+    response: {
+        type: String,
+    },
     firstName: {
         type: String
     },

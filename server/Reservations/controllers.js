@@ -21,17 +21,7 @@ router.post('/', async (req, res, next) => {
         available,
         canceled
     } = req.body;
-    console.log('wtf ', userId,
-        title,
-        sport,
-        location,
-        selectedServiceOption,
-        selectedHour,
-        image,
-        price,
-        date,
-        available,
-        canceled)
+
     try {
         await ReservationsService.add(userId, title, sport, location, selectedServiceOption, selectedHour, image, price, date, available, canceled);
 
@@ -41,77 +31,53 @@ router.post('/', async (req, res, next) => {
     }
 });
 
+// get all reservations
 router.get('/', async (req, res, next) => {
     try {
-        const products = await ProductsService.getAll();
-        res.json(products);
+        const reservations = await ReservationsService.getAll();
+        res.json(reservations);
     } catch (err) {
         console.error(err.message);
     }
 });
 
+// get reservation by ID
 router.get('/:id', async (req, res, next) => {
     const {
         id
     } = req.params;
     try {
-        const product = await ProductsService.getById(id);
-        res.json(product);
+        const reservation = await ReservationsService.getById(id);
+        res.json(reservation);
     } catch (err) {
         console.error(err.message);
     }
 });
 
-router.get('/category/:category', async (req, res, next) => {
+// get reservations by user's ID
+router.get('/user/:id', async (req, res, next) => {
     const {
-        category
+        id
     } = req.params;
     try {
-        let products;
-        if (category === 'toate') {
-            products = await ProductsService.getAll();
-        } else {
-            products = await ProductsService.getByCategory(category);
-        }
 
-        res.json(products);
-    } catch (err) {
-        console.error(err.message);
-    }
-})
+        const reservations = await ReservationsService.getByUserId(id);
 
-router.get('/brandList/:category', async (req, res, next) => {
-    const {
-        category
-    } = req.params;
-    console.log('route called');
-    console.log(' categ ', category);
-    try {
-        let brandsList = [];
-        switch (category) {
-            case 'laptop': brandsList = ['Acer', 'Apple', 'Asus', 'Dell']; break;
-            case 'smartphone': brandsList = ['Apple', 'Huawei', 'Samsung', 'Xiaomi']; break;
-            case 'smartwatch': brandsList = ['Apple', 'Cronos', 'Fitbit', 'Huawei']; break;
-            case 'tableta': brandsList = ['Apple', 'Huawei', 'Lenovo', 'Samsung']; break;
-            case 'televizor': brandsList = ['LG', 'Philips', 'Samsung', 'Sony']; break;
-            case 'toate': brandsList = ['Acer', 'Apple', 'Asus', 'Dell', 'Huawei', 'Samsung', 'Xiaomi', 'Cronos', 'Fitbit', 'Lenovo', 'LG', 'Philips', 'Sony']
-            default:
-        }
-        res.json(brandsList);
+        res.json(reservations);
     } catch (err) {
         console.error(err.message);
     }
 })
 
 
-
+// Update the reservation : cancel  the reservation
 router.put('/:id', async (req, res, next) => {
     const {
         id
     } = req.params;
 
     try {
-        await ProductsService.updateById(id, req.body);
+        await ReservationsService.updateById(id);
         res.status(204).end();
     } catch (err) {
         console.error(err);
@@ -119,13 +85,14 @@ router.put('/:id', async (req, res, next) => {
 
 })
 
-router.delete('/:id', async (req, res, next) => {
+// delete reservations by id using an array of ids
+router.delete('/deleteRes', async (req, res, next) => {
     const {
-        id
-    } = req.params;
+        ids
+    } = req.body;
 
     try {
-        await ProductsService.deleteById(id);
+        await ReservationsService.deleteByIds(ids);
         res.status(204).end();
     } catch (err) {
         console.error(err.message);

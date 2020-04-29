@@ -3,6 +3,10 @@ const Schema = mongoose.Schema;
 
 // Create Schema 
 const ReservationSchema = new Schema({
+    userId: {
+        type: String,
+        required: true
+    },
     title: {
         type: String,
         required: true
@@ -28,19 +32,19 @@ const ReservationSchema = new Schema({
         required: true
     },
     price: {
-        type: String,
+        type: Number,
         required: true
     },
     date: {
-        type: String,
+        type: Date,
         required: true
     },
     available: {
-        type: String,
+        type: Boolean,
         required: true
     },
     canceled: {
-        type: String,
+        type: Boolean,
         required: true
     }
 }, { timestamps: true })

@@ -16,14 +16,14 @@ const url = 'mongodb+srv://admin_user:admin_password@maincluster-hrl95.mongodb.n
 
 const User = require('./models/User');
 const Reservation = require('./models/Reservation');
-// const SportLocation = require('./models/SportLocation');
-// const SportOption = require('./models/SportOption');
-// const Message = require('./models/Message');
+const SportLocation = require('./models/SportLocation');
+const SportOption = require('./models/SportOption');
+const Message = require('./models/Message');
 
 module.exports = {
     User,
-    // SportLocation,
-    // SportOption,
+    SportLocation,
+    SportOption,
     Reservation,
-    // Message
+    Message
 };
