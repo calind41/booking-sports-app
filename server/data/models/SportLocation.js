@@ -15,6 +15,10 @@ const SportLocationSchema = new Schema({
         type: String,
         required: true
     },
+    district: {
+        type: Number,
+        required: true
+    },
     sportOpts: [{
         type: Schema.Types.ObjectId,
         ref: 'sportOptions'

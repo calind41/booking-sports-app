@@ -37,34 +37,55 @@ export default class ServiceDetails extends React.Component {
     }
 
     deleteItem(key) {
-        let filteredItems = this.state.items.filter((item) => {
+        let sdetails = JSON.parse(localStorage.getItem('serviceDetails'));
+        let filteredItems = sdetails.filter((item) => {
             return (item.key !== key);
         });
 
+        localStorage.setItem('serviceDetails', JSON.stringify(filteredItems));
         this.setState({
             items: filteredItems
         });
     }
 
+
     addItem(e) {
-        if (this._inputElement.value !== "") {
-            let newItem = {
-                text: this._inputElement.value,
-                key: Date.now()
-            };
+        try {
 
-            this.setState((prevState) => {
-                return {
-                    items: prevState.items.concat(newItem)
+
+            if (this._inputElement.value !== "") {
+                let newItem = {
+                    text: this._inputElement.value,
+                    key: Date.now()
                 };
-            });
 
-            this._inputElement.value = "";
+                this.setState((prevState) => {
+                    return {
+                        items: prevState.items.concat(newItem)
+                    };
+                });
+
+
+                if (localStorage.getItem('serviceDetails') === null) {
+                    let arr = [];
+                    arr.push(newItem);
+                    console.log(arr);
+                    localStorage.setItem('serviceDetails', JSON.stringify(arr));
+                } else {
+                    let old = JSON.parse(localStorage.getItem('serviceDetails'));
+                    let newArr = [...old];
+                    newArr.push(newItem);
+                    console.log(newArr);
+
+                    localStorage.setItem('serviceDetails', JSON.stringify(newArr));
+                }
+                this._inputElement.value = "";
+            }
+
+            e.preventDefault();
+        } catch (err) {
+            alert(err);
         }
-
-        console.log(this.state.items);
-
-        e.preventDefault();
     }
 
     render() {

@@ -10,13 +10,20 @@ export default class LandingPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            bgImage: 'swimming-bg'
+            bgImage: 'swimming-bg',
+            selectedSport: 'swimming'
         }
         this.changeBackgroundImg = this.changeBackgroundImg.bind(this)
     }
+    componentDidMount() {
+        if (localStorage.getItem('selectedSport') !== null)
+            localStorage.removeItem('selectedSport');
+        if (localStorage.getItem('selectedSector') !== null)
+            localStorage.removeItem('selectedSector');
+    }
     changeBackgroundImg(name) {
-        this.setState(() => { return { bgImage: name } });
-        console.log('changed');
+
+        this.setState(() => { return { bgImage: name, selectedSport: name.split('-')[0] } });
     }
 
     render() {
@@ -41,7 +48,7 @@ export default class LandingPage extends React.Component {
                 </div>
 
                 <Header />
-                <SearchContainer />
+                <SearchContainer selectedSport={this.state.selectedSport} />
                 <SportCategories changeBackgroundImg={this.changeBackgroundImg} />
             </div>
         )

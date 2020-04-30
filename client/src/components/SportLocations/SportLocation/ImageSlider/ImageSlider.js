@@ -23,10 +23,10 @@ export default function ImageSlider({ images, width, height }) {
     }
 
     // import dynamically the images ?
-    let imgs = require.context('../../../../imgs', true);
+    let imgs = require.context('../../../../../../server', true);
     let imageArr = [];
     images.map((image) => {
-        let im = imgs('./' + image);
+        let im = imgs('' + image);
         imageArr.push(im)
     });
 

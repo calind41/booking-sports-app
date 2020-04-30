@@ -9,6 +9,7 @@
     left: 29.5vw;
     bottom: 86vh; */
     cursor: pointer;
+    background-color: #ffffff;
 }
 .msg-controller-container .refresh-icon {
     border-right: 1px solid #a4abb4;

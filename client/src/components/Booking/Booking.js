@@ -39,11 +39,22 @@ export default class Booking extends Component {
     }
 
     render() {
-        const { title, location, sport, images, serviceOptions, availableTimes, format, type, surface, facilities } = this.props.location.state
-        console.log(title);
-        console.log(location);
-        console.log(serviceOptions);
-        console.log(availableTimes);
+        const { title,
+            location,
+            district,
+            sport,
+            images,
+            sportOpts,
+            inventory } = this.props.location.state
+
+        console.log('title ', title);
+        console.log('location ', location);
+        console.log('district ', district);
+        console.log('sport ', sport);
+        console.log('images ', images);
+        console.log('sportOpts ', sportOpts);
+        console.log('inventory ', inventory);
+
         return (
             <div className='booking-container'>
                 <Navbar searchBar='none' />
@@ -52,12 +63,12 @@ export default class Booking extends Component {
                         <ImageSlider images={images} width='42vw' height='50vh' />
                     </div>
                     <div>
-                        <ServiceList handleClickServiceOption={this.handleClickServiceOption} serviceOptions={serviceOptions} />
+                        <ServiceList handleClickServiceOption={this.handleClickServiceOption} sportOpts={sportOpts} />
                     </div>
                 </div>
                 <div className='lower-part'>
                     <div>
-                        <LocationInfo facilities={facilities} surface={surface} type={type} />
+                        <LocationInfo inventory={inventory} />
                     </div>
                     <div className='custom-calendar'>
                         <div>
@@ -65,7 +76,7 @@ export default class Booking extends Component {
                         </div>
                         <div className='time-options'>
                             {
-                                availableTimes.map((time, index) => {
+                                sportOpts[this.state.selectedServiceOption].availableHours.map((time, index) => {
                                     return index === this.state.selectedTimeOption ?
                                         <div><TimeOption handleClickTimeOption={this.handleClickTimeOption} index={index} bgColor='#f98442' color='white' time={time} /></div>
                                         :
@@ -78,8 +89,8 @@ export default class Booking extends Component {
                 </div>
                 <div className='bookModal-container'>
                     <BookModal
-                        selectedTimeOption={availableTimes[this.state.selectedTimeOption]}
-                        selectedServiceOption={serviceOptions[this.state.selectedServiceOption]}
+                        selectedTimeOption={sportOpts[this.state.selectedServiceOption].availableHours[this.state.selectedTimeOption]}
+                        selectedServiceOption={sportOpts[this.state.selectedServiceOption].serviceOption}
                         selectedDateOption={this.state.selectedDateOption}
                         image={images[0]}
                     />

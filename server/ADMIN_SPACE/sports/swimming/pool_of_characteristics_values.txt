@@ -1,0 +1,26 @@
+serviceOption: 'pool for kids xmin, x$', 'pool for adults xmin x$'
+inventory: [
+{
+title: 'format',
+value: '40x70m','20x80m',...
+},
+{
+title: 'surface',
+value: 'water'
+},
+{
+title: 'type',
+value: 'indoor', 'outdoor'
+},
+{
+title: 'price',
+value:  substr(serviceOption)
+},
+{
+title: 'heights',
+value: '1m', '2m','3m'...
+},
+{
+title: 'facilities',
+value: 'all, parking,fieldlighting,toilets,cantine,showers'
+}

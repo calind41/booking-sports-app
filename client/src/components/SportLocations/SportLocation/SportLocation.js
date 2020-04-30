@@ -7,13 +7,13 @@ import SportAction from './SportAction/SportAction';
 import './SportLocation.css'
 
 export default function SportLocation({ data }) {
-    const { images, title, location, sport, format, type, surface, min_zone_part, price, serviceOptions, availableTimes } = data;
+    const { images, title, location, district, sport, sportOpts, inventory } = data;
 
     return (
         <div className='sport-location'>
             <ImageSlider images={images} />
-            <SportDescription title={title} location={location} sport={sport} format={format} type={type} surface={surface} min_zone_part={min_zone_part} price={price} />
-            <SportAction serviceOptions={serviceOptions} availableTimes={availableTimes} images={images} title={title} location={location} sport={sport} format={format} type={type} surface={surface} min_zone_part={min_zone_part} price={price} />
+            <SportDescription title={title} location={location} sport={sport} inventory={inventory} />
+            <SportAction sportOpts={sportOpts} images={images} title={title} location={location} district={district} sport={sport} inventory={inventory} />
         </div>
     )
 }

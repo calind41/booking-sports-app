@@ -1,0 +1,22 @@
+serviceOption: '1 lane for xmin, x$', '2 lane for xmin x$'
+inventory: [
+{
+title: 'format',
+value: '2 lanes', '5 lanes', '7 lanes'...
+},
+{
+title: 'surface',
+value: 'any', 'wooden','rubber'
+},
+{
+title: 'type',
+value: 'indoor'
+},
+{
+title: 'price',
+value:  substr(serviceOption)
+},
+{
+title: 'facilities',
+value: 'all, parking,fieldlighting,toilets,cantine,bowling shoes, snack bar'
+}

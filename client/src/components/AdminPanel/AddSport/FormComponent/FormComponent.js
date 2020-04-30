@@ -70,7 +70,9 @@ export default function FormComponent() {
     const [name, setName] = React.useState('');
     const [name2, setName2] = React.useState('');
     const [name3, setName3] = React.useState('');
+    const [name4, setName4] = React.useState('');
     const classes = useStyles();
+    const [serviceDetails, setServiceDetails] = useState([]);
 
     const handleChange = event => {
         setName(event.target.value);
@@ -81,6 +83,11 @@ export default function FormComponent() {
     const handleChange3 = event => {
         setName3(event.target.value);
     };
+    const handleChange4 = event => {
+        setName4(event.target.value);
+    }
+
+
 
 
     return (
@@ -106,12 +113,13 @@ export default function FormComponent() {
                             placeholder='Inventory Information '
                             aria-label="maximum height"
                             style={textareastyles}
+                            onChange={handleChange4}
                         />
                     </form>
 
                     <div className='service-containrr'>
                         <div>
-                            <ServiceDetails items={[]} />
+                            <ServiceDetails items={serviceDetails} />
                         </div>
                     </div>
                 </div>

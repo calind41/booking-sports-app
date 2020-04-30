@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    background: #F2F2F2;
+    background: #e9ebee;
     position: relative;
     top: 0.61vh;
 }
@@ -62,7 +62,7 @@
     width: 55vw;
     position: relative;
     /* right: 1vw; */
-    background-color: #F2F2F2;
+    background-color: #e9ebee;
 }
 
 .views div {
@@ -93,7 +93,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 45vh;
-    background-color: #F2F2F2;
+    background-color: #e9ebee;
     cursor: pointer;
 
 }
@@ -114,7 +114,7 @@
     font-size: 14px;
     display: flex;
     justify-content: space-around;
-    background-color: #F2F2F2;
+    background-color: #e9ebee;
     box-sizing: border-box;
 }
 .cards-container div {

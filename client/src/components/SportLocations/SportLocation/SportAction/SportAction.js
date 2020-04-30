@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 import './SportAction.css';
 
-export default function SportAction({ title, location, sport, images, serviceOptions, availableTimes, format, type, surface, facilities }) {
-
+export default function SportAction({ title, location, district, sport, images, sportOpts, inventory }) {
+    // sportOptions={sportOptions} images={images} title={title} location={location} district={district} sport={sport} inventory={inventory}
     const scrollToTop = () => {
         const scrollOptions = {
             top: 0
@@ -14,14 +14,11 @@ export default function SportAction({ title, location, sport, images, serviceOpt
     const data = {
         title,
         location,
+        district,
         sport,
         images,
-        serviceOptions,
-        availableTimes,
-        format,
-        type,
-        surface,
-        facilities
+        sportOpts,
+        inventory
     }
     return (
         <div className='s-a-btns'>

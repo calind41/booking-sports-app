@@ -34,18 +34,20 @@ export default function UploadImages() {
         // base64dataImages,
         // inventory
         const title = 'cool title55';
-        const sport = 'funny sport';
-        const location = 'random location';
+        const sport = 'basketball';
+        const location = 'Bucharest';
         const sportOptions = [{
             serviceOption: 'optione uno',
             availableHours: ['09:00', '10:00', '12:00']
         }];
         const inventory = 'nice inventory bro!';
+        const district = 5;
 
         const data = {
             title,
             sport,
             location,
+            district,
             sportOptions,
             base64dataImages,
             inventory

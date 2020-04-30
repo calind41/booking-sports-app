@@ -51,8 +51,8 @@ export default function BookModal({ selectedTimeOption, selectedServiceOption, s
     }
 
     // import dynamically the images ?
-    let imgs = require.context('../../../imgs', true);
-    let img = imgs('./' + image);
+    let imgs = require.context('../../../../../server', true);
+    let img = imgs('' + image);
 
 
     return (

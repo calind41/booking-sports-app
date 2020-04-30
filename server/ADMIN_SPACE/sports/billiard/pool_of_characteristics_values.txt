@@ -1,0 +1,22 @@
+serviceOption: '1 table for xmin, x$', '2 tables for xmin x$'
+inventory: [
+{
+title: 'format_desk',
+value: '40x70m','20x80m',...
+},
+{
+title: 'table_type',
+value: 'any', 'slate', 'wooden', 'metallic', 'rubber'
+},
+{
+title: 'type',
+value: 'indoor'
+},
+{
+title: 'price',
+value:  substr(serviceOption)
+},
+{
+title: 'facilities',
+value: 'all, parking,fieldlighting,toilets,cantine,showers, standard billiard set'
+}

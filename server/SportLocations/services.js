@@ -4,7 +4,7 @@ const fs = require('fs');
 
 // add a sport location
 const add = async (
-    title, sport, location, sportOptions, base64dataImages, inventory
+    title, sport, location, district, sportOptions, base64dataImages, inventory
 ) => {
 
     let images = [];
@@ -62,6 +62,7 @@ const add = async (
         title,
         sport,
         location,
+        district,
         sportOpts,
         images,
         inventory
@@ -79,8 +80,8 @@ const getById = async (id) => {
     return await SportLocation.findById(id).populate('sportOpts', ['serviceOption', 'availableHours']);
 }
 
-const getBySportType = async (sportType) => {
-    return await SportLocation.find({ sport: sportType });
+const getBySportType = async (sportType, district) => {
+    return await SportLocation.find({ sport: sportType, district: district }).populate('sportOpts', ['serviceOption', 'availableHours']);
 }
 
 
@@ -89,6 +90,7 @@ const updateById = async (
     title,
     sport,
     location,
+    district,
     sportOptions,
     base64dataImages,
     inventory
@@ -150,7 +152,7 @@ const updateById = async (
     });
     sportOpts.map(async (item) => await item.save())
 
-    await SportLocation.findByIdAndUpdate(id, { title, sport, location, sportOpts, images, inventory });
+    await SportLocation.findByIdAndUpdate(id, { title, sport, location, district, sportOpts, images, inventory });
 }
 
 

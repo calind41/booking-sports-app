@@ -5,6 +5,7 @@
     border-radius: 5px;
     cursor: pointer;
     margin-left: 16px;
+    background-color: #ffffff;
 }
 .usercard-wrapper .bg-image  {
     height: 20vh;

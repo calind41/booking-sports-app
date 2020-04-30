@@ -11,6 +11,7 @@ router.post('/', async (req, res, next) => {
         title,
         sport,
         location,
+        district,
         sportOptions,
         base64dataImages,
         inventory
@@ -18,7 +19,7 @@ router.post('/', async (req, res, next) => {
 
 
     try {
-        await sportLocationsService.add(title, sport, location, sportOptions, base64dataImages, inventory);
+        await sportLocationsService.add(title, sport, location, district, sportOptions, base64dataImages, inventory);
 
         res.status(201).end();
     } catch (err) {
@@ -49,21 +50,24 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
-// get reservations by user's ID
-router.get('/sport/:sportType', async (req, res, next) => {
+// get  sportLocations  by sport category from all or a single district
+router.get('/sport/:sportType/:district', async (req, res, next) => {
     const {
-        sportType
+        sportType,
+        district
+
     } = req.params;
+
     try {
 
-        const sportLocations = await sportLocationsService.getBySportType(sportType);
+        // district = 0 -> all districts
+        const sportLocations = await sportLocationsService.getBySportType(sportType, district);
 
         res.json(sportLocations);
     } catch (err) {
         console.error(err.message);
     }
 })
-
 
 // Update the sport location using id
 router.put('/:id', async (req, res, next) => {
@@ -75,13 +79,14 @@ router.put('/:id', async (req, res, next) => {
         title,
         sport,
         location,
+        district,
         sportOptions,
         base64dataImages,
         inventory
     } = req.body;
 
     try {
-        await sportLocationsService.updateById(id, title, sport, location, sportOptions, base64dataImages, inventory);
+        await sportLocationsService.updateById(id, title, sport, location, district, sportOptions, base64dataImages, inventory);
         res.status(204).end();
     } catch (err) {
         console.error(err);

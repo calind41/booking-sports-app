@@ -1,0 +1,26 @@
+serviceOption: '1 court for xmin, x$', '2 courts for xmin x$'
+inventory: [
+{
+title: 'format',
+value: '40x70m','20x80m',...
+},
+{
+title: 'surface',
+value: 'any','ground','asphalt','hardwood','rubber'
+},
+{
+title: 'type',
+value: 'any','indoor', 'outdoor'
+},
+{
+title: 'price',
+value:  substr(serviceOption)
+},
+{
+title: 'hoop_heights',
+value: 'standard', '2m','3m'...
+},
+{
+title: 'facilities',
+value: 'all, parking,fieldlighting,toilets,cantine,showers,basketballs size 5, size 6'
+}

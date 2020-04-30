@@ -12,6 +12,7 @@
     flex-direction: column;
     justify-content: space-between;
     border-radius: 14px;
+    background-color: #ffffff;
 }
 .msg-details-container .date-time {
     position: relative;
