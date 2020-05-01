@@ -89,10 +89,17 @@ export default class Booking extends Component {
                 </div>
                 <div className='bookModal-container'>
                     <BookModal
-                        selectedTimeOption={sportOpts[this.state.selectedServiceOption].availableHours[this.state.selectedTimeOption]}
+                        selectedHour={sportOpts[this.state.selectedServiceOption].availableHours[this.state.selectedTimeOption]}
                         selectedServiceOption={sportOpts[this.state.selectedServiceOption].serviceOption}
                         selectedDateOption={this.state.selectedDateOption}
                         image={images[0]}
+                        title={title}
+                        sport={sport}
+                        location={location}
+                        price={sportOpts[this.state.selectedServiceOption].serviceOption.split(',')[1]}
+                        date={this.state.selectedDateOption.toString().split(' ').filter((s, index) => (index > 0 && index < 4)).join(' ')}
+                        available={'yes'}
+
                     />
                 </div>
             </div>

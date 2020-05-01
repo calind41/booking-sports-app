@@ -67,6 +67,8 @@ export default class GridGallery extends React.Component {
         let result = this.state.images.filter((item, index) => !selected.includes(index))
         console.log(result);
         this.setState({ images: result });
+        console.log('is called');
+        localStorage.setItem('oldImages', JSON.stringify(result));
     }
 
     onClickSelectAll() {
@@ -148,74 +150,4 @@ GridGallery.propTypes = {
         })
     ).isRequired
 };
-
-GridGallery.defaultProps = {
-    images: [
-        {
-            src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
-            thumbnail: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 200,
-            tags: [{ value: "Nature", title: "Nature" }, { value: "Flora", title: "Flora" }],
-            caption: "After Rain (Jeshu John - designerspics.com)"
-        },
-        {
-            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-            thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 200,
-            caption: "Boats (Jeshu John - designerspics.com)"
-        },
-        {
-            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-            thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 200,
-            caption: "Boats (Jeshu John - designerspics.com)"
-        },
-        {
-            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-            thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 200,
-            caption: "Boats (Jeshu John - designerspics.com)"
-        },
-        {
-            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-            thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 200,
-            caption: "Boats (Jeshu John - designerspics.com)"
-        },
-        {
-            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-            thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 200,
-            caption: "Boats (Jeshu John - designerspics.com)"
-        },
-        {
-            src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
-            thumbnail: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 200,
-            caption: "Boats (Jeshu John - designerspics.com)"
-        },
-        {
-            src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
-            thumbnail: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 200,
-            caption: "Color Pencils (Jeshu John - designerspics.com)"
-        },
-        {
-            src: "https://c6.staticflickr.com/9/8890/28897154101_a8f55be225_b.jpg",
-            thumbnail: "https://c6.staticflickr.com/9/8890/28897154101_a8f55be225_n.jpg",
-            thumbnailWidth: 320,
-            thumbnailHeight: 200,
-            caption: "37H (gratispgraphy.com)"
-        }
-    ]
-};
-
 

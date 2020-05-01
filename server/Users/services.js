@@ -59,16 +59,16 @@ const authenticate = async (username, email, password) => {
 }
 
 const getAll = async () => {
-    return await User.find();
+    return await User.find().populate('reservations', ['title', 'sport', 'location', 'selectedServiceOption', 'selectedHour', 'image', 'price', 'date', 'available', 'canceled']);
 }
 
 const getById = async (id) => {
-    return await User.findById(id);
+    return await User.findById(id).populate('reservations', ['title', 'sport', 'location', 'selectedServiceOption', 'selectedHour', 'image', 'price', 'date', 'available', 'canceled']);
 
 }
 
-const updateById = async (id, nr_comenzi) => {
-    await Client.findByIdAndUpdate({ _id: id }, { nr_comenzi: nr_comenzi });
+const updateUserRes = async (id, nrReservations) => {
+    await User.findByIdAndUpdate({ _id: id }, { nrReservations: nrReservations });
 }
 
 module.exports = {
@@ -76,5 +76,5 @@ module.exports = {
     authenticate,
     getAll,
     getById,
-    updateById
+    updateUserRes
 }

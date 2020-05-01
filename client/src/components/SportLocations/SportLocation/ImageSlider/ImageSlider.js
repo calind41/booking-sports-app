@@ -10,11 +10,11 @@ export default function ImageSlider({ images, width, height }) {
     const [x, setX] = useState(0);
 
     const goLeft = () => {
-        (x === 0) ? setX(-100 * (sliderArr.length - 1)) : setX(x + 100);
+        (x === 0) ? setX(-100 * (images.length - 1)) : setX(x + 100);
     }
     const goRight = () => {
 
-        (x === -100 * (sliderArr.length - 1)) ? setX(0) : setX(x - 100);
+        (x === -100 * (images.length - 1)) ? setX(0) : setX(x - 100);
 
     }
     const styleObj = {
@@ -29,6 +29,7 @@ export default function ImageSlider({ images, width, height }) {
         let im = imgs('' + image);
         imageArr.push(im)
     });
+    console.log(images);
 
     return (
         // if width and height are passed as props 

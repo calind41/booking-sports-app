@@ -72,10 +72,11 @@ router.put('/:id', async (req, res, next) => {
         id
     } = req.params;
     const {
-        nr_comenzi
+        nrReservations
     } = req.body;
+    console.log('nr res is ', nrReservations);
     try {
-        await ClientsService.updateById(id, nr_comenzi)
+        await UsersService.updateUserRes(id, nrReservations)
         res.json('client updated');
     } catch (err) {
         console.error(err.message);

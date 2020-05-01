@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import axios from 'axios'
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -57,7 +57,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function UserResModal({ setOpenStateInParentClassToFalse, state, name, title, location, sportType, nrReservations, selectedDateOption, selectedTimeOption, selectedServiceOption, image }) {
+export default function UserResModal({ setOpenStateInParentClassToFalse, state, name, nrReservations, reservations }) {
     const classes = useStyles();
     const history = useHistory();
     const [open, setOpen] = React.useState(false);
@@ -71,15 +71,12 @@ export default function UserResModal({ setOpenStateInParentClassToFalse, state, 
             setOpen(true);
     }, [state])
 
-
     const handleClose = () => {
         setOpen(false);
         setOpenStateInParentClassToFalse();
     };
 
-    // // import dynamically the images ?
-    // let imgs = require.context('../../../imgs', true);
-    // let img = imgs('./' + image);
+    let imgs = require.context('../../../../../../../server', true);
 
 
     return (
@@ -101,17 +98,28 @@ export default function UserResModal({ setOpenStateInParentClassToFalse, state, 
                     <div id='container' className={classes.paper}>
                         <h3 className={classes.headerText} id="transition-modal-title">Reservation History for {name}</h3>
                         <h4 className={classes.nrResH4}>Nr. reservations: {nrReservations}</h4>
-                        <div className={classes.rescontainer} >
-                            <div>
-                                <div><img className={classes.img} src="https://images.unsplash.com/photo-1525914813433-886dc018469d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" /></div>
-                            </div>
-                            <div className={classes.resTextDesc}>
-                                <div><span className={classes.boldText}>Title:</span> {title}</div>
-                                <div><span className={classes.boldText}>Location:</span> {location}</div>
-                                <div><span className={classes.boldText}>Sport:</span> {sportType}</div>
-                                <div><span className={classes.boldText}>Service Option:</span> {selectedServiceOption}</div>
-                                <div><span className={classes.boldText}>Date/Time:</span> {selectedDateOption}/{selectedTimeOption}</div>
-                            </div>
+                        <div className={classes.rescontainer}>
+                            {
+                                reservations.map((reservation) => {
+
+                                    let im = imgs('' + reservation.image);
+                                    return (
+                                        <Fragment>
+                                            <div>
+                                                <div><img className={classes.img} src={im} /></div>
+                                            </div>
+                                            <div className={classes.resTextDesc}>
+                                                <div><span className={classes.boldText}>Title:</span> {reservation.title}</div>
+                                                <div><span className={classes.boldText}>Location:</span> {reservation.location}</div>
+                                                <div><span className={classes.boldText}>Sport:</span> {reservation.sport}</div>
+                                                <div><span className={classes.boldText}>Service Option:</span> {reservation.selectedServiceOption}</div>
+                                                <div><span className={classes.boldText}>Date/Time:</span> {reservation.date}/{reservation.selectedHour}</div>
+                                            </div>
+                                        </Fragment>
+                                    )
+                                })
+                            }
+
 
                         </div>
 

@@ -19,6 +19,9 @@ const SportLocationSchema = new Schema({
         type: Number,
         required: true
     },
+    address: {
+        type: String
+    },
     sportOpts: [{
         type: Schema.Types.ObjectId,
         ref: 'sportOptions'
@@ -26,9 +29,16 @@ const SportLocationSchema = new Schema({
     images: [{
         type: String,
     }],
-    inventory: {
-        type: String,
-    }
+    inventory: [{
+        title: {
+            type: String,
+            required: true
+        },
+        value: {
+            type: String,
+            required: true
+        }
+    }]
 }, { timestamps: true })
 
 

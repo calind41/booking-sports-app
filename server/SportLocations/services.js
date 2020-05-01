@@ -4,7 +4,7 @@ const fs = require('fs');
 
 // add a sport location
 const add = async (
-    title, sport, location, district, sportOptions, base64dataImages, inventory
+    title, sport, location, district, address, sportOptions, base64dataImages, inventory
 ) => {
 
     let images = [];
@@ -63,6 +63,7 @@ const add = async (
         sport,
         location,
         district,
+        address,
         sportOpts,
         images,
         inventory
@@ -91,14 +92,18 @@ const updateById = async (
     sport,
     location,
     district,
+    address,
     sportOptions,
+    oldImages,
     base64dataImages,
     inventory
 ) => {
     // delete from sportLocImgs/ folder images related to sport location identified by id
     const slOld = await SportLocation.findById(id);
     slOld.images.map((item) => {
-        fs.unlink(item, (err) => { if (err) { console.log(err); return; } })
+        if (oldImages.includes(item) === false) {
+            fs.unlink(item, (err) => { if (err) { console.log(err); return; } })
+        }
     });
 
 
@@ -152,7 +157,8 @@ const updateById = async (
     });
     sportOpts.map(async (item) => await item.save())
 
-    await SportLocation.findByIdAndUpdate(id, { title, sport, location, district, sportOpts, images, inventory });
+    let finalImages = images.concat(oldImages);
+    await SportLocation.findByIdAndUpdate(id, { title, sport, location, district, address, sportOpts, images: finalImages, inventory });
 }
 
 

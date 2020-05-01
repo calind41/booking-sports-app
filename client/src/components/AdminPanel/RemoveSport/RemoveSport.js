@@ -6,19 +6,8 @@ import Navigation from '../Dashboard/Navigation/Navigation'
 import SearchBar from './SearchBar/SearchBar'
 import SportComponentToRemove from './SportComponentToRemove/SportComponentToRemove'
 import './RemoveSport.css'
-
-
-
-import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            marginTop: theme.spacing(2),
-        },
-    },
-}));
 
 
 export default function RemoveSport() {
@@ -32,16 +21,11 @@ export default function RemoveSport() {
 
     useEffect(() => {
         const getSports = async () => {
-            const res = await axios.get('http://localhost:5000/sports');
-
-            // import dynamically the images ?
-            // let imgs = require.context('../../imgs', true);
-            // res.data.map((r) => {
-            //     r.image = imgs('./' + r.image);
-            // });
-            setSportsArr(res.data.sports);
+            const res = await axios.get('http://localhost:5000/api/v1/sportLocations/');
+            console.log('res data is ', res.data);
+            setSportsArr(res.data);
             let selState = [];
-            res.data.sports.map(() => selState.push(false))
+            res.data.map(() => selState.push(false))
             setSelectedState(selState);
             console.log(res.data);
         }
@@ -51,16 +35,22 @@ export default function RemoveSport() {
     const changePage = (page) => {
         setPageNr(page);
         setIndex(page * 4 - 4);
-        // display from array of products: prodArr[idx, idx+8]
-
     }
 
-    const deleteSports = () => {
+    const deleteSports = async () => {
         let delIdx = [];
         let cpy = [...sportsArr];
         let afterDelArr = cpy.filter((item, idx) => { if (selectedState[idx]) delIdx.push(idx); return !selectedState[idx] })
-        console.log(delIdx);
+
         delIdx.map((item) => selectedState.splice(item, 1));
+        let ids = [];
+        console.log('before delidx ', delIdx);
+
+        delIdx.map((item) => ids.push(sportsArr[item]._id))
+        console.log('sports arr ', sportsArr);
+        console.log('after del ', ids);
+        const body = { ids };
+        await axios.delete('http://localhost:5000/api/v1/sportLocations/deleteSportLocs', { data: { ids } })
         setSelectedState(selectedState);
         setSportsArr(afterDelArr);
     }
@@ -109,6 +99,7 @@ export default function RemoveSport() {
                                     index={idx}
                                     initialChecked={false}
                                     nrSports={sportsArr.length}
+                                    sportLoc={sport}
                                 />
                             </div>) : null
                     })

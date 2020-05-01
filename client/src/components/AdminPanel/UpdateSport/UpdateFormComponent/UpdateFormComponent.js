@@ -1,21 +1,11 @@
 import React, { Fragment, useState } from 'react';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import FilledInput from '@material-ui/core/FilledInput';
 import FormControl from '@material-ui/core/FormControl';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
-
 import TextareaAutosize from '@material-ui/core/TextareaAutosize'
-
-import clsx from 'clsx';
-import IconButton from '@material-ui/core/IconButton';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import TextField from '@material-ui/core/TextField';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-
 import ServiceDetails from '../../AddSport/ServiceDetails/ServiceDetails'
 import './UpdateFormComponent.css'
 
@@ -63,12 +53,37 @@ const outlinedInputStyles = {
 }
 
 
-export default function UpdateFormComponent() {
-    const [name, setName] = React.useState('defaultValue');
-    const [name2, setName2] = React.useState('defaultValue2');
-    const [name3, setName3] = React.useState('defaultValue3');
-    const [textAreaValue, setTextAreaValue] = useState('defaultTextArea');
+export default function UpdateFormComponent({ sportLoc }) {
+
+    const history = useHistory();
+    console.log(sportLoc);
+
+    if (localStorage.getItem('title') === null) {
+        localStorage.setItem('title', sportLoc.title);
+    }
+    if (localStorage.getItem('sportType') === null) {
+        localStorage.setItem('sportType', sportLoc.sport);
+    }
+    if (localStorage.getItem('location') === null) {
+        localStorage.setItem('location', sportLoc.location + ', Sector ' + sportLoc.district + ', ' + sportLoc.address);
+    }
+    if (localStorage.getItem('inventory') === null) {
+        let temp = sportLoc.inventory.map((item) => `title: ${item.title}, value: ${item.value}; `);
+        let s = '';
+        temp.map((item) => s += `${item}\n`)
+
+        localStorage.setItem('inventory', s);
+    }
+
+
+    const [name, setName] = React.useState(localStorage.getItem('title'));
+    const [name2, setName2] = React.useState(localStorage.getItem('sportType'));
+    const [name3, setName3] = React.useState(localStorage.getItem('location'));
+    const [b64dataImages, setB64dataImages] = useState([]);
+    const [textAreaValue, setTextAreaValue] = useState(localStorage.getItem('inventory'));
     const classes = useStyles();
+
+
 
     const handleChange = event => {
         setName(event.target.value);
@@ -79,22 +94,130 @@ export default function UpdateFormComponent() {
     const handleChange3 = event => {
         setName3(event.target.value);
     };
-
     const handleChangeTextArea = (e) => {
         setTextAreaValue(e.target.value);
     }
 
 
-    let items = [{
-        text: "30min / 12:00, 14:00",
-        key: Date.now()
-    },
-    {
-        text: "50min / 12:00, 14:00",
-        key: Date.now() + 5
-    }
-    ]
 
+    if (localStorage.getItem('sportOpts') === null) {
+        localStorage.setItem('sportOpts', JSON.stringify(sportLoc.sportOpts));
+    }
+    let items = [];
+    JSON.parse(localStorage.getItem('sportOpts')).map((sportOption, index) => {
+        let text = '' + sportOption.serviceOption.split(',')[0] + ' / ';
+        sportOption.availableHours.map((hour, idx) => {
+            if (idx === 0)
+                text += `${hour}`
+            else
+                text += `, ${hour}`
+        });
+        text += ' / ' + sportOption.serviceOption.split(',')[1];
+        let item = {
+            text,
+            key: Date.now() + index * Math.random(0, 100)
+        }
+        items.push(item);
+    })
+    localStorage.setItem('serviceDetails', JSON.stringify(items));
+
+    if (localStorage.getItem('images') === null) {
+        let imgs = require.context('../../../../../../server', true)
+        let temp = [];
+        sportLoc.images.map((image) => {
+            let im = imgs('' + image);
+            let obj = {
+                src: im,
+                thumbnail: im,
+                thumbnailWidth: 320,
+                thumbnailHeight: 200,
+                originalSrc: image
+            }
+            temp.push(obj);
+        })
+        console.log('temp is ', temp);
+        // console.log(' final , ', sport.images);
+        localStorage.setItem('images', JSON.stringify(temp));
+    }
+
+    const passImageData = (base64dataImage) => {
+        b64dataImages.push(base64dataImage);
+        setB64dataImages(b64dataImages);
+        console.log('from parent: ', b64dataImages);
+    }
+
+    const updateSportLocationToDB = async () => {
+        if (
+            name.length === 0 ||
+            name2.length === 0 ||
+            name3.length === 0 ||
+            textAreaValue.length === 0
+        ) {
+            alert('all fields are required!');
+            return;
+        }
+
+        const title = name;
+        const sport = name2.toLowerCase();
+        const location = name3.split(',')[0];
+        const district = parseInt(name3.split(',')[1].trim().split(' ')[1]);
+        const address = name3.split(',')[2].toLowerCase();
+        const inventoryArr = textAreaValue.split(';');
+        let inventory = [];
+
+
+        // put up inventory array data
+        inventoryArr.map((item, index) => {
+            if (index === inventoryArr.length - 1) return;
+            let temp = item.split(',');
+            let title = temp[0].split(':');
+            let value = temp[1].split(':');
+
+            inventory.push({ title: title[1].trim(), value: value[1].trim() })
+        });
+
+        // put up sportOpts data 
+        const sportOpts = [];
+        let serviceDetails = JSON.parse(localStorage.getItem('serviceDetails'));
+        console.log('service details ', serviceDetails);
+        serviceDetails.map((item) => {
+            let text = item.text;
+            console.log('splitted ', text.split('/'));
+            const serviceOption = text.split('/')[0].trim() + ', ' + text.split('/')[2].trim();
+            const availableHours = text.split('/')[1].split(',').map((time) => time.trim());
+            sportOpts.push({ serviceOption, availableHours });
+        });
+
+        // get the old image urls after deleting or not some of them
+        let oldImages = [];
+        if (localStorage.getItem('oldImages') === null) {
+            oldImages = JSON.parse(localStorage.getItem('images')).map((item) => item.originalSrc);
+        } else {
+            oldImages = JSON.parse(localStorage.getItem('oldImages')).map((item) => item.originalSrc);
+        }
+        const data = {
+            title,
+            sport,
+            location,
+            district,
+            address,
+            sportOptions: sportOpts,
+            oldImages,
+            base64dataImages: b64dataImages,
+            inventory
+        }
+        console.log('before update ', sportLoc._id);
+        await axios.put(`http://localhost:5000/api/v1/sportLocations/${sportLoc._id}`, data);
+        localStorage.removeItem('serviceDetails');
+        localStorage.removeItem('title');
+        localStorage.removeItem('sportType');
+        localStorage.removeItem('inventory');
+        localStorage.removeItem('location');
+        localStorage.removeItem('sportOpts');
+        localStorage.removeItem('images');
+        localStorage.removeItem('oldImages');
+        history.push('/adminSports');
+    }
 
     return (
         <Fragment>
@@ -131,12 +254,12 @@ export default function UpdateFormComponent() {
                     </div>
                 </div>
                 <div className='update-upload-imgs-container'>
-                    <UploadImages />
+                    <UploadImages passImageData={passImageData} />
                 </div>
                 <div id='g-gallery'>
-                    <GridGallery />
+                    <GridGallery images={JSON.parse(localStorage.getItem('images'))} />
                 </div>
-                <div className='us-save-btn'>Update</div>
+                <div onClick={updateSportLocationToDB} className='us-save-btn'>Update</div>
 
             </div>
         </Fragment>

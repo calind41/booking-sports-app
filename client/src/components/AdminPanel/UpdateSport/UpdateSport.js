@@ -4,12 +4,14 @@ import Navigation from '../Dashboard/Navigation/Navigation'
 
 import UpdateFormComponent from './UpdateFormComponent/UpdateFormComponent'
 
-export default function UpdateSport() {
+export default function UpdateSport({ location }) {
+
+    const sport = location.data;
     return (
         <div>
             <SidebarMenu name="Admin Panel" />
             <Navigation dashboard='admin' location="UpdateSport" />
-            <UpdateFormComponent />
+            <UpdateFormComponent sportLoc={sport} />
 
         </div>
     )

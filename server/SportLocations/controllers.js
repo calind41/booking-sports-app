@@ -12,6 +12,7 @@ router.post('/', async (req, res, next) => {
         sport,
         location,
         district,
+        address,
         sportOptions,
         base64dataImages,
         inventory
@@ -19,7 +20,7 @@ router.post('/', async (req, res, next) => {
 
 
     try {
-        await sportLocationsService.add(title, sport, location, district, sportOptions, base64dataImages, inventory);
+        await sportLocationsService.add(title, sport, location, district, address, sportOptions, base64dataImages, inventory);
 
         res.status(201).end();
     } catch (err) {
@@ -62,7 +63,7 @@ router.get('/sport/:sportType/:district', async (req, res, next) => {
 
         // district = 0 -> all districts
         const sportLocations = await sportLocationsService.getBySportType(sportType, district);
-
+        console.log(sportLocations);
         res.json(sportLocations);
     } catch (err) {
         console.error(err.message);
@@ -80,13 +81,15 @@ router.put('/:id', async (req, res, next) => {
         sport,
         location,
         district,
+        address,
         sportOptions,
+        oldImages,
         base64dataImages,
         inventory
     } = req.body;
 
     try {
-        await sportLocationsService.updateById(id, title, sport, location, district, sportOptions, base64dataImages, inventory);
+        await sportLocationsService.updateById(id, title, sport, location, district, address, sportOptions, oldImages, base64dataImages, inventory);
         res.status(204).end();
     } catch (err) {
         console.error(err);
@@ -99,6 +102,7 @@ router.delete('/deleteSportLocs', async (req, res, next) => {
     const {
         ids
     } = req.body;
+    console.log(ids);
 
     try {
         await sportLocationsService.deleteByIds(ids);

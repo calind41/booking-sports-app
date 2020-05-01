@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios'
-
 import { Link } from 'react-router-dom'
 import './SignIn.css'
 import Logo from '../SportLocations/Navbar/Logo/Logo'
 
 export default function SignIn() {
 
+    const history = useHistory();
+
     const handleSignIn = async () => {
 
         const un = document.querySelector('#username').value;
         const pass = document.querySelector('#password').value;
-
         let email = undefined, username = undefined;
 
         if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(un)) {
@@ -24,24 +25,18 @@ export default function SignIn() {
             || pass === ''
         ) alert('All fields are required!');
 
-        let data;
-        if (email === undefined) {
-            data = {
-                username,
-                password: pass
-            }
-        } else {
-            data = {
-                email,
-                password: pass
-            }
+        let data = {
+            username,
+            email,
+            password: pass
         }
-
-        const res = await axios.post('http://localhost:5000/login', { data });
+        const res = await axios.post('http://localhost:5000/api/v1/users/login', data);
         console.log(res);
         if (res.data) {
             alert('Logged in ');
             localStorage.setItem('userLoggedIn', true);
+            localStorage.setItem('token', res.data);
+            history.push('/');
         }
         else
             alert('The user does not exist');

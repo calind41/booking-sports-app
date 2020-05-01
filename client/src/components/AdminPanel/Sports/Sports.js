@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import SportCard from './SportCard/SportCard'
 import './Sports.css'
 
@@ -20,10 +21,18 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Sports() {
 
-    const [sports, setSports] = useState([1, 2, 3, 4, 5, 6, 1, 2, 1, 1, 1, 1, 1, 11, 4]);
-
+    const [sports, setSports] = useState([]);
     const [pageNr, setPageNr] = useState(1);
     const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const getSportLocations = async () => {
+            const res = await axios.get('http://localhost:5000/api/v1/sportLocations/')
+            console.log(res);
+            setSports(res.data);
+        };
+        getSportLocations();
+    }, [])
 
     const changePage = (page) => {
         setPageNr(page);
@@ -42,10 +51,10 @@ export default function Sports() {
             </div>
             <div className='sports-cards-wrapper'>
                 {
-                    sports === [] || sports[0] === null ? null : sports.map((user, idx) => {
+                    sports === [] || sports[0] === null ? null : sports.map((sport, idx) => {
                         return idx >= index && idx <= index + 1 ?
                             (<div className='u-item'>
-                                <SportCard />
+                                <SportCard sport={sport} />
                             </div>) : null
                     })
                 }

@@ -19,10 +19,17 @@ const useStyles = makeStyles(theme => ({
 
 
 
-export default function SportComponentToRemove({ index, setSelectedItemState, setUnselectedItemState, nrSports }) {
+export default function SportComponentToRemove({ sportLoc, index, setSelectedItemState, setUnselectedItemState, nrSports }) {
     const classes = useStyles();
 
     const [checked, setChecked] = React.useState(false);
+
+    let imgs = require.context('../../../../../../server', true);
+    let imageArr = [];
+    sportLoc.images.map((image) => {
+        let im = imgs('' + image);
+        imageArr.push(im)
+    });
 
     useEffect(() => {
         setChecked(false);
@@ -48,18 +55,18 @@ export default function SportComponentToRemove({ index, setSelectedItemState, se
                     </div>
                     <div id='awr'>
                         <div className='reser-img-container'>
-                            <img src='https://images.unsplash.com/photo-1554653918-7889417d67d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&q=80' />
+                            <img src={imageArr[0]} />
                         </div>
                         <div id='s-to-rem-desc-wrapper'>
                             <div className='title-value'>
-                                Title 1s
-                        </div>
+                                {sportLoc.title}
+                            </div>
                             <div className='type-value'>
-                                Tennis Court
-                        </div>
+                                {sportLoc.sport}
+                            </div>
                             <div className='location-value'>
-                                Sector 1
-                        </div>
+                                {'Sector ' + sportLoc.district}
+                            </div>
                         </div>
 
                     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios'
-
+// import jwt from 'jsonwebtoken'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function BookModal({ selectedTimeOption, selectedServiceOption, selectedDateOption, image }) {
+export default function BookModal({ selectedHour, selectedServiceOption, selectedDateOption, image, title, sport, location, price, date, available }) {
     const classes = useStyles();
     const history = useHistory();
     const [open, setOpen] = React.useState(false);
@@ -37,10 +37,18 @@ export default function BookModal({ selectedTimeOption, selectedServiceOption, s
     };
 
     const handleConfirmBooking = async () => {
+        const jwt = require('jsonwebtoken');
+        const decoded = jwt.decode(localStorage.getItem('token'));
+        const userId = decoded.userId;
+        const nrReservations = decoded.nrReservations + 1;
+
+        // update nr of reservations of userId
+        await axios.put(`http://localhost:5000/api/v1/users/${userId}`, { nrReservations })
+        console.log('jwt decoded is ', userId);
         let reservation = {
             selectedServiceOption,
             selectedDateOption: selectedDateOption.getTime(),
-            selectedTimeOption,
+            selectedHour,
             image,
             location: 'Sector 5'
         }
@@ -81,10 +89,13 @@ export default function BookModal({ selectedTimeOption, selectedServiceOption, s
                             </div>
                             <div>
                                 <ul>
-                                    <li>{selectedServiceOption.split(',')[0]}</li>
-                                    <li>{selectedDateOption.toString().split(' ').filter((s, index) => (index > 0 && index < 4)).join(' ')}</li>
-                                    <li>{selectedTimeOption}</li>
-                                    <li>Price: {selectedServiceOption.split(',')[1]}</li>
+                                    <li>{title}</li>
+                                    <li>{sport}</li>
+                                    <li>{location}</li>
+                                    <li>{selectedServiceOption}</li>
+                                    <li>{date}</li>
+                                    <li>{selectedHour}</li>
+                                    <li>Price: {price}</li>
                                 </ul>
                             </div>
                         </div>

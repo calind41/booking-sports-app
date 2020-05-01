@@ -30,15 +30,19 @@ export default function SignUp() {
             || repass === '') alert('All fields are required!');
 
         const data = {
-            firstname: fn,
-            lastname: ln,
+            firstName: fn,
+            lastName: ln,
             username: un,
             email,
             password: pass
         };
-
-        const res = await axios.post('http://localhost:5000/register', { data });
-        console.log(res);
+        const res = await axios.post('http://localhost:5000/api/v1/users/register', data);
+        document.querySelector('#firstname').value = '';
+        document.querySelector('#lastname').value = '';
+        document.querySelector('#username').value = '';
+        document.querySelector('#email').value = '';
+        document.querySelector('#password').value = '';
+        document.querySelector('#retypepass').value = '';
     }
 
     return (

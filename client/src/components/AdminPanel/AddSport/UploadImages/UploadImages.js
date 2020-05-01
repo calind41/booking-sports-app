@@ -5,7 +5,7 @@ import 'react-dropzone-uploader/dist/styles.css'
 import Dropzone from 'react-dropzone-uploader'
 import axios from 'axios'
 
-export default function UploadImages() {
+export default function UploadImages({ passImageData }) {
 
     let base64dataImages = [];
 
@@ -18,7 +18,9 @@ export default function UploadImages() {
         reader.onloadend = function () {
             var base64Data = reader.result;
             base64dataImages.push({ base64Data, name: meta.name });
+            passImageData({ base64Data, name: meta.name })
         }
+
         return { url: 'https://httpbin.org/post' }
     }
 

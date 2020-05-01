@@ -1,29 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 import UserCard from './UserCard/UserCard';
 import './Customers.css'
-
 import SidebarMenu from '../Dashboard/SidebarMenu/SidebarMenu'
 import Navigation from '../Dashboard/Navigation/Navigation'
 import SearchBar from '../RemoveSport/SearchBar/SearchBar'
-
-import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            marginTop: theme.spacing(2),
-        },
-    },
-}));
 
 export default function Customers() {
 
-    const [users, setUsers] = useState([1, 2, 3, 4, 5, 6, 1, 2, 1, 1, 1, 1, 1, 11, 4]);
+    const [users, setUsers] = useState([]);
 
     const [pageNr, setPageNr] = useState(1);
     const [index, setIndex] = useState(0);
 
+    useEffect(() => {
+        const getCustomers = async () => {
+            const res = await axios.get('http://localhost:5000/api/v1/users/');
+            console.log(res.data);
+            setUsers(res.data);
+        }
+        getCustomers();
+    }, [])
     const changePage = (page) => {
         setPageNr(page);
         setIndex(page * 4 - 4);
@@ -44,7 +42,7 @@ export default function Customers() {
                     users === [] || users[0] === null ? null : users.map((user, idx) => {
                         return idx >= index && idx <= index + 3 ?
                             (<div className='u-item'>
-                                <UserCard />
+                                <UserCard user={user} />
                             </div>) : null
                     })
                 }

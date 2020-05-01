@@ -38,14 +38,21 @@ export default class ServiceDetails extends React.Component {
 
     deleteItem(key) {
         let sdetails = JSON.parse(localStorage.getItem('serviceDetails'));
-        let filteredItems = sdetails.filter((item) => {
-            return (item.key !== key);
-        });
+        if (sdetails !== null) {
+            let filteredItems = sdetails.filter((item) => {
+                return (item.key !== key);
+            });
 
-        localStorage.setItem('serviceDetails', JSON.stringify(filteredItems));
-        this.setState({
-            items: filteredItems
-        });
+            localStorage.setItem('serviceDetails', JSON.stringify(filteredItems));
+            this.setState({
+                items: filteredItems
+            });
+        } else {
+            this.setState({
+                items: []
+            })
+        }
+
     }
 
 
@@ -95,7 +102,7 @@ export default class ServiceDetails extends React.Component {
 
                 <div className='service-heading'>Service details</div>
                 <div className='format-example'>
-                    <div><span>Format: </span> xmin / 09:00,14:00,19:00... </div>
+                    <div><span>Format: </span>reserved place for xmin / 09:00,14:00,19:00... / price </div>
                 </div>
                 <div className="todoListMain">
                     <div className="header">
