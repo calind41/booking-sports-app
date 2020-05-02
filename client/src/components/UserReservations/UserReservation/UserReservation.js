@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -23,6 +24,7 @@ const useStyles = makeStyles(theme => ({
 export default function UserReservation({ initialChecked, setSelectedItemState, setUnselectedItemState, reservation, index, nrReservations }) {
     const classes = useStyles();
     const [checked, setChecked] = React.useState(initialChecked);
+    const [canceled, setCanceled] = useState(reservation.canceled);
 
     useEffect(() => {
         setChecked(false);
@@ -37,8 +39,10 @@ export default function UserReservation({ initialChecked, setSelectedItemState, 
 
     const expired = reservation.selectedDateOption < new Date().getTime();
 
-    const cancelReservation = (evt) => {
-        evt.target.style.color !== 'gray' ? evt.target.textContent = 'Canceled' : evt.target.textContent = 'Cancel'
+    const cancelReservation = async (evt) => {
+        // update cancel field 
+        await axios.put(`http://localhost:5000/api/v1/reservations/${reservation._id}`)
+        setCanceled(true);
     }
 
     return (
@@ -63,7 +67,7 @@ export default function UserReservation({ initialChecked, setSelectedItemState, 
                         {reservation.location}
                     </div>
                     <div className='date-time-value'>
-                        {new Date(reservation.selectedDateOption).toUTCString().split(' ').filter((s, index) => (index > 0 && index < 4)).join(' ')} / {reservation.selectedTimeOption}
+                        {new Date(reservation.date).toUTCString().split(' ').filter((s, index) => (index > 0 && index < 4)).join(' ')} / {reservation.selectedHour}
                     </div>
                     <div className='price-value'>
                         {reservation.selectedServiceOption.split(',')[1]}
@@ -72,7 +76,7 @@ export default function UserReservation({ initialChecked, setSelectedItemState, 
                         {expired ? 'No' : 'Yes'}
                     </div>
                     <div className='cancel-container'>
-                        <button id='cancel-res-btn' onClick={cancelReservation} style={expired ? { color: 'gray' } : null}>Cancel</button>
+                        <button id='cancel-res-btn' onClick={cancelReservation} style={expired ? { color: 'gray' } : null}>{canceled ? 'Canceled' : 'Cancel'}</button>
                     </div>
 
                 </div>

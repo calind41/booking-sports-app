@@ -40,6 +40,7 @@ export default function Navbar({ searchBar }) {
     const [loggedIn, setLoggedIn] = useState(false);
     const handleSignOut = () => {
         localStorage.setItem('userLoggedIn', false);
+        localStorage.removeItem('token');
         setLoggedIn(false);
         history.push('/');
     }
@@ -78,7 +79,9 @@ export default function Navbar({ searchBar }) {
                                 </div>
 
                                 <div className='contact-btn-container'>
-                                    <button>Contact</button>
+                                    <Link to='/contact'>
+                                        <button>Contact</button>
+                                    </Link>
                                 </div>
                                 <div onClick={toggleSignOutDropdown} className='username-and-logout-container'>
                                     <i class="fas fa-user-circle"></i>

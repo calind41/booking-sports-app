@@ -36,24 +36,32 @@ export default function BookModal({ selectedHour, selectedServiceOption, selecte
         setOpen(false);
     };
 
+
     const handleConfirmBooking = async () => {
         const jwt = require('jsonwebtoken');
         const decoded = jwt.decode(localStorage.getItem('token'));
         const userId = decoded.userId;
-        const nrReservations = decoded.nrReservations + 1;
-
+        // get user to find  nr of reservations 
+        const user = await axios.get(`http://localhost:5000/api/v1/users/${userId}`);
+        const nrReservations = user.data.nrReservations + 1;
         // update nr of reservations of userId
         await axios.put(`http://localhost:5000/api/v1/users/${userId}`, { nrReservations })
-        console.log('jwt decoded is ', userId);
+
         let reservation = {
+            userId,
+            title,
+            sport,
+            location,
             selectedServiceOption,
-            selectedDateOption: selectedDateOption.getTime(),
             selectedHour,
+            date,
             image,
-            location: 'Sector 5'
+            price: parseFloat(price),
+            available: true,
+            canceled: false
         }
 
-        const res = await axios.post('http://localhost:5000/book', { reservation });
+        const res = await axios.post('http://localhost:5000/api/v1/reservations/', reservation);
         history.push('/sportLocations')
 
     }

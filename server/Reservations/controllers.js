@@ -21,6 +21,7 @@ router.post('/', async (req, res, next) => {
         available,
         canceled
     } = req.body;
+    console.log(userId);
 
     try {
         await ReservationsService.add(userId, title, sport, location, selectedServiceOption, selectedHour, image, price, date, available, canceled);

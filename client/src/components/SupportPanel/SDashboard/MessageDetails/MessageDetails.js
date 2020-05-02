@@ -147,7 +147,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function MessageDetails() {
+export default function MessageDetails({ selectedMessageDetails }) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
@@ -158,68 +158,71 @@ export default function MessageDetails() {
     const handleClose = () => {
         setOpen(false);
     };
-    return (
-        <div className='msg-details-container'>
-            <div className='date-time'>14 March 08:50AM</div>
-            <div className='title-msg'>Title of the message</div>
-            <div className='from-email'><span>From :</span> user@gmail.com</div>
-            <div className='msg-body'>Body of the message. Some random text here</div>
-            <div onClick={handleOpen} className='reply-btn'>
-                <i class="fas fa-reply"></i>
-                <span>Reply</span>
-            </div>
-            <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                className={classes.modal}
-                open={open}
-                onClose={handleClose}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                    timeout: 500,
-                }}
-            >
-                <Fade in={open}>
-                    <div id='responnd-form-container' className={classes.paper}>
-                        <div onClick={handleClose} className={classes.closeIcon}><i class="fas fa-times"></i></div>
-                        <div className={classes.from}>
-                            <div className={classes.fromText}>From</div>
-                            <div>
-                                <input className={classes.fromInput} type='text' />
+    if (selectedMessageDetails)
+        return (
+            <div className='msg-details-container'>
+                <div className='date-time'>{`${selectedMessageDetails.date} ${selectedMessageDetails.time}`}</div>
+                <div className='title-msg'><span>Subject :</span>{selectedMessageDetails.subject}</div>
+                <div className='from-email'><span>From :</span> {selectedMessageDetails.fromAuser ? selectedMessageDetails.user.email : selectedMessageDetails.email}</div>
+                <div className='msg-body'>{selectedMessageDetails.messageBody}</div>
+                <div onClick={handleOpen} className='reply-btn'>
+                    <i class="fas fa-reply"></i>
+                    <span>Reply</span>
+                </div>
+                <Modal
+                    aria-labelledby="transition-modal-title"
+                    aria-describedby="transition-modal-description"
+                    className={classes.modal}
+                    open={open}
+                    onClose={handleClose}
+                    closeAfterTransition
+                    BackdropComponent={Backdrop}
+                    BackdropProps={{
+                        timeout: 500,
+                    }}
+                >
+                    <Fade in={open}>
+                        <div id='responnd-form-container' className={classes.paper}>
+                            <div onClick={handleClose} className={classes.closeIcon}><i class="fas fa-times"></i></div>
+                            <div className={classes.from}>
+                                <div className={classes.fromText}>From</div>
+                                <div>
+                                    <input className={classes.fromInput} type='text' />
+                                </div>
                             </div>
-                        </div>
-                        <div className={classes.to}>
-                            <div className={classes.toText}>To</div>
-                            <div className={classes.toEmail}>
-                                user@example.com
+                            <div className={classes.to}>
+                                <div className={classes.toText}>To</div>
+                                <div className={classes.toEmail}>
+                                    user@example.com
                             </div>
-                        </div>
-                        <div className={classes.subject}>
-                            <div className={classes.subjectText}>Subject</div>
-                            <div className={classes.subjectValue}>Title of the message</div>
-                        </div>
-                        <div className={classes.message}>
-                            <div className={classes.messageText}>Message</div>
-                            <div>
-                                <textarea className={classes.messageArea} />
                             </div>
-                        </div>
-                        <div className={classes.btns}>
-                            <div className={classes.sendBtn}>
-                                <span className={classes.sendBtnText}>Send</span>
-                                <span className={classes.sendBtnIcon + " material-icons"}>
-                                    send
+                            <div className={classes.subject}>
+                                <div className={classes.subjectText}>Subject</div>
+                                <div className={classes.subjectValue}>Title of the message</div>
+                            </div>
+                            <div className={classes.message}>
+                                <div className={classes.messageText}>Message</div>
+                                <div>
+                                    <textarea className={classes.messageArea} />
+                                </div>
+                            </div>
+                            <div className={classes.btns}>
+                                <div className={classes.sendBtn}>
+                                    <span className={classes.sendBtnText}>Send</span>
+                                    <span className={classes.sendBtnIcon + " material-icons"}>
+                                        send
                                 </span>
+                                </div>
+                                <div className={classes.addToFaq}>
+                                    <span className={classes.addToFaqSpan}>Add to FAQ</span>
+                                </div>
                             </div>
-                            <div className={classes.addToFaq}>
-                                <span className={classes.addToFaqSpan}>Add to FAQ</span>
-                            </div>
-                        </div>
 
-                    </div>
-                </Fade>
-            </Modal>
-        </div>
-    )
+                        </div>
+                    </Fade>
+                </Modal>
+            </div>
+        )
+    else
+        return (<div></div>)
 }

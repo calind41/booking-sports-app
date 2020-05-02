@@ -77,7 +77,7 @@ router.put('/:id', async (req, res, next) => {
     console.log('nr res is ', nrReservations);
     try {
         await UsersService.updateUserRes(id, nrReservations)
-        res.json('client updated');
+        res.json('nr res updated');
     } catch (err) {
         console.error(err.message);
     }

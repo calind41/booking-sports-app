@@ -12,28 +12,45 @@ export default function UserReservations() {
 
     useEffect(() => {
         const getReservations = async () => {
-            const res = await axios.get('http://localhost:5000/past_reservations');
+            const jwt = require('jsonwebtoken');
+            const decoded = jwt.decode(localStorage.getItem('token'));
+            if (localStorage.getItem('token') !== null) {
+                const userId = decoded.userId;
+                // get all reservations
+                const res = await axios.get(`http://localhost:5000/api/v1/reservations/user/${userId}`);
 
-            // import dynamically the images ?
-            let imgs = require.context('../../imgs', true);
-            res.data.map((r) => {
-                r.image = imgs('./' + r.image);
-            });
-            setPastReservations(res.data.sort((item1, item2) => item2.selectedDateOption - item1.selectedDateOption));
-            let selState = [];
-            res.data.map(() => selState.push(false))
-            setSelectedState(selState);
-            console.log(res.data);
+                // import dynamically the images ?
+                let imgs = require.context('../../../../server', true);
+                res.data.map((r) => {
+                    r.image = imgs('' + r.image);
+                });
+
+                setPastReservations(res.data.sort((item1, item2) => item2.selectedDateOption - item1.selectedDateOption));
+                let selState = [];
+                res.data.map(() => selState.push(false))
+                setSelectedState(selState);
+            }
+
         }
         getReservations();
     }, [])
 
-    const deleteReservations = () => {
+    const deleteReservations = async () => {
         let delIdx = [];
         let cpy = [...pastReservations];
         let afterDelArr = cpy.filter((item, idx) => { if (selectedState[idx]) delIdx.push(idx); return !selectedState[idx] })
-        console.log(delIdx);
         delIdx.map((item) => selectedState.splice(item, 1));
+        let ids = [];
+        delIdx.map((item) => ids.push(pastReservations[item]._id));
+        await axios.delete(`http://localhost:5000/api/v1/reservations/deleteRes`, { data: { ids } });
+
+        // update nr of reservations of the user
+        const jwt = require('jsonwebtoken');
+        const decoded = jwt.decode(localStorage.getItem('token'))
+        const user = await axios.get(`http://localhost:5000/api/v1/users/${decoded.userId}`);
+        const nrReservations = user.data.nrReservations - ids.length;
+        await axios.put(`http://localhost:5000/api/v1/users/${decoded.userId}`, { nrReservations });
+
         setSelectedState(selectedState);
         setPastReservations(afterDelArr);
     }

@@ -12,9 +12,13 @@ export default function MessageController({ deleteMessages, deleteFAQs }) {
         else
             deleteMessages();
     }
+
+    const handleRefresh = () => {
+        window.location.reload();
+    }
     return (
         <div className='msg-controller-container'>
-            <div className='refresh-icon'>
+            <div onClick={handleRefresh} className='refresh-icon'>
                 <i class="fas fa-redo-alt"></i>
             </div>
             <div className='remove-icon'>

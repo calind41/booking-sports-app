@@ -34,13 +34,28 @@ const useStyles = makeStyles(theme => ({
     },
     rescontainer: {
         display: 'flex',
-        justifyContent: 'space-around',
+        flexDirection: 'column',
+        height: '74vh',
+        width: '100%',
+        paddingLeft: '1vw',
+        overflow: 'auto',
+        position: 'relative',
+        bottom: '3vh',
+        right: '0.5vw'
+    },
+    reservation: {
+        display: 'flex',
+        width: '90%',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop: '2vh',
         border: '1px solid #000000',
-        height: '14.9vh'
+        padding: '10px'
     },
     resTextDesc: {
         position: 'relative',
-        right: '4vw',
+        right: '2vw',
+        // top: '3vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-around',
@@ -51,7 +66,7 @@ const useStyles = makeStyles(theme => ({
     },
     img: {
         position: 'relative',
-        top: '3vh',
+        // top: '3vh',
         width: '10vh',
         height: '10vh'
     }
@@ -104,7 +119,7 @@ export default function UserResModal({ setOpenStateInParentClassToFalse, state, 
 
                                     let im = imgs('' + reservation.image);
                                     return (
-                                        <Fragment>
+                                        <div className={classes.reservation}>
                                             <div>
                                                 <div><img className={classes.img} src={im} /></div>
                                             </div>
@@ -115,7 +130,7 @@ export default function UserResModal({ setOpenStateInParentClassToFalse, state, 
                                                 <div><span className={classes.boldText}>Service Option:</span> {reservation.selectedServiceOption}</div>
                                                 <div><span className={classes.boldText}>Date/Time:</span> {reservation.date}/{reservation.selectedHour}</div>
                                             </div>
-                                        </Fragment>
+                                        </div>
                                     )
                                 })
                             }

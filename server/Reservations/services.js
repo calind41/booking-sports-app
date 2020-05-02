@@ -43,6 +43,23 @@ const updateById = async (id) => {
 // Site.deleteMany({ userUID: uid, id: { $in: [10, 2, 3, 5]}}, function(err) {})
 
 const deleteByIds = async (ids) => {
+    let r = await Reservation.findById(ids[0]);
+    const userId = r.userId;
+    let user = await User.findById(userId).populate("reservations", ['_id']);
+
+    console.log('ids is ', ids);
+    let userRes = user.reservations;
+    let userResAfterUpdate = userRes.filter((res) => {
+        if (ids.includes(res._id.toString())) {
+            console.log('includesssss');
+            return false;
+        }
+        else {
+            return true;
+        }
+    });
+    console.log('after update ', userResAfterUpdate);
+    await User.findByIdAndUpdate(userId, { reservations: userResAfterUpdate });
     await Reservation.deleteMany({ _id: ids })
 }
 module.exports = {

@@ -14,7 +14,7 @@ export default function SDashboard() {
 
     const [messages, setMessages] = useState([]);
     const [selectedState, setSelectedState] = useState([]);
-
+    const [selectedMessageDetails, setSelectedMessageDetails] = useState(null);
 
     const [pageNr, setPageNr] = useState(1);
     const [index, setIndex] = useState(0);
@@ -22,19 +22,14 @@ export default function SDashboard() {
 
     useEffect(() => {
         const getMessages = async () => {
-            const res = await axios.get('http://localhost:5000/messages');
-
-            // import dynamically the images ?
-            // let imgs = require.context('../../imgs', true);
-            // res.data.map((r) => {
-            //     r.image = imgs('./' + r.image);
-            // });
-            // setPastReservations(res.data.sort((item1, item2) => item2.selectedDateOption - item1.selectedDateOption));
-            setMessages(res.data.messages);
-            let selState = [];
-            res.data.messages.map(() => selState.push(false))
-            setSelectedState(selState);
+            const res = await axios.get('http://localhost:5000/api/v1/messages/');
             console.log(res.data);
+            setMessages(res.data);
+            console.log(res.data);
+            setSelectedMessageDetails(res.data[0]);
+            let selState = [];
+            res.data.map(() => selState.push(false))
+            setSelectedState(selState);
         }
         getMessages();
     }, [])
@@ -54,18 +49,26 @@ export default function SDashboard() {
         setSelectedState(selectedState)
     }
 
-    const deleteMessages = () => {
+    const deleteMessages = async () => {
         let delIdx = [];
         let cpy = [...messages];
         let afterDelArr = cpy.filter((item, idx) => { if (selectedState[idx]) delIdx.push(idx); return !selectedState[idx] })
 
         delIdx.map((item) => selectedState.splice(item, 1));
+        let ids = [];
+        delIdx.map((item) => ids.push(messages[item]._id));
+        await axios.delete(`http://localhost:5000/api/v1/messages/deleteMessages`, { data: { ids } });
+
         setSelectedState(selectedState);
         setMessages(afterDelArr);
     }
     const nrMessages = messages.length;
 
-
+    const setMessageDetails = (index) => {
+        let message = messages[index];
+        console.log(message);
+        setSelectedMessageDetails(message);
+    }
     return (
         <div className='sdashboard-container'>
             <SidebarMenu faq={true} name='Support Panel' />
@@ -90,17 +93,19 @@ export default function SDashboard() {
                                         (
                                             <Message
                                                 index={idx}
+                                                setMessageDetails={setMessageDetails}
                                                 setSelectedItemState={setSelectedItemState}
                                                 setUnselectedItemState={setUnselectedItemState}
                                                 initialChecked={false}
                                                 nrMessages={messages.length}
+                                                msg={msg}
                                             />
                                         ) : null
                                 })
                             }
                         </div>
                         <div className='msg-detail'>
-                            <MessageDetails />
+                            <MessageDetails selectedMessageDetails={selectedMessageDetails} />
                         </div>
                     </div>
                 </div>
