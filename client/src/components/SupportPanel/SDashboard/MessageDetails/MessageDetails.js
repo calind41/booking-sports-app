@@ -1,5 +1,6 @@
 import React from 'react'
 import './MessageDetails.css'
+import axios from 'axios'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -39,10 +40,13 @@ const useStyles = makeStyles(theme => ({
         border: 'none',
         borderRadius: '5px',
         outline: 'none',
-        paddingLeft: '10px'
+        paddingLeft: '10px',
+        marginBottom: '10px'
     },
     to: {
-        cursor: 'pointer'
+        cursor: 'pointer',
+        marginBottom: '10px'
+
     },
     toText: {
         'marginBottom': '5px'
@@ -56,7 +60,8 @@ const useStyles = makeStyles(theme => ({
         'paddingLeft': '10px'
     },
     subject: {
-        cursor: 'pointer'
+        cursor: 'pointer',
+        marginBottom: '10px'
     },
     subjectText: {
         marginBottom: '5px'
@@ -73,7 +78,7 @@ const useStyles = makeStyles(theme => ({
 
     },
     messageText: {
-        marginBottom: '5px'
+        marginBottom: '10px'
     },
     messageArea: {
         width: '25vw',
@@ -81,11 +86,17 @@ const useStyles = makeStyles(theme => ({
         resize: 'none',
         outline: 'none',
         paddingLeft: '10px',
-        paddingTop: '11px'
+        paddingTop: '11px',
+        border: '2px solid red',
+        position: 'relative',
+        bottom: '1vh'
+
     },
     btns: {
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        position: 'relative',
+        bottom: '.4vh'
     },
     sendBtn: {
         backgroundColor: '#056CF2',
@@ -137,7 +148,7 @@ const useStyles = makeStyles(theme => ({
     closeIcon: {
         position: 'relative',
         left: '28.2vw',
-        bottom: '5px',
+        bottom: '-18px',
         width: '10px',
         cursor: 'pointer',
         transition: '.2s ease-in-out',
@@ -147,7 +158,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-export default function MessageDetails({ selectedMessageDetails }) {
+export default function MessageDetails({ msg, selectedMessageDetails }) {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
@@ -158,6 +169,23 @@ export default function MessageDetails({ selectedMessageDetails }) {
     const handleClose = () => {
         setOpen(false);
     };
+    const addToFaq = async () => {
+        if (msg.inFaq === false) {
+            await axios.put(`http://localhost:5000/api/v1/messages/${msg._id}`, { inFaq: true });
+        }
+    }
+
+    const sendResponse = async () => {
+        let msgId = msg._id;
+        console.log('message id ', msgId);
+        let response = document.querySelector('#txtarea').value;
+        let alreadyResponded = true;
+        await axios.put(`http://localhost:5000/api/v1/messages/response/${msgId}`, { response });
+        await axios.put(`http://localhost:5000/api/v1/messages/${msgId}`, { alreadyResponded });
+
+        window.location.reload();
+
+    }
     if (selectedMessageDetails)
         return (
             <div className='msg-details-container'>
@@ -165,9 +193,9 @@ export default function MessageDetails({ selectedMessageDetails }) {
                 <div className='title-msg'><span>Subject :</span>{selectedMessageDetails.subject}</div>
                 <div className='from-email'><span>From :</span> {selectedMessageDetails.fromAuser ? selectedMessageDetails.user.email : selectedMessageDetails.email}</div>
                 <div className='msg-body'>{selectedMessageDetails.messageBody}</div>
-                <div onClick={handleOpen} className='reply-btn'>
+                <div onClick={msg.alreadyResponded ? null : handleOpen} className={msg.alreadyResponded ? 'reply-btn grayBg' : 'reply-btn'}>
                     <i class="fas fa-reply"></i>
-                    <span>Reply</span>
+                    <span>{msg.alreadyResponded ? 'Replied' : 'Reply'}</span>
                 </div>
                 <Modal
                     aria-labelledby="transition-modal-title"
@@ -187,14 +215,14 @@ export default function MessageDetails({ selectedMessageDetails }) {
                             <div className={classes.from}>
                                 <div className={classes.fromText}>From</div>
                                 <div>
-                                    <input className={classes.fromInput} type='text' />
+                                    <input className={classes.fromInput} value='genmotionbooking@gmail.com' type='text' />
                                 </div>
                             </div>
                             <div className={classes.to}>
                                 <div className={classes.toText}>To</div>
                                 <div className={classes.toEmail}>
-                                    user@example.com
-                            </div>
+                                    {msg.fromAuser ? msg.user.email : msg.email}
+                                </div>
                             </div>
                             <div className={classes.subject}>
                                 <div className={classes.subjectText}>Subject</div>
@@ -203,17 +231,17 @@ export default function MessageDetails({ selectedMessageDetails }) {
                             <div className={classes.message}>
                                 <div className={classes.messageText}>Message</div>
                                 <div>
-                                    <textarea className={classes.messageArea} />
+                                    <textarea id='txtarea' className={classes.messageArea} />
                                 </div>
                             </div>
                             <div className={classes.btns}>
-                                <div className={classes.sendBtn}>
+                                <div onClick={sendResponse} className={classes.sendBtn}>
                                     <span className={classes.sendBtnText}>Send</span>
                                     <span className={classes.sendBtnIcon + " material-icons"}>
                                         send
-                                </span>
+                                    </span>
                                 </div>
-                                <div className={classes.addToFaq}>
+                                <div onClick={addToFaq} className={classes.addToFaq}>
                                     <span className={classes.addToFaqSpan}>Add to FAQ</span>
                                 </div>
                             </div>

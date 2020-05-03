@@ -27,17 +27,10 @@ export default function Faq() {
     useEffect(() => {
 
         const getQuestions = async () => {
-            const res = await axios.get('http://localhost:5000/questions');
-
-            // import dynamically the images ?
-            // let imgs = require.context('../../imgs', true);
-            // res.data.map((r) => {
-            //     r.image = imgs('./' + r.image);
-            // });
-            // setPastReservations(res.data.sort((item1, item2) => item2.selectedDateOption - item1.selectedDateOption));
-            setQuestions(res.data.questions);
+            const res = await axios.get('http://localhost:5000/api/v1/messages/inFaq');
+            setQuestions(res.data);
             let selState = [];
-            res.data.questions.map(() => selState.push(false))
+            res.data.map(() => selState.push(false))
             setSelectedState(selState);
             console.log(res.data);
         }
@@ -66,8 +59,13 @@ export default function Faq() {
         let delIdx = [];
         let cpy = [...questions];
         let afterDelArr = cpy.filter((item, idx) => { if (selectedState[idx]) delIdx.push(idx); return !selectedState[idx] })
-
         delIdx.map((item) => selectedState.splice(item, 1));
+
+        let ids = [];
+        delIdx.map((item) => ids.push(questions[item]._id));
+        ids.map(async (item) => {
+            await axios.put(`http://localhost:5000/api/v1/messages/${item}`, { inFaq: false });
+        });
         setSelectedState(selectedState);
         setQuestions(afterDelArr);
     }
@@ -97,6 +95,7 @@ export default function Faq() {
                                         setUnselectedItemState={setUnselectedItemState}
                                         initialChecked={false}
                                         nrQuestions={questions.length}
+                                        q={q}
                                     />
                                 </div>) : null
                         })

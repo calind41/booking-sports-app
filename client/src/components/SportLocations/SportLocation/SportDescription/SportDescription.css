@@ -20,7 +20,8 @@
     position: relative;
     bottom: 32px;
     left: 2%;
-    height: 150px;
+    height: 100px;
+    /* border: 2px solid red; */
 }
 .desc-wrap div {
     flex: 0 40%;

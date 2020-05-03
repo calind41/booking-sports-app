@@ -32,8 +32,9 @@
 }
 .frequenct-q-container > div:nth-child(1) > div:nth-child(2) {
     position: relative;
-    right: 55vw;
+    right: 44.7vw;
     font-weight: bold;
+    width: 17vw;
 }
 .frequenct-q-container > div:nth-child(2) {
     position: relative;
@@ -41,11 +42,15 @@
 }
 .frequenct-q-container > div:nth-child(2) > div:nth-child(1) {
     position: relative;
-    left: 17px;
+    left: 18.5px;
+    width: 2.3vw;
+    
+
 }
 .frequenct-q-container > div:nth-child(2) > div:nth-child(2) {
+    width: 7vw;
     position: relative;
-    right: 55vw;
+    right: 54.6vw;
     top: 13px;
     cursor: pointer;
     user-select: none;

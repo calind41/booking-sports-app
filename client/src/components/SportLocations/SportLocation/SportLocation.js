@@ -8,7 +8,6 @@ import './SportLocation.css'
 
 export default function SportLocation({ data }) {
     const { images, title, location, district, sport, sportOpts, inventory } = data;
-
     return (
         <div className='sport-location'>
             <ImageSlider images={images} />

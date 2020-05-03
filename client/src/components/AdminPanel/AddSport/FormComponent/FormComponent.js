@@ -2,22 +2,11 @@ import React, { Fragment, useState } from 'react';
 import axios from 'axios';
 
 import { makeStyles } from '@material-ui/core/styles';
-import FilledInput from '@material-ui/core/FilledInput';
 import FormControl from '@material-ui/core/FormControl';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 
 import TextareaAutosize from '@material-ui/core/TextareaAutosize'
-
-import clsx from 'clsx';
-import IconButton from '@material-ui/core/IconButton';
-import InputAdornment from '@material-ui/core/InputAdornment';
-import TextField from '@material-ui/core/TextField';
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
-
 import ServiceDetails from '../ServiceDetails/ServiceDetails'
 import './FormComponent.css'
 

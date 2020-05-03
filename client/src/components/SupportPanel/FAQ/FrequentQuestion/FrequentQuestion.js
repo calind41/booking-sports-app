@@ -32,20 +32,21 @@ const useStyles = makeStyles(theme => ({
     },
     closeIcon: {
         position: 'relative',
-        left: '28.2vw',
-        bottom: '5px',
+        left: '27.2vw',
+        bottom: '-1.2vh',
         width: '10px',
         cursor: 'pointer',
         transition: '.2s ease-in-out',
         '&:hover': {
             color: 'red'
-        }
+        },
     },
     header: {
         display: 'flex',
         justifyContent: 'space-between',
         position: 'relative',
-        bottom: '5vh'
+        bottom: '3vh',
+        width: '24vw',
     },
     qNr: {
         backgroundColor: 'gray',
@@ -58,18 +59,28 @@ const useStyles = makeStyles(theme => ({
     hText: {
         fontWeight: 'bold',
         position: 'relative',
-        right: '19vw'
+        right: '11vw',
+        width: '10vw',
+    },
+    fontWeightBold: {
+        fontWeight: 'bold'
+    },
+    bodyContainer: {
+        display: 'flex',
+        flexDirection: 'column',
+        height: '43vh'
+    },
+    question: {
+        marginBottom: '2vh',
     },
     response: {
-        position: 'relative',
-        bottom: '4.1vh',
-        height: '41vh'
+
     }
 
 }));
 
 
-export default function FrequentQuestion({ index, setSelectedItemState, setUnselectedItemState, initialChecked, nrQuestions }) {
+export default function FrequentQuestion({ q, index, setSelectedItemState, setUnselectedItemState, initialChecked, nrQuestions }) {
 
 
     const [checked, setChecked] = React.useState(false);
@@ -93,14 +104,15 @@ export default function FrequentQuestion({ index, setSelectedItemState, setUnsel
 
     const handleClose = () => {
         setOpen(false);
+        console.log('closed ')
     };
 
 
     return (
         <div className='frequenct-q-container'>
             <div>
-                <div>Q1</div>
-                <div>Question text</div>
+                <div>Q{index + 1}</div>
+                <div className='fq-subject'>{q.subject}</div>
             </div>
             <div>
                 <div>
@@ -129,13 +141,18 @@ export default function FrequentQuestion({ index, setSelectedItemState, setUnsel
                     <div id='responnd-form-container' className={classes.paper}>
                         <div onClick={handleClose} className={classes.closeIcon}><i class="fas fa-times"></i></div>
                         <div className={classes.header}>
-                            <div className={classes.qNr}>Q1</div>
-                            <div className={classes.hText}>Question text</div>
+                            <div className={classes.qNr}>Q{index + 1}</div>
+                            <div className={classes.hText}>{q.subject}</div>
                         </div>
-                        <div className={classes.response}>
-                            Response to question Q1. Here it goes, the answert to this question. its super simple.
-                            Its an useful response, isn't it?
+                        <div className={classes.bodyContainer}>
+                            <div className={classes.question}>
+                                <span className={classes.fontWeightBold}>Question:</span><br /> {q.messageBody}
+                            </div>
+                            <div className={classes.response}>
+                                <span className={classes.fontWeightBold}>Response:</span><br /> {q.response}
+                            </div>
                         </div>
+
 
                     </div>
                 </Fade>

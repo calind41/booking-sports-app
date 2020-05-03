@@ -71,10 +71,61 @@ const getById = async (id) => {
 }
 
 const updateMessageMeta = async (id, inFaq, alreadyRead, alreadyResponded) => {
-    await Message.findByIdAndUpdate(id, { inFaq, alreadyRead, alreadyResponded });
+    if (inFaq !== undefined && alreadyRead !== undefined && alreadyResponded !== undefined) {
+        await Message.findByIdAndUpdate(id, { inFaq, alreadyRead, alreadyResponded });
+
+    } else if (inFaq !== undefined && alreadyRead !== undefined) {
+        await Message.findByIdAndUpdate(id, { inFaq, alreadyRead });
+
+    } else if (inFaq !== undefined && alreadyResponded !== undefined) {
+        await Message.findByIdAndUpdate(id, { inFaq, alreadyResponded });
+    } else if (alreadyRead !== undefined && alreadyResponded !== undefined) {
+        await Message.findByIdAndUpdate(id, { alreadyRead, alreadyResponded });
+
+    } else if (inFaq !== undefined) {
+        await Message.findByIdAndUpdate(id, { inFaq });
+
+    } else if (alreadyRead !== undefined) {
+        await Message.findByIdAndUpdate(id, { alreadyRead });
+
+    } else if (alreadyResponded !== undefined) {
+        await Message.findByIdAndUpdate(id, { alreadyResponded });
+
+    }
 }
 const updateMessageResponse = async (id, response) => {
     await Message.findByIdAndUpdate(id, { response });
+
+    let msg = await Message.findById(id);
+    const to = msg.fromAuser ? msg.user.email : msg.email;
+    const subject = msg.subject;
+    sendMail(to, subject, response)
+}
+const sendMail = (to, subject, response) => {
+    const nodemailer = require('nodemailer');
+
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'genmotionbooking@gmail.com',
+            pass: 'supportpassword'
+        }
+    });
+
+    var mailOptions = {
+        from: 'genmotionbooking@gmail.com',
+        to: to,
+        subject: subject,
+        text: response
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
 }
 const deleteByIds = async (ids) => {
     await Message.deleteMany({ _id: ids })

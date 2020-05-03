@@ -9,8 +9,10 @@ export default function MessageController({ deleteMessages, deleteFAQs }) {
             console.log('delete faqs');
             deleteFAQs();
         }
-        else
+        else {
             deleteMessages();
+            window.location.reload();
+        }
     }
 
     const handleRefresh = () => {

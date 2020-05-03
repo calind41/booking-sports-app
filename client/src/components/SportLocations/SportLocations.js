@@ -9,6 +9,9 @@ import Navbar from './Navbar/Navbar';
 export default function SportLocations({ location }) {
 
     const [sportLocs, setSportLocs] = useState([]);
+    let [facilities, setFacilities] = useState([]);
+    let [surface, setSurface] = useState([]);
+    let [type, setType] = useState([]);
 
     useEffect(() => {
         let selectedSport, selectedSector;
@@ -21,16 +24,59 @@ export default function SportLocations({ location }) {
             selectedSport = localStorage.getItem('selectedSport');
             selectedSector = localStorage.getItem('selectedSector');
         }
-        console.log('in sport locations , ', selectedSport, selectedSector);
 
         const getSportLocations = async () => {
             const res = await axios.get(`http://localhost:5000/api/v1/sportLocations/sport/${selectedSport}/${selectedSector}`);
-            console.log(res);
+
+            res.data.map((item) => {
+                let inventory = item.inventory;
+                inventory.map((ivt) => {
+                    if (ivt.title === 'facilities')
+                        facilities.push(ivt.value);
+                    if (ivt.title === 'surface')
+                        surface.push(ivt.value);
+                    if (ivt.title === 'type')
+                        type.push(ivt.value);
+                });
+            });
+            // remove duplicates
+            facilities = facilities.filter((v, i) => facilities.indexOf(v) === i);
+            surface = surface.filter((v, i) => surface.indexOf(v) === i);
+            type = type.filter((v, i) => type.indexOf(v) === i);
+
+            setFacilities(facilities);
+            setSurface(surface);
+            setType(type);
+
             setSportLocs(res.data);
         }
         getSportLocations();
 
     }, [])
+
+    const passParams = (f, s, t) => {
+        console.log('in sport loc ');
+        console.log('f ', f);
+        console.log('s ', s);
+        console.log('t ', t);
+
+        applyFilter(f, s, t);
+    }
+
+    const applyFilter = (f, s, t) => {
+        let filtered = sportLocs.filter((sl) => {
+            console.log(sl);
+            let ret = false;
+            sl.inventory.map((item) => {
+                if (item.title === 'facilities' || item.title === 'surface' || item.title === 'type') {
+                    if (f.includes(item.value) || s.includes(item.value) || t.includes(item.value))
+                        ret = true;
+                }
+            })
+            return ret;
+        });
+        console.log('filtered', filtered);
+    }
 
     return (
         <Fragment>
@@ -40,7 +86,7 @@ export default function SportLocations({ location }) {
                     {sportLocs.map((i) => <SportLocation data={i} />)}
                 </div>
                 <div className='sidebar-c'>
-                    <Sidebar />
+                    <Sidebar passParams={passParams} facilities={facilities} surface={surface} type={type} />
                 </div>
 
             </div>

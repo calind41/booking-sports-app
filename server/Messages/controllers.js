@@ -120,6 +120,7 @@ router.put('/:id', async (req, res, next) => {
 
 })
 
+// update response of the message
 router.put('/response/:id', async (req, res, next) => {
     const {
         id
@@ -134,6 +135,7 @@ router.put('/response/:id', async (req, res, next) => {
     } catch (err) {
         console.error(err);
     }
+
 })
 
 // // delete messages by id using an array of ids

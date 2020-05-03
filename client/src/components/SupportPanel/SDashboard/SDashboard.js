@@ -15,10 +15,10 @@ export default function SDashboard() {
     const [messages, setMessages] = useState([]);
     const [selectedState, setSelectedState] = useState([]);
     const [selectedMessageDetails, setSelectedMessageDetails] = useState(null);
+    const [ids, setIds] = useState([]);
 
     const [pageNr, setPageNr] = useState(1);
     const [index, setIndex] = useState(0);
-
 
     useEffect(() => {
         const getMessages = async () => {
@@ -32,7 +32,10 @@ export default function SDashboard() {
             setSelectedState(selState);
         }
         getMessages();
+
+        return () => { console.log('unmount') }
     }, [])
+
 
     const changePage = (page) => {
         setPageNr(page);
@@ -52,16 +55,20 @@ export default function SDashboard() {
     const deleteMessages = async () => {
         let delIdx = [];
         let cpy = [...messages];
-        let afterDelArr = cpy.filter((item, idx) => { if (selectedState[idx]) delIdx.push(idx); return !selectedState[idx] })
+        let afterDelArr = messages.filter((item, idx) => { if (selectedState[idx]) delIdx.push(idx); return !selectedState[idx] })
 
         delIdx.map((item) => selectedState.splice(item, 1));
         let ids = [];
         delIdx.map((item) => ids.push(messages[item]._id));
+        // setIds(temp);
         await axios.delete(`http://localhost:5000/api/v1/messages/deleteMessages`, { data: { ids } });
+        // setSelectedState(selectedState);
+        console.log('AFTER DEL ARRAY IS ', afterDelArr)
+        // setMessages(afterDelArr);
 
-        setSelectedState(selectedState);
-        setMessages(afterDelArr);
+
     }
+
     const nrMessages = messages.length;
 
     const setMessageDetails = (index) => {
@@ -69,6 +76,8 @@ export default function SDashboard() {
         console.log(message);
         setSelectedMessageDetails(message);
     }
+
+
     return (
         <div className='sdashboard-container'>
             <SidebarMenu faq={true} name='Support Panel' />
@@ -105,7 +114,7 @@ export default function SDashboard() {
                             }
                         </div>
                         <div className='msg-detail'>
-                            <MessageDetails selectedMessageDetails={selectedMessageDetails} />
+                            <MessageDetails msg={selectedMessageDetails} selectedMessageDetails={selectedMessageDetails} />
                         </div>
                     </div>
                 </div>

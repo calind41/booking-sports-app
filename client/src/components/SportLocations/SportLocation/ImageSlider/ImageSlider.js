@@ -29,7 +29,6 @@ export default function ImageSlider({ images, width, height }) {
         let im = imgs('' + image);
         imageArr.push(im)
     });
-    console.log(images);
 
     return (
         // if width and height are passed as props 

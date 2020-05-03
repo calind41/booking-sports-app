@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './SportDescription.css';
 
-export default function SportDescription({ title, location, sport, format, type, surface, min_zone_part, price }) {
+export default function SportDescription({ title, location, sport, inventory }) {
 
     return (
         <div className='sport-desc'>
@@ -9,7 +9,17 @@ export default function SportDescription({ title, location, sport, format, type,
             <h2>{location}</h2>
             <h2>{sport}</h2>
             <div className='desc-wrap'>
-                <div className='format'>
+                {
+                    inventory.map((item) => {
+                        return (
+                            <div>
+                                <h4>{item.title}</h4>
+                                <span>{item.value}</span>
+                            </div>
+                        )
+                    })
+                }
+                {/* <div className='format'>
                     <h4>Format</h4>
                     <span>{format}</span>
                 </div>
@@ -28,7 +38,7 @@ export default function SportDescription({ title, location, sport, format, type,
                 <div className='price'>
                     <h4>Price</h4>
                     <span>{price}</span>
-                </div>
+                </div> */}
             </div>
 
         </div>

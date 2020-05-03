@@ -26,11 +26,25 @@
 }
 .wrapper {
     width: 25vw;
+    max-height: 34.6vh;
+    margin-left: 8px;
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
+    flex-wrap: wrap;
+    /* border: 2px solid red; */
 }
 
-.wrapper div ul {
+.wrapper div  {
+  /* displ */
+  /* border: 2px solid red; */
+  width: 8vw;
+  height: 3vh;
+  margin-bottom: 4vh;
+}
+.wrapper div p:nth-child(1) {
+    font-weight: bold;
+}
+.wrapper div p:nth-child(2) {
     position: relative;
-    right: 32px;
+    bottom: 10px;
 }

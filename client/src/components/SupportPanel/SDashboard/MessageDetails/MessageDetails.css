@@ -50,7 +50,7 @@
     width: 5.9vw;
     height: 4.6vh;
     border-radius: 10px;
-    background-color: #D275F3;
+    background-color: #056CF2;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -59,7 +59,10 @@
     transition: .2s ease-in-out;
 }
 .reply-btn:hover {
-    background-color: rgb(157, 86, 182);
+    background-color: rgb(11, 65, 136);
+}
+.grayBg {
+    background-color: #c9cacc !important;
 }
 
 .reply-btn i {
