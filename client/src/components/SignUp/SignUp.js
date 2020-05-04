@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import axios from 'axios'
 
 import './SignUp.css'
@@ -8,6 +8,19 @@ import Logo from '../SportLocations/Navbar/Logo/Logo'
 
 
 export default function SignUp() {
+
+    const history = useHistory();
+    useEffect(() => {
+        if (localStorage.getItem('userLoggedIn') === 'false') {
+            document.querySelector('#retypepass').addEventListener('keyup', (evt) => {
+                if (evt.keyCode === 13) {
+                    evt.preventDefault();
+                    handleCreateAccount();
+                }
+            })
+        }
+
+    }, [])
 
     const handleCreateAccount = async (evt) => {
         const fn = document.querySelector('#firstname').value;
@@ -37,58 +50,54 @@ export default function SignUp() {
             password: pass
         };
         const res = await axios.post('http://localhost:5000/api/v1/users/register', data);
-        document.querySelector('#firstname').value = '';
-        document.querySelector('#lastname').value = '';
-        document.querySelector('#username').value = '';
-        document.querySelector('#email').value = '';
-        document.querySelector('#password').value = '';
-        document.querySelector('#retypepass').value = '';
+        history.push('/signin')
     }
 
     return (
-        <div className='signup-container'>
-            <div className='signup'>
-                <div className='su-logo'>
-                    <Logo />
-                </div>
-                <div className='su-fields-wrapper'>
-                    <div className='su-heading'>
-                        Sign Up
+        localStorage.getItem('userLoggedIn') === 'false' ? (
+            <div className='signup-container'>
+                <div className='signup'>
+                    <div className='su-logo'>
+                        <Logo />
+                    </div>
+                    <div className='su-fields-wrapper'>
+                        <div className='su-heading'>
+                            Sign Up
                         </div>
-                    <div className='firstname-wrap'>
-                        <label for="firstname">Your First Name</label>
-                        <input type="text" id="firstname" />
-                    </div>
-                    <div className='lastname-wrap'>
-                        <label for="lastname">Your Last Name</label>
-                        <input type="text" id="lastname" />
-                    </div>
-                    <div className='username-wrap'>
-                        <label for="username">Your username</label>
-                        <input type="text" id="username" />
-                    </div>
-                    <div className='email-wrap'>
-                        <label for="email">Your email</label>
-                        <input type="email" id="email" />
-                    </div>
-                    <div className='password-wrap'>
-                        <label for="password">Password</label>
-                        <input type="password" id="password" />
-                    </div>
-                    <div className='retype-pass-wrap'>
-                        <label for="retypepass">Retype Password</label>
-                        <input type="password" id="retypepass" />
-                    </div>
-                    <div>
-                        <button onClick={(e) => handleCreateAccount(e)} className='su-btn'>Create account</button>
-                        <div className='alternative'>
-                            <p>Already have an account?
+                        <div className='firstname-wrap'>
+                            <label for="firstname">Your First Name</label>
+                            <input type="text" id="firstname" />
+                        </div>
+                        <div className='lastname-wrap'>
+                            <label for="lastname">Your Last Name</label>
+                            <input type="text" id="lastname" />
+                        </div>
+                        <div className='username-wrap'>
+                            <label for="username">Your username</label>
+                            <input type="text" id="username" />
+                        </div>
+                        <div className='email-wrap'>
+                            <label for="email">Your email</label>
+                            <input type="email" id="email" />
+                        </div>
+                        <div className='password-wrap'>
+                            <label for="password">Password</label>
+                            <input type="password" id="password" />
+                        </div>
+                        <div className='retype-pass-wrap'>
+                            <label for="retypepass">Retype Password</label>
+                            <input type="password" id="retypepass" />
+                        </div>
+                        <div>
+                            <button onClick={(e) => handleCreateAccount(e)} className='su-btn'>Create account</button>
+                            <div className='alternative'>
+                                <p>Already have an account?
                                     <Link style={{ 'textDecoration': 'none' }} to='/signin'><span className='su-redir-sign-in'>Sign In</span></Link>
-                            </p>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div>) : null
     )
 }

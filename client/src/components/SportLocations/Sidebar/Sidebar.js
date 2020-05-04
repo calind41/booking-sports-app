@@ -2,11 +2,12 @@ import React, { Component, useState, useEffect } from 'react'
 import './Sidebar.css';
 import SidebarCategory from './SidebarCategory/SidebarCategory';
 
-export default function Sidebar({ passParams, facilities, surface, type }) {
+export default function Sidebar({ styles, passParams, facilities, surface, type }) {
 
     let [f, setF] = useState([]);
     let [s, setS] = useState([]);
     let [t, setT] = useState([]);
+    const [clear, setClear] = useState(false);
 
     const updateChecked = (type, item) => {
         console.log('in update');
@@ -56,18 +57,15 @@ export default function Sidebar({ passParams, facilities, surface, type }) {
 
 
     const handleApply = () => {
-        // console.log('f state ', f);
-        // console.log('s state ', s);
-        // console.log('t type ', t);
         passParams(f, s, t);
 
     }
     const handleClear = () => {
-
+        window.location.reload()
     }
 
     return (
-        <div className='sidebar-container'>
+        <div style={styles} className='sidebar-container'>
             <SidebarCategory updateChecked={updateChecked} listItems={facilities} type="Facilities" />
             <SidebarCategory updateChecked={updateChecked} listItems={surface} type="Surface" />
             <SidebarCategory updateChecked={updateChecked} listItems={type} type='Type' />

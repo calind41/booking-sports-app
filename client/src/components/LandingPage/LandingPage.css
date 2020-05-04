@@ -4,7 +4,7 @@
     box-sizing: border-box;
     width: 100%;
     height: 100vh;
-    transition: background-image 2s ease-in-out;
+    transition: background-image 1.4s ease-in-out;
 }
 .swimming-bg {
     background-image: url('../../imgs/swimming.jpg');
@@ -40,172 +40,101 @@
 
 
 
-/* login and register buttons */
-/* .lp-btns {
-    display: flex;
-    width: 300px;
-    position: relative;
-    left: 77%;
-    top: 20px;
-}
-
-.sign-in, .register {
-    border-radius: 5px;
-    border: none;
-    width: 150px;
-    height: 35px;
-    font-size: 1.1rem;
-    margin-right: 10px;
-    background: transparent;
-    font-weight: bold;
-}
-.register {
-    background-color: #FF0000;
-    background: transparent;
-    color: white;
-}
-.sign-in:hover {
-    background-color: #CCD84B;
-}
-.register:hover {
-    background-color: rgba(255, 0, 0, 0.918);
-} */
-
-/* .box-2 { background-color: #3C3C3C; } */
-
 .lp-btns {
     color: white;
     display: flex;
-    width: 300px;
+    width: 200px;
     position: absolute;
-    left: 80%;
+    left: 82%;
     top: 30px;
     justify-content: space-around;
 }
 
-.btn {
-	line-height: 50px;
-	height: 35px;
-	text-align: center;
-	width: 130px;
+
+.lp-register {
+    background-color: #056CF2 !important;
+    color: #ffffff;
+    border-radius: 7px !important;
+    width: 90px !important;
+    height: 35px !important;
+    outline: none;
+    border: none;
     cursor: pointer;
+    transition: .2s ease-in-out;
+
 }
-.btn-two {
-	color: black;
-	transition: all 0.5s;
-    position: relative;	
-    /* left: 50%;
-    top: 20px; */
-    left: 30px;
-}
-.btn-two:hover {
+.lp-register:hover,
+.lp-signin:hover {
+    background-color: rgb(14, 96, 204) !important;
     color: white;
 }
-.btn-two span {
-	z-index: 2;	
-	display: block;
-    position: absolute;
-    right: 13px;
-    bottom: 4px;
-	width: 100%;
-    height: 100%;	
-    font-size: 0.9rem;
-}
-.btn-two::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 80%;
-	height: 100%;
-	z-index: 1;
-	transition: all 0.4s;
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 5px;
-	background-color: white;
-}
-.btn-two::after {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 80%;
-	height: 100%;
-	z-index: 1;
-	transition: all 0.4s;
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 5px;
-	background-color: white;
-}
-.btn-two:hover::before {
-  transform: rotate(-45deg);
-  background-color: rgba(255,255,255,0);
-}
-.btn-two:hover::after {
-  transform: rotate(45deg);
-  background-color: rgba(255,255,255,0);
+.lp-signin {
+    background-color: #056CF2 !important;
+    color: #ffffff;
+    border-radius: 7px !important;
+    width: 90px !important;
+    height: 35px !important;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: .2s ease-in-out;
 }
 
 
-/* register */
-.btn-one {
-	transition: all 0.3s;
+
+
+
+
+/* user logged in */
+.lp-user-logged-in {
     position: relative;
-   
+    /* right: 18vw; */
+    /* left: 1.7vw; */
+    bottom: 2vh;
+    right: 2vw;
+    width: 10vw !important;
 }
-
-.btn-one span {
-    color: white;
-    z-index: 55;
-    transition: all 0.3s;
+.userIcon {
+    font-size: 27px !important;
+    margin-right: 5px;
+}
+.arrowDownIcon {
+    color: #ffffff !important;
     position: relative;
-    right: 14px;
-    bottom: 7.5px;
-    font-size: 0.9rem;
-}
-.btn-one::before {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 80%;
-	height: 100%;
-	z-index: 1;
-	opacity: 0;
-	transition: all 0.3s;
-	border-top-width: 1px;
-	border-bottom-width: 1px;
-	border-top-style: solid;
-	border-bottom-style: solid;
-	border-top-color: rgba(255,255,255,0.5);
-    border-bottom-color: rgba(255,255,255,0.5);
-	transform: scale(0.1, 1);
-}
-.btn-one:hover span {
-	letter-spacing: 2px;
-}
-.btn-one:hover::before {
-	opacity: 1;	
-	transform: scale(1, 1);	
-}
-.btn-one::after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 80%;
-	height: 100%;
-	z-index: 1;
-	transition: all 0.3s;
-    background-color: #ff0000;
-    border-radius: 5px;
-
-}
-.btn-one:hover::after {
-	opacity: 0;	
-	transform: scale(0.1, 1);
+    right: 0vw !important;
 }
 
+.lp-booked {
+    background-color: #056CF2 !important;
+    color: #ffffff;
+    border-radius: 7px !important;
+    width: 90px !important;
+    height: 35px !important;
 
+}
+.lp-contact {
+    background-color: #056CF2 !important;
+    color: #ffffff;
 
+    border-radius: 7px !important;
+    width: 90px !important;
+    height: 35px !important;
+    margin-left: 10px;
 
+}
+.lp-username-container {
+    width: 9vw !important;
+    position: relative;
+    left: 1vw;
+    top: 1.2vh !important;
+
+}
+.lp-user-name {
+    width: 10vw;
+}
+.lp-sign-out-dropdown {
+    position: relative;
+    left: 12vw !important;
+    color: #000000 !important;
+    font-weight: bold !important;
+}

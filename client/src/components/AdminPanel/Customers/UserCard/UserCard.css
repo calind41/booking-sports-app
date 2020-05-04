@@ -9,7 +9,7 @@
 }
 .usercard-wrapper .bg-image  {
     height: 20vh;
-    background-color: yellow;
+    background-color: rgb(61, 137, 236);
 }
 .usercard-wrapper .round-picture {
     width: 14vh;
@@ -59,13 +59,14 @@
     margin-right: 5px;
 }
 .nr-reservations-class > div {
-    background-color: yellow;
+    background-color: #056CF2;
     width: 10vw;
     margin-top: 10px;
     box-sizing: border-box;
     padding: 5px;
     border-radius: 3px;
     user-select: none;
+    color: #ffffff;
 }
 .nr-reservations-class > div i {
     margin-left: 5px;
@@ -77,6 +78,6 @@
     margin-left: 7px;
 }
 .nr-reservations-class > div:hover {
-    background-color: rgb(105, 218, 40);
+    background-color: rgb(7, 83, 181);
 }
 

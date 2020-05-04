@@ -1,40 +1,38 @@
 .msg-controller-container {
-    color: #A4ABB4;
-    border: 1px solid #000000;
-    width: 7vw;
-    height: 5vh;
-    border-radius: 14px;
-    display: flex;
-    /* position: absolute;
-    left: 29.5vw;
-    bottom: 86vh; */
-    cursor: pointer;
-    background-color: #ffffff;
+    color: #A4ABB4 !important;
+    border: 1px solid #000000 !important;
+    width: 7vw !important;
+    height: 5vh !important;
+    border-radius: 14px !important;
+    display: flex !important;
+    cursor: pointer !important;
+    background-color: #ffffff !important;
 }
 .msg-controller-container .refresh-icon {
     border-right: 1px solid #a4abb4;
-    width: 50%;
-    transition: .2s ease;
+    height: 100%;
+    width: 50% !important;
+    transition: .2s ease !important;
 }
 .msg-controller-container .refresh-icon:hover {
-    color: blue;
+    color: blue !important;
 }
 .refresh-icon i {
-    position: relative;
-    left: 20px;
-    top: 8px;
+    position: relative !important;
+    left: 20px !important;
+    top: 8px !important;
 }
 .msg-controller-container .remove-icon {
-    /* border: 2px solid red; */
-    width: 50%;
-    transition: .2s ease;
+    /* border: 2px solid red !important; */
+    width: 50% !important;
+    transition: .2s ease !important;
 }
 .msg-controller-container .remove-icon:hover {
-    color: red;
+    color: red !important;
 }
 
 .msg-controller-container .remove-icon i {
-    position: relative;
-    left: 18px;
-    top: 8px;
+    position: relative !important;
+    left: 18px !important;
+    top: 8px !important;
 }

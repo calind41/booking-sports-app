@@ -69,13 +69,16 @@
 }
 .booking-container .lower-part .custom-calendar .time-options {
     display: flex;
-    justify-content: space-between;
-    width: 334px;
+    /* justify-content: space-between; */
+    width: 350px;
     flex-wrap: wrap;
     position: relative;
     top: 10.6vh;
-    right: -4.76vw;
+    right: -5.6vw;
     height: 180px;
+}
+.booking-container .lower-part .custom-calendar .time-options > div {
+    margin-right: 10px;
 }
 
 .bookModal-container {

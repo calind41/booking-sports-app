@@ -16,7 +16,7 @@ router.post('/register', async (req, res, next) => {
     try {
         // const role = 'support';
         // const role = 'admin';
-        const role = 'client';
+        const role = 'admin';
         const nrReservations = 0;
         await UsersService.add(firstName, lastName, username, password, email, role, nrReservations);
 
@@ -49,7 +49,7 @@ router.post('/login', async (req, res, next) => {
 router.get('/', async (req, res, next) => {
     try {
         const users = await UsersService.getAll();
-        res.json(users);
+        res.json(users.filter((user) => user.role === 'client'));
     } catch (err) {
         console.error(err.message);
     }

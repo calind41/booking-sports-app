@@ -5,6 +5,10 @@ import './SidebarMenu.css'
 
 export default function SidebarMenu({ name, faq }) {
     const dashboardLink = faq === true ? '/supportDashboard' : '/adminDashboard';
+
+    const jwt = require('jsonwebtoken');
+    const decoded = jwt.decode(localStorage.getItem('token'));
+    const n = decoded.firstName + ' ' + decoded.lastName;
     return (
         <div className='sbm-container'>
 
@@ -17,7 +21,7 @@ export default function SidebarMenu({ name, faq }) {
                 <span className='img-profile-circular'>
 
                 </span>
-                <span className='name'>First N. Last N.</span>
+                <span className='name'>{n}</span>
             </div>
             <hr />
 
@@ -42,7 +46,10 @@ export default function SidebarMenu({ name, faq }) {
                         <span className='li-faq- li-txt'>FAQ</span>
                     </li></Link> : null
                 }
-                <Link style={{ textDecoration: 'none' }} to='/'>
+                <Link onClick={() => {
+                    localStorage.removeItem('userLoggedIn');
+                    localStorage.removeItem('token');
+                }} style={{ textDecoration: 'none' }} to='/'>
                     <li>
                         <i className="fas fa-sign-out-alt"></i>
                         <span className='li-so li-txt'> Sign out</span>

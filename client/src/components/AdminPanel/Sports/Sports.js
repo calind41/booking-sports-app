@@ -6,20 +6,20 @@ import './Sports.css'
 import SidebarMenu from '../Dashboard/SidebarMenu/SidebarMenu'
 import Navigation from '../Dashboard/Navigation/Navigation'
 import SearchBar from '../RemoveSport/SearchBar/SearchBar'
-
-import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
 
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        '& > *': {
-            marginTop: theme.spacing(2),
-        },
-    },
-}));
+
 
 export default function Sports() {
+
+    let role;
+
+    const jwt = require('jsonwebtoken');
+    if (localStorage.getItem('token') !== null) {
+        const decoded = jwt.decode(localStorage.getItem('token'));
+        role = decoded.role;
+    }
 
     const [sports, setSports] = useState([]);
     const [pageNr, setPageNr] = useState(1);
@@ -41,33 +41,46 @@ export default function Sports() {
 
     }
 
+    const applyFilterSearchSportByTitle = async (title) => {
+        console.log('from main ', title)
+
+        const res = await axios.get('http://localhost:5000/api/v1/sportLocations/')
+        let filtered = res.data.filter((sl) => {
+            if (sl.title.toLowerCase().includes(title.toLowerCase()))
+                return true;
+            else
+                return false;
+        });
+        setSports(filtered);
+    }
     const nrSports = sports.length;
     return (
-        <div>
-            <SidebarMenu name="Admin Panel" />
-            <Navigation dashboard='admin' location="Sports" />
-            <div className='search-bar-container'>
-                <SearchBar width='980px' />
-            </div>
-            <div className='sports-cards-wrapper'>
-                {
-                    sports === [] || sports[0] === null ? null : sports.map((sport, idx) => {
-                        return idx >= index && idx <= index + 1 ?
-                            (<div className='u-item'>
-                                <SportCard sport={sport} />
-                            </div>) : null
-                    })
-                }
-            </div>
-            <Pagination
-                id='pagination-component3'
-                page={pageNr}
-                onChange={(event, page) => { changePage(page) }}
-                count={Math.ceil(nrSports / 2)}
-                variant="outlined"
-                shape="rounded"
-            />
+        role === 'admin' ?
+            (<div>
+                <SidebarMenu name="Admin Panel" />
+                <Navigation dashboard='admin' location="Sports" />
+                <div className='search-bar-container'>
+                    <SearchBar applyFilterSearchSportByTitle={applyFilterSearchSportByTitle} width='980px' />
+                </div>
+                <div className='sports-cards-wrapper'>
+                    {
+                        sports === [] || sports[0] === null ? null : sports.map((sport, idx) => {
+                            return idx >= index && idx <= index + 1 ?
+                                (<div className='u-item'>
+                                    <SportCard sport={sport} />
+                                </div>) : null
+                        })
+                    }
+                </div>
+                <Pagination
+                    id='pagination-component3'
+                    page={pageNr}
+                    onChange={(event, page) => { changePage(page) }}
+                    count={Math.ceil(nrSports / 2)}
+                    variant="outlined"
+                    shape="rounded"
+                />
 
-        </div>
+            </div>) : null
     )
 }

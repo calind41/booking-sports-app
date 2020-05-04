@@ -4,9 +4,17 @@ import './Dashboard.css'
 import SidebarMenu from './SidebarMenu/SidebarMenu'
 import Navigation from './Navigation/Navigation'
 
-export default class Dashboard extends Component {
-    render() {
-        return (
+export default function Dashboard() {
+
+    const jwt = require('jsonwebtoken');
+    let role;
+    if (localStorage.getItem('token') !== null) {
+        const decoded = jwt.decode(localStorage.getItem('token'));
+        role = decoded.role;
+    }
+
+    return (
+        role === 'admin' ? (
             <div className='dashboard-container'>
                 <div>
                     <SidebarMenu name="Admin Panel" />
@@ -23,12 +31,7 @@ export default class Dashboard extends Component {
                                     <span className='txt'>Add Sport</span>
                                 </div>
                             </Link>
-                            {/* <Link style={{ textDecoration: 'none', color: 'black' }} to='/adminUpdateSport'>
-                                <div className='update-sport'>
-                                    <i className="icon-class fas fa-wrench"></i>
-                                    <span className='txt'>Update Sport</span>
-                                </div>
-                            </Link> */}
+
                             <Link style={{ textDecoration: 'none', color: 'black' }} to='/adminRemoveSport'>
                                 <div className='remove-sport'>
                                     <span className="icon-class material-icons">
@@ -74,7 +77,6 @@ export default class Dashboard extends Component {
                     </div>
 
                 </div>
-            </div>
-        )
-    }
+            </div>) : null
+    )
 }

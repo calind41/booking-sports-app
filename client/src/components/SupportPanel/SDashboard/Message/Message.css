@@ -1,33 +1,36 @@
 .msg-container {
     border: 1px solid black;
-    width: 16vw;
-    height: 14vh;
-    border-radius: 14px;
-    font-size: 14px;
+    width: 16vw !important;
+    height: 14vh !important;
+    border-radius: 14px !important;
+    font-size: 14px !important;
     background-color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    color: #A4ABB4;
-    cursor: pointer;
-    transition: .3s ease-in-out;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    color: #A4ABB4 !important;
+    cursor: pointer !important;
+    transition: .3s ease-in-out !important;
 }
 .msg-container:hover {
     background-color: #f0eeee;
 }
 .msg-container .top-container {
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    top: 13px;
+    display: flex !important;
+    justify-content: space-around !important;
+    position: relative !important;
+    top: 13px !important;
+    width: 15.5vw;
+
 }
+
 .top-container .color-coded-read-or-not {
-    width: 1.45vw;
-    height: 2vh;
+    width: 2vw !important;
+    height: 2vh !important;
     background-color: red;
-    border-radius: 3px;
-    position: relative;
-    right: 3px;
+    border-radius: 3px !important;
+    position: relative !important;
+    right: -1.13vw !important;
 }
 .bgGreen {
     background-color: rgb(142, 199, 57) !important;
@@ -36,36 +39,37 @@
     background-color: yellow !important;
 }
 .redColor  {
-    color: red;
+    color: red !important;
 }
 .top-container .from-name {
-    position: relative;
-    right: 2vw;
+    position: relative !important;
+    left: 1.7vw !important;
+    width: 100%;
 }
 .top-container .add-to-faq-icon {
-    position: relative;
-    right: 4vw;
+    position: relative !important;
+    left: 3.2vw;
 }
 
 .msg-container .bottom-container {
-    position: relative;
-    bottom: 4px;
-    display: flex;
-    justify-content: space-between;
+    position: relative !important;
+    bottom: 5vh !important;
+    display: flex !important;
+    justify-content: space-between !important;
 }
 .msg-container .title-msg {
-    position: relative;
-    top: 10px;
-    left: 3.3vw;
-    color: #000000;
+    position: relative !important;
+    top: -.3vh !important;
+    left: 3vw !important;
+    color: #000000 !important;
 }
 .msg-container .bottom-container .checkbox-container {
-    position: relative;
-    left: 5px;
+    position: relative !important;
+    left: 5px !important;
 }
 .msg-container .bottom-container .time-received {
-    position: relative;
-    top: 15px;
-    right: 20.4px;
+    position: relative !important;
+    top: 15px !important;
+    left: 8.7vw !important;
 }
 

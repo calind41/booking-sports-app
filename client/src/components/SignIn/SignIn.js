@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -8,6 +8,18 @@ import Logo from '../SportLocations/Navbar/Logo/Logo'
 export default function SignIn() {
 
     const history = useHistory();
+
+    useEffect(() => {
+        if (localStorage.getItem('userLoggedIn') === 'false') {
+            document.querySelector('#password').addEventListener('keyup', (evt) => {
+                if (evt.keyCode === 13) {
+                    evt.preventDefault();
+                    handleSignIn();
+                }
+            })
+        }
+
+    }, [])
 
     const handleSignIn = async () => {
 
@@ -33,43 +45,58 @@ export default function SignIn() {
         const res = await axios.post('http://localhost:5000/api/v1/users/login', data);
         console.log(res);
         if (res.data) {
-            alert('Logged in ');
-            localStorage.setItem('userLoggedIn', true);
-            localStorage.setItem('token', res.data);
-            history.push('/');
+            const jwt = require('jsonwebtoken');
+            const decoded = jwt.decode(res.data);
+            if (decoded.role === 'support') {
+                localStorage.setItem('userLoggedIn', true);
+                localStorage.setItem('token', res.data);
+                history.push('/supportDashboard');
+            } else if (decoded.role === 'admin') {
+                localStorage.setItem('userLoggedIn', true);
+                localStorage.setItem('token', res.data);
+                history.push('/adminDashboard')
+            } else {
+                localStorage.setItem('userLoggedIn', true);
+                localStorage.setItem('token', res.data);
+                history.push('/');
+            }
+
         }
         else
             alert('The user does not exist');
     }
     return (
-        <div className='sign-in-container'>
-            <div className='sign-in'>
-                <div className='si-logo'>
-                    <Logo />
-                </div>
-                <div className='si-fields-wrapper'>
-                    <div className='si-heading'>
-                        Sign In
+        localStorage.getItem('userLoggedIn') === 'false' ? (
+            <div className='sign-in-container'>
+                <div className='sign-in'>
+                    <div className='si-logo'>
+                        <Logo />
+                    </div>
+                    <div className='si-fields-wrapper'>
+                        <div className='si-heading'>
+                            Sign In
                         </div>
 
-                    <div className='username-wrap'>
-                        <label for="username">username / email</label>
-                        <input type="text" id="username" />
-                    </div>
-                    <div className='password-wrap'>
-                        <label for="password">password</label>
-                        <input type="password" id="password" />
-                    </div>
-                    <div className='sign-in-btn-wrapper'>
-                        <button onClick={handleSignIn} id='sign-in-button'>Sign in</button>
-                        <div className='su-alternative'>
-                            <p>Don't have an account?
+                        <div className='username-wrap'>
+                            <label for="username">username / email</label>
+                            <input type="text" id="username" />
+                        </div>
+                        <div className='password-wrap'>
+                            <label for="password">password</label>
+                            <input type="password" id="password" />
+                        </div>
+                        <div className='sign-in-btn-wrapper'>
+                            <button onClick={handleSignIn} id='sign-in-button'>Sign in</button>
+                            <div className='su-alternative'>
+                                <p>Don't have an account?
                                    <Link style={{ textDecoration: 'none' }} to='/signup'> <span className='si-redir-sign-up'>Sign Up</span></Link>
-                            </p>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div>) : null
     )
 }
+
+

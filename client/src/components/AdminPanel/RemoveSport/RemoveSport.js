@@ -12,6 +12,15 @@ import Pagination from '@material-ui/lab/Pagination';
 
 export default function RemoveSport() {
 
+    let role;
+
+    const jwt = require('jsonwebtoken');
+    if (localStorage.getItem('token') !== null) {
+        const decoded = jwt.decode(localStorage.getItem('token'));
+        role = decoded.role;
+        console.log('decoded is ', decoded);
+    }
+
 
     const [pageNr, setPageNr] = useState(1);
     const [index, setIndex] = useState(0);
@@ -66,52 +75,53 @@ export default function RemoveSport() {
     const nrSports = sportsArr.length;
 
     return (
-        <div id='remove-sport-container'>
-            <SidebarMenu name="Admin Panel" />
-            <Navigation dashboard='admin' location="Remove Sport" />
-            <div className='remove-s-searchbar'>
-                <SearchBar width='980px' />
-            </div>
-            <div className='remove-sport-reuse-del-button'>
-                <div className='del-button-wrapper'>
-                    <button onClick={deleteSports} className='del-button'>
-                        <span class="material-icons">
-                            delete
-                            </span>
-                        <span id='del-txt'>Delete</span>
-                    </button>
+        role === 'admin' ?
+            (<div id='remove-sport-container'>
+                <SidebarMenu name="Admin Panel" />
+                <Navigation dashboard='admin' location="Remove Sport" />
+                <div className='remove-s-searchbar'>
+                    <SearchBar width='980px' />
                 </div>
-            </div>
+                <div className='remove-sport-reuse-del-button'>
+                    <div className='del-button-wrapper'>
+                        <button onClick={deleteSports} className='del-button'>
+                            <span class="material-icons">
+                                delete
+                            </span>
+                            <span id='del-txt'>Delete</span>
+                        </button>
+                    </div>
+                </div>
 
 
-            <div className='sports'>
-                {
-                    // arr.map((sport) => <SportComponentToRemove />)
-                }
-                {
-                    sportsArr === [] || sportsArr[0] === null ? null : sportsArr.map((sport, idx) => {
-                        return idx >= index && idx <= index + 3 ?
-                            (<div className='s-item'>
-                                <SportComponentToRemove
-                                    setSelectedItemState={setSelectedItemState}
-                                    setUnselectedItemState={setUnselectedItemState}
-                                    index={idx}
-                                    initialChecked={false}
-                                    nrSports={sportsArr.length}
-                                    sportLoc={sport}
-                                />
-                            </div>) : null
-                    })
-                }
-            </div>
-            <Pagination
-                id='pagination-component'
-                page={pageNr}
-                onChange={(event, page) => { changePage(page) }}
-                count={Math.ceil(nrSports / 4)}
-                variant="outlined"
-                shape="rounded"
-            />
-        </div>
+                <div className='sports'>
+                    {
+                        // arr.map((sport) => <SportComponentToRemove />)
+                    }
+                    {
+                        sportsArr === [] || sportsArr[0] === null ? null : sportsArr.map((sport, idx) => {
+                            return idx >= index && idx <= index + 3 ?
+                                (<div className='s-item'>
+                                    <SportComponentToRemove
+                                        setSelectedItemState={setSelectedItemState}
+                                        setUnselectedItemState={setUnselectedItemState}
+                                        index={idx}
+                                        initialChecked={false}
+                                        nrSports={sportsArr.length}
+                                        sportLoc={sport}
+                                    />
+                                </div>) : null
+                        })
+                    }
+                </div>
+                <Pagination
+                    id='pagination-component'
+                    page={pageNr}
+                    onChange={(event, page) => { changePage(page) }}
+                    count={Math.ceil(nrSports / 4)}
+                    variant="outlined"
+                    shape="rounded"
+                />
+            </div>) : null
     )
 }

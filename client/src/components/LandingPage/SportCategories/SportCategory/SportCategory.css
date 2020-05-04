@@ -5,6 +5,7 @@
     border-radius: 7px;
     background-color: white;
     cursor: pointer;
+    user-select: none;
 }
 .sel-categ  {
     background-color: #CCD84B;

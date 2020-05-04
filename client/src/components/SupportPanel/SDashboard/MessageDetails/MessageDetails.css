@@ -1,62 +1,64 @@
 .msg-details-container {
-    border: 1px solid #000000;
-    width: 46vw;
-    height: 65.8vh;
-    position: relative;
-    right: 3vw;
-    /* bottom: 18vh;
-    left: 40vw; */
-    font-size: 12px;
-    color: #A4ABB4;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border-radius: 14px;
-    background-color: #ffffff;
+    border: 1px solid #000000 !important;
+    width: 46vw !important;
+    height: 65.8vh !important;
+    position: relative !important;
+    right: 4.65vw !important;
+ 
+    font-size: 12px !important;
+    color: #A4ABB4 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    border-radius: 14px !important;
+    background-color: #ffffff !important;
 }
 .msg-details-container .date-time {
-    position: relative;
-    left: 3vw;
-    top: 4vh;
+    position: relative !important;
+    left: 3vw !important;
+    top: 4vh !important;
 }
 .msg-details-container .title-msg {
-    position: relative;
-    left: 3vw;
-    bottom: 8.3vh;
-    color: #000000;
-    /* font-size: 14px; */
-    font-weight: bold;
+    position: relative !important;
+    left: 3vw !important;
+    top: 1vh !important;
+    color: #000000 !important;
+    /* font-size: 14px !important; */
+    font-weight: bold !important;
 }
 .msg-details-container .from-email {
-    position: relative;
-    left: 3vw;
-    bottom: 21.3vh;
+    position: relative !important;
+    left: 3vw !important;
+    bottom: 2.0vh !important;
+    width: 23vw;
 }
 .from-email span {
-    font-weight: bold;
-    color: black;
+    font-weight: bold !important;
+    color: black !important;
 }
 
 .msg-details-container .msg-body {
-    color: #000000;
-    position: relative;
-    left: 3vw;
-    bottom: 31.3vh;
+    color: #000000 !important;
+    position: relative !important;
+    left: 3vw !important;
+    bottom: 1vh !important;
+    width: 90%;
+    height: 55vh;
 }
 .msg-details-container .reply-btn {
-    position: relative;
-    bottom: 5vh;
-    left: 3vw;
-    width: 5.9vw;
-    height: 4.6vh;
-    border-radius: 10px;
+    position: relative !important;
+    bottom: -1vh !important;
+    left: 3vw !important;
+    width: 6.4vw !important;
+    height: 7.6vh !important;
+    border-radius: 10px !important;
     background-color: #056CF2;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    cursor: pointer;
-    transition: .2s ease-in-out;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-around !important;
+    cursor: pointer !important;
+    transition: .2s ease-in-out !important;
 }
 .reply-btn:hover {
     background-color: rgb(11, 65, 136);
@@ -66,13 +68,13 @@
 }
 
 .reply-btn i {
-    position: relative;
-    right: 2.5px;
-    font-size: 16px;
+    position: relative !important;
+    right: 2.5px !important;
+    font-size: 16px !important;
 }
 .reply-btn span {
-    position: relative;
-    right: 10px;
-    font-size: 14px;
+    position: relative !important;
+    right: 10px !important;
+    font-size: 14px !important;
 }
 

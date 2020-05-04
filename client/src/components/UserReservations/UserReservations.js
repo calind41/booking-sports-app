@@ -67,10 +67,36 @@ export default function UserReservations() {
         setSelectedState(selectedState)
     }
 
+    const filterResBySportType = async (resSportType) => {
+        const jwt = require('jsonwebtoken');
+        const decoded = jwt.decode(localStorage.getItem('token'));
+        if (localStorage.getItem('token') !== null) {
+            const userId = decoded.userId;
+            // get all reservations
+            const res = await axios.get(`http://localhost:5000/api/v1/reservations/user/${userId}`);
+            let filtered = res.data.filter((sl) => {
+                if (sl.sport.toLowerCase().includes(resSportType))
+                    return true;
+                else
+                    return false;
+            });
+
+
+            // import dynamically the images ?
+            let imgs = require.context('../../../../server', true);
+            filtered.map((r) => {
+                r.image = imgs('' + r.image);
+            });
+
+            setPastReservations(filtered.sort((item1, item2) => item2.selectedDateOption - item1.selectedDateOption));
+
+        }
+    }
+
 
     return (
         <div className='user-reservations-wrapper'>
-            <Navbar />
+            <Navbar filterResBySportType={filterResBySportType} />
             <div className='past-res-and-del'>
                 <div className='past-r'>Past Reservations</div>
                 <div onClick={deleteReservations} className='del-button-wrapper'>

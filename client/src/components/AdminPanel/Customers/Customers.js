@@ -9,6 +9,15 @@ import Pagination from '@material-ui/lab/Pagination';
 
 export default function Customers() {
 
+    let role;
+
+    const jwt = require('jsonwebtoken');
+    if (localStorage.getItem('token') !== null) {
+        const decoded = jwt.decode(localStorage.getItem('token'));
+        role = decoded.role;
+        console.log('decoded is ', decoded);
+    }
+
     const [users, setUsers] = useState([]);
 
     const [pageNr, setPageNr] = useState(1);
@@ -29,33 +38,54 @@ export default function Customers() {
 
     }
 
+    const applyFilterSearchCustomersByName = async (name) => {
+        const res = await axios.get('http://localhost:5000/api/v1/users/');
+        console.log('name is ', name);
+        console.log(res.data);
+        let filtered = res.data.filter((sl) => {
+            let str = sl.firstName + ' ' + sl.lastName;
+            console.log('string is ', str);
+            if (str.toLowerCase().includes(name.toLowerCase())) {
+                console.log('entering on true side');
+                return true;
+            }
+            else {
+                console.log('enterring on false side ')
+                return false;
+            }
+        });
+        console.log('final filtered ', filtered);
+        setUsers(filtered);
+    }
+
     const nrUsers = users.length;
     return (
-        <div>
-            <SidebarMenu name='Admin Panel' />
-            <Navigation dashboard='admin' location="Customers" />
-            <div className='customers-searchbar'>
-                <SearchBar width='980px' />
-            </div>
-            <div className='user-cards-wrapper'>
-                {
-                    users === [] || users[0] === null ? null : users.map((user, idx) => {
-                        return idx >= index && idx <= index + 3 ?
-                            (<div className='u-item'>
-                                <UserCard user={user} />
-                            </div>) : null
-                    })
-                }
-            </div>
-            <Pagination
-                id='pagination-component2'
-                page={pageNr}
-                onChange={(event, page) => { changePage(page) }}
-                count={Math.ceil(nrUsers / 4)}
-                variant="outlined"
-                shape="rounded"
-            />
+        role === 'admin' ?
+            (<div>
+                <SidebarMenu name='Admin Panel' />
+                <Navigation dashboard='admin' location="Customers" />
+                <div className='customers-searchbar'>
+                    <SearchBar applyFilterSearchCustomersByName={applyFilterSearchCustomersByName} width='980px' />
+                </div>
+                <div className='user-cards-wrapper'>
+                    {
+                        users === [] || users[0] === null ? null : users.map((user, idx) => {
+                            return idx >= index && idx <= index + 3 ?
+                                (<div className='u-item'>
+                                    <UserCard user={user} />
+                                </div>) : null
+                        })
+                    }
+                </div>
+                <Pagination
+                    id='pagination-component2'
+                    page={pageNr}
+                    onChange={(event, page) => { changePage(page) }}
+                    count={Math.ceil(nrUsers / 4)}
+                    variant="outlined"
+                    shape="rounded"
+                />
 
-        </div>
+            </div>) : null
     )
 }

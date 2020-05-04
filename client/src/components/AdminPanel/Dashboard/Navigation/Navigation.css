@@ -1,39 +1,39 @@
 .admin-p-nav-container {
-    position: absolute;
-    top: 0;
-    left: 15.97vw;
-    width: 84vw;
-    box-sizing: border-box;
-    height: 7vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    background-color: #ffffff;
-    border-bottom: 1px solid gray;
+    position: absolute !important;
+    top: 0 !important;
+    left: 15.97vw !important;
+    width: 84vw !important;
+    box-sizing: border-box !important;
+    height: 7vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-around !important;
+    background-color: #ffffff !important;
+    border-bottom: 1px solid gray !important;
     
 }
 .curr-path {
-    display: flex;
-    align-items: center;
-    margin-left: 2.36rem;
-        margin-top: 2px;
+    display: flex !important;
+    align-items: center !important;
+    margin-left: 2.36rem !important;
+        margin-top: 2px !important;
 
     
 }
 .curr-path button {
-    background-color: transparent;
-    outline: none;
-    border: none;
-    color: #056CF2;
-    font-weight: bold;
-    font-size: 1.1rem;
-    cursor: pointer;
+    background-color: transparent !important;
+    outline: none !important;
+    border: none !important;
+    color: #056CF2 !important;
+    font-weight: bold !important;
+    font-size: 1.1rem !important;
+    cursor: pointer !important;
 
 }
 .curr-path span {
-    color: #056CF2;
-    font-weight: bold;
-    margin-left: 3.7px;
-    font-size: 1.05rem;
-    cursor: pointer;
+    color: #056CF2 !important;
+    font-weight: bold !important;
+    margin-left: 3.7px !important;
+    font-size: 1.05rem !important;
+    cursor: pointer !important;
 }

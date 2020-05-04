@@ -11,7 +11,7 @@ import Contact from './Contact/Contact';
 
 import './Navbar.css';
 
-export default function Navbar({ searchBar }) {
+export default function Navbar({ filterResBySportType, filterBySporLocationTitle, searchBar }) {
 
     const logoStyles = {
         left: searchBar === 'none' ? '3.1vw' : '5vw'
@@ -51,11 +51,18 @@ export default function Navbar({ searchBar }) {
         else if (localStorage.getItem('userLoggedIn') === 'true')
             setLoggedIn(true);
     }, [])
+
+
+    const jwt = require('jsonwebtoken');
+    const decoded = jwt.decode(localStorage.getItem('token'));
+    const name = decoded.firstName + ' ' + decoded.lastName;
+
+
     return (
         <div className='navbar-container'>
             <Logo logoStyles={logoStyles} />
             {
-                searchBar !== 'none' ? <SearchBar /> : null
+                searchBar !== 'none' ? <SearchBar filterResBySportType={filterResBySportType} filterBySporLocationTitle={filterBySporLocationTitle} /> : null
             }
 
             {
@@ -85,7 +92,7 @@ export default function Navbar({ searchBar }) {
                                 </div>
                                 <div onClick={toggleSignOutDropdown} className='username-and-logout-container'>
                                     <i class="fas fa-user-circle"></i>
-                                    <div>Calin Dodon</div>
+                                    <div>{name}</div>
                                     <i id='arr-d-icon' class="fas fa-sort-down"></i>
                                 </div>
                                 <div className='sign-out-dropdown'>

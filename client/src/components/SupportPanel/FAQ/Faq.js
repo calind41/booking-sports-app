@@ -16,6 +16,15 @@ import Pagination from '@material-ui/lab/Pagination';
 
 export default function Faq() {
 
+    let role;
+
+    const jwt = require('jsonwebtoken');
+    if (localStorage.getItem('token') !== null) {
+        const decoded = jwt.decode(localStorage.getItem('token'));
+        role = decoded.role;
+        console.log('decoded is ', decoded);
+    }
+
     const [questions, setQuestions] = useState([]);
     const [selectedState, setSelectedState] = useState([]);
 
@@ -70,49 +79,61 @@ export default function Faq() {
         setQuestions(afterDelArr);
     }
 
+    const applyFilterSearchMessagesByTitleInFaq = async (title) => {
+        const res = await axios.get('http://localhost:5000/api/v1/messages/inFaq');
+        let filtered = res.data.filter((sl) => {
+            if (sl.subject.toLowerCase().includes(title))
+                return true;
+            else
+                return false;
+        });
+        setQuestions(filtered);
+    }
+
     return (
-        <div>
-            <SidebarMenu faq={true} name='Support Panel' />
-            <Navigation location="FAQ" />
+        role === 'support' ?
+            (<div>
+                <SidebarMenu faq={true} name='Support Panel' />
+                <Navigation location="FAQ" />
 
-            <div className='faq-wrapper'>
+                <div className='faq-wrapper'>
+                    <div>
+                        <div>
+                            <MessageController deleteMessages={null} deleteFAQs={deleteFAQs} />
+                        </div>
+                        <div>
+                            <SearchBar applyFilterSearchMessagesByTitleInFaq={applyFilterSearchMessagesByTitleInFaq} width='664px' />
+                        </div>
+                    </div>
+                    <div className='fquestions-wrapper'>
+                        {
+                            questions === [] || questions[0] === null ? null : questions.map((q, idx) => {
+                                return idx >= index && idx <= index + 3 ?
+                                    (<div>
+                                        <FrequentQuestion
+                                            index={idx}
+                                            setSelectedItemState={setSelectedItemState}
+                                            setUnselectedItemState={setUnselectedItemState}
+                                            initialChecked={false}
+                                            nrQuestions={questions.length}
+                                            q={q}
+                                        />
+                                    </div>) : null
+                            })
+                        }
+                    </div>
+
+                </div>
                 <div>
-                    <div>
-                        <MessageController deleteMessages={null} deleteFAQs={deleteFAQs} />
-                    </div>
-                    <div>
-                        <SearchBar width='664px' />
-                    </div>
+                    <Pagination
+                        id='pagination-component5'
+                        page={pageNr}
+                        onChange={(event, page) => { changePage(page) }}
+                        count={Math.ceil(nrQuestions / 4)}
+                        variant="outlined"
+                        shape="rounded"
+                    />
                 </div>
-                <div className='fquestions-wrapper'>
-                    {
-                        questions === [] || questions[0] === null ? null : questions.map((q, idx) => {
-                            return idx >= index && idx <= index + 3 ?
-                                (<div>
-                                    <FrequentQuestion
-                                        index={idx}
-                                        setSelectedItemState={setSelectedItemState}
-                                        setUnselectedItemState={setUnselectedItemState}
-                                        initialChecked={false}
-                                        nrQuestions={questions.length}
-                                        q={q}
-                                    />
-                                </div>) : null
-                        })
-                    }
-                </div>
-
-            </div>
-            <div>
-                <Pagination
-                    id='pagination-component5'
-                    page={pageNr}
-                    onChange={(event, page) => { changePage(page) }}
-                    count={Math.ceil(nrQuestions / 4)}
-                    variant="outlined"
-                    shape="rounded"
-                />
-            </div>
-        </div>
+            </div>) : null
     )
 }

@@ -9,6 +9,7 @@ import Navbar from './Navbar/Navbar';
 export default function SportLocations({ location }) {
 
     const [sportLocs, setSportLocs] = useState([]);
+    const [filteredSportLocs, setFilteredSportLocs] = useState([]);
     let [facilities, setFacilities] = useState([]);
     let [surface, setSurface] = useState([]);
     let [type, setType] = useState([]);
@@ -49,6 +50,7 @@ export default function SportLocations({ location }) {
             setType(type);
 
             setSportLocs(res.data);
+            setFilteredSportLocs(res.data);
         }
         getSportLocations();
 
@@ -76,22 +78,50 @@ export default function SportLocations({ location }) {
             return ret;
         });
         console.log('filtered', filtered);
+        setFilteredSportLocs(filtered);
+    }
+
+    const filterBySporLocationTitle = async (title) => {
+        let selectedSport, selectedSector;
+        if (localStorage.getItem('selectedSport') === null || localStorage.getItem('selectedSector') === null) {
+            selectedSport = location.data.selectedSport;
+            selectedSector = location.data.selectedSector;
+            localStorage.setItem('selectedSport', selectedSport);
+            localStorage.setItem('selectedSector', selectedSector);
+        } else {
+            selectedSport = localStorage.getItem('selectedSport');
+            selectedSector = localStorage.getItem('selectedSector');
+        }
+
+        const res = await axios.get(`http://localhost:5000/api/v1/sportLocations/sport/${selectedSport}/${selectedSector}`);
+
+        let filtered = res.data.filter((sl) => {
+            if (sl.title.toLowerCase().includes(title))
+                return true;
+            else
+                return false;
+        });
+        setFilteredSportLocs(filtered);
+
     }
 
     return (
         <Fragment>
-            <Navbar />
+            <Navbar filterBySporLocationTitle={filterBySporLocationTitle} />
             <div className='sport-loc-container'>
                 <div className='sport-locations'>
-                    {sportLocs.map((i) => <SportLocation data={i} />)}
+                    {filteredSportLocs.map((i) => <SportLocation data={i} />)}
                 </div>
                 <div className='sidebar-c'>
-                    <Sidebar passParams={passParams} facilities={facilities} surface={surface} type={type} />
+                    <Sidebar styles={sportLocs.length < 3 ? positioningStyles : null} passParams={passParams} facilities={facilities} surface={surface} type={type} />
                 </div>
 
             </div>
-
-
         </Fragment>
     )
+}
+
+const positioningStyles = {
+    position: 'relative',
+    left: '.91vw'
 }

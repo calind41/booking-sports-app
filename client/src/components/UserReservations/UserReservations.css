@@ -43,23 +43,23 @@
 }
 .column-headers .type-header {
     position: relative;
-    right: -2.35vh;
+    right: -0.35vh;
 }
 .loc-header {
     position: relative;
-    left: 2.45vw;
+    left: 2.68vw;
 }
 .date-t-header {
     position: relative;
-    left: -0.64vw;
+    left: 0.3vw;
 }
 .price-header {
     position: relative;
-    left: 0.19vw;
+    left: 0.9vw;
 }
 .available-header {
     position: relative;
-    left: -3.4vw;
+    left: -2.9vw;
 }
 .past-res-and-del {
     display: flex;
@@ -78,7 +78,7 @@
 }
 .del-button-wrapper button {
     position: relative;
-    right: 7.09vw;
+    right: 7.6vw;
     top: 1.4vh;
     width: 5.5vw;
     height: 4vh;

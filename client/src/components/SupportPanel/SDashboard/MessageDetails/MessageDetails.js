@@ -180,6 +180,7 @@ export default function MessageDetails({ msg, selectedMessageDetails }) {
         console.log('message id ', msgId);
         let response = document.querySelector('#txtarea').value;
         let alreadyResponded = true;
+        console.log('message id is ', msgId);
         await axios.put(`http://localhost:5000/api/v1/messages/response/${msgId}`, { response });
         await axios.put(`http://localhost:5000/api/v1/messages/${msgId}`, { alreadyResponded });
 

@@ -96,13 +96,17 @@ const updateMessageMeta = async (id, inFaq, alreadyRead, alreadyResponded) => {
 const updateMessageResponse = async (id, response) => {
     await Message.findByIdAndUpdate(id, { response });
 
-    let msg = await Message.findById(id);
+    let msg = await Message.findById(id).populate('user', ['email']);
     const to = msg.fromAuser ? msg.user.email : msg.email;
     const subject = msg.subject;
     sendMail(to, subject, response)
 }
 const sendMail = (to, subject, response) => {
     const nodemailer = require('nodemailer');
+
+    console.log('to is ', to);
+    console.log('subject is ', subject);
+    console.log('response is ', response);
 
     var transporter = nodemailer.createTransport({
         service: 'gmail',

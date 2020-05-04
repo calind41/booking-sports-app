@@ -12,6 +12,15 @@ import Pagination from '@material-ui/lab/Pagination';
 
 export default function SDashboard() {
 
+    let role;
+
+    const jwt = require('jsonwebtoken');
+    if (localStorage.getItem('token') !== null) {
+        const decoded = jwt.decode(localStorage.getItem('token'));
+        role = decoded.role;
+        console.log('decoded is ', decoded);
+    }
+
     const [messages, setMessages] = useState([]);
     const [selectedState, setSelectedState] = useState([]);
     const [selectedMessageDetails, setSelectedMessageDetails] = useState(null);
@@ -77,58 +86,71 @@ export default function SDashboard() {
         setSelectedMessageDetails(message);
     }
 
+    const applyFilterSearchMessagesByTitle = async (title) => {
+        const res = await axios.get('http://localhost:5000/api/v1/messages/');
+        console.log(res.data);
+        let filtered = res.data.filter((sl) => {
+            if (sl.subject.toLowerCase().includes(title))
+                return true;
+            else
+                return false;
+        });
+        setMessages(filtered);
+    }
+
 
     return (
-        <div className='sdashboard-container'>
-            <SidebarMenu faq={true} name='Support Panel' />
-            <Navigation dashboard='support' />
-            <div>
-                <div className='wrapper'>
-                    <div>
-                        <div className='msg-controller'>
-                            <MessageController deleteMessages={deleteMessages} />
-                        </div>
+        role === 'support' ?
+            (<div className='sdashboard-container'>
+                <SidebarMenu faq={true} name='Support Panel' />
+                <Navigation dashboard='support' />
+                <div>
+                    <div className='wrapper'>
                         <div>
-                            <SearchBar width='664px' />
+                            <div className='msg-controller'>
+                                <MessageController deleteMessages={deleteMessages} />
+                            </div>
+                            <div>
+                                <SearchBar applyFilterSearchMessagesByTitle={applyFilterSearchMessagesByTitle} width='664px' />
+                            </div>
                         </div>
-                    </div>
 
 
-                    <div className='msg-wrapper'>
-                        <div className='msgs'>
-                            {
-                                messages === [] || messages[0] === null ? null : messages.map((msg, idx) => {
-                                    return idx >= index && idx <= index + 3 ?
-                                        (
-                                            <Message
-                                                index={idx}
-                                                setMessageDetails={setMessageDetails}
-                                                setSelectedItemState={setSelectedItemState}
-                                                setUnselectedItemState={setUnselectedItemState}
-                                                initialChecked={false}
-                                                nrMessages={messages.length}
-                                                msg={msg}
-                                            />
-                                        ) : null
-                                })
-                            }
-                        </div>
-                        <div className='msg-detail'>
-                            <MessageDetails msg={selectedMessageDetails} selectedMessageDetails={selectedMessageDetails} />
+                        <div className='msg-wrapper'>
+                            <div className='msgs'>
+                                {
+                                    messages === [] || messages[0] === null ? null : messages.map((msg, idx) => {
+                                        return idx >= index && idx <= index + 3 ?
+                                            (
+                                                <Message
+                                                    index={idx}
+                                                    setMessageDetails={setMessageDetails}
+                                                    setSelectedItemState={setSelectedItemState}
+                                                    setUnselectedItemState={setUnselectedItemState}
+                                                    initialChecked={false}
+                                                    nrMessages={messages.length}
+                                                    msg={msg}
+                                                />
+                                            ) : null
+                                    })
+                                }
+                            </div>
+                            <div className='msg-detail'>
+                                <MessageDetails msg={selectedMessageDetails} selectedMessageDetails={selectedMessageDetails} />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <Pagination
-                id='pagination-component34'
-                page={pageNr}
-                onChange={(event, page) => { changePage(page) }}
-                count={Math.ceil(nrMessages / 4)}
-                variant="outlined"
-                shape="rounded"
-            />
+                <Pagination
+                    id='pagination-component34'
+                    page={pageNr}
+                    onChange={(event, page) => { changePage(page) }}
+                    count={Math.ceil(nrMessages / 4)}
+                    variant="outlined"
+                    shape="rounded"
+                />
 
 
-        </div>
+            </div>) : null
     )
 }

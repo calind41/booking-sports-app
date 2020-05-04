@@ -2,57 +2,58 @@
 .sdashboard-container > div:nth-child(1) {
 }
 .sdashboard-container .wrapper {
-    position: absolute;
-    width: 78.5vw;
-    height: 79vh;
-    left: 15.9vw;
-    top: 13.4vh;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+    position: absolute !important;
+    width: 78.5vw !important;
+    height: 79vh !important;
+    left: 15.9vw !important;
+    top: 13.4vh !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    flex-direction: column !important;
 }
 .sdashboard-container .wrapper > div:nth-child(1) {
-    display: flex;
-    justify-content: space-between;
-    height: 6vh;
+    display: flex !important;
+    justify-content: space-between !important;
+    height: 6vh !important;
 }
 .sdashboard-container .wrapper > div:nth-child(1) > div:nth-child(2) {
-    position: relative;
-    bottom: 14vh;
-    right: 80vw;
+    position: relative !important;
+    bottom: 14.3vh !important;
+    right: 9vw !important;
 }
 
 .wrapper .msg-wrapper {
-    display: flex;
-    justify-content: space-between;
-    /* border: 2px solid blue; */
-    height: 69vh;
-    width: 76.5vw;
-    position: relative;
-    bottom: 2vh;
+    display: flex !important;
+    justify-content: space-between !important;
+    /* border: 2px solid blue !important; */
+    height: 69vh !important;
+    width: 76.5vw !important;
+    position: relative !important;
+    bottom: -9vh !important;
+    right: 8.68vw;
 }
 .wrapper .msg-wrapper .msgs{
-    display: flex;
-    /* justify-content: space-between; */
-    flex-direction: column;
-    position: relative;
-    left: 3vw;
+    display: flex !important;
+    /* justify-content: space-between !important; */
+    flex-direction: column !important;
+    position: relative !important;
+    left: 3vw !important;
 }
 .wrapper .msg-wrapper .msgs > div {
-    margin-bottom: 3vh;
+    margin-bottom: 3vh !important;
 }
 .wrapper .msg-wrapper .msg-detail {
-    position: relative;
-    right: 4vw;
+    position: relative !important;
+    right: 40vw !important;
 }   
 
 .msg-controller {
-    position: relative;
-    left: 12vw;    
+    position: relative !important;
+    left: 11.3vw !important;    
 }
 #pagination-component34 {
-    position: relative;
-    top: 90vh;
-    left: 18.64vw;
-    width: 41vw;
+    position: relative !important;
+    top: 90vh !important;
+    left: 18.64vw !important;
+    width: 41vw !important;
 }
