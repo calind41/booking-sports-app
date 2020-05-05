@@ -138,6 +138,7 @@ export default function FormComponent() {
             base64dataImages: b64dataImages,
             inventory
         }
+        console.log('BEFORE SAVE, DATA IS ', data);
         await axios.post('http://localhost:5000/api/v1/sportLocations/', data);
         localStorage.removeItem('serviceDetails');
         window.location.reload();

@@ -1,19 +1,23 @@
 import React, { useState, useEffect, Fragment } from 'react'
 import { useHistory } from "react-router-dom";
+import axios from 'axios';
 import { Link } from 'react-router-dom'
+import ReactDOM from 'react-dom';
+import Logo from '../SportLocations/Navbar/Logo/Logo';
 
-import Logo from './Logo/Logo';
+import SearchBar from '../SportLocations/Navbar/SearchBar/SearchBar';
+import SignIn from '../SportLocations/Navbar/SignIn/SignIn';
+import Register from '../SportLocations/Navbar/Register/Register';
+import Contact from '../SportLocations/Navbar/Contact/Contact';
 
-import SearchBar from './SearchBar/SearchBar';
-import SignIn from './SignIn/SignIn';
-import Register from './Register/Register';
-import Contact from './Contact/Contact';
+import FrequentQuestions from '../SportLocations/Navbar/FrequentQuestions/FrequentQuestions'
+import './FaqComponent.css'
 
-import FrequentQuestions from './FrequentQuestions/FrequentQuestions'
 
-import './Navbar.css';
 
-export default function Navbar({ inBookingLout, inBooking, userResClass, filterResBySportType, filterBySporLocationTitle, searchBar }) {
+
+
+export default function FaqComponent({ filterResBySportType, filterBySporLocationTitle, searchBar }) {
 
     const logoStyles = {
         left: searchBar === 'none' ? '3.1vw' : '5vw'
@@ -40,6 +44,7 @@ export default function Navbar({ inBookingLout, inBooking, userResClass, filterR
             elem.style.display = 'none';
     }
     const [loggedIn, setLoggedIn] = useState(false);
+
     const handleSignOut = () => {
         localStorage.setItem('userLoggedIn', false);
         localStorage.removeItem('token');
@@ -114,8 +119,114 @@ export default function Navbar({ inBookingLout, inBooking, userResClass, filterR
 
             </div>
             <Link to='/faq'>
-                <FrequentQuestions inBookingLout={inBookingLout} inBooking={inBooking} userResClass={userResClass} loggedIn={loggedIn} id='fqs' />
+                <FrequentQuestions inFaq={true} loggedIn={loggedIn} id='fqs' />
             </Link>
+            <div className='faqs-list'>
+                <div className='faq-heading'>FAQ</div>
+                <Accordion />
+            </div>
         </Fragment>
     )
 }
+
+
+class Panel extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            height: 0
+        };
+    }
+
+    componentDidMount() {
+        window.setTimeout(() => {
+            const el = ReactDOM.findDOMNode(this);
+            const height = el.querySelector('.panel__inner').scrollHeight;
+            this.setState({
+                height
+            });
+        }, 333);
+    }
+
+    render() {
+        const { label, content, activeTab, index, activateTab } = this.props;
+        const { height } = this.state;
+        const isActive = activeTab === index;
+        const innerStyle = {
+            height: `${isActive ? height : 0}px`
+        }
+
+        return (
+            <div className='panel'
+                role='tabpanel'
+                aria-expanded={isActive}>
+                <button className='panel__label'
+                    role='tab'
+                    onClick={activateTab}>
+                    {label}
+                </button>
+                <div className='panel__inner'
+                    style={innerStyle}
+                    aria-hidden={!isActive}>
+                    <p className='panel__content'>
+                        {content}
+                    </p>
+                </div>
+            </div>
+        );
+    }
+}
+
+class Accordion extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            activeTab: 0,
+            panels: []
+        };
+
+        this.activateTab = this.activateTab.bind(this);
+    }
+
+    componentDidMount() {
+        const getFaqs = async () => {
+            const res = await axios.get('http://localhost:5000/api/v1/messages//inFaq');
+            let p = [];
+            res.data.map((item) => {
+                p.push({
+                    label: item.messageBody,
+                    content: item.response
+                });
+            })
+            this.setState({ panels: p })
+        }
+        getFaqs();
+    }
+
+    activateTab(index) {
+        this.setState(prev => ({
+            activeTab: prev.activeTab === index ? -1 : index
+        }));
+    }
+
+    render() {
+        const { panels } = this.state;
+        const { activeTab } = this.state;
+        return (
+            <div className='accordion' role='tablist'>
+                {panels.map((panel, index) =>
+                    <Panel
+                        key={index}
+                        activeTab={activeTab}
+                        index={index}
+                        {...panel}
+                        activateTab={this.activateTab.bind(null, index)}
+                    />
+                )}
+            </div>
+        );
+    }
+}
+

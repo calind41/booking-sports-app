@@ -3,7 +3,8 @@ const {
 } = require('../data/index');
 
 const {
-    generateToken
+    generateToken,
+    verifyAndDecodeData
 } = require('../security/Jwt');
 
 const {
@@ -15,7 +16,7 @@ const {
     compare
 } = require('../security/Password');
 
-const add = async (firstName, lastName, username, password, email, role, nrReservations) => {
+const add = async (firstName, lastName, username, password, email, role, nrReservations, confirmed) => {
     const hashedPassword = await hash(password);
     const user = new User({
         firstName,
@@ -24,9 +25,11 @@ const add = async (firstName, lastName, username, password, email, role, nrReser
         email,
         role,
         nrReservations,
-        password: hashedPassword
+        password: hashedPassword,
+        confirmed
     })
     await user.save();
+    await sendConfirmationEmail(email, user);
 }
 
 const authenticate = async (username, email, password) => {
@@ -44,19 +47,60 @@ const authenticate = async (username, email, password) => {
     }
 
     if (await compare(password, user.password)) {
-        return await generateToken({
-            userId: user._id,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            email,
-            username,
-            role: user.role,
-            nrReservations: user.nrReservations,
-            createdAt: user.createdAt
-        });
+
+        if (user.confirmed)
+            return await generateToken({
+                userId: user._id,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email,
+                username,
+                role: user.role,
+                nrReservations: user.nrReservations,
+                createdAt: user.createdAt
+            });
+        else {
+            return null;
+        }
     }
     throw new ServerError("Combinatia de username/email si parola nu este buna!", 404);
 }
+
+const sendConfirmationEmail = async (to, user) => {
+    const nodemailer = require('nodemailer');
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'genmotionbooking@gmail.com',
+            pass: 'supportpassword'
+        }
+    });
+    const token = await generateToken({
+        userId: user._id
+    });
+
+    //async email
+    const url = `http://localhost:5000/api/v1/users/confirmation/${token}`;
+    const mailOptions = {
+        from: 'genmotionbooking@gmail.com',
+        to: to,
+        subject: 'Register Confirmation Email',
+        html: `Please click this email to confirm your account: <a href='${url}'>${url}</a>`
+    };
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+}
+const verifyTokenAndUpdateConfirmed = async (token) => {
+    const decoded = await verifyAndDecodeData(token);
+    const id = decoded.userId;
+    await User.findByIdAndUpdate({ _id: id }, { confirmed: true });
+}
+
 
 const getAll = async () => {
     return await User.find().populate('reservations', ['title', 'sport', 'location', 'selectedServiceOption', 'selectedHour', 'image', 'price', 'date', 'available', 'canceled']);
@@ -76,5 +120,6 @@ module.exports = {
     authenticate,
     getAll,
     getById,
-    updateUserRes
+    updateUserRes,
+    verifyTokenAndUpdateConfirmed
 }

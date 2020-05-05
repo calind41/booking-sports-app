@@ -42,7 +42,6 @@ const authorizeAndExtractToken = async (req, res, next) => {
         req.state = {
             decoded
         }
-
         next();
     } catch (err) {
         next(err);
@@ -51,5 +50,6 @@ const authorizeAndExtractToken = async (req, res, next) => {
 
 module.exports = {
     generateToken,
-    authorizeAndExtractToken
+    authorizeAndExtractToken,
+    verifyAndDecodeData
 }

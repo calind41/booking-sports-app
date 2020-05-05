@@ -8,6 +8,9 @@ import Fade from '@material-ui/core/Fade';
 
 import './BookModal.css'
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify'
+
+toast.configure();
 
 const useStyles = makeStyles(theme => ({
     modal: {
@@ -38,14 +41,57 @@ export default function BookModal({ selectedHour, selectedServiceOption, selecte
 
 
     const handleConfirmBooking = async () => {
+        if (localStorage.getItem('userLoggedIn') !== 'true') {
+            alert('You need to log in for booking');
+            history.push('/signin');
+            return;
+        }
+        // Verify if the selected date is at least 24h in advance
+        let resTime = new Date(date).getTime();
+        let selectedHourInMs = 0;
+        selectedHour.split(':').map((item, index) => {
+            if (item.charAt(0) === '0') {
+                if (index === 0) {
+                    selectedHourInMs += 3600000 * parseInt(item.charAt(1));
+                } else {
+                    selectedHourInMs += 60000 * parseInt(item.charAt(1));
+                }
+            } else {
+                if (index === 0) {
+                    selectedHourInMs += 3600000 * parseInt(item);
+                } else {
+                    selectedHourInMs += 60000 * parseInt(item);
+                }
+            }
+        });
+        let nowTime = new Date().getTime();
+        let diff = (resTime + selectedHourInMs - nowTime) / 3600000
+        if (diff < 24) {
+            console.log('diff is ', diff);
+            alert('Reservations are made with at least 24h in advance!');
+            handleClose();
+            return;
+        }
+
+
         const jwt = require('jsonwebtoken');
         const decoded = jwt.decode(localStorage.getItem('token'));
         const userId = decoded.userId;
         // get user to find  nr of reservations 
-        const user = await axios.get(`http://localhost:5000/api/v1/users/${userId}`);
+        const user = await axios.get(`http://localhost:5000/api/v1/users/${userId}`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+
+        });
         const nrReservations = user.data.nrReservations + 1;
         // update nr of reservations of userId
-        await axios.put(`http://localhost:5000/api/v1/users/${userId}`, { nrReservations })
+        await axios.put(`http://localhost:5000/api/v1/users/${userId}`, { nrReservations }, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+
 
         let reservation = {
             userId,
@@ -61,7 +107,20 @@ export default function BookModal({ selectedHour, selectedServiceOption, selecte
             canceled: false
         }
 
-        const res = await axios.post('http://localhost:5000/api/v1/reservations/', reservation);
+        const res = await axios.post('http://localhost:5000/api/v1/reservations/', reservation, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        });
+        toast.success('Your reservation was successfully registered!', {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
         history.push('/sportLocations')
 
     }

@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import axios from 'axios'
-
+import 'react-toastify/dist/ReactToastify.css'
 import './SignUp.css'
 import Logo from '../SportLocations/Navbar/Logo/Logo'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
-
+toast.configure();
 
 export default function SignUp() {
 
     const history = useHistory();
     useEffect(() => {
-        if (localStorage.getItem('userLoggedIn') === 'false') {
+        if (localStorage.getItem('userLoggedIn') !== 'true') {
             document.querySelector('#retypepass').addEventListener('keyup', (evt) => {
                 if (evt.keyCode === 13) {
                     evt.preventDefault();
@@ -50,11 +51,22 @@ export default function SignUp() {
             password: pass
         };
         const res = await axios.post('http://localhost:5000/api/v1/users/register', data);
+        toast.info("Please confirm the registration email to continue", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
         history.push('/signin')
+
+
     }
 
     return (
-        localStorage.getItem('userLoggedIn') === 'false' ? (
+        localStorage.getItem('userLoggedIn') !== 'true' ? (
             <div className='signup-container'>
                 <div className='signup'>
                     <div className='su-logo'>

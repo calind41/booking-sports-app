@@ -41,7 +41,13 @@ export default function UserReservation({ initialChecked, setSelectedItemState, 
 
     const cancelReservation = async (evt) => {
         // update cancel field 
-        await axios.put(`http://localhost:5000/api/v1/reservations/${reservation._id}`)
+        console.log('in cancel reservation ');
+        let data;
+        await axios.put(`http://localhost:5000/api/v1/reservations/${reservation._id}`, data, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
         setCanceled(true);
     }
 

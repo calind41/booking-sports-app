@@ -31,7 +31,11 @@ export default function SDashboard() {
 
     useEffect(() => {
         const getMessages = async () => {
-            const res = await axios.get('http://localhost:5000/api/v1/messages/');
+            const res = await axios.get('http://localhost:5000/api/v1/messages/', {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
             console.log(res.data);
             setMessages(res.data);
             console.log(res.data);
@@ -70,7 +74,11 @@ export default function SDashboard() {
         let ids = [];
         delIdx.map((item) => ids.push(messages[item]._id));
         // setIds(temp);
-        await axios.delete(`http://localhost:5000/api/v1/messages/deleteMessages`, { data: { ids } });
+        await axios.delete(`http://localhost:5000/api/v1/messages/deleteMessages`, { data: { ids } }, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        });
         // setSelectedState(selectedState);
         console.log('AFTER DEL ARRAY IS ', afterDelArr)
         // setMessages(afterDelArr);
@@ -87,7 +95,11 @@ export default function SDashboard() {
     }
 
     const applyFilterSearchMessagesByTitle = async (title) => {
-        const res = await axios.get('http://localhost:5000/api/v1/messages/');
+        const res = await axios.get('http://localhost:5000/api/v1/messages/', {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        });
         console.log(res.data);
         let filtered = res.data.filter((sl) => {
             if (sl.subject.toLowerCase().includes(title))

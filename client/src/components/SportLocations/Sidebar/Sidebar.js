@@ -64,6 +64,9 @@ export default function Sidebar({ styles, passParams, facilities, surface, type 
         window.location.reload()
     }
 
+    facilities = facilities.map((item) => { return item.split(' ') }).flat();
+    facilities = facilities.filter((v, i) => facilities.indexOf(v) === i);
+    console.log('facilities ', facilities);
     return (
         <div style={styles} className='sidebar-container'>
             <SidebarCategory updateChecked={updateChecked} listItems={facilities} type="Facilities" />

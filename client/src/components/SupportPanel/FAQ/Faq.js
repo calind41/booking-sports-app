@@ -10,7 +10,6 @@ import SearchBar from '../../AdminPanel/RemoveSport/SearchBar/SearchBar'
 import FrequentQuestion from './FrequentQuestion/FrequentQuestion'
 import './Faq.css'
 
-import { makeStyles } from '@material-ui/core/styles';
 import Pagination from '@material-ui/lab/Pagination';
 
 
@@ -73,7 +72,11 @@ export default function Faq() {
         let ids = [];
         delIdx.map((item) => ids.push(questions[item]._id));
         ids.map(async (item) => {
-            await axios.put(`http://localhost:5000/api/v1/messages/${item}`, { inFaq: false });
+            await axios.put(`http://localhost:5000/api/v1/messages/${item}`, { inFaq: false }, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
         });
         setSelectedState(selectedState);
         setQuestions(afterDelArr);

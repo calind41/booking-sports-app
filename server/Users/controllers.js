@@ -1,6 +1,19 @@
 const express = require('express');
-
 const UsersService = require('./services');
+
+const {
+    validateFields
+} = require('../utils');
+const {
+    ServerError
+} = require('../errors');
+const {
+    authorizeAndExtractToken
+} = require('../security/Jwt');
+const {
+    authorizeRoles
+} = require('../security/Roles');
+
 
 const router = express.Router();
 
@@ -15,16 +28,30 @@ router.post('/register', async (req, res, next) => {
     } = req.body;
     try {
         // const role = 'support';
-        // const role = 'admin';
         const role = 'admin';
+        // const role = 'client';
+        const confirmed = false;
         const nrReservations = 0;
-        await UsersService.add(firstName, lastName, username, password, email, role, nrReservations);
+        await UsersService.add(firstName, lastName, username, password, email, role, nrReservations, confirmed);
 
         res.status(201).end();
     } catch (err) {
         console.error(err.message);
     }
 });
+// const EMAIL_SECRET = 'asdf1093KMnzxcvnkljvasdu09123nlasdasdf';
+router.get('/confirmation/:token', async (req, res, next) => {
+    const {
+        token
+    } = req.params;
+    try {
+        console.log('IN ROUTE')
+        await UsersService.verifyTokenAndUpdateConfirmed(token);
+        res.redirect('http://localhost:3000/signin')
+    } catch (err) {
+        res.send('error dasd');
+    }
+})
 
 router.post('/login', async (req, res, next) => {
     const {
@@ -38,15 +65,19 @@ router.post('/login', async (req, res, next) => {
 
     try {
         const token = await UsersService.authenticate(username, email, password);
-
-        res.status(200).json(token);
+        if (token === null) {
+            res.status(401).json('Account Not Confirmed!');
+        }
+        else
+            res.status(200).json(token);
 
     } catch (err) {
         next(err);
     }
 });
 
-router.get('/', async (req, res, next) => {
+
+router.get('/', authorizeAndExtractToken, authorizeRoles('client', 'admin'), async (req, res, next) => {
     try {
         const users = await UsersService.getAll();
         res.json(users.filter((user) => user.role === 'client'));
@@ -55,7 +86,7 @@ router.get('/', async (req, res, next) => {
     }
 });
 
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', authorizeAndExtractToken, authorizeRoles('client', 'admin'), async (req, res, next) => {
     const {
         id
     } = req.params;
@@ -67,7 +98,7 @@ router.get('/:id', async (req, res, next) => {
     }
 });
 
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', authorizeAndExtractToken, authorizeRoles('client'), async (req, res, next) => {
     const {
         id
     } = req.params;

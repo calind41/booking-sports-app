@@ -47,17 +47,11 @@ export default class Booking extends Component {
             sportOpts,
             inventory } = this.props.location.state
 
-        console.log('title ', title);
-        console.log('location ', location);
-        console.log('district ', district);
-        console.log('sport ', sport);
-        console.log('images ', images);
-        console.log('sportOpts ', sportOpts);
-        console.log('inventory ', inventory);
+
 
         return (
             <div className='booking-container'>
-                <Navbar searchBar='none' />
+                <Navbar inBookingLout={'inBookingLout'} inBooking={'inBooking'} searchBar='none' />
                 <div className='upper-part'>
                     <div className='imgslider-container'>
                         <ImageSlider images={images} width='42vw' height='50vh' />

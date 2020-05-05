@@ -66,13 +66,22 @@ export default function SportLocations({ location }) {
     }
 
     const applyFilter = (f, s, t) => {
+        console.log('sport locs ', sportLocs);
+        console.log('f s and t are', f, s, t);
         let filtered = sportLocs.filter((sl) => {
             console.log(sl);
             let ret = false;
             sl.inventory.map((item) => {
                 if (item.title === 'facilities' || item.title === 'surface' || item.title === 'type') {
-                    if (f.includes(item.value) || s.includes(item.value) || t.includes(item.value))
+                    if (s.includes(item.value) || t.includes(item.value))
                         ret = true;
+                    // check for facilities
+                    item.value.split(' ').map((it) => {
+                        let t = it.trim();
+                        if (f.includes(t)) {
+                            ret = true;
+                        }
+                    })
                 }
             })
             return ret;

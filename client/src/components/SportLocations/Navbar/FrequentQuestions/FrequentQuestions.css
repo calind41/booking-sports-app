@@ -1,0 +1,109 @@
+.fe-faq {
+    position: fixed;
+    left: 59.3vw;
+    top: 1.57vh;
+    font-size: 12px;
+    z-index: 100;
+    background-color: #ffffff;
+    color: #000000;
+    width: 86px;
+    height:4vh;
+    border-radius: 3px;
+    border: none;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 8px;
+    font-weight: bold;
+}
+
+.fe-faq-loggedin {
+    position: fixed;
+    left: 61vw;
+    top: 1.65vh;
+    font-size: 12px;
+    z-index: 100;
+    background-color: #ffffff;
+    color: #000000;
+    width: 64px;
+    height: 3.5vh;
+    border-radius: 3px;
+    border: none;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 6px;
+    font-weight: bold;
+}
+.infaq {
+    position: fixed;
+    left: 62vw;
+    top: 1.65vh;
+    font-size: 12px;
+    z-index: 100;
+    background-color: #ffffff;
+    color: #000000;
+    width: 64px;
+    height: 3.5vh;
+    border-radius: 3px;
+    border: none;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 6px;
+    font-weight: bold;
+}
+.infaqNotLoggedIn {
+    position: fixed;
+    left: 59.8vw;
+    top: 1.57vh;
+    font-size: 12px;
+    z-index: 100;
+    background-color: #ffffff;
+    color: #000000;
+    width: 86px;
+    height:4vh;
+    border-radius: 3px;
+    border: none;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 8px;
+    font-weight: bold;
+}
+.FaqUserResClass {
+    position: fixed;
+    left: 62vw;
+ 
+}
+
+.inBooking {
+    position: fixed;
+    left: 61.9vw;
+    top: 1.65vh;
+    font-size: 12px;
+    z-index: 100;
+    background-color: #ffffff;
+    color: #000000;
+    width: 64px;
+    height: 3.5vh;
+    border-radius: 3px;
+    border: none;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 6px;
+    font-weight: bold;
+}
+.inBookingLout {
+    position: fixed;
+    left: 60vw;
+    top: 1.57vh;
+    font-size: 12px;
+    z-index: 100;
+    background-color: #ffffff;
+    color: #000000;
+    width: 86px;
+    height:4vh;
+    border-radius: 3px;
+    border: none;
+    text-align: center;
+    box-sizing: border-box;
+    padding-top: 8px;
+    font-weight: bold;
+}

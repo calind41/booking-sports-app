@@ -28,8 +28,8 @@ export default function Sports() {
     useEffect(() => {
         const getSportLocations = async () => {
             const res = await axios.get('http://localhost:5000/api/v1/sportLocations/')
-            console.log(res);
             setSports(res.data);
+            console.log(res.data);
         };
         getSportLocations();
     }, [])

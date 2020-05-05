@@ -1,13 +1,24 @@
 const express = require('express');
 
 const ReservationsService = require('./services');
-
 const router = express.Router();
+
+const {
+    validateFields
+} = require('../utils');
+const {
+    ServerError
+} = require('../errors');
+const {
+    authorizeAndExtractToken
+} = require('../security/Jwt');
+const {
+    authorizeRoles
+} = require('../security/Roles');
 
 
 // add a reservation 
-// private route
-router.post('/', async (req, res, next) => {
+router.post('/', authorizeAndExtractToken, authorizeRoles('client'), async (req, res, next) => {
     const {
         userId,
         title,
@@ -33,7 +44,7 @@ router.post('/', async (req, res, next) => {
 });
 
 // get all reservations
-router.get('/', async (req, res, next) => {
+router.get('/', authorizeAndExtractToken, authorizeRoles('client', 'admin'), async (req, res, next) => {
     try {
         const reservations = await ReservationsService.getAll();
         res.json(reservations);
@@ -43,7 +54,7 @@ router.get('/', async (req, res, next) => {
 });
 
 // get reservation by ID
-router.get('/:id', async (req, res, next) => {
+router.get('/:id', authorizeAndExtractToken, authorizeRoles('client', 'admin'), async (req, res, next) => {
     const {
         id
     } = req.params;
@@ -56,7 +67,7 @@ router.get('/:id', async (req, res, next) => {
 });
 
 // get reservations by user's ID
-router.get('/user/:id', async (req, res, next) => {
+router.get('/user/:id', authorizeAndExtractToken, authorizeRoles('client', 'admin'), async (req, res, next) => {
     const {
         id
     } = req.params;
@@ -72,12 +83,13 @@ router.get('/user/:id', async (req, res, next) => {
 
 
 // Update the reservation : cancel  the reservation
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', authorizeAndExtractToken, authorizeRoles('client'), async (req, res, next) => {
     const {
         id
     } = req.params;
 
     try {
+        console.log('HERE ');
         await ReservationsService.updateById(id);
         res.status(204).end();
     } catch (err) {
@@ -87,7 +99,7 @@ router.put('/:id', async (req, res, next) => {
 })
 
 // delete reservations by id using an array of ids
-router.delete('/deleteRes', async (req, res, next) => {
+router.delete('/deleteRes', authorizeAndExtractToken, authorizeRoles('client'), async (req, res, next) => {
     const {
         ids
     } = req.body;

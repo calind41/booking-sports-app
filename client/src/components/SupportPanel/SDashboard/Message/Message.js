@@ -49,7 +49,11 @@ export default function Message({ msg, setMessageDetails, initialChecked, setSel
             if (index === 0) {
                 document.querySelector('.msg-container').style.backgroundColor = 'rgb(177, 205, 240)';
                 setAlreadyRead(true);
-                await axios.put(`http://localhost:5000/api/v1/messages/${msg._id}`, { alreadyRead: true });
+                await axios.put(`http://localhost:5000/api/v1/messages/${msg._id}`, { alreadyRead: true }, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
                 console.log('called');
                 document.querySelector('.color-coded-read-or-not').style.backgroundColor = 'yellow';
 
@@ -69,11 +73,19 @@ export default function Message({ msg, setMessageDetails, initialChecked, setSel
         if (inFaq === false && msg.alreadyResponded) {
             evt.target.style.color = 'rgb(255,0,0)';
             setInFaq(true);
-            await axios.put(`http://localhost:5000/api/v1/messages/${msg._id}`, { inFaq: true });
+            await axios.put(`http://localhost:5000/api/v1/messages/${msg._id}`, { inFaq: true }, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
         } else {
             evt.target.style.color = 'rgb(164,171,180)';
             setInFaq(false);
-            await axios.put(`http://localhost:5000/api/v1/messages/${msg._id}`, { inFaq: false });
+            await axios.put(`http://localhost:5000/api/v1/messages/${msg._id}`, { inFaq: false }, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
         }
     }
     const handleMessageClick = async (evt) => {
@@ -101,7 +113,11 @@ export default function Message({ msg, setMessageDetails, initialChecked, setSel
         if (alreadyRead === false) {
             setAlreadyRead(true);
             // window.location.reload();
-            await axios.put(`http://localhost:5000/api/v1/messages/${msg._id}`, { alreadyRead: true });
+            await axios.put(`http://localhost:5000/api/v1/messages/${msg._id}`, { alreadyRead: true }, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
         }
 
     }

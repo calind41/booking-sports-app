@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
@@ -55,8 +55,22 @@ const outlinedInputStyles = {
 
 export default function UpdateFormComponent({ sportLoc }) {
 
+
+    useEffect(() => {
+        return () => {
+            localStorage.removeItem('serviceDetails');
+            localStorage.removeItem('title');
+            localStorage.removeItem('sportType');
+            localStorage.removeItem('inventory');
+            localStorage.removeItem('location');
+            localStorage.removeItem('sportOpts');
+            localStorage.removeItem('images');
+            localStorage.removeItem('oldImages');
+        }
+    }, [])
+
     const history = useHistory();
-    console.log(sportLoc);
+    console.log('here ', sportLoc);
 
     if (localStorage.getItem('title') === null) {
         localStorage.setItem('title', sportLoc.title);

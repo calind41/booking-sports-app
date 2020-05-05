@@ -3,6 +3,8 @@ import './SportDescription.css';
 
 export default function SportDescription({ title, location, sport, inventory }) {
 
+
+
     return (
         <div className='sport-desc'>
             <h3>{title}</h3>
@@ -11,6 +13,14 @@ export default function SportDescription({ title, location, sport, inventory }) 
             <div className='desc-wrap'>
                 {
                     inventory.map((item) => {
+                        if (item.title.toLowerCase() === 'facilities') {
+                            return (
+                                <div>
+                                    <h4>{item.title}</h4>
+                                    <span>{item.value.split(' ')[0]}</span>
+                                </div>
+                            )
+                        }
                         return (
                             <div>
                                 <h4>{item.title}</h4>
@@ -19,26 +29,7 @@ export default function SportDescription({ title, location, sport, inventory }) 
                         )
                     })
                 }
-                {/* <div className='format'>
-                    <h4>Format</h4>
-                    <span>{format}</span>
-                </div>
-                <div className='type'>
-                    <h4>Type</h4>
-                    <span>{type}</span>
-                </div>
-                <div className='surface'>
-                    <h4>Surface</h4>
-                    <span>{surface}</span>
-                </div>
-                <div className='min-zone-part'>
-                    <h4>Min zone part</h4>
-                    <span>{min_zone_part}</span>
-                </div>
-                <div className='price'>
-                    <h4>Price</h4>
-                    <span>{price}</span>
-                </div> */}
+
             </div>
 
         </div>

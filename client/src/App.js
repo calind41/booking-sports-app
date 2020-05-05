@@ -22,6 +22,8 @@ import Sports from './components/AdminPanel/Sports/Sports'
 import SDashboard from './components/SupportPanel/SDashboard/SDashboard';
 import Faq from './components/SupportPanel/FAQ/Faq';
 
+import FaqComponent from './components/FaqComponent/FaqComponent'
+
 function App() {
   return (
     <Router>
@@ -42,6 +44,7 @@ function App() {
           <Route exact path='/adminSports' component={Sports} />
           <Route exact path='/supportDashboard' component={SDashboard} />
           <Route exact path='/supportFaq' component={Faq} />
+          <Route exact path='/faq' component={FaqComponent} />
         </Switch>
       </div>
     </Router>

@@ -17,7 +17,11 @@ export default function UserReservations() {
             if (localStorage.getItem('token') !== null) {
                 const userId = decoded.userId;
                 // get all reservations
-                const res = await axios.get(`http://localhost:5000/api/v1/reservations/user/${userId}`);
+                const res = await axios.get(`http://localhost:5000/api/v1/reservations/user/${userId}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
 
                 // import dynamically the images ?
                 let imgs = require.context('../../../../server', true);
@@ -42,14 +46,28 @@ export default function UserReservations() {
         delIdx.map((item) => selectedState.splice(item, 1));
         let ids = [];
         delIdx.map((item) => ids.push(pastReservations[item]._id));
-        await axios.delete(`http://localhost:5000/api/v1/reservations/deleteRes`, { data: { ids } });
+
+        await axios.delete(`http://localhost:5000/api/v1/reservations/deleteRes`, {
+            data: { ids },
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        });
 
         // update nr of reservations of the user
         const jwt = require('jsonwebtoken');
         const decoded = jwt.decode(localStorage.getItem('token'))
-        const user = await axios.get(`http://localhost:5000/api/v1/users/${decoded.userId}`);
+        const user = await axios.get(`http://localhost:5000/api/v1/users/${decoded.userId}`, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        });
         const nrReservations = user.data.nrReservations - ids.length;
-        await axios.put(`http://localhost:5000/api/v1/users/${decoded.userId}`, { nrReservations });
+        await axios.put(`http://localhost:5000/api/v1/users/${decoded.userId}`, { nrReservations }, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        });
 
         setSelectedState(selectedState);
         setPastReservations(afterDelArr);
@@ -73,9 +91,26 @@ export default function UserReservations() {
         if (localStorage.getItem('token') !== null) {
             const userId = decoded.userId;
             // get all reservations
-            const res = await axios.get(`http://localhost:5000/api/v1/reservations/user/${userId}`);
+            const res = await axios.get(`http://localhost:5000/api/v1/reservations/user/${userId}`, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
             let filtered = res.data.filter((sl) => {
-                if (sl.sport.toLowerCase().includes(resSportType))
+                if (resSportType.toLowerCase().includes('yes')) {
+                    if (sl.available === true) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+                else if (resSportType.toLowerCase().includes('no')) {
+                    if (sl.available === false) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else if (sl.sport.toLowerCase().includes(resSportType))
                     return true;
                 else
                     return false;
@@ -96,7 +131,7 @@ export default function UserReservations() {
 
     return (
         <div className='user-reservations-wrapper'>
-            <Navbar filterResBySportType={filterResBySportType} />
+            <Navbar userResClass={'FaqUserResClass'} filterResBySportType={filterResBySportType} />
             <div className='past-res-and-del'>
                 <div className='past-r'>Past Reservations</div>
                 <div onClick={deleteReservations} className='del-button-wrapper'>

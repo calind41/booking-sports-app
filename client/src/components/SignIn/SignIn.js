@@ -10,7 +10,7 @@ export default function SignIn() {
     const history = useHistory();
 
     useEffect(() => {
-        if (localStorage.getItem('userLoggedIn') === 'false') {
+        if (localStorage.getItem('userLoggedIn') !== 'true') {
             document.querySelector('#password').addEventListener('keyup', (evt) => {
                 if (evt.keyCode === 13) {
                     evt.preventDefault();
@@ -66,7 +66,7 @@ export default function SignIn() {
             alert('The user does not exist');
     }
     return (
-        localStorage.getItem('userLoggedIn') === 'false' ? (
+        localStorage.getItem('userLoggedIn') !== 'true' ? (
             <div className='sign-in-container'>
                 <div className='sign-in'>
                     <div className='si-logo'>
