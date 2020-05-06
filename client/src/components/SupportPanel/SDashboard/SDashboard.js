@@ -74,7 +74,8 @@ export default function SDashboard() {
         let ids = [];
         delIdx.map((item) => ids.push(messages[item]._id));
         // setIds(temp);
-        await axios.delete(`http://localhost:5000/api/v1/messages/deleteMessages`, { data: { ids } }, {
+        await axios.delete(`http://localhost:5000/api/v1/messages/deleteMessages`, {
+            data: { ids },
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }

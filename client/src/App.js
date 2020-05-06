@@ -23,6 +23,7 @@ import SDashboard from './components/SupportPanel/SDashboard/SDashboard';
 import Faq from './components/SupportPanel/FAQ/Faq';
 
 import FaqComponent from './components/FaqComponent/FaqComponent'
+import Gdpr from './components/gdpr/Gdpr'
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
           <Route exact path='/supportDashboard' component={SDashboard} />
           <Route exact path='/supportFaq' component={Faq} />
           <Route exact path='/faq' component={FaqComponent} />
+          <Route exact path='/gdpr' component={Gdpr} />
         </Switch>
       </div>
     </Router>

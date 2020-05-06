@@ -20,3 +20,19 @@ value:  substr(serviceOption)
 title: 'facilities',
 value: 'all, parking,fieldlighting,toilets,cantine,bowling shoes, snack bar'
 }
+
+Bowling Place 1
+Bowling
+Bucharest, Sector 1, addr
+
+inventory
+title: format, value: 5 lanes;
+title: surface, value: wooden;
+title: type, value: indoor;
+title: facilities, value: parking cantine snackBar;
+
+service details
+1 lane for 60min / 10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00 / 12$
+1 lane for 90min / 10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00 / 17$
+1 lane for 120min / 10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00 / 21$
+1 lane for 150min / 10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00 / 25$

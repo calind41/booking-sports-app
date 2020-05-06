@@ -1,12 +1,24 @@
 const express = require('express');
 
 const sportLocationsService = require('./services');
-
 const router = express.Router();
+
+const {
+    validateFields
+} = require('../utils');
+const {
+    ServerError
+} = require('../errors');
+const {
+    authorizeAndExtractToken
+} = require('../security/Jwt');
+const {
+    authorizeRoles
+} = require('../security/Roles');
 
 // add a sport location 
 // private route
-router.post('/', async (req, res, next) => {
+router.post('/', authorizeAndExtractToken, authorizeRoles('admin'), async (req, res, next) => {
     const {
         title,
         sport,
@@ -71,7 +83,7 @@ router.get('/sport/:sportType/:district', async (req, res, next) => {
 })
 
 // Update the sport location using id
-router.put('/:id', async (req, res, next) => {
+router.put('/:id', authorizeAndExtractToken, authorizeRoles('admin'), async (req, res, next) => {
     const {
         id
     } = req.params;
@@ -98,7 +110,7 @@ router.put('/:id', async (req, res, next) => {
 })
 
 // delete reservations by id using an array of ids
-router.delete('/deleteSportLocs', async (req, res, next) => {
+router.delete('/deleteSportLocs', authorizeAndExtractToken, authorizeRoles('admin'), async (req, res, next) => {
     const {
         ids
     } = req.body;

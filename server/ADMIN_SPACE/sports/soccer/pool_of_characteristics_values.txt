@@ -24,3 +24,20 @@ value:  '2m','3m'...
 title: 'facilities',
 value: 'all, parking,fieldlighting,toilets,cantine,showers,football size 5, size 6'
 }
+
+Soccer Place 1
+Soccer
+Bucharest, Sector 1, addr
+
+inventory
+title: format, value: 40x60m;
+title: surface, value: grass;
+title: type, value: outdoor;
+title: gates, value: 2x3m;
+title: facilities, value: parking showers fieldlighting;
+
+service details
+pool for 60min / 10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00 / 12$
+pool for 90min / 10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00 / 17$
+pool for 120min / 10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00 / 21$
+pool for 150min / 10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00 / 25$

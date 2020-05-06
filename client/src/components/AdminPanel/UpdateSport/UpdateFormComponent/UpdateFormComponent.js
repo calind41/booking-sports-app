@@ -221,7 +221,11 @@ export default function UpdateFormComponent({ sportLoc }) {
             inventory
         }
         console.log('before update ', sportLoc._id);
-        await axios.put(`http://localhost:5000/api/v1/sportLocations/${sportLoc._id}`, data);
+        await axios.put(`http://localhost:5000/api/v1/sportLocations/${sportLoc._id}`, data, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        });
         localStorage.removeItem('serviceDetails');
         localStorage.removeItem('title');
         localStorage.removeItem('sportType');

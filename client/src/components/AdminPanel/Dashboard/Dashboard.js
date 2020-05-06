@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import axios from 'axios';
 import './Dashboard.css'
 import SidebarMenu from './SidebarMenu/SidebarMenu'
 import Navigation from './Navigation/Navigation'
@@ -12,6 +13,39 @@ export default function Dashboard() {
         const decoded = jwt.decode(localStorage.getItem('token'));
         role = decoded.role;
     }
+
+    const [res, setRes] = useState([]);
+    const [members, setMembmers] = useState([]);
+    let [earning, setEarning] = useState(0);
+
+    useEffect(() => {
+        const getMembers = async () => {
+            const m = await axios.get('http://localhost:5000/api/v1/users/', {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+
+            })
+            setMembmers(m.data);
+        }
+        const getRes = async () => {
+            const res = await axios.get('http://localhost:5000/api/v1/reservations/', {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+
+            });
+            setRes(res.data);
+
+            res.data.map((r) => {
+                earning += r.price;
+            })
+            setEarning(earning);
+        }
+
+        getMembers();
+        getRes();
+    }, [])
 
     return (
         role === 'admin' ? (
@@ -62,16 +96,16 @@ export default function Dashboard() {
                         </div>
                         <div className='cards-container'>
                             <div className='members-nr-card'>
-                                <span>500 members</span>
+                                <span>{members.length} members</span>
                             </div>
                             <div className='sport-types-card'>
-                                <span>5 sport types</span>
+                                <span>6 sport types</span>
                             </div>
                             <div className='total-earnings-card'>
-                                <span>$12345 total earnings</span>
+                                <span>${earning} total earnings</span>
                             </div>
                             <div className='booked-spots-card'>
-                                <span>1400 booked sports</span>
+                                <span>{res.length} booked sports</span>
                             </div>
                         </div>
                     </div>

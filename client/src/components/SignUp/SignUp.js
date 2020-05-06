@@ -43,6 +43,19 @@ export default function SignUp() {
             || pass === ''
             || repass === '') alert('All fields are required!');
 
+        if (document.querySelector('#gdpr-agree-checkbox').checked === false) {
+            toast.warn('You have to accept our Privacy Policy to continue ', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return;
+        }
+
         const data = {
             firstName: fn,
             lastName: ln,
@@ -102,6 +115,7 @@ export default function SignUp() {
                         </div>
                         <div>
                             <button onClick={(e) => handleCreateAccount(e)} className='su-btn'>Create account</button>
+                            <div className='gdpr-consent'><input id='gdpr-agree-checkbox' type='checkbox'></input>I agree with the storage and handling of my data by this website in accordance with <Link to='/gdpr'>Privacy Policy</Link></div>
                             <div className='alternative'>
                                 <p>Already have an account?
                                     <Link style={{ 'textDecoration': 'none' }} to='/signin'><span className='su-redir-sign-in'>Sign In</span></Link>

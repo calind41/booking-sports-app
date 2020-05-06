@@ -28,8 +28,8 @@ router.post('/register', async (req, res, next) => {
     } = req.body;
     try {
         // const role = 'support';
-        const role = 'admin';
-        // const role = 'client';
+        // const role = 'admin';
+        const role = 'client';
         const confirmed = false;
         const nrReservations = 0;
         await UsersService.add(firstName, lastName, username, password, email, role, nrReservations, confirmed);

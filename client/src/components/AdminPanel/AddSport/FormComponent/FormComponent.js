@@ -139,7 +139,11 @@ export default function FormComponent() {
             inventory
         }
         console.log('BEFORE SAVE, DATA IS ', data);
-        await axios.post('http://localhost:5000/api/v1/sportLocations/', data);
+        await axios.post('http://localhost:5000/api/v1/sportLocations/', data, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        });
         localStorage.removeItem('serviceDetails');
         window.location.reload();
     }

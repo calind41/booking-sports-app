@@ -55,7 +55,7 @@ export default function UploadImages({ passImageData }) {
             inventory
         }
 
-        await axios.post('http://localhost:5000/api/v1/sportLocations/', data)
+        // await axios.post('http://localhost:5000/api/v1/sportLocations/', data)
         base64dataImages = []
         allFiles.forEach(f => f.remove());
     }

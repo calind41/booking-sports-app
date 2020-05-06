@@ -25,7 +25,11 @@ export default function Customers() {
 
     useEffect(() => {
         const getCustomers = async () => {
-            const res = await axios.get('http://localhost:5000/api/v1/users/');
+            const res = await axios.get('http://localhost:5000/api/v1/users/', {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
             console.log(res.data);
             setUsers(res.data);
         }
@@ -39,9 +43,12 @@ export default function Customers() {
     }
 
     const applyFilterSearchCustomersByName = async (name) => {
-        const res = await axios.get('http://localhost:5000/api/v1/users/');
-        console.log('name is ', name);
-        console.log(res.data);
+        const res = await axios.get('http://localhost:5000/api/v1/users/', {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        });
+
         let filtered = res.data.filter((sl) => {
             let str = sl.firstName + ' ' + sl.lastName;
             console.log('string is ', str);
@@ -54,7 +61,6 @@ export default function Customers() {
                 return false;
             }
         });
-        console.log('final filtered ', filtered);
         setUsers(filtered);
     }
 

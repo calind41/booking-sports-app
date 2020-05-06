@@ -82,7 +82,10 @@ const getById = async (id) => {
 }
 
 const getBySportType = async (sportType, district) => {
-    return await SportLocation.find({ sport: sportType, district: district }).populate('sportOpts', ['serviceOption', 'availableHours']);
+    if (district == 0 || district == -1) {
+        return await SportLocation.find({ sport: sportType }).populate('sportOpts', ['serviceOption', 'availableHours']);
+    } else
+        return await SportLocation.find({ sport: sportType, district: district }).populate('sportOpts', ['serviceOption', 'availableHours']);
 }
 
 

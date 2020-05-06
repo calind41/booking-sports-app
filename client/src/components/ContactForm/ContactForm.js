@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './ContactForm.css'
 import Logo from '../SportLocations/Navbar/Logo/Logo'
+import { toast } from 'react-toastify'
+
+toast.configure();
 
 export default function ContactForm() {
 
@@ -14,7 +17,11 @@ export default function ContactForm() {
             const userId = decoded.userId;
 
             const getUser = async () => {
-                const { data } = await axios.get(`http://localhost:5000/api/v1/users/${userId}`);
+                const { data } = await axios.get(`http://localhost:5000/api/v1/users/${userId}`, {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem('token')}`
+                    }
+                });
                 const { firstName, lastName, email } = data;
 
                 document.querySelector('#firstname').value = `${firstName}`;
@@ -68,7 +75,15 @@ export default function ContactForm() {
         };
 
         await axios.post('http://localhost:5000/api/v1/messages/', message);
-
+        toast.info("Message was sent successfully, we'll contact you by email!", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
         document.querySelector('#firstname').value = '';
         document.querySelector('#lastname').value = '';
         document.querySelector('#email').value = '';

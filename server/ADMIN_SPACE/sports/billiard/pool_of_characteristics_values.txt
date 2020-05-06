@@ -20,3 +20,18 @@ value:  substr(serviceOption)
 title: 'facilities',
 value: 'all, parking,fieldlighting,toilets,cantine,showers, standard billiard set'
 }
+Billiard Place 1
+Billiard
+Bucharest, Sector 1, addr1
+
+inventory example:
+title: format desk, value: 2x3m;
+title: surface, value: slate;
+title: type, value: indoor;
+title: facilities, value: parking fieldlighting toilets cantine;
+
+service details examples:
+1 table for 60min / 10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00 / 20$
+1 table for 90min / 10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00 / 30$
+1 table for 120min / 10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00 / 40$
+1 table for 180min / 10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00 / 50$

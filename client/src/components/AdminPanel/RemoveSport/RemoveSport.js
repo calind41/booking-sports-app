@@ -58,7 +58,12 @@ export default function RemoveSport() {
         delIdx.map((item) => ids.push(sportsArr[item]._id))
         console.log('sports arr ', sportsArr);
         console.log('after del ', ids);
-        await axios.delete('http://localhost:5000/api/v1/sportLocations/deleteSportLocs', { data: { ids } })
+        await axios.delete('http://localhost:5000/api/v1/sportLocations/deleteSportLocs', {
+            data: { ids },
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
         setSelectedState(selectedState);
         setSportsArr(afterDelArr);
     }

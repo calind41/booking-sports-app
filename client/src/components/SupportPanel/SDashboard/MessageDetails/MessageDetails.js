@@ -239,7 +239,7 @@ export default function MessageDetails({ msg, selectedMessageDetails }) {
                             </div>
                             <div className={classes.subject}>
                                 <div className={classes.subjectText}>Subject</div>
-                                <div className={classes.subjectValue}>Title of the message</div>
+                                <div className={classes.subjectValue}>{msg.subject}</div>
                             </div>
                             <div className={classes.message}>
                                 <div className={classes.messageText}>Message</div>

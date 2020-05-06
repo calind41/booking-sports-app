@@ -1,0 +1,12 @@
+.gdpr-container {
+    width: 40vw;
+    margin: auto;
+    background-color: #ffffff;
+    padding: 23px;
+    box-sizing: border-box;
+    padding-left: 50px;
+    padding-right: 50px;
+    height: 94vh;
+    margin-top: 3vh;
+    overflow: auto;
+}
