@@ -24,3 +24,31 @@
     height: 50px;
     display: inline-block;
 }
+
+@media screen and (max-width: 740px) {
+    .sport-c {
+        display: block;
+        height: 13.75vw;
+        width: 13.75vw;
+        position: relative;
+    }
+    .sel-categ  {
+        background-color: #CCD84B;
+    }
+    .sport-c p {
+        position: relative;
+        bottom: 0;
+        top: 55%;
+        font-size: 2vw;
+    }
+    .sport-c-i {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        margin-top: 10px;
+        width: 7vw;
+        height: 7vw;
+        display: inline-block;
+    }
+}

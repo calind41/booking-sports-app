@@ -10,6 +10,7 @@
     background-image: url('../../imgs/swimming.jpg');
     opacity: 0.8;
     background-size: cover;
+    background-size: 100vw 100vh;
     background-repeat: no-repeat;
 }
 .basketball-bg {
@@ -45,7 +46,7 @@
     display: flex;
     width: 200px;
     position: absolute;
-    left: 82%;
+    right: 30px;
     top: 30px;
     justify-content: space-around;
 }
@@ -81,15 +82,9 @@
 }
 
 
-
-
-
-
 /* user logged in */
 .lp-user-logged-in {
     position: relative;
-    /* right: 18vw; */
-    /* left: 1.7vw; */
     bottom: 2vh;
     right: 2vw;
     width: 10vw !important;

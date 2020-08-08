@@ -18,7 +18,11 @@
 .si-logo {
     position: relative;
     left: 42%;
+    width: 30px;
     margin-bottom: 20px;
+}
+.si-logo  div {
+    left: -3.5vw !important;
 }
 .si-heading {
     position: relative;
@@ -87,4 +91,41 @@
 }
 .su-alternative p span:hover {
     color: rgb(0, 56, 129);
+}
+
+@media screen and (max-width: 1344px) {
+    
+    .sign-in {
+        box-sizing: border-box;
+        width: 365px;
+        margin: auto;
+    }
+    .si-logo  div {
+        left: -47px !important;
+        width: 200px;
+    }
+    .si-heading {
+        right: 103.5px;
+    }
+    
+    .si-fields-wrapper {
+        height: 264px;
+        top: 23px;
+    }
+    .si-fields-wrapper div label {
+        width: 267px;
+    }
+    .si-fields-wrapper div input {
+        width: 269px;
+    }
+    .sign-in-btn-wrapper {
+        width: 269px;
+        top: 7px;
+    }
+    #sign-in-button {
+        width: 269px;
+    }
+    .su-alternative {
+        padding-left: 40px;
+    }
 }

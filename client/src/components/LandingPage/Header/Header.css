@@ -2,7 +2,9 @@
     position: relative;
     top: 180px;
     width: 100%;
-    /* left: 14%; */
+    width: 50vw;
+    height: 160px;
+    margin: auto;
     text-align: center;
     font-size: 3rem;
     font-family: 'Montserrat', sans-serif;
@@ -14,10 +16,26 @@
     margin: 0;
 }
 .heading .h-1 {
-    position: relative;
-    right: 235px;
+    width: auto;
+    height: 60px;
 }
 .heading .h-2 {
-    position: relative;
-    right: 68px;
+    width: auto;
+    height: 60px;
+}
+
+@media screen and (max-width: 1296px) {
+    .heading {
+        width: 642px;
+        font-size: 3.8vw;
+    }
+    .heading .h-2 {
+        height: 60px;
+    }
+}
+@media screen and (max-width: 730px) {
+    .heading {
+        width: 89.5vw;
+        font-size: 27.2px;
+    }
 }

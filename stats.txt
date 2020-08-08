@@ -1,0 +1,7 @@
+total linii de cod scrise: 9525
+partea de frontend FE: 7940
+partea de backend BE: 1585
+
+timp estimativ cat am lucrat la proiectul asta: 168.33h
+
+9525 linii de cod scrise in 168.33h ( ~ 56linii de cod per ora)

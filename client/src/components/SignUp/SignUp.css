@@ -10,8 +10,8 @@
     width: 27.5%;
     margin: auto;
     position: relative;
-    top: 5vh;
-    height: 82vh;
+    top: 36px;
+    height: 583.5px;
     background-color: white;
     border: 1px solid rgb(150, 149, 149);
 
@@ -19,7 +19,11 @@
 .su-logo {
     position: relative;
     left: 42%;
+    width: 30px;
     margin-bottom: 20px;
+}
+.su-logo  div {
+    left: -3.5vw !important;
 }
 .su-heading {
     position: relative;
@@ -29,16 +33,15 @@
     font-weight: bold;
 }
 .su-fields-wrapper {
-    height: 70vh;
+    height: 498.5px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: flex-start;
     position: relative;
-    top: 3.2vh;
+    top: 23px;
 }
 .su-fields-wrapper div {
-    /* margin-left: 50px; */
     margin: auto;
 }
 .su-fields-wrapper div label {
@@ -64,7 +67,6 @@
     height: 35px;
     margin: auto;
     position: relative;
-    /* left: 3.7vw; */
     margin-bottom: 5px;
     transition: .2s ease-in;
 }
@@ -94,4 +96,40 @@
 #gdpr-agree-checkbox {
     width: 12px;
     height: 12px;    
+}
+
+@media screen and (max-width: 1344px) {
+
+    .signup {
+        width: 365px;
+        margin: auto;
+    }
+    .su-logo  div {
+        left: -47px !important;
+        width: 200px;
+    }
+    .su-heading {
+        right: 101.5px;
+    }
+    .su-fields-wrapper {
+        height:498.5px;
+        top: 23px;
+    }
+    .su-fields-wrapper div label {
+        width: 262px;
+    }
+    .su-fields-wrapper div input {
+        width: 264px;
+    }
+    .su-btn {
+        width: 264px;
+    }
+    .alternative {
+        padding-left: 39.5px;
+    }
+    .gdpr-consent {
+        width: 264px;
+    }
+  
+    
 }

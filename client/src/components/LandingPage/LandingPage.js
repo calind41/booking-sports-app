@@ -46,8 +46,6 @@ export default class LandingPage extends React.Component {
 
     }
 
-
-
     render() {
         let name;
         if (localStorage.getItem('token') !== null) {

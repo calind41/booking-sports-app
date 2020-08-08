@@ -7,3 +7,18 @@
     /* left: 30%; */
     margin: auto;
 }
+
+@media screen and (max-width: 1332px) {
+    
+    .sport-c-container {
+        width: 650px;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .sport-c-container {
+        width: 650px;
+        width: 89vw;
+        left: 1%;
+    }
+}

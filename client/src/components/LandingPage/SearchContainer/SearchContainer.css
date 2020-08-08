@@ -1,6 +1,7 @@
 .search-container {
     border: 1.5px solid  #000000;
     width: 50%;
+    height: 68.5px;
     position: relative;
     top: 185px;
     /* left: 29.8%; */
@@ -23,10 +24,12 @@
     position: relative;
     /* left: -150px; */
     width: 320px;
+    padding: 0 5px 0 5px;
 }
 .btn-container {
     position: relative;
     top: 20px;
+    padding-right: 5px;
 }
 .btn-container button {
     background-color: #CCD84B;
@@ -50,4 +53,23 @@
     right: 2px;
     font-size: 1rem;
     cursor: pointer;
+}
+
+@media screen and (max-width: 1296px) {
+    .search-container {
+        width: 645px;
+    }
+}
+@media screen and (max-width: 740px) {
+    .search-container {
+        width: 645px;
+        width: 89vw;
+        left: 1%;
+    }
+    .search-container .city {
+        font-size: 2.3rem;
+    }
+    .search-container .select-container {
+        padding: 0 5px 0 5px;
+    }
 }
