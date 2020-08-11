@@ -1,9 +1,11 @@
 .navbar-container {
     background-color: #056CF2;
     width: 100%;
-    height: 7vh;
+    /* height: 7vh; */
+    height: 49.5px;
     display: flex;
     justify-content: space-around;
+    /* justify-content: space-between; */
     position: fixed;
     z-index: 10;
 }
@@ -98,4 +100,144 @@
     left: 7.7vw;
     bottom: 0.9vh;
     color: #ffffff;
+}
+
+.navbar-container .logged-out-wrapper {
+    width: 370px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    right: 15.9vw;
+}
+
+@media screen and (max-width: 1554px) {
+    .navbar-container {
+        height: 49.5px;
+        justify-content: space-between;
+    }
+
+    .navbar-container .logo {
+        position: relative;
+        left: 11.9vw !important;
+        top: 4px;
+        width: auto;
+    }
+
+    /* search component */
+    .input-container {
+        width: 215px;
+        position: relative;
+    }
+    .input-container i {
+        left: 14px;
+        top: 15px;
+      
+    }
+    .input-container input {
+        left: 0;
+        top: 11px;
+        height: 28px;
+    }
+
+    .navbar-container .logged-out-wrapper {
+        width: 370px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+        right: 15.9vw;
+    }
+    .navbar-container .signin-container {
+        width: auto;
+        position: relative;
+    }
+    .navbar-container .signin-container button {
+        top: 0px !important;
+        left: 0px !important;
+    }
+    .navbar-container .register-container {
+        position: relative;
+        width: 90px;
+        width: auto;
+
+    }
+    .navbar-container .register-container button {
+        height: 28.5px;
+        left: 0px !important;
+        top: 0px !important;
+    }
+    .navbar-container .contact-container {
+        position: relative;
+        width: 90px;
+        width: auto;
+    }
+    .navbar-container .contact-container button {
+        height: 28.5px;
+        left: 0px !important;
+        top: 0px !important;
+    }
+
+    .fe-faq {
+        height: 28.5px;
+    }   
+    
+}
+
+@media screen and (max-width: 1168px) {
+    .input-container {
+        display: none;
+    }
+}
+@media screen and (max-width: 830px) {
+    .navbar-container {
+        justify-content: space-between;
+    }
+    .navbar-container .logo {
+        left: 5vw !important;
+    }
+}
+
+@media screen and (max-width: 746px) {
+    .navbar-container {
+        justify-content: normal;
+    }
+    .navbar-container .logged-out-wrapper {
+        right: -8.5vw;
+    }
+    .navbar-container .logged-out-wrapper {
+        right: -6vw;
+        width: 53.92vw;
+    }
+}
+
+@media screen and (max-width: 686px) {
+
+    .navbar-container .logged-out-wrapper {
+        right: -6vw;
+        width: 53.92vw;
+    }
+    .navbar-container .signin-container {
+        width: 12.6vw;
+    }
+    .navbar-container .signin-container button {
+        width: inherit;
+    }
+    .navbar-container .register-container {
+        width: 12.6vw;
+
+    }
+    .navbar-container .register-container button {
+        width: inherit;
+    }
+    .navbar-container .contact-container {
+        width: 12.6vw;
+    }
+    .navbar-container .contact-container button {
+        width: inherit;
+    }
+
+    .fe-faq {
+        width: 12.6vw;
+    }   
 }

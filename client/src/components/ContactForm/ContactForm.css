@@ -20,6 +20,10 @@
     position: relative;
     left: 42%;
     margin-bottom: 20px;
+    width: 30px;
+}
+.cntct-logo  div {
+    left: -3.5vw !important;
 }
 .cntct-heading {
     position: relative;
@@ -79,4 +83,86 @@
 #cntct-btn:hover {
     background-color: rgb(0, 56, 129);
     cursor: pointer;
+}
+
+
+@media screen and (max-width: 1344px) {
+
+    .cntct {
+        /* width: 27.5%; */
+        width: 365px;
+        margin: auto;
+        /* position: relative;
+        top: 5vh;
+        height: 84vh;
+        background-color: white;
+        border: 1px solid rgb(150, 149, 149); */
+    
+    }
+    .cntct-logo div {
+        left: -47px !important;
+        width: 200px;
+    }
+    .cntct-heading {
+        /* position: relative; */
+        /* right: 5.2vw; */
+        right: 63px;
+        
+    }
+    
+    .cntct-fields-wrapper {
+        /* height: 70vh; */
+        height: 499px;
+        /* border: 1px solid orange; */
+        /* display: flex; */
+        /* justify-content: space-between; */
+        /* flex-direction: column; */
+        /* align-items: flex-start; */
+        /* position: relative; */
+        /* top: 3.2vh; */
+        top: 22.5px;
+        
+    }
+    .cntct-fields-wrapper div {
+        /* margin: auto; */
+    }
+    .cntct-fields-wrapper div label {
+        /* display: block;
+        color: #ABA8A8;
+        font-size: .8rem;
+        margin-bottom: 5px; */
+    }
+    .cntct-fields-wrapper div input {
+        /* width: 20vw; */
+        width: 269px;
+        /* height: 35px; */
+        /* border-radius: 5px; */
+        /* border: 1.2px solid black;
+        box-sizing: border-box;
+        padding: 5px; */
+    }
+    #txtarea {
+        width: 269px;
+        /* height: 20vh; */
+        height: 143px;
+        /* border-radius: 10px; */
+        /* border: 1px solid black; */
+        /* box-sizing: border-box; */
+        /* padding: 10px; */
+        /* resize: none; */
+    }
+    #cntct-btn {
+        /* position: relative;
+        left:0;
+        top:0; */
+        width: 269px;
+        /* background-color: #056CF2;
+        color: white;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        width: 20vw;
+        height: 35px;
+        transition: .2s ease-in; */
+    }
+
 }

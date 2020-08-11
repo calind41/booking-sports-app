@@ -1,8 +1,7 @@
 .sidebar-container {
     background-color: white;
-    height: 80vh;
+    height: 578px;
     width: 17.3vw;
-    /* border: 2px solid red; */
 }
 
 .sidebar-btns {
@@ -26,4 +25,31 @@
 }
 .sidebar-btns button:hover {
     background-color: #343434;
+}
+
+@media screen and (max-width: 1131px) {
+    .sidebar-container {
+        background-color: white;
+        width: 193.3px;
+    }
+
+}
+
+@media screen and (max-width: 904px) {
+    .sidebar-container .category {
+        width: 190px;
+    }
+    .sidebar-container .category ul  {
+        height: 118px;
+    }
+    .sidebar-container .category ul li {
+        height: 21.4px;
+    }
+    .sidebar-btns {
+        left: 0;
+        margin: auto;
+    }
+    .sidebar-btns button {
+        height: 28.5px;
+    }
 }

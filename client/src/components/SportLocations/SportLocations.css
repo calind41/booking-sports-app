@@ -8,9 +8,66 @@
     align-items: flex-start;
 }
 .sidebar-c {
-   /* bottom: 100vh; */
    position: fixed;
-   top: 12.5vh;
+   top: 95px;
    left: 65.5vw;
+   width: 17.3vw;
+}
+@media screen and (max-width: 1131px) {
+ .sidebar-c {
+    width: 193.3px;
+ }
+}
+@media screen and (max-width: 1033px) {
+    .sidebar-c {
+        position: fixed;
+        left: 63.1vw;
+    }
+}
+@media screen and (max-width: 987px) {
+    .sidebar-c {
+        left: 62vw;
+    }
+}
+@media screen and (max-width: 945px) {
+    .sidebar-c {
+        left: 61vw;
+    }
+}
+@media screen and (max-width: 903px) {
+    .sidebar-c {
+        left: 60vw;
+    }
+}
+@media screen and (max-width: 861px) {
+    .sidebar-c {
+        left: 59vw;
+    }
+}
+@media screen and (max-width: 819px) {
+    .sidebar-c {
+        left: 58vw;
+    }
+}
+@media screen and (max-width: 799px) {
+    .sidebar-c {
+        left: 57vw;
+    }
+}
+@media screen and (max-width: 763px) {
+    .sidebar-c {
+        left: 55.7vw;
+    }
 }
 
+@media screen and (max-width: 844px) {
+    .sport-locations {
+        position: relative;
+        top: 100px;
+        left: 3vw;
+        width: 53vw;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+}

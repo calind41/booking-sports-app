@@ -10,3 +10,10 @@
     margin-top: 3vh;
     overflow: auto;
 }
+
+@media screen and (max-width: 882px) {
+    .gdpr-container {
+        width: 348px;
+        
+    }
+}

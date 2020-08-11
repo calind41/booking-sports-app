@@ -74,7 +74,10 @@ export default function Navbar({ inBookingLout, inBooking, userResClass, filterR
 
                 {
                     loggedIn === false ?
-                        (<Fragment>
+                        (<div className='logged-out-wrapper'>
+                            <Link to='/faq'>
+                                <FrequentQuestions inBookingLout={inBookingLout} inBooking={inBooking} userResClass={userResClass} loggedIn={loggedIn} id='fqs' />
+                            </Link>
                             <Link to='/signin'>
                                 <SignIn signInStyles={signInStyles} />
                             </Link>
@@ -83,7 +86,7 @@ export default function Navbar({ inBookingLout, inBooking, userResClass, filterR
                             </Link>
                             <Link to='/contact'>
                                 <Contact contactStyles={contactStyles} />
-                            </Link></Fragment>) : (
+                            </Link></div>) : (
                             <Fragment>
                                 <div style={window.location.pathname === '/booking' ? { right: '-1.30vw' } : null} className='navbar-part-user-logged-in'>
 
@@ -113,9 +116,7 @@ export default function Navbar({ inBookingLout, inBooking, userResClass, filterR
                 }
 
             </div>
-            <Link to='/faq'>
-                <FrequentQuestions inBookingLout={inBookingLout} inBooking={inBooking} userResClass={userResClass} loggedIn={loggedIn} id='fqs' />
-            </Link>
+
         </Fragment>
     )
 }

@@ -1,11 +1,19 @@
+.signin-container {
+    width: auto;
+    position: relative;
+    height: 28.5px;
+}
 .signin-container button {
     width: 86px;
-    height: 4vh;
+    /* height: 4vh; */
+    height: inherit;
     font-size: 0.9rem;
     border: none;
     position: relative;
-    top: 12px;
-    left: 18.4vw;
+    /* top: 12px;
+    left: 18.4vw; */
+    top: 0px !important;
+    left: 0px !important;
     border-radius: 3px;
     font-size: 12px;
     background-color: #ffffff;

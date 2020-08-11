@@ -1,18 +1,26 @@
 .input-container {
+    width: 215px;
+    position: relative;
 }
 .input-container i {
     position: absolute;
-    left: 40vw;
-    top: 16.5px;
+    /* left: 40vw;
+    top: 16.5px; */
+    left: 14px;
+    top: 15px;
     font-size: 1.3rem;
     z-index: 50;
     color: #000000;
     cursor: pointer;
 }
 .input-container input {
+    
     position: absolute;
-    left: 39vw;
+    /* left: 39vw;
+    top: 11px; */
+    left: 0;
     top: 11px;
+    height: 28px;
     box-sizing: border-box;
     outline: none;
     margin-left: 10px;
@@ -21,7 +29,7 @@
     padding: 7px;
     padding-left: 35px;
     width: 154px;
-    height: 4vh;
+    /* height: 4vh; */
     background-color: #ffffff;
     z-index: 1;
     color: #000000;
