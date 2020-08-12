@@ -95,7 +95,7 @@ export default function Faq() {
 
     return (
         role === 'support' ?
-            (<div>
+            (<div className='faq-container'>
                 <SidebarMenu faq={true} name='Support Panel' />
                 <Navigation location="FAQ" />
 

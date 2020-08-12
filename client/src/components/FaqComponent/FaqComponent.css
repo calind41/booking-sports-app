@@ -2,8 +2,6 @@
     width: 70vw;
     height: 50vh;
     position: relative;
-    /* top: 30vh;
-    left: 20vw; */
     margin: auto;
     top: 14vh;
     right: 2.8vw;
@@ -13,27 +11,12 @@
   font-weight: bold;
   margin: auto;
   position: relative;
-  left: 29vw;
   margin-bottom: 5vh;
+  width: 110px;
 }
 
-/* 
-body {
-  display: flex;
-  justify-content: center;
-  padding: 50px 0;
-  background-color: #fcfcfc;
-  min-height: 100vh;
-  font-size: 16px;
-  line-height: 1.4;
-  font-family: 'Montserrat', sans-serif;
-  color: #372717;
-  box-sizing: border-box;
-  overflow-y: scroll;
-} */
 .accordion {
   width: 71.65vw;
-  /* max-width: 470px; */
 }
 .panel {
   background-color: rgb(111, 169, 245);
@@ -54,6 +37,7 @@ body {
 }
 .panel__label:focus {
   outline: none;
+  height: 100px;
 }
 .panel__label:after,
 .panel__label:before {

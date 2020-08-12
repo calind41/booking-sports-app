@@ -79,16 +79,19 @@ export default function FaqComponent({ filterResBySportType, filterBySporLocatio
 
                 {
                     loggedIn === false ?
-                        (<Fragment>
-                            <Link to='/signin'>
-                                <SignIn signInStyles={signInStyles} />
-                            </Link>
-                            <Link to='/signup'>
-                                <Register registerStyles={registerStyles} />
-                            </Link>
-                            <Link to='/contact'>
-                                <Contact contactStyles={contactStyles} />
-                            </Link></Fragment>) : (
+                        (
+                            <div className='logged-out-wrapper'>
+                                <Link to='/signin'>
+                                    <SignIn signInStyles={signInStyles} />
+                                </Link>
+                                <Link to='/signup'>
+                                    <Register registerStyles={registerStyles} />
+                                </Link>
+                                <Link to='/contact'>
+                                    <Contact contactStyles={contactStyles} />
+                                </Link>
+                            </div>
+                        ) : (
                             <Fragment>
                                 <div style={window.location.pathname === '/booking' ? { right: '-1.30vw' } : null} className='navbar-part-user-logged-in'>
 
