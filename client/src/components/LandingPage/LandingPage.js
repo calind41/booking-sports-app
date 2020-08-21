@@ -30,7 +30,7 @@ export default class LandingPage extends React.Component {
 
 
     toggleSignOutDropdown() {
-        let elem = document.querySelector('.sign-out-dropdown');
+        let elem = document.querySelector('.lp-sign-out-dropdown');
         console.log(elem.style.display);
 
         if (elem.style.display === 'none' || elem.style.display === '')
@@ -59,7 +59,7 @@ export default class LandingPage extends React.Component {
                 <div className='lp-btns'>
                     {localStorage.getItem('userLoggedIn') === 'true' ?
                         <div className='lp-user-logged-in'>
-                            <div style={window.location.pathname === '/booking' ? { right: '-1.30vw' } : null} className='navbar-part-user-logged-in'>
+                            <div style={window.location.pathname === '/booking' ? { right: '-1.30vw' } : null} className='lp-navbar-part-user-logged-in'>
 
                                 <div className='booked-btn-container'>
                                     <Link to='/userRes'>
@@ -72,14 +72,18 @@ export default class LandingPage extends React.Component {
                                         <button className='lp-contact'>Contact</button>
                                     </Link>
                                 </div>
-                                <div onClick={this.toggleSignOutDropdown} className=' lp-username-container username-and-logout-container'>
-                                    <i className="fas fa-user-circle userIcon"></i>
-                                    <div className='lp-user-name'>{name}</div>
-                                    <i id='arr-d-icon' class="fas fa-sort-down arrowDownIcon"></i>
-                                </div>
-                                <div className='lp-sign-out-dropdown sign-out-dropdown'>
-                                    <i class="fas fa-sort-up"></i>
-                                    <span onClick={this.handleSignOut}> Sign out <i class="fas fa-sign-out-alt"></i></span>
+                                <div className='wrpp'>
+                                    <div onClick={this.toggleSignOutDropdown} className=' lp-username-container username-and-logout-container'>
+                                        <i className="fas fa-user-circle userIcon"></i>
+                                        <div className='lp-user-name'>{name}</div>
+                                        <i id='arr-d-icon' class="fas fa-sort-down arrowDownIcon"></i>
+                                    </div>
+
+
+                                    <div className='lp-sign-out-dropdown'>
+
+                                        <span onClick={this.handleSignOut}><i className="fas fa-sort-up"></i> Sign out <i class="fas fa-sign-out-alt"></i></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

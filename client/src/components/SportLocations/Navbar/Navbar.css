@@ -1,18 +1,16 @@
 .navbar-container {
     background-color: #056CF2;
     width: 100%;
-    /* height: 7vh; */
     height: 49.5px;
     display: flex;
     justify-content: space-around;
-    /* justify-content: space-between; */
     position: fixed;
     z-index: 10;
 }
 
 .username-and-logout-container {
     display: flex;
-    width: 9vw;
+    width: 133px !important;
     justify-content: space-around;
     align-items: center;
     font-size: 14px;
@@ -26,18 +24,15 @@
 }
 .username-and-logout-container i:nth-child(1) {
     font-size: 22px;
-    /* color: #ffffff; */
     background-color: #ffffff;
     border: none;
     border-radius: 100%;
     position: relative;
-    /* left: 3px; */
     top: 0.4px;
 }
 #arr-d-icon {
     font-size: 16px;
     position: relative;
-    /* top: 1.4px; */
     bottom: 2.1px;
     right: 1px;
     transition: .2s ease-in-out;
@@ -46,14 +41,14 @@
 .navbar-part-user-logged-in {
     position: relative;
     right: 4.57vw;
-    width: 17.29vw;
-    height: 6.1vh;
+    width: 264px;
+    height: 43.5px !important;
     display: flex;
     justify-content: space-around;
 }
 .navbar-part-user-logged-in > div:not(:nth-child(3)) button {
     width: 59px;
-    height: 3.5vh;
+    height: 25.5px;
     font-size: 0.9rem;
     border: none;
     position: relative;
@@ -66,11 +61,14 @@
 
 .sign-out-dropdown {
     display: none;
-    position: absolute;
+    /* position: absolute;
     top: 7.4vh;
-    left: 8.5vw;
-    width: 8.9vw;
+    left: 8.5vw; */
+    /* width: 8.9vw; */
+    margin-top: 12px;
+    width: 137px;
     height: 5vh;
+    height: 35.5px;
     background-color: #ffffff;
     border: 0.3px solid rgba(0, 0, 0, 0.081);
     font-size: 14px;
@@ -94,11 +92,13 @@
     color: black;
 
 }
-.sign-out-dropdown i {
+.sign-out-dropdown > i {
     position: relative;
     font-size: 18px;
     left: 7.7vw;
-    bottom: 0.9vh;
+    left: 120px;
+    /* bottom: 0.9vh; */
+    bottom: 5.8px;
     color: #ffffff;
 }
 
@@ -109,6 +109,17 @@
     justify-content: space-around;
     position: relative;
     right: 15.9vw;
+}
+.u-wrapper {
+    /* border: 1px solid red; */
+    /* width: 230px; */
+    position: relative;
+    top: 11px;
+    width: 137px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
 }
 
 @media screen and (max-width: 1554px) {
@@ -208,6 +219,32 @@
     .navbar-container .logged-out-wrapper {
         right: -6vw;
         width: 53.92vw;
+    }
+
+}
+
+@media screen and (max-width: 746px) {
+    .navbar-part-user-logged-in {
+        position: relative;
+        right: -24vw;
+        width: 264px;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 629px) {
+    .navbar-part-user-logged-in {
+        position: relative;
+        right: -15vw;
+        width: 264px;
+    }
+}
+@media screen and (max-width: 566px) {
+    .navbar-part-user-logged-in {
+        position: relative;
+        right: -7vw;
+       
     }
 }
 

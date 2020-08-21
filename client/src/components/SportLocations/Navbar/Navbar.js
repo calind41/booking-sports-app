@@ -101,14 +101,16 @@ export default function Navbar({ inBookingLout, inBooking, userResClass, filterR
                                             <button>Contact</button>
                                         </Link>
                                     </div>
-                                    <div onClick={toggleSignOutDropdown} className='username-and-logout-container'>
-                                        <i class="fas fa-user-circle"></i>
-                                        <div>{name}</div>
-                                        <i id='arr-d-icon' class="fas fa-sort-down"></i>
-                                    </div>
-                                    <div className='sign-out-dropdown'>
-                                        <i class="fas fa-sort-up"></i>
-                                        <span onClick={handleSignOut}> Sign out <i class="fas fa-sign-out-alt"></i></span>
+                                    <div className='u-wrapper'>
+                                        <div onClick={toggleSignOutDropdown} className='username-and-logout-container'>
+                                            <i class="fas fa-user-circle"></i>
+                                            <div>{name}</div>
+                                            <i id='arr-d-icon' class="fas fa-sort-down"></i>
+                                        </div>
+                                        <div className='sign-out-dropdown'>
+                                            <i class="fas fa-sort-up"></i>
+                                            <span onClick={handleSignOut}> Sign out <i class="fas fa-sign-out-alt"></i></span>
+                                        </div>
                                     </div>
                                 </div>
                             </Fragment>

@@ -86,8 +86,8 @@
 .lp-user-logged-in {
     position: relative;
     bottom: 2vh;
-    right: 2vw;
-    width: 10vw !important;
+    right: 5vw;
+    right:58px;
 }
 .userIcon {
     font-size: 27px !important;
@@ -105,6 +105,7 @@
     border-radius: 7px !important;
     width: 90px !important;
     height: 35px !important;
+    border: none;
 
 }
 .lp-contact {
@@ -115,21 +116,44 @@
     width: 90px !important;
     height: 35px !important;
     margin-left: 10px;
+    border: none;
+
 
 }
 .lp-username-container {
     width: 9vw !important;
     position: relative;
-    left: 1vw;
-    top: 1.2vh !important;
+    top: 5px !important;
 
 }
 .lp-user-name {
-    width: 10vw;
+    width: 100px;
+}
+.lp-navbar-part-user-logged-in {
+    width: 335px;
+    display: flex;
+    justify-content: space-evenly;
 }
 .lp-sign-out-dropdown {
+    display: none;
     position: relative;
-    left: 12vw !important;
+    left: 5px;
+    top: 14px;
+    background-color: #fff;
     color: #000000 !important;
     font-weight: bold !important;
+    width: 134.5px;
+    height: 35.5px;
+    text-align: center;
+}
+.lp-sign-out-dropdown > span {
+    display: inline-block;
+    margin-top:10px;
+}
+.lp-sign-out-dropdown > span > .fa-sort-up {
+    position: absolute;
+    top: -6.8px;
+    left: 118px;
+    color: #fff;
+
 }
