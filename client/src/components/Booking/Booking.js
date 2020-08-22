@@ -50,25 +50,28 @@ export default class Booking extends Component {
 
 
         return (
-            <div className='booking-container'>
+            <>
                 <Navbar inBookingLout={'inBookingLout'} inBooking={'inBooking'} searchBar='none' />
-                <div className='upper-part'>
-                    <div className='imgslider-container'>
-                        <ImageSlider images={images} width='42vw' height='50vh' />
-                    </div>
-                    <div>
-                        <ServiceList handleClickServiceOption={this.handleClickServiceOption} sportOpts={sportOpts} />
-                    </div>
-                </div>
-                <div className='lower-part'>
-                    <div>
-                        <LocationInfo inventory={inventory} />
-                    </div>
-                    <div className='custom-calendar'>
-                        <div>
+                <div className='booking-container'>
+                    <div className='left-side'>
+                        <div className='imgslider-container'>
+                            <ImageSlider images={images} width='568px' height='50vh' />
+                        </div>
+
+                        <div className='location-info-wrapper'>
+                            <LocationInfo inventory={inventory} />
+                        </div>
+                        <div className='custom-calendar-wrapper'>
                             <CustomCalendar handleClickDateOption={this.handleClickDateOption} />
                         </div>
+                    </div>
+                    <div className='right-side'>
+                        <div className='service-list-wrapper'>
+                            <ServiceList handleClickServiceOption={this.handleClickServiceOption} sportOpts={sportOpts} />
+                        </div>
                         <div className='time-options'>
+                            <div className='select-date-time-txt'>Select Date and Time</div>
+
                             {
                                 sportOpts[this.state.selectedServiceOption].availableHours.map((time, index) => {
                                     return index === this.state.selectedTimeOption ?
@@ -96,7 +99,7 @@ export default class Booking extends Component {
 
                     />
                 </div>
-            </div>
+            </>
         )
     }
 }

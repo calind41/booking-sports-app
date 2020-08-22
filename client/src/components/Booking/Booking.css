@@ -1,90 +1,126 @@
-/* .imgslider-container {
-    position: relative;
-    top: 20px;
-    right: 26%;
-} */
 .booking-container {
     background-color:#e9ebee;
-    height: 99.9vh;
-    width: 100vw;
-    /* border: 2px solid red; */
-}
-/* .custom-calendar {
+    width: 98.5vw;
     display: flex;
     justify-content: space-between;
-    position: relative;
-    bottom: 290px;
-    left: 50%;
-    width: 740px;
 }
-.time-options {
+.left-side {
+    /* width: 40vw; */
+    width: 580px;
+    height: 640px;
     display: flex;
-    justify-content: space-between;
-    width: 350px;
     flex-wrap: wrap;
     position: relative;
-    right: 120px;
     top: 50px;
-    height: 200px;
-} */
-
-/*  */
-.booking-container .upper-part {
-    height: 64vh;
-    width: 100vw;
-    justify-content: space-between;
-    display: flex;
-    align-items: center;
+    left: 11.5vw;
 }
-.booking-container .upper-part .imgslider-container {
-    width: 32vw;
+.left-side .imgslider-container {
+    width: 30vw;
     position: relative;
-    left: 12vw;
+    left: .5vw;
     top: 3vh;
 }
-.booking-container .lower-part {
-    height: 43.5vh;
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    bottom: 12vh;
+.custom-calendar-wrapper {
+    margin-left: 25px;
+    width: 240px;
 }
-.booking-container .lower-part > div:nth-child(1) {
-    position: relative;
-    left: 3.34vw;
-    top: 4.9vh;
-    height: 30vh;
-}
-.booking-container .lower-part .custom-calendar {
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    right: 25.2vh;
-    height: 30vh;
 
+.location-info-wrapper {
+    width: 300px;
+    margin-left: .5vw;
+    height: 275px;
+    border: 1px solid red;
 }
-.booking-container .lower-part .custom-calendar > div:nth-child(1) {
-    position: relative;
-    top: 4vh;
-}
-.booking-container .lower-part .custom-calendar .time-options {
+.right-side {
+    width: 33vw;
+    width: 380px;
+    height: 640px;
     display: flex;
-    /* justify-content: space-between; */
-    width: 350px;
+    flex-direction: column;
+    position: relative;
+    top: 50px;
+    overflow: hidden;
+    margin-right: 100px;
+}
+.right-side .service-list-wrapper {
+    position: relative;
+    top: 48px;
+}
+.right-side .time-options  {
+    display: flex;
+    width: 380px;
     flex-wrap: wrap;
+    align-items: flex-start;
     position: relative;
-    top: 10.6vh;
-    right: -5.6vw;
+    top: 143px;
     height: 180px;
-}
-.booking-container .lower-part .custom-calendar .time-options > div {
-    margin-right: 10px;
-}
 
+}
+.right-side .time-options .select-date-time-txt {
+    position: absolute;
+    top: -44px;
+    left: 0;
+    font-size: 28px;
+}
 .bookModal-container {
     width: 7.5vw;
     height: 6vh;
     position: relative;
-    bottom: 20vh;
-    left: 77.25vw;
+    bottom: 65px;
+    left: 82.3vw;
+}
+
+@media screen and (max-width: 1239px) {
+    .booking-container {
+        background-color:#e9ebee;
+        width: 98.5vw;
+        width: 580px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        border: 1px solid red;
+    }
+    .left-side {
+        left: 0;
+        border: 1px solid blue;
+    }
+    .left-side .imgslider-container {
+        width: 30vw;
+        width: 570px;
+        /* border: 1px solid red; */
+        position: relative;
+        left: .5vw;
+        /* top: 3vh; */
+        top: 21px;
+    }
+    .right-side {
+        width: 580px;
+        /* margin-left: 11.5vw; */
+        border: 1px solid red;
+    }
+    .custom-calendar-wrapper {
+        margin-left: 25px;
+        border: 1px solid red;
+
+    }
+    
+    .location-info-wrapper {
+        width: 300px;
+        /* margin-left: .5vw; */
+        /* margin-left: 5px; */
+        height: 275px;
+        border: 1px solid red;
+    }
+    .bookModal-container {
+        /* width: 7.5vw;
+        height: 6vh;
+        position: relative;
+        bottom: 65px; */
+        left: 44.5vw;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    
 }

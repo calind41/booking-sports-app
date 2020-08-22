@@ -1,11 +1,5 @@
-.datepicker-header {
-    font-size: 28px;
-    margin-bottom: 5px;
+.custom-calendar-container  {
     position: relative;
-    left: 25vw;
-    top: 0.5vh;
-}
-.custom-calendar-container > div:nth-child(2) {
-    position: relative;
-    /* right: 10vw; */
+    top: 10px;
+    width: auto;
 }

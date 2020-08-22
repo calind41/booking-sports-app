@@ -8,7 +8,6 @@ export default function CustomCalendar({ handleClickDateOption }) {
     const [startDate, setStartDate] = useState(new Date());
     return (
         <div className='custom-calendar-container'>
-            <div className='datepicker-header'>Select Date and Time</div>
             <div>
                 <DatePicker
                     selected={startDate}
