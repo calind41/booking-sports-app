@@ -12,9 +12,9 @@ const useStyles = makeStyles(theme => ({
         '& > *': {
             position: 'relative',
             left: '12vw',
-            marginBottom: '3vh',
+            marginBottom: '22px',
             width: '70.4vw',
-            height: '25vh',
+            height: '177px',
             fontSize: '14px'
         },
     },

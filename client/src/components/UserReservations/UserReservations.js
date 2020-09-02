@@ -146,7 +146,7 @@ export default function UserReservations() {
             <div className='column-headers'>
                 {pastReservations.length !== 0 ?
                     <Fragment>
-                        <div className='type-header'>
+                        {/* <div className='type-header'>
                             Type
                     </div>
                         <div className='loc-header'>
@@ -160,7 +160,7 @@ export default function UserReservations() {
                     </div>
                         <div className='available-header'>
                             Available
-                    </div>
+                    </div> */}
                     </Fragment> : <div className='no-reservations-text'>You have no reservations</div>
                 }
             </div>

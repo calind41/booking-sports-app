@@ -1,0 +1,296 @@
+.booking-nav-container {
+    background-color: #056CF2;
+    width: 100%;
+    height: 49.5px;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    z-index: 10;
+}
+
+.booking-username-and-logout-container {
+    display: flex;
+    width: 133px !important;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 14px;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    top: 3px;
+}
+.booking-username-and-logout-container i {
+    color: rgb(7, 46, 98);
+}
+.booking-username-and-logout-container i:nth-child(1) {
+    font-size: 22px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 100%;
+    position: relative;
+    top: 0.4px;
+}
+#booking-arr-d-ico {
+    font-size: 16px;
+    position: relative;
+    bottom: 2.1px;
+    right: 1px;
+    transition: .2s ease-in-out;
+}
+
+.booking-navbar-part-user-logged-in {
+    position: relative;
+    right: 158px !important;
+    width: 264px;
+    height: 43.5px !important;
+    display: flex;
+    justify-content: space-around;
+}
+.booking-navbar-part-user-logged-in > div:not(:nth-child(3)) button {
+    width: 59px;
+    height: 25.5px;
+    font-size: 0.9rem;
+    border: none;
+    position: relative;
+    top: 12.9px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 12px;
+    background-color: #ffffff;
+}
+
+.booking-sign-out-dropdown {
+    display: none;
+    margin-top: 12px;
+    width: 137px;
+    height: 5vh;
+    height: 35.5px;
+    background-color: #ffffff;
+    border: 0.3px solid rgba(0, 0, 0, 0.081);
+    font-size: 14px;
+    border-radius: 2px;
+}
+.booking-sign-out-dropdown span {
+    position: relative;
+    top: 7px;
+    left: 11px;
+    cursor: pointer;
+}
+
+.booking-sign-out-dropdown:hover span i  {
+    color: #056CF2;
+}
+.booking-sign-out-dropdown span i {
+    position: relative;
+    left: 0.3vw;
+    top: 0.1vh;
+    font-size: 14px;
+    color: black;
+
+}
+.booking-sign-out-dropdown > i {
+    position: relative;
+    font-size: 18px;
+    left: 7.7vw;
+    left: 120px;
+    bottom: 5.8px;
+    color: #ffffff;
+}
+
+.booking-nav-container .booking-logged-out-wrapper {
+    width: 280px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    right: 164px !important;
+}
+.booking-logged-out-wrapper .fe-faq {
+    position: absolute;
+    left: -83px;
+}
+.booking-u-wrapper {
+    position: relative;
+    top: 11px;
+    width: 137px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1554px) {
+    .booking-nav-container {
+        height: 49.5px;
+        justify-content: space-between;
+    }
+
+    .booking-nav-container .logo {
+        position: relative;
+        left: 11.9vw !important;
+        top: 4px;
+        width: auto;
+    }
+
+    /* search component */
+    .input-container {
+        width: 215px;
+        position: relative;
+    }
+    .input-container i {
+        left: 14px;
+        top: 15px;
+      
+    }
+    .input-container input {
+        left: 0;
+        top: 11px;
+        height: 28px;
+    }
+
+    .booking-nav-container .booking-logged-out-wrapper {
+        width: 370px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+        right: 15.9vw;
+    }
+    .booking-nav-container .signin-container {
+        width: auto;
+        position: relative;
+    }
+    .booking-nav-container .signin-container button {
+        top: 0px !important;
+        left: 0px !important;
+    }
+    .booking-nav-container .register-container {
+        position: relative;
+        width: 90px;
+        width: auto;
+
+    }
+    .booking-nav-container .register-container button {
+        height: 28.5px;
+        left: 0px !important;
+        top: 0px !important;
+    }
+    .booking-nav-container .contact-container {
+        position: relative;
+        width: 90px;
+        width: auto;
+    }
+    .booking-nav-container .contact-container button {
+        height: 28.5px;
+        left: 0px !important;
+        top: 0px !important;
+    }
+
+    .booking-logged-out-wrapper .fe-faq {
+        height: 28.5px;
+    }   
+    
+}
+
+@media screen and (max-width: 1168px) {
+    .input-container {
+        display: none;
+    }
+}
+@media screen and (max-width: 936px) {
+    .booking-navbar-part-user-logged-in {
+        position: relative;
+        right: 0px !important;
+        left: -30px !important;
+        width: 264px;
+        height: 43.5px !important;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .booking-nav-container .booking-logged-out-wrapper {
+        right: 50px !important;
+    }
+}
+@media screen and (max-width: 830px) {
+    .booking-nav-container {
+        justify-content: space-between;
+    }
+    .booking-nav-container .logo {
+        left: 5vw !important;
+    }
+}
+
+
+@media screen and (max-width: 701px) {
+    .booking-nav-container .booking-logged-out-wrapper {
+        width: 200px !important;
+    }
+    .booking-nav-container .signin-container {
+        width: 12.6vw;
+        width: 55px;
+    }
+    .booking-nav-container .signin-container button {
+        width: inherit;
+    }
+    .booking-nav-container .register-container {
+        width: 12.6vw;
+        width: 55px;
+    }
+    .booking-nav-container .register-container button {
+        width: inherit;
+    }
+    .booking-nav-container .contact-container {
+        width: 12.6vw;
+        width: 55px;
+
+    }
+    .booking-nav-container .contact-container button {
+        width: inherit;
+    }
+    .booking-logged-out-wrapper .fe-faq {
+        width: 55px;
+        left: -58px;
+    }
+}
+
+@media screen and (max-width: 639px) {
+    .booking-nav-container .logo {
+        left: 15vw !important;
+        font-size: 30px;
+        margin-top: 3px;
+    }
+    .booking-nav-container .booking-logged-out-wrapper {
+        width: 183px !important;
+        right: 80px !important;
+    }
+    .booking-logged-out-wrapper .fe-faq {
+        left: -52px !important;
+    }
+
+}
+
+@media screen and (max-width: 605px) {
+    .booking-nav-container .logo {
+        left: 12.5vw !important;
+    }
+    .booking-nav-container .booking-logged-out-wrapper {
+        right: 70px !important;
+    }
+}
+@media screen and (max-width: 577px) {
+    .booking-nav-container .logo {
+        left: 10vw !important;
+    }
+    .booking-nav-container .booking-logged-out-wrapper {
+        right: 52px !important;
+    }
+}
+
+@media screen and (max-width: 541px) {
+    .booking-nav-container .logo {
+        left: 8.5vw !important;
+    }
+    .booking-nav-container .booking-logged-out-wrapper {
+        right: 35px !important;
+    }
+}

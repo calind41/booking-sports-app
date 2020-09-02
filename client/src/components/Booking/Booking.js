@@ -10,6 +10,7 @@ import TimeOption from './CustomCalendar/TimeOption/TimeOption'
 import LocationInfo from './LocationInfo/LocationInfo'
 import BookModal from './BookModal/BookModal'
 
+import BookingNavbar from './BookingNavbar/BookingNavbar'
 
 export default class Booking extends Component {
 
@@ -51,7 +52,7 @@ export default class Booking extends Component {
 
         return (
             <>
-                <Navbar inBookingLout={'inBookingLout'} inBooking={'inBooking'} searchBar='none' />
+                <BookingNavbar inBookingLout={'inBookingLout'} inBooking={'inBooking'} />
                 <div className='booking-container'>
                     <div className='left-side'>
                         <div className='imgslider-container'>
@@ -80,25 +81,26 @@ export default class Booking extends Component {
                                         <div><TimeOption handleClickTimeOption={this.handleClickTimeOption} index={index} bgColor='#ffffff' color='black' time={time} /></div>
                                 })
                             }
+                            <div className='bookModal-container'>
+                                <BookModal
+                                    selectedHour={sportOpts[this.state.selectedServiceOption].availableHours[this.state.selectedTimeOption]}
+                                    selectedServiceOption={sportOpts[this.state.selectedServiceOption].serviceOption}
+                                    selectedDateOption={this.state.selectedDateOption}
+                                    image={images[0]}
+                                    title={title}
+                                    sport={sport}
+                                    location={location}
+                                    price={sportOpts[this.state.selectedServiceOption].serviceOption.split(',')[1]}
+                                    date={this.state.selectedDateOption.toString().split(' ').filter((s, index) => (index > 0 && index < 4)).join(' ')}
+                                    available={'yes'}
+
+                                />
+                            </div>
 
                         </div>
                     </div>
                 </div>
-                <div className='bookModal-container'>
-                    <BookModal
-                        selectedHour={sportOpts[this.state.selectedServiceOption].availableHours[this.state.selectedTimeOption]}
-                        selectedServiceOption={sportOpts[this.state.selectedServiceOption].serviceOption}
-                        selectedDateOption={this.state.selectedDateOption}
-                        image={images[0]}
-                        title={title}
-                        sport={sport}
-                        location={location}
-                        price={sportOpts[this.state.selectedServiceOption].serviceOption.split(',')[1]}
-                        date={this.state.selectedDateOption.toString().split(' ').filter((s, index) => (index > 0 && index < 4)).join(' ')}
-                        available={'yes'}
 
-                    />
-                </div>
             </>
         )
     }
