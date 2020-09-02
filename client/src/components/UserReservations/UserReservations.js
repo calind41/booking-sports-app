@@ -146,21 +146,6 @@ export default function UserReservations() {
             <div className='column-headers'>
                 {pastReservations.length !== 0 ?
                     <Fragment>
-                        {/* <div className='type-header'>
-                            Type
-                    </div>
-                        <div className='loc-header'>
-                            Location
-                    </div>
-                        <div className='date-t-header'>
-                            Date / Time
-                    </div>
-                        <div className='price-header'>
-                            Price
-                    </div>
-                        <div className='available-header'>
-                            Available
-                    </div> */}
                     </Fragment> : <div className='no-reservations-text'>You have no reservations</div>
                 }
             </div>

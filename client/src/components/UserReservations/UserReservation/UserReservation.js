@@ -53,7 +53,7 @@ export default function UserReservation({ initialChecked, setSelectedItemState, 
 
     return (
         <div className={classes.root}>
-            <Paper>
+            <Paper id='u-res-wrapper'>
                 <div className='reser-container'>
                     <div className='r-checkbox-wrapper'>
                         <Checkbox
@@ -66,24 +66,27 @@ export default function UserReservation({ initialChecked, setSelectedItemState, 
                     <div className='reser-img-container'>
                         <img src={reservation.image} />
                     </div>
-                    <div className='type-value'>
-                        {reservation.selectedServiceOption.split(',')[0]}
+                    <div className='wrapper'>
+                        <div className='type-value'>
+                            {reservation.selectedServiceOption.split(',')[0]}
+                        </div>
+                        <div className='location-value'>
+                            {reservation.location}
+                        </div>
+                        <div className='date-time-value'>
+                            {new Date(reservation.date).toUTCString().split(' ').filter((s, index) => (index > 0 && index < 4)).join(' ')} / {reservation.selectedHour}
+                        </div>
+                        <div className='price-value'>
+                            {reservation.selectedServiceOption.split(',')[1]}
+                        </div>
+                        <div className='available-value'>
+                            {expired ? 'No' : 'Yes'}
+                        </div>
+                        <div className='cancel-container'>
+                            <button id='cancel-res-btn' onClick={cancelReservation} style={expired ? { color: 'gray' } : null}>{canceled ? 'Canceled' : 'Cancel'}</button>
+                        </div>
                     </div>
-                    <div className='location-value'>
-                        {reservation.location}
-                    </div>
-                    <div className='date-time-value'>
-                        {new Date(reservation.date).toUTCString().split(' ').filter((s, index) => (index > 0 && index < 4)).join(' ')} / {reservation.selectedHour}
-                    </div>
-                    <div className='price-value'>
-                        {reservation.selectedServiceOption.split(',')[1]}
-                    </div>
-                    <div className='available-value'>
-                        {expired ? 'No' : 'Yes'}
-                    </div>
-                    <div className='cancel-container'>
-                        <button id='cancel-res-btn' onClick={cancelReservation} style={expired ? { color: 'gray' } : null}>{canceled ? 'Canceled' : 'Cancel'}</button>
-                    </div>
+
 
                 </div>
             </Paper>
