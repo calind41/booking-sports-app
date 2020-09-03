@@ -26,33 +26,30 @@ const useStyles = makeStyles(theme => ({
 
 const formStyles = {
     position: 'absolute',
-    top: '10.9vh',
-    left: '18.4vw',
+    top: '77px',
+    left: '281px',
     width: '30vw'
 }
 const textareastyles = {
     position: 'relative',
-    top: '2vh',
+    top: '14px',
     width: '29vw',
     resize: 'none',
     paddingLeft: '12px',
     paddingTop: '10px',
     fontSize: '14px',
-    height: '10vh'
+    height: '72px'
 }
 const inputLabelStyles = {
     position: 'relative',
     top: '10px',
     fontSize: '14px'
-    // backgroundColor: '#ffffff'
 }
 const outlinedInputStyles = {
-    width: '30vw',
-    height: '6vh',
+    width: '30.2vw',
+    height: '43px',
     backgroundColor: 'white',
     fontSize: '14px'
-
-
 }
 
 
@@ -153,18 +150,18 @@ export default function FormComponent() {
         <Fragment>
             <div className='as-form-component-container'>
                 <div>
-                    <form style={formStyles} className={classes.root} noValidate autoComplete="off">
+                    <form id='form-add-sport-c' style={formStyles} className={classes.root} noValidate autoComplete="off">
                         <FormControl variant="outlined">
                             <InputLabel style={inputLabelStyles} htmlFor="component-outlined">Title</InputLabel>
-                            <OutlinedInput style={outlinedInputStyles} id="component-outlined" value={name} onChange={handleChange} label="Title" />
+                            <OutlinedInput className='outlined-input' style={outlinedInputStyles} id="component-outlined" value={name} onChange={handleChange} label="Title" />
                         </FormControl>
                         <FormControl variant="outlined">
                             <InputLabel style={inputLabelStyles} htmlFor="component-outlined">Sport type</InputLabel>
-                            <OutlinedInput style={outlinedInputStyles} id="component-outlined2" value={name2} onChange={handleChange2} label="Sport type" />
+                            <OutlinedInput className='outlined-input' style={outlinedInputStyles} id="component-outlined2" value={name2} onChange={handleChange2} label="Sport type" />
                         </FormControl>
                         <FormControl variant="outlined">
                             <InputLabel style={inputLabelStyles} htmlFor="component-outlined">Location</InputLabel>
-                            <OutlinedInput style={outlinedInputStyles} id="component-outlined3" value={name3} onChange={handleChange3} placeholder="Lname, Sector X, Addr" label="Location" />
+                            <OutlinedInput className='outlined-input' style={outlinedInputStyles} id="component-outlined3" value={name3} onChange={handleChange3} placeholder="Lname, Sector X, Addr" label="Location" />
                         </FormControl>
                         <TextareaAutosize
                             rowsMin={5}
@@ -173,6 +170,7 @@ export default function FormComponent() {
                             aria-label="maximum height"
                             style={textareastyles}
                             onChange={handleChange4}
+                            className='textarea-classname'
                         />
                     </form>
 

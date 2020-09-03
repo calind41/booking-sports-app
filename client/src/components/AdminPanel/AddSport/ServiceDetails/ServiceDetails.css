@@ -1,17 +1,18 @@
-
 .srv-det-container {
   position: relative;
-  top: 14px;
-  width: 41vw;
-  height: 34vh;
+  top: 10px;
+  width: 320px;
+  height: 243px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
 .format-example {
   height: 5vh;
-  width: 32vw;
-  margin-top: 10px;
+  height: 35px;
+  width: 300px;
+  margin-top: 5px;
+  margin-bottom: 15px;
 }
 .format-example span {
   font-weight: bold;
@@ -22,32 +23,23 @@
 .todoListMain {
   overflow: auto;
   width: 30vw;
-  height: 32vh;
+  width: 275px;
+  height: 320px;
 }
 
 
 .todoListMain .header input {
     padding: 10px;
     font-size: 16px;
-    width: 23vw;
+    width: 244px;
     background-color: #ffffff;
     box-sizing: border-box;
-    position: fixed;
+    position: relative;
     z-index: 10;
+    margin-top: 1px;
   }
   .todoListMain .header button {
-    padding: 10px;
-    font-size: 16px;
-    margin: 10px;
-    margin-right: 0px;
-    background-color: #0066FF;
-    color: #FFF;
-    border: 2px solid #0066FF;
-    position: fixed;
-    z-index: 10;
-    left: 42vw;
-    top: calc(62.8vh - 6px);
-    width: 6.3vw;
+    display: none;
   }
   .todoListMain .header button:hover {
     background-color: #003399;
@@ -67,11 +59,9 @@
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 5px;
-    width: 21vw;
+    width: 214px;
     word-wrap: break-word;
     max-height:40vh;
-    
-   
     transition: background-color .2s ease-out;
   }
    
@@ -82,4 +72,40 @@
   ul.theList {
     padding: 0;
   }
+
+  @media screen and (max-width: 1059px) {
+    .srv-det-container {
+      width: 200px;
+      top: 5px;
+      
+    }
+  }
  
+  @media screen and (max-width: 761px) {
+  
+    .srv-det-container {
+      width: 200px;
+      top: 5px;
+      
+    }
+    .todoListMain {
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 220px;
+    }
+    .todoListMain .header input {
+      font-size: 11px;
+      height: 40px;
+      width: 170px;
+      background-color: #ffffff;
+    }
+    .todoListMain .theList li {
+      width: 140px;
+      word-wrap: break-word;
+    }
+    .format-example {
+      width: 220px;
+      font-size: 14px;
+    }
+    
+  }

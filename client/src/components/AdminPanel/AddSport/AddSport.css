@@ -1,0 +1,14 @@
+.add-sport-wrapper {
+    position: relative;
+    height: 100vh;
+    height: 707px;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 1059px) {
+    .add-sport-wrapper {
+        position: relative;
+        height: 950px;
+        overflow: hidden;
+    }
+}

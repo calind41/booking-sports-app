@@ -1,7 +1,7 @@
 .service-containrr {
     position: absolute;
-    left: 18.8vw;
-    bottom: 12vh;
+    left: 289px;
+    top: 374.5px;
     display: flex;
     width: 30vw;
     height: 260px;
@@ -9,17 +9,16 @@
 
 .upload-imgs-container {
     position: absolute;
-    bottom: 47.7vh;
-    left: 53vw;
+    top: 100px;
+    left: 55vw;
     width: 32.5vw;
-    height: 38.5vh;
+    height: 281px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-end;
 }
  .as-save-btn {
-
     background-color: #0066FF;
     color: white;
     text-align: center;
@@ -27,15 +26,112 @@
     box-sizing: border-box;
     margin-right: 20px;
     position: relative;
-    top: 63.2vh;
-    left: 79.1vw;;
+    top: 460.5px;
+    left: 545px;
     cursor: pointer;
     font-size: 16px;
-    width: 6.3vw;
-    height: 5.7vh;
+    width: 60px;
+    height: 40.5px;
 }
 
 .as-save-btn:hover {
     background-color: #003399;
 }
 
+@media screen and (max-width: 1321px) {
+    .upload-imgs-container {
+        position: absolute;
+        left: 719px;
+        width: 32.5vw;
+    }
+}
+@media screen and (max-width: 1160px) {
+
+    .upload-imgs-container {
+        position: absolute;
+        left: 63.8vw;
+        width: 370px;
+    }
+}
+@media screen and (max-width: 1059px) {
+    .outlined-input {
+        width: 320px !important;
+    }
+    .textarea-classname {
+        width: 304px !important;
+    }
+    .upload-imgs-container {
+        position: absolute;
+        left: 262px;
+        top: 410px;
+  
+    }
+    .upload-imgs-container > div {
+        width: 320px !important;
+    }
+    .service-containrr {
+        position: absolute;
+        top: 700px;
+        display: flex;
+        width: 300px;
+        height: 260px;
+    }
+    .as-save-btn {
+        position: relative;
+        top: 780px;
+        left: 540px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 60px;
+        height: 40.5px;
+    }
+}
+
+@media screen and (max-width: 761px) {
+    #form-add-sport-c {
+        left: 237px !important;
+    }
+    .outlined-input {
+        width: 42.6vw !important;
+    }
+    .textarea-classname {
+        width: 40.4vw !important;
+    }
+    .upload-imgs-container {
+        position: absolute;
+        left: 170px;
+        top: 385px;
+  
+    }
+    .upload-imgs-container > div {
+        width: 220px !important;
+        height: 220px !important;
+    }
+    .service-containrr {
+        position: absolute;
+        left: 245px !important;
+        top: 640px;
+        display: flex;
+        width: 220px;
+        height: 260px;
+    }
+    .as-save-btn {
+        position: relative;
+        top: 719px;
+        left: 420px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 60px;
+        height: 39px;
+    }
+}
+@media screen and (max-width: 670px) {
+    .textarea-classname {
+        width: 40vw !important;
+    }
+}
+@media screen and (max-width: 577px) {
+    .textarea-classname {
+        width: 39.7vw !important;
+    }
+}

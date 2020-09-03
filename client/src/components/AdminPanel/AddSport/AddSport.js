@@ -16,7 +16,7 @@ export default function AddSport() {
 
     return (
         role === 'admin' ?
-            (<div>
+            (<div className='add-sport-wrapper'>
                 <SidebarMenu name='Admin Panel' />
                 <Navigation dashboard='admin' location="AddSport" />
                 <FormComponent />

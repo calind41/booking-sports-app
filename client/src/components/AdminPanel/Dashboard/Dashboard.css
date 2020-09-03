@@ -1,14 +1,20 @@
+.dashboard-container {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+}
 .content {
     box-sizing: border-box;
     position: absolute;
-    width: 80vw;
-    height: 88.4vh;
-    top: 11.6vh;
-    left: 20vw;
+    width: 67vw;
+    height: 620px;
+    top: 82px;
+    left: 305px;
 }
 .sports-customers {
     width: 73vw;
-    height: 40vh;
+    height: 282px;
     position: relative;
     right: 4vw;
     display: flex;
@@ -17,17 +23,17 @@
 .sport-actions {
     width: 22vw;
     margin-left: 0;
-    height: 26.1vh;
+    height: 184.5px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     background: #e9ebee;
     position: relative;
-    top: 0.61vh;
+    top: 3px;
 }
 .sport-actions div {
     background-color: #ffffff;
-    height: 8vh;
+    height: 56.5px;
     width: 15vw;
     margin: auto;
     display: flex;
@@ -61,15 +67,14 @@
     justify-content: space-around;
     width: 55vw;
     position: relative;
-    /* right: 1vw; */
     background-color: #e9ebee;
 }
 
 .views div {
     position: relative;
-    top: 2.9vh;
+    top: 20px;
     background-color: #ffffff;
-    height: 21.4vh;
+    height: 151px;
     width: 19vw;
     transition: .2s ease-in-out;
 }
@@ -79,11 +84,11 @@
 }
 
 .views div span {
-    display: block !important;
+    display: block;
     margin: auto;
     width: 100px;
     position: relative;
-    top: 9vh;
+    top: 63.5px;
     font-weight: bold;
 }
 .overview {
@@ -92,7 +97,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 45vh;
+    height: 317px;
     background-color: #e9ebee;
     cursor: pointer;
 
@@ -102,13 +107,13 @@
     font-weight: bold;
     font-size: 1.2rem;
     position: relative;
-    top: 2vh;
+    top: 14px;
     left: 2.03rem;
     width: 5rem;
 }
 .cards-container {
     position: relative;
-    bottom: 12.5vh;
+    bottom: 88px;
     left: 1vw;
     width: 68.9vw;
     font-size: 14px;
@@ -120,7 +125,7 @@
 .cards-container div {
     box-sizing: border-box;
     background-color: white;
-    height: 21.4vh;
+    height: 150.5px;
     width: 15vw;
     font-weight: bold;
     display: flex;
@@ -128,7 +133,127 @@
     justify-content: space-around;
 }
 .dashboard-container > div:nth-child(1) {
-width:16vw;
-position: relative;
-bottom: 0vh;
+    width:16vw;
+    position: relative;
+    bottom: 0;
+}
+
+@media screen and (max-width: 1266px) {
+    .sports-customers {
+        right: 46px;
+    }
+    .sport-actions {
+        width: 250px;
+    }
+    .sport-actions div {
+        width: 188px;
+    }
+    .sport-actions div .txt {
+        position: relative;
+        left: -25px;
+        width: 100px;
+    }
+    .views div {
+        width: 237.3px;
+    }
+  
+    .cards-container div {
+        width: 188px;
+    }
+    .overview {
+        position: relative;
+        right: 34px;
+    }
+}
+
+@media screen and (max-width: 1143px) {
+
+    .sports-customers {
+        height: 300px;
+        right: 46px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+    .views {
+        width: 450px;
+    }
+    .views div {
+        width: 188px;
+        margin-left: 25px;
+    }
+    .views div span {
+        width: 100px;
+        left: 5px;
+        top: 55px;
+    }
+
+    .overview-heading {
+        top: 34px;
+        left: 1.43rem;
+    }
+    .cards-container {
+        top: 14px;
+        left: -5px;
+        width: 450px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        height: 250px;
+    }
+    .cards-container div {
+        height: 70px;
+        width: 188px;
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width: 761px) {
+    .sport-actions {
+        position: relative;
+        right: 46px;
+        top: 14px;
+        height: 250px;
+    }
+    .sport-actions .remove-sport {
+        position: relative;
+        top: 5px;
+    }
+    .views {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 320px;
+        z-index: 2;
+        position: relative;
+        top: 25px;
+        right: 46px;
+    }
+    .views div {
+        width: 188px;
+        margin-left: 32px;
+        margin-bottom: 10px;
+        height: 80px;
+        top: 10px;
+    }
+    .views div span {
+        left: 3px;
+        top: 30px;
+    }
+    .overview-heading {
+        top: 50px;
+        left: -26px ;
+    }
+    .cards-container {
+        top: 0px;
+        left: -40px;
+        width: 170px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        height: 220px;
+    }
+    .cards-container div {
+        height: 40px;
+    }
 }

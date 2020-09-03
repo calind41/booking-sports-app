@@ -74,7 +74,8 @@ export default function UploadImages({ passImageData }) {
 const classNames = {
     dropzone: {
         width: "32.4vw",
-        height: "89vh",
+        // height: "89vh",
+        height: '300px',
         overflowX: "auto",
         overflowY: "auto",
         backgroundColor: '#ffffff'

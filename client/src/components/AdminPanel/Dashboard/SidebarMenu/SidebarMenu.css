@@ -1,88 +1,81 @@
 .sbm-container {
-    box-sizing: border-box !important;
-    /* border: 1px solid #c0c0c0 !important; */
-    width: 16vw !important;
-    height: 99.6vh !important;
-    margin-bottom: 0 !important;
-    box-sizing: border-box !important;
-    position: relative !important;
-    /* border: 2px solid red !important; */
-    background-color: #ffffff !important;
-    position: absolute !important;
-    border-right: 1px solid gray !important;
+    box-sizing: border-box;
+    width: 243px;
+    height: 99.6vh;
+    margin-bottom: 0;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #ffffff;
+    position: fixed;
+    border-right: 1px solid gray;
+    z-index: 10;
 
 }
 .admin-panel {
-    color: #056CF2 !important;
-    margin: auto !important;
-    width: 12vw !important;
-    height: 2.4vh !important;
-    font-size: 1.6rem !important;
-    font-weight: bold !important;
+    color: #056CF2;
+    margin: auto;
+    width: 180px;
+    height: 2.4vh;
+    font-size: 1.6rem;
+    font-weight: bold;
 }
 .admin-panel p {
-    position: relative !important;
-    /* bottom: 10px !important; */
-    bottom: 2.24vh !important;
-    /* right: 3vw !important; */
+    position: relative;
+    bottom: 16px;
 }
 .profile-picture {
-    display: flex !important;
-    justify-content: space-around !important;
-    align-items: center !important;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 241px;
 }
 .img-profile-circular {
-    width: 2.2vw !important;
-    height: 4.4vh !important;
-    background-color: gray !important;
-    display: inline-block !important;
-    border-radius: 100% !important;
-    position: relative !important;
-    /* right: 30px !important; */
+    width: 31px;
+    height: 31px;
+    background-color: gray;
+    display: inline-block;
+    border-radius: 100%;
+    position: relative;
 }
 .profile-picture .name {
-    position: relative !important;
-    font-size: 16px !important;
-    right: 1.3rem !important;
-    width: 9vw !important;
+    position: relative;
+    font-size: 16px;
+    right: 1.3rem;
+    width: 138px;
 }
 
 .sbm-container ul {
-    list-style: none !important;
-
+    list-style: none;
 }
 .sbm-container ul li {
-    display: flex !important;
-    justify-content: space-around !important;
-    align-items: center !important;
-    cursor: pointer !important;
-    margin-bottom: 19px !important;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    margin-bottom: 19px;
 
 }
 .sbm-container ul li .material-icons,
 .sbm-container ul li i {
-    font-size: 23px !important;
-    position: relative !important;
-    right: 2.5rem !important;
-    color: #056CF2 !important;
+    font-size: 23px;
+    position: relative;
+    right: 2.5rem;
+    color: #056CF2;
 
 }
 .sbm-container ul li:hover .material-icons,
 .sbm-container ul li:hover i {
-    color: rgb(11, 65, 136) !important;
+    color: rgb(11, 65, 136);
 }
 .sbm-container ul li .li-txt {
     color: #c0c0c0;
-    position: relative !important;
-    right: 5rem !important;
-    font-size: 14px !important;
-    color: #056CF2 !important;
-    /* font-weight: bold; */
-
+    position: relative;
+    right: 5rem;
+    font-size: 14px;
+    color: #056CF2;
 }
 .sbm-container ul li:hover .li-txt {
-    color: rgb(11, 65, 136) !important;
-
+    color: rgb(11, 65, 136);
 }
 
 .sbm-container ul li:first-child span{
@@ -92,35 +85,51 @@
     color: rgb(11, 65, 136);
 }
 .li-my-acct {
-    right: 4.68rem !important;
-    font-size: 14px !important;
-    color: #056CF2 !important;
+    right: 4.68rem;
+    font-size: 14px;
+    color: #056CF2;
 
 }
 .li-so {
-    right: 5.8rem !important;
-    /* color: #c0c0c0 !important; */
-    color: #056CF2 !important;
-
-    font-size: 14px !important;
+    right: 5.8rem;
+    color: #056CF2;
+    font-size: 14px;
 }
-
 
 .faq-li i {
     margin-right: 50px;
-    color: #056CF2 !important;
-    /* color: '#c0c0c0'     */
-    /* color: red !important; */
+    color: #056CF2;
 
 }
 .faq-li span {
-    position: relative !important;
-    left: -8.2vw !important;
-    display: inline-block !important;
-    display: inline-block !important;
-    /* color: red !important; */
-    /* color: #c0c0c0; */
-    color: #056CF2 !important;
+    position: relative;
+    left: -8.2vw;
+    display: inline-block;
+    color: #056CF2;
+}
 
-
+@media screen and (max-width: 761px) {
+    .sbm-container {
+        width: 200px;
+    }
+    .admin-panel {
+        height: 17px;
+    }
+    .admin-panel p {
+        position: relative;
+        left: 3px;
+    }
+    .img-profile-circular {
+        right: 4px;
+    }
+    .profile-picture .name {
+        position: relative;
+        right: 1.8rem;
+    }
+    .sbm-container ul li .li-txt {
+        position: relative;
+        right: 3.5rem;
+        width: 85px;
+    }
+    
 }
