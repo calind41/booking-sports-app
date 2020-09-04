@@ -1,8 +1,11 @@
 .booking-container {
     background-color:#e9ebee;
     width: 98.5vw;
+    /* min-height: 100vh; */
     display: flex;
     justify-content: space-between;
+    position: relative;
+    overflow: hidden !important;
 }
 .left-side {
     width: 580px;
@@ -37,7 +40,7 @@
     flex-direction: column;
     position: relative;
     top: 50px;
-    overflow: hidden;
+    /* overflow: hidden; */
     margin-right: 100px;
 }
 .right-side .service-list-wrapper {
@@ -155,6 +158,31 @@
         left: 230px;
     }
 }
+@media screen and (max-width: 515px) {
+    #book-modal-id #container {
+        width: 250px;
+        margin: auto;
+    }
+    #transition-modal-title {
+        font-size: 18px;
+        width: 250px;
+    }
+    #book-modal-img-id {
+        width: 150px !important;
+        height: 150px !important;
+    }
+    #summary-info-list-id {
+        margin-top: 0;
+    }
+    #modal-btns-id {
+            display: flex;
+            position: static;
+            width: 220px;
+            margin: auto;
+            margin-top: 50px;
+    }
+}
+
 
 @media screen and (max-width: 533px) {
     .booking-container {
@@ -199,5 +227,91 @@
         height: 6vh;
         top: 180px;
         left: 230px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .booking-container {
+        width: 300px;
+        height: 1800px;
+
+    }
+    .left-side {
+        width: 300px;
+        position: relative;
+        top: -20px;
+    }
+    .left-side .imgslider-container {
+        width: 300px;
+        left: 0;
+    }
+    .left-side .imgslider-container > div {
+        width: 300px !important;
+        margin: auto;
+    }
+    .custom-calendar-wrapper {
+        width: 300px;
+    }
+    .custom-calendar-wrapper .custom-calendar-container {
+        width: 242px;
+        margin: auto;
+    }
+  
+    .location-info-wrapper {
+        width: 300px;
+    }
+    .location-info-wrapper .location-info-container {
+        margin: auto;
+    }
+    .right-side {
+        margin: auto;
+        margin-top: 200px;
+        width: 300px;
+        position: relative;
+        top: -180px;
+    }
+    .right-side .service-list-wrapper .service-list-container {
+        margin-left: 0;
+        width: 300px;
+    }
+    .right-side .service-list-wrapper .service-list-container > div:first-child {
+        margin: auto;
+    }
+    .right-side .service-list-wrapper .service-list-container .service-list {
+        width: 300px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        height: 300px;
+    }
+    .right-side .service-list-wrapper .service-list-container .service-list div .servicecard-container {
+        margin: auto;
+        margin-bottom: 10px;
+
+    }
+    .right-side .time-options  {
+        margin-left: 0;
+        width: 300px;
+        height: 500px !important;
+        top: 100px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+    .right-side .time-options > div > .time-option {
+        margin-bottom: 10px;
+    }
+    .right-side .time-options > div:first-child {
+        font-size: 25px;
+        margin-left: 20px;
+    }
+    .bookModal-container {
+        position: absolute;
+        left: 0;
+        right: 9px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 104px;
+        top: 430px;
+        margin-bottom: 20px;
     }
 }

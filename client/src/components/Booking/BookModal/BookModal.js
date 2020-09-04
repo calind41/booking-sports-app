@@ -136,6 +136,7 @@ export default function BookModal({ selectedHour, selectedServiceOption, selecte
                 Book
             </button>
             <Modal
+                id='book-modal-id'
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
                 className={classes.modal}
@@ -152,10 +153,10 @@ export default function BookModal({ selectedHour, selectedServiceOption, selecte
                         <h2 id="transition-modal-title">Please confirm the request</h2>
                         <div className='summary-info'>
                             <div>
-                                <img style={{ 'width': '250px', 'height': '250px' }} src={img} />
+                                <img id='book-modal-img-id' style={{ 'width': '250px', 'height': '250px' }} src={img} />
                             </div>
                             <div>
-                                <ul>
+                                <ul id='summary-info-list-id'>
                                     <li>{title}</li>
                                     <li>{sport}</li>
                                     <li>{location}</li>
@@ -166,7 +167,7 @@ export default function BookModal({ selectedHour, selectedServiceOption, selecte
                                 </ul>
                             </div>
                         </div>
-                        <div className='btns'>
+                        <div id='modal-btns-id' className='btns'>
                             <button onClick={handleClose} className='cancel-btn'>Cancel</button>
                             <button onClick={handleConfirmBooking} className='confirm-btn'>Confirm</button>
                         </div>

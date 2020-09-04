@@ -278,3 +278,63 @@
         width: 12.6vw;
     }   
 }
+
+@media screen and (max-width: 500px) {
+    .navbar-container .logo {
+        font-size: 20px;
+        margin-top: 8px;
+        position: relative;
+        left: 10px !important;
+    }
+}
+@media screen and (max-width: 415px) {
+    .navbar-part-user-logged-in {
+        width: 200px;
+    }
+    .contact-btn-container-sl {
+        display: none;
+    }
+}
+@media screen and (max-width: 400px) {
+    .navbar-container .fe-faq-sl {
+        display: none;
+    }
+    .navbar-container .signin-container {
+        width: 50px;
+    }
+    .navbar-container .register-container {
+        width: 55px;
+    }
+    .navbar-container .contact-container {
+        width: 54px;
+    }
+}
+@media screen and (max-width: 340px) {
+    .navbar-part-user-logged-in {
+        width: 190px;
+        right: -4vw;
+    }
+    .username-and-logout-container {
+        margin-left: 0px;
+        width: 115px !important;
+    }
+    .username-and-logout-container div {
+        font-size: 12px;
+    }
+    .booked-btn-container button {
+        width: 48px !important;
+        font-size: 11px !important;
+    }
+    .sign-out-dropdown {
+        position: relative;
+        left: -5.5vw !important;
+      
+    }
+}
+@media screen and (max-width: 320px) {
+    .navbar-container .logged-out-wrapper {
+        width: 172px;
+        right: -4vw;
+    }
+
+}

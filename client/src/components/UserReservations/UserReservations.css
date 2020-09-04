@@ -108,6 +108,8 @@
     .del-button-wrapper button {
         position: relative;
         right: 0.8vw;
+        height: 30px;
+
     }
 }
 @media screen and (max-width: 960px) {
@@ -123,5 +125,24 @@
 @media screen and (max-width: 607px) {
     .no-reservations-text {
         left: -90px;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .past-res-and-del {
+        width: 283px;
+    }
+    .del-button-wrapper button {
+        position: relative;
+        right: 0px;
+        height: 30px;
+    }
+    .past-r {
+        position: relative;
+        left: 2.59vw;
+        left: 0;
+        top: 2px;
+        font-size: 18px;
+        font-weight: bold;
     }
 }

@@ -96,7 +96,7 @@ export default function Navbar({ inBookingLout, inBooking, userResClass, filterR
                                         </Link>
                                     </div>
 
-                                    <div className='contact-btn-container'>
+                                    <div className='contact-btn-container contact-btn-container-sl'>
                                         <Link to='/contact'>
                                             <button>Contact</button>
                                         </Link>

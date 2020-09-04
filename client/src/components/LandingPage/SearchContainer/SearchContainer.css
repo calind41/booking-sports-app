@@ -62,7 +62,6 @@
 }
 @media screen and (max-width: 740px) {
     .search-container {
-        width: 645px;
         width: 89vw;
         left: 1%;
     }
@@ -71,5 +70,54 @@
     }
     .search-container .select-container {
         padding: 0 5px 0 5px;
+    }
+}
+
+@media screen and (max-width: 491px) {
+    .search-container .city {
+        margin-top: 10px;
+        font-size: 1.5rem;
+    }
+    .search-container .select-container {
+        padding: 0 5px 0 5px;
+    }
+    .btn-container button {
+        margin-top: -2px;
+        width: 80px;
+        height: 35px;
+    }
+    .btn-container button span {
+        font-size: 14px;
+        margin-top: 10px;
+    }
+    .btn-container button i {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .search-container .city {
+        margin-top: 18px;
+        font-size: 15px;
+        padding-right: 0;
+
+    }
+    .search-container .city span {
+        position: relative;
+        right: 5px;
+    }
+
+    .btn-container button {
+        width: 60px;
+        height: 35px;
+        margin-top: -2px;
+    }
+    .btn-container button span {
+        margin-top: 9px;
+        margin-left: 5px;
+        font-size: 13px;
+    }
+    .btn-container button i {
+        display: none;
     }
 }

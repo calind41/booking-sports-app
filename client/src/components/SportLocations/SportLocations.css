@@ -6,6 +6,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+    overflow: hidden;
 }
 .sidebar-c {
    position: fixed;
@@ -69,5 +70,15 @@
         display: flex;
         flex-wrap: wrap;
         align-items: flex-start;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .sidebar-c {
+        display: none;
+    }
+    .sport-locations {
+        margin: auto;
+        width: 264px;
     }
 }

@@ -39,3 +39,9 @@
         font-size: 27.2px;
     }
 }
+@media screen and (max-width: 400px) {
+    .heading {
+        width: 89.5vw;
+        font-size: 20px;
+    }
+}

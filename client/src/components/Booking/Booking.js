@@ -28,6 +28,10 @@ export default class Booking extends Component {
         this.handleClickDateOption = this.handleClickDateOption.bind(this);
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+
     handleClickTimeOption(index) {
         this.setState({ selectedTimeOption: index });
     }

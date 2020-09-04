@@ -157,3 +157,91 @@
     color: #fff;
 
 }
+
+@media screen and (max-width: 401px) {
+    .lp-navbar-part-user-logged-in {
+        width: 290px;
+        position: relative;
+        left: 60px;
+       
+    }
+    .lp-navbar-part-user-logged-in .lp-booked {
+        width: 60px !important;
+    }
+    .lp-navbar-part-user-logged-in .lp-contact {
+        width: 60px !important;
+        margin-right: 5px;
+    }
+}
+
+@media screen and (max-width: 400px) { 
+    .lp-btns {
+        right: 95px;
+    }
+}
+@media screen and (max-width: 375px) { 
+    .lp-btns {
+        right: 80px;
+    }
+    .lp-navbar-part-user-logged-in {
+        width: 290px;
+        position: relative;
+        left: 67px;
+       
+    }
+}
+@media screen and (max-width: 350px) { 
+    .lp-btns {
+        right: 70px;
+    }
+    .lp-navbar-part-user-logged-in {
+        width: 290px;
+        position: relative;
+        left: 58px;
+       
+    }
+}
+@media screen and (max-width: 341px) {
+    .lp-sign-out-dropdown {
+        position: absolute;
+        top: 40px;
+        left: 45vw;
+    }
+}
+@media screen and (max-width: 325px) { 
+    .lp-btns {
+        right: 64px;
+    }
+    .lp-navbar-part-user-logged-in {
+        width: 290px;
+        position: relative;
+        left: 60px;
+    }
+    .lp-sign-out-dropdown {
+        position: absolute;
+        top: 40px;
+        left: 47vw;
+    }
+}
+@media screen and (max-width: 315px) {
+    .lp-sign-out-dropdown {
+        position: absolute;
+        top: 40px;
+        left: 49vw;
+    }
+}
+@media screen and (max-width: 300px) { 
+    .lp-btns {
+        right: 50px;
+    }
+    .lp-navbar-part-user-logged-in {
+        width: 290px;
+        position: relative;
+        left: 58px;
+    }
+    .lp-sign-out-dropdown {
+        position: absolute;
+        top: 40px;
+        left: 51vw;
+    }
+}

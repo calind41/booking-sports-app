@@ -6,7 +6,9 @@
     justify-content: space-around;
     position: fixed;
     z-index: 10;
+    /* overflow: hidden; */
 }
+
 
 .booking-username-and-logout-container {
     display: flex;
@@ -288,9 +290,148 @@
 
 @media screen and (max-width: 541px) {
     .booking-nav-container .logo {
-        left: 8.5vw !important;
+        left: 11vw !important;
     }
     .booking-nav-container .booking-logged-out-wrapper {
         right: 35px !important;
     }
+    .booking-navbar-part-user-logged-in {
+        width: 250px;
+        left: -40px !important;
+    }
+    .booking-navbar-part-user-logged-in .booking-booked-btn-container button{
+        width: 52px !important;
+    }
+    .booking-navbar-part-user-logged-in .booking-contact-btn-container button {
+        width: 53px !important;
+    }
+    .booking-username-and-logout-container {
+        width: 125px !important;
+    }
+    .booking-username-and-logout-container div {
+        font-size: 13px;
+    }
 }
+
+@media screen and (max-width: 521px) {
+    .booking-nav-container .logo {
+        font-size: 23px;
+        margin-top: 8px;
+        position: relative;
+        left: 64px !important;
+    }
+    .booking-navbar-part-user-logged-in {
+        width: 240px;
+    }
+    .booking-navbar-part-user-logged-in .booking-booked-btn-container button{
+        width: 45px !important;
+        padding-top: 4px;
+        font-size: 10px !important;
+    }
+    .booking-navbar-part-user-logged-in .booking-contact-btn-container button {
+        width: 46px !important;
+        padding-top: 4px;
+        font-size: 10px !important;
+    }
+    .booking-username-and-logout-container {
+        width: 110px !important;
+    }
+    .booking-username-and-logout-container div {
+        font-size: 11px;
+    }
+}
+@media screen and (max-width: 541px) {
+    .booking-sign-out-dropdown {
+        position: absolute;
+        left: -1.5vw;
+        top: 20px;
+    }
+}
+@media screen and (max-width: 521px) {
+    .booking-sign-out-dropdown {
+        position: absolute;
+        top: 20px;
+        left: -4.3vw;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .booking-nav-container .logo {
+        font-size: 20px;
+        margin-top: 10px;
+        left: 40px !important;
+    }
+}
+@media screen and (max-width: 458px) {
+    .booking-nav-container .logo {
+        font-size: 20px;
+        margin-top: 10px;
+        left: 34px !important;
+    }
+    .booking-navbar-part-user-logged-in {
+        width: 218px;
+    }
+    .booking-navbar-part-user-logged-in .booking-booked-btn-container button{
+        width: 44px !important;        
+    }
+    .booking-navbar-part-user-logged-in .booking-contact-btn-container button {
+        width: 45px !important;
+        font-size: 10px !important;
+        margin-left: 5px;
+    }
+    .booking-username-and-logout-container {
+        left: 5px;
+    }
+}
+@media screen and (max-width: 413px) {
+    .booking-nav-container .logo {
+        font-size: 20px;
+        margin-top: 10px;
+        left: 15px !important;
+    }
+}
+@media screen and (max-width: 400px) {
+    .booking-navbar-part-user-logged-in .booking-contact-btn-container button {
+        display: none;
+    }
+    .booking-navbar-part-user-logged-in {
+        width: 160px;
+    }
+}
+@media screen and (max-width: 353px) {
+    .booking-navbar-part-user-logged-in {
+        width: 160px;
+        left: -25px !important;
+    }
+}
+@media screen and (max-width: 321px) {
+    .booking-navbar-part-user-logged-in {
+        width: 160px;
+        left: -10px !important;
+    }
+}
+
+/* asdasd */
+
+@media screen and (max-width: 400px) {
+    .booking-logged-out-wrapper .fe-faq-sl {
+        display: none;
+    }
+    .booking-logged-out-wrapper .signin-container {
+        width: 50px;
+    }
+    .booking-logged-out-wrapper .register-container {
+        width: 52px;
+    }
+    .booking-logged-out-wrapper .contact-container {
+        width: 52px;
+    }
+}
+@media screen and (max-width: 340px) {
+    
+    .booking-logged-out-wrapper {
+        position: relative;
+        left: 2px;
+    }
+}
+
