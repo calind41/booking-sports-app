@@ -17,3 +17,8 @@
         
     }
 }
+@media screen and (max-width: 410px) {
+    .gdpr-container {
+        width: 280px;
+    }
+}

@@ -9,23 +9,28 @@
 }
 .reser-container {
     height: 100%;
+    height: 177px;
     width: 100%;
     position: relative;
 }
+
 .cancel-container button:hover {
     color: #b40000;
     cursor: pointer;
 }
 .reser-container .wrapper {
     width: 750px;
-    height: 150px;
+    height: 100%;
     display: flex;
-    margin-top: -70px;
     justify-content: space-around;
+    align-items: center;
+    position: relative;
+    top: 0 !important;
 }
 .reser-container .wrapper > div {
-    margin-top: -20px;
     height: 10px;
+    position: relative;
+    top: 20px !important;
 }
 .reser-container .wrapper > div:nth-child(1),
 .reser-container .wrapper > div:nth-child(3) {
@@ -33,28 +38,83 @@
     width: 140px;
 }
 
+.reser-container .r-checkbox-wrapper {
+    height: 100%;
+    position: relative;
+    top: 0 !important;
+    display: flex;
+    align-items: center;
+}
+.reser-img-container {
+    height: 100%;
+    position: relative;
+    margin-top: 0px !important;
+    top: 0px !important;
+    display: flex;
+    align-items: center;
+    
+}
+
 @media screen and (max-width: 1507px) {
+   
+    .reser-container .r-checkbox-wrapper {
+        height: 100%;
+        position: relative;
+        top: 0 !important;
+        display: flex;
+        align-items: center;
+    }
     .reser-container .wrapper {
         width: 480px;
-        height: 150px;
-        display: block;
-        margin-top: -100px;
-        justify-content: space-around;
+        height: 75%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: relative;
+        top: 0px;
     }
     .reser-container .wrapper > div {
-        margin-top: -30px;
+        margin-top: 0px;
         height: 10px;
+        width: 480px;
+        margin-left: 0 !important;
+        margin: 3px;
+        top: 0;
+        display: flex;
+        align-items: center;
+        padding-left: 0px;
+    }
+    .reser-container .wrapper > div:last-child {
+        padding-left: 0;
+    }
+    .reser-container .wrapper > div:nth-child(1),
+    .reser-container .wrapper > div:nth-child(3) {
+        height: 20px;
+        width: 480px;
+        margin-left: 0 !important;
+        margin: 3px;
     }
     .cancel-container button {
         right: 8px;
     }
+    .reser-img-container {
+        height: 100%;
+        position: relative;
+        margin-top: 0px !important;
+        top: 0px !important;
+        display: flex;
+        align-items: center;
+        
+    }
     .reser-img-container img {
         width: 170px;
+        height: 131px;
     }
 }
 @media screen and (max-width: 1051px) {
     #u-res-wrapper {
         width: 77.2vw !important;
+        height: 177px;
     }
     .reser-container .wrapper {
         width: 46.3vw;

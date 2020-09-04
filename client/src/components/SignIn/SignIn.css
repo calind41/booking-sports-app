@@ -97,6 +97,7 @@
     
     .sign-in {
         box-sizing: border-box;
+        height: 360px;
         width: 365px;
         margin: auto;
     }
@@ -127,5 +128,38 @@
     }
     .su-alternative {
         padding-left: 40px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .sign-in {
+        box-sizing: border-box;
+        height: 360px;
+        width: 280px;
+        margin: auto;
+    }
+    .si-logo  div {
+        left: -65px !important;
+        width: 200px;
+    }
+    .si-heading {
+        right: 68px;
+    }
+    .si-fields-wrapper {
+        height: 264px;
+        top: 23px;
+    }
+    .si-fields-wrapper div label {
+        width: 200px;
+    }
+    .si-fields-wrapper div input {
+        width: 200px;
+    }
+    #sign-in-button {
+        width: 200px;
+        margin-left: 34px;
+    }
+    .su-alternative {
+        padding-left: 30px;
     }
 }

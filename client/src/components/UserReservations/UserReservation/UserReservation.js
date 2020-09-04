@@ -8,7 +8,7 @@ import './UserReservation.css'
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
-        flexWrap: 'wrap',
+        // flexWrap: 'wrap',
         '& > *': {
             position: 'relative',
             left: '12vw',
@@ -80,7 +80,7 @@ export default function UserReservation({ initialChecked, setSelectedItemState, 
                             {reservation.selectedServiceOption.split(',')[1]}
                         </div>
                         <div className='available-value'>
-                            {expired ? 'No' : 'Yes'}
+                            {expired ? 'Not Available' : 'Available'}
                         </div>
                         <div className='cancel-container'>
                             <button id='cancel-res-btn' onClick={cancelReservation} style={expired ? { color: 'gray' } : null}>{canceled ? 'Canceled' : 'Cancel'}</button>

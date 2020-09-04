@@ -67,6 +67,7 @@
     height: 35px;
     margin: auto;
     position: relative;
+    margin-top: 10px;
     margin-bottom: 5px;
     transition: .2s ease-in;
 }
@@ -102,6 +103,7 @@
 
     .signup {
         width: 365px;
+        height: 600px;
         margin: auto;
     }
     .su-logo  div {
@@ -112,7 +114,7 @@
         right: 101.5px;
     }
     .su-fields-wrapper {
-        height:498.5px;
+        height:516px;
         top: 23px;
     }
     .su-fields-wrapper div label {
@@ -123,13 +125,49 @@
     }
     .su-btn {
         width: 264px;
+        margin-top: 10px;
+
     }
     .alternative {
-        padding-left: 39.5px;
+        padding-left: 25.5px;
     }
     .gdpr-consent {
         width: 264px;
     }
-  
-    
+}
+
+@media screen and (max-width: 425px) {
+    .signup {
+        width: 280px;
+        margin: auto;
+        height: 600px;
+    }
+    .su-logo  div {
+        left: -65px !important;
+        width: 200px;
+    }
+    .su-heading {
+        right: 64px;
+    }
+    .su-fields-wrapper {
+        height:516px;
+        top: 23px;
+    }
+    .su-fields-wrapper div label {
+        width: 200px;
+    }
+    .su-fields-wrapper div input {
+        width: 200px;
+    }
+    .su-btn {
+        width: 200px;
+        margin-left: 12px;
+        margin-top: 10px;
+    }
+    .alternative {
+        padding-left: 10.5px;
+    }
+    .gdpr-consent {
+        width: 200px;
+    }
 }

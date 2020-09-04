@@ -85,7 +85,6 @@
 
 
 @media screen and (max-width: 1344px) {
-
     .cntct {
         width: 365px;
         margin: auto;
@@ -113,4 +112,32 @@
         width: 269px;
     }
 
+}
+@media screen and (max-width: 425px) {
+    .cntct {
+        width: 280px;
+        margin: auto;
+    }
+    .cntct-logo div {
+        left: -65px !important;
+        width: 200px;
+    }
+    .cntct-heading {
+        right: 28px;
+    }
+    
+    .cntct-fields-wrapper {
+        height: 499px;
+        top: 22.5px;        
+    }
+    .cntct-fields-wrapper div input {
+        width: 200px;
+    }
+    #txtarea {
+        width: 200px;
+        height: 143px;
+    }
+    #cntct-btn {
+        width: 200px;
+    }
 }

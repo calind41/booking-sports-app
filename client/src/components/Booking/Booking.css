@@ -1,7 +1,6 @@
 .booking-container {
     background-color:#e9ebee;
     width: 98.5vw;
-    /* min-height: 100vh; */
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -70,7 +69,19 @@
     top: 208px;
     left: 230px;
 }
+#modal-btns-id {
+    display: flex;
+    width: 230px;
+    justify-content: space-around;
+    margin: auto;
+    margin-top: 30px;
+}
 
+@media screen and (min-width: 1239px) {
+    .booking-container {
+        height: 100vh;
+    }
+}
 @media screen and (max-width: 1239px) {
     .booking-container {
         background-color:#e9ebee;
@@ -177,7 +188,8 @@
     #modal-btns-id {
             display: flex;
             position: static;
-            width: 220px;
+            width: 230px;
+            justify-content: space-around;
             margin: auto;
             margin-top: 50px;
     }
