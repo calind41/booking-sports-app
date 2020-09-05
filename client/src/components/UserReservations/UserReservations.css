@@ -146,4 +146,16 @@
         font-size: 18px;
         font-weight: bold;
     }
+    .no-reservations-text {
+        left: -70px;
+        width: 287px;
+        font-size: 23px;
+    }
+}
+@media screen and (max-width: 330px) {
+    .no-reservations-text {
+        left: -68px;
+        width: 250px;
+        font-size: 20px;
+    }
 }

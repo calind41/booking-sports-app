@@ -132,9 +132,15 @@
     }
     
 }
+@media screen and (max-width: 555px) {
+    #u-res-wrapper {
+        width: 79vw !important;
+        height: 177px;
+    }
+}
 @media screen and (max-width: 410px) {
     #u-res-wrapper {
-        width: 290px !important;
+        width: 330px !important;
         left: 0 !important;
         margin: auto !important;
         margin-bottom: 22px !important;
@@ -142,5 +148,13 @@
 
     .reser-img-container img {
         width: 84px;
+    }
+}
+@media screen and (max-width:355px) {
+    #u-res-wrapper {
+        width: 295px !important;
+        left: 0 !important;
+        margin: auto !important;
+        margin-bottom: 22px !important;
     }
 }
