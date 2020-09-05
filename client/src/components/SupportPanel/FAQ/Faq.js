@@ -11,6 +11,7 @@ import FrequentQuestion from './FrequentQuestion/FrequentQuestion'
 import './Faq.css'
 
 import Pagination from '@material-ui/lab/Pagination';
+let backend_addr = 'http://138.68.71.139:5000/'
 
 
 export default function Faq() {
@@ -35,7 +36,7 @@ export default function Faq() {
     useEffect(() => {
 
         const getQuestions = async () => {
-            const res = await axios.get('http://localhost:5000/api/v1/messages/inFaq');
+            const res = await axios.get(`${backend_addr}api/v1/messages/inFaq`);
             setQuestions(res.data);
             let selState = [];
             res.data.map(() => selState.push(false))
@@ -72,7 +73,7 @@ export default function Faq() {
         let ids = [];
         delIdx.map((item) => ids.push(questions[item]._id));
         ids.map(async (item) => {
-            await axios.put(`http://localhost:5000/api/v1/messages/${item}`, { inFaq: false }, {
+            await axios.put(`${backend_addr}api/v1/messages/${item}`, { inFaq: false }, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -83,7 +84,7 @@ export default function Faq() {
     }
 
     const applyFilterSearchMessagesByTitleInFaq = async (title) => {
-        const res = await axios.get('http://localhost:5000/api/v1/messages/inFaq');
+        const res = await axios.get(`${backend_addr}api/v1/messages/inFaq`);
         let filtered = res.data.filter((sl) => {
             if (sl.subject.toLowerCase().includes(title))
                 return true;
