@@ -12,6 +12,7 @@ import Contact from '../SportLocations/Navbar/Contact/Contact';
 
 import FrequentQuestions from '../SportLocations/Navbar/FrequentQuestions/FrequentQuestions'
 import './FaqComponent.css'
+let backend_addr = 'http://138.68.71.139:5000/'
 
 
 
@@ -195,7 +196,7 @@ class Accordion extends React.Component {
 
     componentDidMount() {
         const getFaqs = async () => {
-            const res = await axios.get('http://localhost:5000/api/v1/messages//inFaq');
+            const res = await axios.get(`${backend_addr}api/v1/messages//inFaq`);
             let p = [];
             res.data.map((item) => {
                 p.push({
