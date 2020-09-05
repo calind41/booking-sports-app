@@ -5,6 +5,7 @@ import Logo from '../SportLocations/Navbar/Logo/Logo'
 import { toast } from 'react-toastify'
 
 toast.configure();
+let backend_addr = 'http://138.68.71.139:5000/'
 
 export default function ContactForm() {
 
@@ -17,7 +18,7 @@ export default function ContactForm() {
             const userId = decoded.userId;
 
             const getUser = async () => {
-                const { data } = await axios.get(`http://localhost:5000/api/v1/users/${userId}`, {
+                const { data } = await axios.get(`${backend_addr}api/v1/users/${userId}`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -74,7 +75,7 @@ export default function ContactForm() {
             time
         };
 
-        await axios.post('http://localhost:5000/api/v1/messages/', message);
+        await axios.post(`${backend_addr}api/v1/messages/`, message);
         toast.info("Message was sent successfully, we'll contact you by email!", {
             position: "top-right",
             autoClose: 5000,

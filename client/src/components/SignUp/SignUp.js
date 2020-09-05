@@ -7,6 +7,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
 toast.configure();
+let backend_addr = 'http://138.68.71.139:5000/'
 
 export default function SignUp() {
 
@@ -63,7 +64,7 @@ export default function SignUp() {
             email,
             password: pass
         };
-        const res = await axios.post('http://localhost:5000/api/v1/users/register', data);
+        const res = await axios.post(`${backend_addr}api/v1/users/register`, data);
         toast.info("Please confirm the registration email to continue", {
             position: "top-right",
             autoClose: 5000,

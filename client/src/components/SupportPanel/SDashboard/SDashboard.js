@@ -10,6 +10,9 @@ import MessageDetails from './MessageDetails/MessageDetails'
 import SearchBar from '../../AdminPanel/RemoveSport/SearchBar/SearchBar'
 import Pagination from '@material-ui/lab/Pagination';
 
+let backend_addr = 'http://138.68.71.139:5000/'
+
+
 export default function SDashboard() {
 
     let role;
@@ -31,7 +34,7 @@ export default function SDashboard() {
 
     useEffect(() => {
         const getMessages = async () => {
-            const res = await axios.get('http://localhost:5000/api/v1/messages/', {
+            const res = await axios.get(`${backend_addr}api/v1/messages/`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -74,7 +77,7 @@ export default function SDashboard() {
         let ids = [];
         delIdx.map((item) => ids.push(messages[item]._id));
         // setIds(temp);
-        await axios.delete(`http://localhost:5000/api/v1/messages/deleteMessages`, {
+        await axios.delete(`${backend_addr}api/v1/messages/deleteMessages`, {
             data: { ids },
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -96,7 +99,7 @@ export default function SDashboard() {
     }
 
     const applyFilterSearchMessagesByTitle = async (title) => {
-        const res = await axios.get('http://localhost:5000/api/v1/messages/', {
+        const res = await axios.get(`${backend_addr}api/v1/messages/`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }

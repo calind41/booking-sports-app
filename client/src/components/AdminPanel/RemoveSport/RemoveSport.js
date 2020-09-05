@@ -8,6 +8,7 @@ import SportComponentToRemove from './SportComponentToRemove/SportComponentToRem
 import './RemoveSport.css'
 import Pagination from '@material-ui/lab/Pagination';
 
+let backend_addr = 'http://138.68.71.139:5000/'
 
 
 export default function RemoveSport() {
@@ -30,7 +31,7 @@ export default function RemoveSport() {
 
     useEffect(() => {
         const getSports = async () => {
-            const res = await axios.get('http://localhost:5000/api/v1/sportLocations/');
+            const res = await axios.get(`${backend_addr}api/v1/sportLocations/`);
             console.log('res data is ', res.data);
             setSportsArr(res.data);
             let selState = [];
@@ -58,7 +59,7 @@ export default function RemoveSport() {
         delIdx.map((item) => ids.push(sportsArr[item]._id))
         console.log('sports arr ', sportsArr);
         console.log('after del ', ids);
-        await axios.delete('http://localhost:5000/api/v1/sportLocations/deleteSportLocs', {
+        await axios.delete(`${backend_addr}api/v1/sportLocations/deleteSportLocs`, {
             data: { ids },
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`

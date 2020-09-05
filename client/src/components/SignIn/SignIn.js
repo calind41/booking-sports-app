@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import './SignIn.css'
 import Logo from '../SportLocations/Navbar/Logo/Logo'
 
+let backend_addr = 'http://138.68.71.139:5000/'
+
 export default function SignIn() {
 
     const history = useHistory();
@@ -42,7 +44,7 @@ export default function SignIn() {
             email,
             password: pass
         }
-        const res = await axios.post('http://localhost:5000/api/v1/users/login', data);
+        const res = await axios.post(`${backend_addr}api/v1/users/login`, data);
         console.log(res);
         if (res.data) {
             const jwt = require('jsonwebtoken');

@@ -16,6 +16,9 @@ const useStyles = makeStyles(theme => ({
         },
     },
 }));
+
+let backend_addr = 'http://138.68.71.139:5000/'
+
 export default function Message({ msg, setMessageDetails, initialChecked, setSelectedItemState, setUnselectedItemState, index, nrMessages }) {
 
 
@@ -49,7 +52,7 @@ export default function Message({ msg, setMessageDetails, initialChecked, setSel
             if (index === 0) {
                 document.querySelector('.msg-container').style.backgroundColor = 'rgb(177, 205, 240)';
                 setAlreadyRead(true);
-                await axios.put(`http://localhost:5000/api/v1/messages/${msg._id}`, { alreadyRead: true }, {
+                await axios.put(`${backend_addr}api/v1/messages/${msg._id}`, { alreadyRead: true }, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -73,7 +76,7 @@ export default function Message({ msg, setMessageDetails, initialChecked, setSel
         if (inFaq === false && msg.alreadyResponded) {
             evt.target.style.color = 'rgb(255,0,0)';
             setInFaq(true);
-            await axios.put(`http://localhost:5000/api/v1/messages/${msg._id}`, { inFaq: true }, {
+            await axios.put(`${backend_addr}api/v1/messages/${msg._id}`, { inFaq: true }, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -81,7 +84,7 @@ export default function Message({ msg, setMessageDetails, initialChecked, setSel
         } else {
             evt.target.style.color = 'rgb(164,171,180)';
             setInFaq(false);
-            await axios.put(`http://localhost:5000/api/v1/messages/${msg._id}`, { inFaq: false }, {
+            await axios.put(`${backend_addr}api/v1/messages/${msg._id}`, { inFaq: false }, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -113,7 +116,7 @@ export default function Message({ msg, setMessageDetails, initialChecked, setSel
         if (alreadyRead === false) {
             setAlreadyRead(true);
             // window.location.reload();
-            await axios.put(`http://localhost:5000/api/v1/messages/${msg._id}`, { alreadyRead: true }, {
+            await axios.put(`${backend_addr}api/v1/messages/${msg._id}`, { alreadyRead: true }, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }

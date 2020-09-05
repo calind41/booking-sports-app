@@ -12,6 +12,9 @@ import './FormComponent.css'
 
 import UploadImages from '../UploadImages/UploadImages'
 
+let backend_addr = 'http://138.68.71.139:5000/'
+
+
 const useStyles = makeStyles(theme => ({
     root: {
         '& > *': {
@@ -136,7 +139,7 @@ export default function FormComponent() {
             inventory
         }
         console.log('BEFORE SAVE, DATA IS ', data);
-        await axios.post('http://localhost:5000/api/v1/sportLocations/', data, {
+        await axios.post(`${backend_addr}api/v1/sportLocations/`, data, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }

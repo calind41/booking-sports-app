@@ -7,6 +7,8 @@ import Navigation from '../Dashboard/Navigation/Navigation'
 import SearchBar from '../RemoveSport/SearchBar/SearchBar'
 import Pagination from '@material-ui/lab/Pagination';
 
+let backend_addr = 'http://138.68.71.139:5000/'
+
 export default function Customers() {
 
     let role;
@@ -25,7 +27,7 @@ export default function Customers() {
 
     useEffect(() => {
         const getCustomers = async () => {
-            const res = await axios.get('http://localhost:5000/api/v1/users/', {
+            const res = await axios.get(`${backend_addr}api/v1/users/`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -43,7 +45,7 @@ export default function Customers() {
     }
 
     const applyFilterSearchCustomersByName = async (name) => {
-        const res = await axios.get('http://localhost:5000/api/v1/users/', {
+        const res = await axios.get(`${backend_addr}api/v1/users/`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }

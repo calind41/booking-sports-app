@@ -12,6 +12,8 @@ import BookModal from './BookModal/BookModal'
 
 import BookingNavbar from './BookingNavbar/BookingNavbar'
 
+
+
 export default class Booking extends Component {
 
     constructor(props) {

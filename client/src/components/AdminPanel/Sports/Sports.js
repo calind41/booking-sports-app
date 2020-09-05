@@ -8,6 +8,7 @@ import Navigation from '../Dashboard/Navigation/Navigation'
 import SearchBar from '../RemoveSport/SearchBar/SearchBar'
 import Pagination from '@material-ui/lab/Pagination';
 
+let backend_addr = 'http://138.68.71.139:5000/'
 
 
 
@@ -27,7 +28,7 @@ export default function Sports() {
 
     useEffect(() => {
         const getSportLocations = async () => {
-            const res = await axios.get('http://localhost:5000/api/v1/sportLocations/')
+            const res = await axios.get(`${backend_addr}api/v1/sportLocations/`)
             setSports(res.data);
             console.log(res.data);
         };
@@ -44,7 +45,7 @@ export default function Sports() {
     const applyFilterSearchSportByTitle = async (title) => {
         console.log('from main ', title)
 
-        const res = await axios.get('http://localhost:5000/api/v1/sportLocations/')
+        const res = await axios.get(`${backend_addr}api/v1/sportLocations/`)
         let filtered = res.data.filter((sl) => {
             if (sl.title.toLowerCase().includes(title.toLowerCase()))
                 return true;

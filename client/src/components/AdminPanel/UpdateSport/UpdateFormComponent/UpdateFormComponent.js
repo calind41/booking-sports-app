@@ -12,6 +12,9 @@ import './UpdateFormComponent.css'
 import UploadImages from '../../AddSport/UploadImages/UploadImages'
 import GridGallery from '../GridGallery/GridGallery';
 
+let backend_addr = 'http://138.68.71.139:5000/'
+
+
 const useStyles = makeStyles(theme => ({
     root: {
         '& > *': {
@@ -221,7 +224,7 @@ export default function UpdateFormComponent({ sportLoc }) {
             inventory
         }
         console.log('before update ', sportLoc._id);
-        await axios.put(`http://localhost:5000/api/v1/sportLocations/${sportLoc._id}`, data, {
+        await axios.put(`${backend_addr}api/v1/sportLocations/${sportLoc._id}`, data, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }

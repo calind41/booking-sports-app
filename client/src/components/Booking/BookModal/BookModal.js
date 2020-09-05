@@ -10,6 +10,8 @@ import './BookModal.css'
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify'
 
+let backend_addr = 'http://138.68.71.139:5000/'
+
 toast.configure();
 
 const useStyles = makeStyles(theme => ({
@@ -78,7 +80,7 @@ export default function BookModal({ selectedHour, selectedServiceOption, selecte
         const decoded = jwt.decode(localStorage.getItem('token'));
         const userId = decoded.userId;
         // get user to find  nr of reservations 
-        const user = await axios.get(`http://localhost:5000/api/v1/users/${userId}`, {
+        const user = await axios.get(`${backend_addr}api/v1/users/${userId}`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -86,7 +88,7 @@ export default function BookModal({ selectedHour, selectedServiceOption, selecte
         });
         const nrReservations = user.data.nrReservations + 1;
         // update nr of reservations of userId
-        await axios.put(`http://localhost:5000/api/v1/users/${userId}`, { nrReservations }, {
+        await axios.put(`${backend_addr}api/v1/users/${userId}`, { nrReservations }, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -107,7 +109,7 @@ export default function BookModal({ selectedHour, selectedServiceOption, selecte
             canceled: false
         }
 
-        const res = await axios.post('http://localhost:5000/api/v1/reservations/', reservation, {
+        const res = await axios.post(`${backend_addr}api/v1/reservations/`, reservation, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }

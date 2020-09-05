@@ -5,6 +5,9 @@ import './UserReservations.css'
 import UserReservation from './UserReservation/UserReservation'
 import Navbar from '../SportLocations/Navbar/Navbar'
 
+let backend_addr = 'http://138.68.71.139:5000/'
+
+
 export default function UserReservations() {
 
     const [pastReservations, setPastReservations] = useState([]);
@@ -17,7 +20,7 @@ export default function UserReservations() {
             if (localStorage.getItem('token') !== null) {
                 const userId = decoded.userId;
                 // get all reservations
-                const res = await axios.get(`http://localhost:5000/api/v1/reservations/user/${userId}`, {
+                const res = await axios.get(`${backend_addr}api/v1/reservations/user/${userId}`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -47,7 +50,7 @@ export default function UserReservations() {
         let ids = [];
         delIdx.map((item) => ids.push(pastReservations[item]._id));
 
-        await axios.delete(`http://localhost:5000/api/v1/reservations/deleteRes`, {
+        await axios.delete(`${backend_addr}api/v1/reservations/deleteRes`, {
             data: { ids },
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -57,13 +60,13 @@ export default function UserReservations() {
         // update nr of reservations of the user
         const jwt = require('jsonwebtoken');
         const decoded = jwt.decode(localStorage.getItem('token'))
-        const user = await axios.get(`http://localhost:5000/api/v1/users/${decoded.userId}`, {
+        const user = await axios.get(`${backend_addr}api/v1/users/${decoded.userId}`, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
         });
         const nrReservations = user.data.nrReservations - ids.length;
-        await axios.put(`http://localhost:5000/api/v1/users/${decoded.userId}`, { nrReservations }, {
+        await axios.put(`${backend_addr}api/v1/users/${decoded.userId}`, { nrReservations }, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
@@ -91,7 +94,7 @@ export default function UserReservations() {
         if (localStorage.getItem('token') !== null) {
             const userId = decoded.userId;
             // get all reservations
-            const res = await axios.get(`http://localhost:5000/api/v1/reservations/user/${userId}`, {
+            const res = await axios.get(`${backend_addr}api/v1/reservations/user/${userId}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }

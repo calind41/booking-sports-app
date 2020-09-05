@@ -5,6 +5,9 @@ import './Dashboard.css'
 import SidebarMenu from './SidebarMenu/SidebarMenu'
 import Navigation from './Navigation/Navigation'
 
+let backend_addr = 'http://138.68.71.139:5000/'
+
+
 export default function Dashboard() {
 
     const jwt = require('jsonwebtoken');
@@ -20,7 +23,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         const getMembers = async () => {
-            const m = await axios.get('http://localhost:5000/api/v1/users/', {
+            const m = await axios.get(`${backend_addr}api/v1/users/`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
@@ -29,7 +32,7 @@ export default function Dashboard() {
             setMembmers(m.data);
         }
         const getRes = async () => {
-            const res = await axios.get('http://localhost:5000/api/v1/reservations/', {
+            const res = await axios.get(`${backend_addr}api/v1/reservations/`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
