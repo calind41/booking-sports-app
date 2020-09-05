@@ -12,7 +12,7 @@ import './FormComponent.css'
 
 import UploadImages from '../UploadImages/UploadImages'
 
-let backend_addr = 'http://138.68.71.139:5000/'
+let backend_addr = 'http://www.mysportsbooking.com/'
 
 
 const useStyles = makeStyles(theme => ({

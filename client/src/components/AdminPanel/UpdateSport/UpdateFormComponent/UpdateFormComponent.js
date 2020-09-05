@@ -12,7 +12,7 @@ import './UpdateFormComponent.css'
 import UploadImages from '../../AddSport/UploadImages/UploadImages'
 import GridGallery from '../GridGallery/GridGallery';
 
-let backend_addr = 'http://138.68.71.139:5000/'
+let backend_addr = 'http://www.mysportsbooking.com/'
 
 
 const useStyles = makeStyles(theme => ({

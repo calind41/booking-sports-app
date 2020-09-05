@@ -19,6 +19,7 @@ const useStyles = makeStyles(theme => ({
         },
     },
 }));
+let backend_addr = 'http://www.mysportsbooking.com/'
 
 
 export default function UserReservation({ initialChecked, setSelectedItemState, setUnselectedItemState, reservation, index, nrReservations }) {
@@ -43,7 +44,7 @@ export default function UserReservation({ initialChecked, setSelectedItemState, 
         // update cancel field 
         console.log('in cancel reservation ');
         let data;
-        await axios.put(`http://localhost:5000/api/v1/reservations/${reservation._id}`, data, {
+        await axios.put(`${backend_addr}api/v1/reservations/${reservation._id}`, data, {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
