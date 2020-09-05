@@ -6,6 +6,8 @@ import './SportLocations.css';
 import Sidebar from './Sidebar/Sidebar';
 import Navbar from './Navbar/Navbar';
 
+let backend_addr = 'http://138.68.71.139:5000/'
+
 export default function SportLocations({ location }) {
 
     const [sportLocs, setSportLocs] = useState([]);
@@ -27,7 +29,7 @@ export default function SportLocations({ location }) {
         }
 
         const getSportLocations = async () => {
-            const res = await axios.get(`http://localhost:5000/api/v1/sportLocations/sport/${selectedSport}/${selectedSector}`);
+            const res = await axios.get(`${backend_addr}api/v1/sportLocations/sport/${selectedSport}/${selectedSector}`);
 
             res.data.map((item) => {
                 let inventory = item.inventory;
@@ -102,7 +104,7 @@ export default function SportLocations({ location }) {
             selectedSector = localStorage.getItem('selectedSector');
         }
 
-        const res = await axios.get(`http://localhost:5000/api/v1/sportLocations/sport/${selectedSport}/${selectedSector}`);
+        const res = await axios.get(`${backend_addr}api/v1/sportLocations/sport/${selectedSport}/${selectedSector}`);
 
         let filtered = res.data.filter((sl) => {
             if (sl.title.toLowerCase().includes(title))
