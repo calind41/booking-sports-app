@@ -10,7 +10,7 @@ import './BookModal.css'
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify'
 
-let backend_addr = 'http://www.mysportsbooking.com/'
+let backend_addr = 'http://138.68.71.139:5000/'
 
 toast.configure();
 

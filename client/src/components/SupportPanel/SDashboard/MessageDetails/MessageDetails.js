@@ -158,7 +158,7 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-let backend_addr = 'http://www.mysportsbooking.com/'
+let backend_addr = 'http://138.68.71.139:5000/'
 
 export default function MessageDetails({ msg, selectedMessageDetails }) {
     const classes = useStyles();

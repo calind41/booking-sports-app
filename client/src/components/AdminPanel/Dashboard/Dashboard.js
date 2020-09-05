@@ -5,7 +5,7 @@ import './Dashboard.css'
 import SidebarMenu from './SidebarMenu/SidebarMenu'
 import Navigation from './Navigation/Navigation'
 
-let backend_addr = 'http://www.mysportsbooking.com/'
+let backend_addr = 'http://138.68.71.139:5000/'
 
 
 export default function Dashboard() {
