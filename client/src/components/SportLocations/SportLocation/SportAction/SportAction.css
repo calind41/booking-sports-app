@@ -1,8 +1,9 @@
 .s-a-btns {
     display: flex;
     position: relative;
-    left: 24px;
-    bottom: 5px;
+    left: 40px;
+    bottom: 0px;
+    width: 190px;
 }
 
 .s-a-btns .book, .s-a-btns .view {
