@@ -5,7 +5,7 @@ import Logo from '../SportLocations/Navbar/Logo/Logo'
 import { toast } from 'react-toastify'
 
 toast.configure();
-let backend_addr = 'http://mysportsbooking.com:5000/'
+let backend_addr = 'https://mysportsbooking.com/'
 
 
 export default function ContactForm() {

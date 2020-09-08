@@ -7,7 +7,7 @@ import Navigation from '../Dashboard/Navigation/Navigation'
 import SearchBar from '../RemoveSport/SearchBar/SearchBar'
 import Pagination from '@material-ui/lab/Pagination';
 
-let backend_addr = 'http://mysportsbooking.com:5000/'
+let backend_addr = 'https://mysportsbooking.com/'
 
 export default function Customers() {
 

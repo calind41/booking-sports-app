@@ -5,7 +5,7 @@ import './UserReservations.css'
 import UserReservation from './UserReservation/UserReservation'
 import Navbar from '../SportLocations/Navbar/Navbar'
 
-let backend_addr = 'http://mysportsbooking.com:5000/'
+let backend_addr = 'https://mysportsbooking.com/'
 
 
 export default function UserReservations() {

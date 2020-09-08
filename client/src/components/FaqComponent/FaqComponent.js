@@ -12,7 +12,7 @@ import Contact from '../SportLocations/Navbar/Contact/Contact';
 
 import FrequentQuestions from '../SportLocations/Navbar/FrequentQuestions/FrequentQuestions'
 import './FaqComponent.css'
-let backend_addr = 'http://mysportsbooking.com:5000/'
+let backend_addr = 'https://mysportsbooking.com/'
 
 
 

@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
         },
     },
 }));
-let backend_addr = 'http://mysportsbooking.com:5000/'
+let backend_addr = 'https://mysportsbooking.com/'
 
 
 export default function UserReservation({ initialChecked, setSelectedItemState, setUnselectedItemState, reservation, index, nrReservations }) {

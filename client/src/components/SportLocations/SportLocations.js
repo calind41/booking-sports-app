@@ -6,7 +6,7 @@ import './SportLocations.css';
 import Sidebar from './Sidebar/Sidebar';
 import Navbar from './Navbar/Navbar';
 
-let backend_addr = 'http://mysportsbooking.com:5000/'
+let backend_addr = 'https://mysportsbooking.com/'
 
 export default function SportLocations({ location }) {
 

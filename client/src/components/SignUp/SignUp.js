@@ -7,7 +7,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
 toast.configure();
-let backend_addr = 'http://mysportsbooking.com:5000/'
+let backend_addr = 'https://mysportsbooking.com/'
 
 export default function SignUp() {
 

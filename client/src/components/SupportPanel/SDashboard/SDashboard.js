@@ -10,7 +10,7 @@ import MessageDetails from './MessageDetails/MessageDetails'
 import SearchBar from '../../AdminPanel/RemoveSport/SearchBar/SearchBar'
 import Pagination from '@material-ui/lab/Pagination';
 
-let backend_addr = 'http://mysportsbooking.com:5000/'
+let backend_addr = 'https://mysportsbooking.com/'
 
 
 export default function SDashboard() {

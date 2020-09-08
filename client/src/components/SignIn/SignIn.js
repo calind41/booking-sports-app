@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import './SignIn.css'
 import Logo from '../SportLocations/Navbar/Logo/Logo'
 
-let backend_addr = 'http://mysportsbooking.com:5000/'
+let backend_addr = 'https://mysportsbooking.com/'
 
 export default function SignIn() {
 
