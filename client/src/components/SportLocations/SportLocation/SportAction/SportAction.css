@@ -1,15 +1,16 @@
 .s-a-btns {
     display: flex;
     position: relative;
-    left: 40px;
+    margin: auto;
     bottom: 0px;
-    width: 190px;
+    width: 175px;
+    justify-content: space-evenly;
 }
 
 .s-a-btns .book, .s-a-btns .view {
     width: 75px;
     height: 32px;
-    margin-right: 20px;
+    /* margin-right: 20px; */
     border-radius: 15px;
     border: none;
     outline: none;
